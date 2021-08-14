@@ -6,21 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.ImageButton;
 
-import com.google.android.filament.View;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Routes extends AppCompatActivity {
-    private ImageButton button;
-    @Override
+public class ModifyRoute extends AppCompatActivity {
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_routes);
-
-
+        setContentView(R.layout.activity_modify_route);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.routes);
@@ -37,7 +31,7 @@ public class Routes extends AppCompatActivity {
 
                     case R.id.customers:
                         startActivity(new Intent(getApplicationContext()
-                                , ModifyRoute.class));
+                                , Customers.class));
                         overridePendingTransition(0,0);
                         return true;
 
@@ -52,7 +46,7 @@ public class Routes extends AppCompatActivity {
 
                     case R.id.sales:
                         startActivity(new Intent(getApplicationContext()
-                                , AddRoute.class));
+                                , Sales.class));
                         overridePendingTransition(0,0);
                         return true;
                 }
@@ -61,7 +55,5 @@ public class Routes extends AppCompatActivity {
             }
         });
 
-
     }
-
-    }
+}

@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileApplication">
         <activity
+            android:name=".ModifyRoute"
+            android:exported="true" />
+        <activity
+            android:name=".AddRoute"
+            android:exported="true" />
+        <activity
             android:name=".Sales"
             android:exported="true" />
         <activity
