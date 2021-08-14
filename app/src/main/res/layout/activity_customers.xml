@@ -55,7 +55,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="194dp"
-                android:contentDescription="test 01"
+                android:contentDescription="@string/store_banner_desc"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/customer_store_banner" />
 
@@ -70,7 +70,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="test store des"
+                    android:text="@string/store_desc"
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="?android:attr/textColorSecondary" />
 
@@ -98,14 +98,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
-                            android:text="delete"
+                            android:text="@string/btn_delete"
                             android:textColor="@color/design_default_color_secondary_variant" />
 
                         <com.google.android.material.button.MaterialButton
                             style="?attr/borderlessButtonStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="View"
+                            android:text="@string/btn_view"
                             android:textColor="@color/design_default_color_secondary_variant" />
                     </LinearLayout>
                     <LinearLayout
