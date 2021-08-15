@@ -2,7 +2,7 @@
     <string name="app_name">D STOCK</string>
     <!-- View Route -->
     <string name="label_search">Search Route</string>
-    <string name="label_route">Route</string>
+    <string name="label_route">ROUTE</string>
     <!-- Create Route -->
     <string name="header_create_route">Create Route</string>
     <string name="label_start_location">Start Location *</string>
