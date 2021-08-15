@@ -4,14 +4,14 @@
 
     <item
         android:id="@+id/notification"
+        android:contentDescription="tile"
         android:icon="@drawable/notification_icon"
-        android:title="@string/notification_title"
-        android:contentDescription="@string/notification_title"
+        android:title="tile"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/settings"
+        android:contentDescription="set"
         android:icon="@drawable/ic_round_settings_24"
-        android:title="@string/setting"
-        android:contentDescription="@string/setting"
+        android:title="settingng"
         app:showAsAction="ifRoom" />
 </menu>
