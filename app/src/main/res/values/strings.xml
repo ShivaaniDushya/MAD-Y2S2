@@ -14,7 +14,6 @@
     <string name="error_distance_location">Please Enter a valid Number</string>
     <string name="switch_set_as_default">My Default Route</string>
     <string name="btn_add">ADD</string>
-
     <!-- Manage Route -->
     <string name="header_manage_route">Manage Route</string>
     <string name="label_route_id">ROUTE ID</string>
@@ -23,7 +22,6 @@
     <string name="label_modified_date">MODIFIED</string>
     <string name="btn_update">UPDATE</string>
     <string name="btn_delete">DELETE</string>
-
     <!--Confirm Delete Route -->
     <string name="msg_are_u_sure">Are You Sure?</string>
     <string name="msg_confirm_delete_route">Do you really want to delete this Route?This Process cannot be undone.</string>
