@@ -1,18 +1,12 @@
 <resources>
-    <string name="app_name">D STOCK</string>
-    <!-- View Route -->
-    <string name="label_search">Search Route</string>
-    <string name="label_route">Route</string>
+    <string name="app_name">Mobile Application</string>
+
     <!-- Create Route -->
     <string name="header_create_route">Create Route</string>
     <string name="label_start_location">Start Location *</string>
-    <string name="error_start_location">Please Enter the start Location</string>
     <string name="label_end_location">End Location *</string>
-    <string name="error_end_location">Please Enter the End Location</string>
-    <string name="label_distance">Distance</string>
-    <string name="label_unit_distance">KM</string>
-    <string name="error_distance_location">Please Enter a valid Number</string>
-    <string name="switch_set_as_default">My Default Route</string>
+    <string name="label_distance_km">Distance KM</string>
+    <string name="switch_set_as_default">Set as my Default Route</string>
     <string name="btn_add">ADD</string>
 
     <!-- Manage Route -->

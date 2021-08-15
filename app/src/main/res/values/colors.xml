@@ -7,11 +7,18 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+<<<<<<<<< Temporary merge branch 1
     <color name="light_blue">#FFE1F5FE </color>
+=========
+    <color name = "light_blue"> #E1F5FE </color>
+>>>>>>>>> Temporary merge branch 2
     <color name="beau_blue">#FFAFC2CB</color>
     <color name="pacific_blue">#FF4BACB8</color>
     <color name="celeste">#FFB4FFFF</color>
     <color name="transparent">#00000000</color>
     <color name="black_60">#87000000</color>
+<<<<<<<<< Temporary merge branch 1
     
+=========
+>>>>>>>>> Temporary merge branch 2
 </resources>
