@@ -5,7 +5,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-tools:context=".AddRoute">
+tools:context=".ModifyRoute">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -24,7 +24,100 @@ tools:context=".AddRoute">
                 android:layout_width="match_parent"
                 android:layout_height="59dp"
                 android:layout_weight="1"
-                android:text="@string/header_create_route" />
+                android:text="@string/header_manage_route" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outlinedTextField4"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/label_route_id">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inp_rid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+
+                    android:inputType="none"
+                    tools:ignore="Deprecated" />
+                <!-- android:editable="false"-->
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:layout_weight="1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outlinedTextField4"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/label_total_customers">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:editable="false"
+                    android:inputType="none"
+                    android:text="20"
+                    tools:ignore="Deprecated" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outlinedTextField4"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/label_create_date">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:editable="false"
+                    android:inputType="none"
+                    android:text="01.04.2021 14:16:45"
+                    tools:ignore="Deprecated" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outlinedTextField4"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="@string/label_modified_date">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:editable="false"
+                    android:inputType="none"
+                    android:text="01.05.2021 08:16:46"
+                    tools:ignore="Deprecated" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/outlinedTextField4"
@@ -34,11 +127,12 @@ tools:context=".AddRoute">
                 android:hint="@string/label_start_location">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inp_startloc"
+                    android:id="@+id/inp_startlocup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:text="Horana" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,11 +150,12 @@ tools:context=".AddRoute">
                 android:hint="@string/label_end_location">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inp_endloc"
+                    android:id="@+id/inp_endlocup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:text="Piliyandala" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,11 +173,12 @@ tools:context=".AddRoute">
                 android:hint="@string/label_distance">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inp_distance"
+                    android:id="@+id/inp_distanceup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:text="25" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -104,48 +200,41 @@ tools:context=".AddRoute">
                 android:layout_height="22dp"
                 android:layout_weight="1" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="22dp"
-                android:layout_weight="1" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="22dp"
-                android:layout_weight="1" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="22dp"
-                android:layout_weight="1" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="22dp"
-                android:layout_weight="1" />
-
             <Button
                 android:id="@+id/button2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="addRoute"
-                android:text="@string/btn_add" />
+                android:onClick="updateRoute"
+                android:text="@string/btn_update" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="deleteRoute"
+                android:text="@string/btn_delete" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
 
         </LinearLayout>
 
     </ScrollView>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:itemBackground="@color/light_blue"
-        app:itemIconTint="@drawable/selector"
-        app:itemTextColor="@drawable/selector"
-        app:menu="@menu/bottom" >
+<com.google.android.material.bottomnavigation.BottomNavigationView
+    android:id="@+id/bottom_navigation"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    app:itemBackground="@color/light_blue"
+    app:itemIconTint="@drawable/selector"
+    app:itemTextColor="@drawable/selector"
+    app:menu="@menu/bottom" >
 
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+</com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </RelativeLayout>
