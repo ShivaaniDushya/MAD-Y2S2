@@ -1,3 +1,36 @@
 <resources>
-    <string name="app_name">Mobile Application</string>
+    <string name="app_name">DStock</string>
+    <string name="CreatePage">Create an Item</string>
+    <string name="Item_Code"> </string>
+    <string name="Item_Name"> </string>
+    <string name="Item_Brand"> </string>
+    <string name="Item_Count"> </string>
+    <string name="Buy_price_item"> </string>
+    <string name="Sell_price_item"> </string>
+    <string name="ItemCreatebtn">Create</string>
+    <string name="ItemEditbtn">SAVE</string>
+    <string name="ProceedToView">PROCEED</string>
+    <string name="Edit_item_detail">EDIT</string>
+    <string name="item_name_example">Fabulous Chocolate</string>
+    <string name="item_name_example2">Vanilla Biscuits</string>
+    <string name="item_brand_example">Riyanna Factory</string>
+    <string name="item_descrip_example">Lorem ipsum.Lorem ipsum.Lorem ipsum.</string>
+    <string name="delete_action">DELETE</string>
+    <string name="view_action">VIEW</string>
+    <string name="Item_Desc">description</string>
+    <string name="notification_title"> </string>
+    <string name="setting">Settings</string>
+    <string name="code_view"> DFK1564 </string>
+    <string name="count_view"> 1250 </string>
+    <string name="buyPrice_view"> 125.00 </string>
+    <string name="sellPrice_view"> 175.25 </string>
+    <string name="Description_view"> Lorem ipsum.Lorem ipsum. </string>
+
 </resources>
+
+
+
+
+
+
+
