@@ -3,6 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MAD-Y2S2/app/src/main/res/drawable/back_arrow_icon.xml" value="0.26615384615384613" />
+        <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MAD-Y2S2/app/src/main/res/drawable/button_rounded.xml" value="0.2703125" />
+        <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MAD-Y2S2/app/src/main/res/drawable/item_icon.xml" value="0.2703125" />
+        <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MAD-Y2S2/app/src/main/res/drawable/stroke_color.xml" value="0.2703125" />
+        <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MAD-Y2S2/app/src/main/res/layout/activity_create_item.xml" value="0.264" />
+        <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MAD-Y2S2/app/src/main/res/layout/activity_customers.xml" value="0.4" />
+        <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MAD-Y2S2/app/src/main/res/layout/activity_delete_item.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MAD-Y2S2/app/src/main/res/layout/activity_edit_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MAD-Y2S2/app/src/main/res/layout/activity_items.xml" value="0.264" />
+        <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MAD-Y2S2/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MAD-Y2S2/app/src/main/res/layout/activity_view_item.xml" value="0.264" />
+        <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MAD-Y2S2/app/src/main/res/layout/activity_view_item_detail.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MAD-Y2S2/app/src/main/res/layout/activity_view_item_details.xml" value="0.264" />
+        <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MAD-Y2S2/app/src/main/res/menu/bottom.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MAD-Y2S2/app/src/main/res/menu/top_app_bar.xml" value="0.4" />
+        
         <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2next/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2" />
         <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2next/app/src/main/res/layout/activity_add_route.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2next/app/src/main/res/layout/activity_ar.xml" value="0.18385416666666668" />
@@ -10,6 +26,7 @@
         <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2next/app/src/main/res/layout/activity_main.xml" value="0.18385416666666668" />
         <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2next/app/src/main/res/layout/activity_modify_route.xml" value="0.3739130434782609" />
         <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2next/app/src/main/res/layout/activity_routes.xml" value="0.22" />
+
         <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MobileApplication/app/src/main/res/drawable/selector.xml" value="0.23125" />
         <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MobileApplication/app/src/main/res/font/roboto.xml" value="0.284375" />
         <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MobileApplication/app/src/main/res/layout/activity_customers.xml" value="0.21510416666666668" />
