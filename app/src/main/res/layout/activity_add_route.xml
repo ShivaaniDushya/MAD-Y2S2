@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".AddRoute">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="590dp"
+        android:layout_above="@+id/bottom_navigation"
+        android:layout_marginBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:layout_weight="1"
+                android:text="@string/header_create_route" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outlinedTextField4"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_start_location">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outlinedTextField4"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="@string/label_end_location">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/outlinedTextField4"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="@string/label_distance">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:inputType="numberDecimal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
+
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/switch_set_as_default"
+                android:thumbTextPadding="10px" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/btn_add" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/light_blue"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:menu="@menu/bottom" >
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+</RelativeLayout>

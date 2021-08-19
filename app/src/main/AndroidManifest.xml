@@ -22,6 +22,12 @@
             android:exported="true"
             android:label="ITEMS > CREATE AN ITEM" />
         <activity
+            android:name=".ModifyRoute"
+            android:exported="true" />
+        <activity
+            android:name=".AddRoute"
+            android:exported="true" />
+        <activity
             android:name=".Sales"
             android:exported="true"
             android:label="SALES" />
