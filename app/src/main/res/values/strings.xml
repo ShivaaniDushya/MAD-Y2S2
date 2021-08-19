@@ -27,4 +27,13 @@
     <string name="msg_confirm_delete_route">Do you really want to delete this Route?This Process cannot be undone.</string>
     <string name="btn_cancel">CANCEL</string>
 
+    <!-- Banner -->
+    <string name="store_desc">Hi welcome to my store at polgahavelw</string>
+    <string name="store_banner_desc">This is my store welcome Back</string>
+    <string name="btn_view">view</string>
+
+    <!-- Title Bar-->
+    <string name="notification_title">Notification</string>
+    <string name="setting">Settings</string>
+
 </resources>
