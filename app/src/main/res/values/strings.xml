@@ -15,28 +15,36 @@
     <string name="btn_save">SAVE</string>
     <string name="btn_proceed">PROCEED</string>
     <string name="btn_edit">EDIT</string>
+    <string name="label_route">ROUTE</string>
   
     <!-- View Route -->
     <string name="label_search">Search Route</string>
-    <string name="label_route">ROUTE</string>
+    <string name="label_no_data">No Data</string>
   
     <!-- Create Route -->
     <string name="header_create_route">Create Route</string>
     <string name="label_start_location">Start Location *</string>
-    <string name="error_start_location">Please Enter the start Location</string>
     <string name="label_end_location">End Location *</string>
-    <string name="error_end_location">Please Enter the End Location</string>
     <string name="label_distance">Distance</string>
     <string name="label_unit_distance">KM</string>
-    <string name="error_distance_location">Please Enter a valid Number</string>
     <string name="switch_set_as_default">My Default Route</string>
+    <string name="helptxt_start_location">Enter Route Start Location</string>
+    <string name="helptxt_end_location">Enter Route End Location</string>
+    <string name="helptxt_distance_location">Enter Total Distance of the Route</string>
+  
+    
   
     <!-- Manage Route -->
     <string name="header_manage_route">Manage Route</string>
     <string name="label_route_id">ROUTE ID</string>
     <string name="label_total_customers">TOTAL CUSTOMERS</string>
+    <string name="label_create_date">CREATED</string>
+    <string name="label_modified_date">MODIFIED</string>
+   
     <!--Confirm Delete Route -->
+     <string name="msg_are_u_sure">Are You Sure?</string>
     <string name="msg_confirm_delete_route">Do you really want to delete this Route?This Process cannot be undone.</string>
+    <string name="btn_cancel">CANCEL</string>
     
 
     <!-- Banner -->
@@ -46,6 +54,9 @@
     <!-- Title Bar-->
     <string name="notification_title">Notification</string>
     <string name="setting">Settings</string>
+    <string name="header_route">MY ROUTES</string>
+    <string name="header_manage_route">MANAGE ROUTE</string>
+    <string name="header_create_route">CREATE ROUTE</string>
 
     <!-- Items -->
     <string name="CreatePage">Create an Item</string>
@@ -65,4 +76,11 @@
     <string name="buyPrice_view"> 125.00 </string>
     <string name="sellPrice_view"> 175.25 </string>
     <string name="Description_view"> Lorem ipsum.Lorem ipsum. </string>
+    
+    <!--Bottom Bar-->
+    <string name="bottom_sales">SALES</string>
+    <string name="bottom_home">HOME</string>
+    <string name="bottom_customer">CUSTOMERS</string>
+    <string name="bottom_item">ITEMS</string>
+    <string name="bottom_routes">ROUTES</string>
 </resources>
