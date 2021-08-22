@@ -1,7 +1,7 @@
 <resources>
     <!-- App Name -->
     <string name="app_name">D STOCK</string>
-  
+
     <!-- Global Actions -->
     <string name="btn_add">ADD</string>
     <string name="label_create_date">CREATED</string>
@@ -20,7 +20,7 @@
     <!-- View Route -->
     <string name="label_search">Search Route</string>
     <string name="label_no_data">No Data</string>
-  
+
     <!-- Create Route -->
     <string name="label_start_location">Start Location *</string>
     <string name="label_end_location">End Location *</string>
@@ -31,8 +31,6 @@
     <string name="helptxt_end_location">Enter Route End Location</string>
     <string name="helptxt_distance_location">Enter Total Distance of the Route</string>
   
-    
-  
     <!-- Manage Route -->
     <string name="label_route_id">ROUTE ID</string>
     <string name="label_total_customers">TOTAL CUSTOMERS</string>
@@ -41,8 +39,6 @@
     <!--Confirm Delete Route -->
     
     <string name="msg_confirm_delete_route">Do you really want to delete this Route?This Process cannot be undone.</string>
- 
-    
 
     <!-- Banner -->
     <string name="store_desc">Hi welcome to my store at polgahavelw</string>
@@ -73,6 +69,81 @@
     <string name="buyPrice_view"> 125.00 </string>
     <string name="sellPrice_view"> 175.25 </string>
     <string name="Description_view"> Lorem ipsum.Lorem ipsum. </string>
+
+    <!-- Sales -->
+    <string name="cus_label">Customer</string>
+    <string name="date_label">Date</string>
+    <string name="prod_label">Products</string>
+    <string name="cus_name_ph">Customer Name</string>
+    <string name="date_format">DD/MM/YYYY</string>
+    <string name="search_id_des">Search by ID or Description</string>
+    <string name="id">ID</string>
+    <string name="des">Description</string>
+    <string name="unit_price">Unit Price</string>
+    <string name="amount">Amount</string>
+    <string name="total">Total</string>
+    <string name="discount">Discount</string>
+    <string name="sub_total">Sub Total</string>
+    <string name="qty">Qty</string>
+    <string name="urgent">Mark as urgent</string>
+    <string name="create_so">Create Sales Order</string>
+    <string name="manage_so">Manage Sales Order</string>
+    <string name="update_so">Update Sales Order</string>
+    <string name="delete_so">Delete Sales Order</string>
+    <string name="view_so">View Sales Orders</string>
+    <string name="sales_orders">Sales Orders</string>
+    <string name="sales_summary">Sales Summary</string>
+    <string name="update_payment">Update Payment</string>
+    <string name="due_payments">View Due Payments</string>
+    <string name="view_sales_summary">View Sales Summary</string>
+    <string name="monthly_sales">Monthly Sales</string>
+    <string name="monthly_profit">Monthly Profit</string>
+    <string name="items">Items</string>
+    <string name="customers">Customers</string>
+    <string name="routes">Routes</string>
+    <string name="sales">Sales</string>
+    <string name="home">Home</string>
+    <string name="add">Add</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="discard">Discard</string>
+    <string name="print">Print</string>
+    <string name="inv_no">Invoice No. *</string>
+    <string name="pay_due">Payment Due</string>
+    <string name="pay_amt">Payment Amount *</string>
+    <string name="pay_date">Payment Date *</string>
+    <string name="bal_due">Balance Due</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="status">Status</string>
+    <string name="tot_sales">Total Sales</string>
+    <string name="tot_cus">No. of Customers</string>
+    <string name="tot_sold">No. of Items Sold</string>
+    <string name="received_payment">Payment Received</string>
+    <string name="avg_sales">Average Daily Sales</string>
+    <string name="tot_sales_val">0.00</string>
+    <string name="tot_cus_val">0</string>
+    <string name="tot_sold_val">0</string>
+    <string name="received_payment_val">0.00</string>
+    <string name="payment_due_val">0.00</string>
+    <string name="avg_sales_val">0.00</string>
+
+    <string-array name="customers_array">
+        <item>C01 - Customer 01</item>
+        <item>C02 - Customer 02</item>
+        <item>C03 - Customer 03</item>
+        <item>C04 - Customer 04</item>
+        <item>C05 - Customer 05</item>
+    </string-array>
+
+    <string-array name="items_array">
+        <item>I01 - Item 01</item>
+        <item>I02 - Item 02</item>
+        <item>I03 - Item 03</item>
+        <item>I04 - Item 04</item>
+        <item>I05 - Item 05</item>
+    </string-array>
+  
     <string name="ItemCreatebtn">CREATE</string>
     
     <!--Bottom Bar-->

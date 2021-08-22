@@ -4,18 +4,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.view.View;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Sales extends AppCompatActivity {
+public class AddSalesOrder extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sales);
+        setContentView(R.layout.activity_add_sales_order);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.sales);
@@ -58,27 +57,5 @@ public class Sales extends AppCompatActivity {
                 return false;
             }
         });
-
-
-    }
-
-    public void addSalesOrder(View view) {
-        Intent intent = new Intent(Sales.this,AddSalesOrder.class);
-        startActivity(intent);
-    }
-
-    public void viewSalesOrders(View view) {
-        Intent intent = new Intent(Sales.this,ViewSalesOrders.class);
-        startActivity(intent);
-    }
-
-    public void UpdatePayment(View view) {
-        Intent intent = new Intent(Sales.this,UpdatePayment.class);
-        startActivity(intent);
-    }
-
-    public void SalesSummary(View view) {
-        Intent intent = new Intent(Sales.this,SalesSummary.class);
-        startActivity(intent);
     }
 }
