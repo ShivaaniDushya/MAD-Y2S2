@@ -14,7 +14,7 @@ public class RouteMaster {
         public static final String COLUMN_NAME_DISTANCE = "distance";
         public static final String COLUMN_NAME_CREATED_DATE = "created_date";
         public static final String COLUMN_NAME_MODIFIED_DATE = "modified_date";
-
+        public static final String COLUMN_NAME_IS_DEFAULT = "is_default";
         }
 
     }
