@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.view.View;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -48,6 +49,9 @@ public class Sales extends AppCompatActivity {
                         return true;
 
                     case R.id.sales:
+                        startActivity(new Intent(getApplicationContext()
+                                , Sales.class));
+                        overridePendingTransition(0,0);
                         return true;
                 }
 
@@ -56,5 +60,25 @@ public class Sales extends AppCompatActivity {
         });
 
 
+    }
+
+    public void addSalesOrder(View view) {
+        Intent intent = new Intent(Sales.this,AddSalesOrder.class);
+        startActivity(intent);
+    }
+
+    public void viewSalesOrders(View view) {
+        Intent intent = new Intent(Sales.this,ViewSalesOrders.class);
+        startActivity(intent);
+    }
+
+    public void UpdatePayment(View view) {
+        Intent intent = new Intent(Sales.this,UpdatePayment.class);
+        startActivity(intent);
+    }
+
+    public void SalesSummary(View view) {
+        Intent intent = new Intent(Sales.this,SalesSummary.class);
+        startActivity(intent);
     }
 }

@@ -1,45 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".ModifyRoute">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ModifyRoute">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        app:elevation="0dp"
+        tools:layout_editor_absoluteX="12dp">
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="590dp"
-        android:layout_above="@+id/bottom_navigation"
-        android:layout_marginBottom="10dp"
+        android:layout_height="0dp"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:paddingRight="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topAppBar">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
+            <Space
                 android:layout_width="match_parent"
-                android:layout_height="59dp"
-                android:layout_weight="1"
-                android:text="@string/header_manage_route" />
+                android:layout_height="22dp"
+                android:layout_weight="1" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/outlinedTextField4"
+                android:id="@+id/txt_route_id_route_id"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/label_route_id">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inp_rid1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
                     android:editable="false"
+                    android:fontFamily="@font/roboto"
                     android:inputType="none"
-                    android:text="R136548"
                     tools:ignore="Deprecated" />
 
                 <Space
@@ -50,7 +66,7 @@ tools:context=".ModifyRoute">
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/outlinedTextField4"
+                android:id="@+id/txt_total_cus_modify_route"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -61,6 +77,7 @@ tools:context=".ModifyRoute">
                     android:layout_height="wrap_content"
                     android:autoText="false"
                     android:editable="false"
+                    android:fontFamily="@font/roboto"
                     android:inputType="none"
                     android:text="20"
                     tools:ignore="Deprecated" />
@@ -73,19 +90,20 @@ tools:context=".ModifyRoute">
                 android:layout_weight="1" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/outlinedTextField4"
+                android:id="@+id/txt_created_date_modify_route"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/label_create_date">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inp_created1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
                     android:editable="false"
+                    android:fontFamily="@font/roboto"
                     android:inputType="none"
-                    android:text="01.04.2021 14:16:45"
                     tools:ignore="Deprecated" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -96,7 +114,7 @@ tools:context=".ModifyRoute">
                 android:layout_weight="1" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/outlinedTextField4"
+                android:id="@+id/txt_modified_date_modify_route"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -104,12 +122,13 @@ tools:context=".ModifyRoute">
                 android:hint="@string/label_modified_date">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inp_modified1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
                     android:editable="false"
+                    android:fontFamily="@font/roboto"
                     android:inputType="none"
-                    android:text="01.05.2021 08:16:46"
                     tools:ignore="Deprecated" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -120,18 +139,19 @@ tools:context=".ModifyRoute">
                 android:layout_weight="1" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/outlinedTextField4"
+                android:id="@+id/txt_start_loc_modify_route"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/label_start_location">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inp_startlocup1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:inputType="text"
-                    android:text="Horana" />
+                    android:fontFamily="@font/roboto"
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -141,7 +161,7 @@ tools:context=".ModifyRoute">
                 android:layout_weight="1" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/outlinedTextField4"
+                android:id="@+id/txt_end__modify_route"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -149,11 +169,12 @@ tools:context=".ModifyRoute">
                 android:hint="@string/label_end_location">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inp_endlocup1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:inputType="text"
-                    android:text="Piliyandala" />
+                    android:fontFamily="@font/roboto"
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -171,11 +192,12 @@ tools:context=".ModifyRoute">
                 android:hint="@string/label_distance">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inp_distanceup1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:inputType="numberDecimal"
-                    android:text="25" />
+                    android:fontFamily="@font/roboto"
+                    android:inputType="numberDecimal" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -185,10 +207,11 @@ tools:context=".ModifyRoute">
                 android:layout_weight="1" />
 
             <Switch
-                android:id="@+id/switch1"
+                android:id="@+id/switch_mod"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/roboto"
                 android:text="@string/switch_set_as_default"
                 android:thumbTextPadding="10px" />
 
@@ -202,6 +225,8 @@ tools:context=".ModifyRoute">
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/roboto"
+                android:onClick="updateRoute"
                 android:text="@string/btn_update" />
 
             <Button
@@ -209,6 +234,8 @@ tools:context=".ModifyRoute">
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/roboto"
+                android:onClick="deleteRoute"
                 android:text="@string/btn_delete" />
 
             <Space
@@ -220,16 +247,34 @@ tools:context=".ModifyRoute">
 
     </ScrollView>
 
-<com.google.android.material.bottomnavigation.BottomNavigationView
-    android:id="@+id/bottom_navigation"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    app:itemBackground="@color/light_blue"
-    app:itemIconTint="@drawable/selector"
-    app:itemTextColor="@drawable/selector"
-    app:menu="@menu/bottom" >
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemBackground="@color/light_blue"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom">
 
-</com.google.android.material.bottomnavigation.BottomNavigationView>
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-</RelativeLayout>
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_margin="4dp"
+        android:background="@drawable/round_corner_rectangle"
+        android:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        app:menu="@menu/top_app_bar"
+        app:navigationIcon="@drawable/ic_round_account_circle_24"
+        app:title="@string/header_manage_route" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
