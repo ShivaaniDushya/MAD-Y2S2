@@ -8,6 +8,26 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="15dp">
 
+    <ImageButton
+        android:id="@+id/imageButton2_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:background="#E1F5FE"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.011"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.035"
+        app:srcCompat="@drawable/back_arrow_icon"
+        tools:ignore="SpeakableTextPresentCheck" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
@@ -49,7 +69,7 @@
         app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
-            android:layout_width="290dp"
+            android:layout_width="310dp"
             android:layout_height="589dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -61,44 +81,17 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/item_code"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/item_code"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Item_Code"
-                    tools:ignore="DuplicateIds" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/textView21"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Enter Item Code" />
-
-            <TextView
-                android:id="@+id/textView23"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
-
-            <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:ignore="DuplicateIds">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/item_brand"
+                    android:id="@+id/Item_Name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/Item_Brand"
-                    tools:ignore="DuplicateIds" />
+                    android:text="@string/Item_Name"
+                    tools:ignore="DuplicateIds,SpeakableTextPresentCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -115,17 +108,18 @@
                 android:text="" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/item_count"
+                android:id="@+id/Item_Brand"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:ignore="DuplicateIds">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/item_count"
+                    android:id="@+id/Item_Brand"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/Item_Count" />
+                    android:text="@string/Item_Brand"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -142,17 +136,18 @@
                 android:text="" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/Buy_price_item"
+                android:id="@+id/Item_Count"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:ignore="DuplicateIds">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/Buy_price_item"
+                    android:id="@+id/Item_Count"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/Buy_price_item" />
+                    android:text="@string/Item_Count"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -169,17 +164,18 @@
                 android:text="" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/Sell_price_item"
+                android:id="@+id/Item_Description"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:ignore="DuplicateIds">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/Sell_price_item"
+                    android:id="@+id/Item_Description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/Sell_price_item" />
+                    android:text="@string/Buy_price_item"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -197,17 +193,18 @@
                 android:text="" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/Sell_price_item"
+                android:id="@+id/Item_Description"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:ignore="DuplicateIds">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/Sell_price_item"
+                    android:id="@+id/Item_Description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/Sell_price_item" />
+                    android:text="@string/Sell_price_item"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -223,17 +220,18 @@
                 android:layout_height="wrap_content" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/Sell_price_item"
+                android:id="@+id/Item_Description"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:ignore="DuplicateIds">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/Sell_price_item"
+                    android:id="@+id/Item_Description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/Item_Desc" />
+                    android:text="@string/Item_Description"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -249,11 +247,11 @@
                 android:layout_height="wrap_content" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btn_create"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#80DEEA"
-                android:text="@string/ItemCreatebtn" />
+                android:text="@string/btn_create" />
 
             <TextView
                 android:id="@+id/textView4"

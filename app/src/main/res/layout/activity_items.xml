@@ -7,7 +7,22 @@
     android:layout_height="match_parent"
     tools:context=".Items">
 
+
     <!-- Buttons -->
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewItem"
+        android:layout_width="412dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp" />
 
     <LinearLayout
         android:id="@+id/card2"
@@ -66,7 +81,7 @@
                 android:layout_width="77dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="8dp"
-                android:text="@string/delete_action"
+                android:text="@string/btn_delete"
                 android:textAlignment="textStart"
                 android:textColor="#00838F"
                 tools:ignore="DuplicateIds,DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
@@ -76,7 +91,7 @@
                 style="?attr/borderlessButtonStyle"
                 android:layout_width="66dp"
                 android:layout_height="match_parent"
-                android:text="@string/view_action"
+                android:text="@string/btn_view"
                 android:textAlignment="textStart"
                 android:textColor="#00838F"
                 tools:ignore="DuplicateIds,DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
@@ -95,22 +110,27 @@
 
     </LinearLayout>
 
+
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topAppBar2"
         style="@style/Widget.MaterialComponents.Toolbar.Primary"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="660dp"
         android:background="@drawable/round_corner_rectangle"
         android:elevation="0dp"
+        app:contentInsetStart="14dp"
         app:layout_scrollFlags="scroll|enterAlways|snap"
         app:menu="@menu/top_app_bar"
         app:navigationIcon="@drawable/ic_round_account_circle_24"
         app:title="Items" />
-
 
     <LinearLayout
         android:id="@+id/card1"
@@ -177,7 +197,7 @@
                 android:layout_width="77dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="8dp"
-                android:text="@string/delete_action"
+                android:text="@string/btn_delete"
                 android:textAlignment="textStart"
                 android:textColor="#00838F"
                 tools:ignore="DuplicateIds,DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
@@ -187,7 +207,7 @@
                 style="?attr/borderlessButtonStyle"
                 android:layout_width="66dp"
                 android:layout_height="match_parent"
-                android:text="@string/view_action"
+                android:text="@string/btn_view"
                 android:textAlignment="textStart"
                 android:textColor="#00838F"
                 tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
@@ -249,7 +269,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="@string/view_action"
+        android:text="@string/btn_view"
         android:textAlignment="textStart"
         android:textColor="#00838F"
         tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />

@@ -96,14 +96,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
-                            android:text="@string/delete_action"
+                            android:text="@string/btn_delete"
                             android:textColor="@color/design_default_color_secondary_variant" />
 
                         <com.google.android.material.button.MaterialButton
                             style="?attr/borderlessButtonStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/view_action"
+                            android:text="@string/btn_view"
                             android:textColor="@color/design_default_color_secondary_variant" />
                     </LinearLayout>
 

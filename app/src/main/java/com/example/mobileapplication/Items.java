@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -18,6 +19,8 @@ public class Items extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_items);
+
+        RecyclerView recyclerView;
 
         View view_item_btn;
         FloatingActionButton create_item_btn;
@@ -62,6 +65,10 @@ public class Items extends AppCompatActivity {
             }
 
         });
+
+
+        //recylcler view
+        recyclerView = findViewById(R.id.recyclerViewItem);
 
 
         //create button

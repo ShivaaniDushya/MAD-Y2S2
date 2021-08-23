@@ -36,10 +36,31 @@ public class DBHelper extends SQLiteOpenHelper {
                 ;
 
 
+        String SQL_CREATE_ITEMS =
+                "CREATE TABLE "
+                        + ItemMaster.ItemsT.TABLE_NAME +
+                        " ("
+                        + ItemMaster.ItemsT.COLUMN_ItemCode  +
+                        " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                        + ItemMaster.ItemsT.COLUMN_ItemName +
+                        " TEXT, "
+                        +  ItemMaster.ItemsT.COLUMN_ItemBrand +
+                        " TEXT, "
+                        +  ItemMaster.ItemsT.COLUMN_ItemCount +
+                        " INTEGER, "
+                        +  ItemMaster.ItemsT.COLUMN_ItemBuyPrice +
+                        " REAL, "
+                        +  ItemMaster.ItemsT.COLUMN_ItemSellPrice +
+                        " REAL, "
+                        +  ItemMaster.ItemsT.COLUMN_ItemDescription +
+                        " TEXT"+")"
+                ;
 
         //defining the sql query
-        db.execSQL(SQL_CREATE_ENTRIES); //Execute the table creation
+        db.execSQL(SQL_CREATE_ENTRIES);//Execute the table creation
         Log.d("DBcreation","Db created succesfully");
+
+        db.execSQL(SQL_CREATE_ITEMS);
     }
 
 
@@ -148,7 +169,14 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
 
+
+
+
 }
+
+
+
+
 
 
 
