@@ -101,7 +101,7 @@
                 tools:ignore="DuplicateIds">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/item_brand"
+                    android:id="@+id/Item_Name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/Item_Brand"
@@ -122,14 +122,14 @@
                 android:text="" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/item_count"
+                android:id="@+id/Item_Brand"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:ignore="DuplicateIds">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/item_count"
+                    android:id="@+id/Item_Brand"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/Item_Count" />
@@ -175,14 +175,14 @@
                 android:text="" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/Sell_price_item"
+                android:id="@+id/Item_Description"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:ignore="DuplicateIds">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/Sell_price_item"
+                    android:id="@+id/Item_Description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/Sell_price_item" />
@@ -203,14 +203,14 @@
                 android:text="" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/Sell_price_item"
+                android:id="@+id/Item_Description"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:ignore="DuplicateIds">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/Sell_price_item"
+                    android:id="@+id/Item_Description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/Sell_price_item" />
@@ -229,14 +229,14 @@
                 android:layout_height="wrap_content" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/Sell_price_item"
+                android:id="@+id/Item_Description"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:ignore="DuplicateIds">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/Sell_price_item"
+                    android:id="@+id/Item_Description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/Item_Desc" />
@@ -255,11 +255,11 @@
                 android:layout_height="wrap_content" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btn_create"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#80DEEA"
-                android:text="@string/ItemEditbtn" />
+                android:text="@string/btn_edit" />
 
             <TextView
                 android:id="@+id/textView4"

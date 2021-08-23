@@ -59,6 +59,7 @@
     <string name="Item_Count"> </string>
     <string name="Buy_price_item"> </string>
     <string name="Sell_price_item"> </string>
+    <string name="Item_Description"> </string>
     <string name="item_name_example">Fabulous Chocolate</string>
     <string name="item_name_example2">Vanilla Biscuits</string>
     <string name="item_brand_example">Riyanna Factory</string>

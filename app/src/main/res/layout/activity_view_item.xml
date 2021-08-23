@@ -164,7 +164,7 @@
                 android:layout_width="75dp"
                 android:layout_height="35dp"
                 android:layout_marginEnd="8dp"
-                android:text="@string/delete_action"
+                android:text="@string/btn_delete"
                 android:textAlignment="center"
                 android:textColor="#00838F"
                 tools:ignore="DuplicateIds,TouchTargetSizeCheck" />

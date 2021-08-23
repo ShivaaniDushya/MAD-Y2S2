@@ -51,10 +51,34 @@ public class DBHelper extends SQLiteOpenHelper {
                 ;
 
 
+        String SQL_CREATE_ITEMS =
+                "CREATE TABLE "
+                        + ItemMaster.ItemsT.TABLE_NAME +
+                        " ("
+                        + ItemMaster.ItemsT.COLUMN_ItemCode  +
+                        " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                        + ItemMaster.ItemsT.COLUMN_ItemName +
+                        " TEXT, "
+                        +  ItemMaster.ItemsT.COLUMN_ItemBrand +
+                        " TEXT, "
+                        +  ItemMaster.ItemsT.COLUMN_ItemCount +
+                        " INTEGER, "
+                        +  ItemMaster.ItemsT.COLUMN_ItemBuyPrice +
+                        " REAL, "
+                        +  ItemMaster.ItemsT.COLUMN_ItemSellPrice +
+                        " REAL, "
+                        +  ItemMaster.ItemsT.COLUMN_ItemDescription +
+                        " TEXT"+")"
+                ;
 
-        //defining all the sql queries here
-        db.execSQL(SQL_CREATE_ENTRIES); //Execute the table creation
-        Log.d("workflow","Db created succesfully");
+
+        //defining the sql query
+        db.execSQL(SQL_CREATE_ENTRIES);//Execute the table creation
+        Log.d("DBcreation","Db created succesfully");
+
+        db.execSQL(SQL_CREATE_ITEMS);
+
+
     }
 
 
@@ -147,12 +171,14 @@ public class DBHelper extends SQLiteOpenHelper {
        String query ="SELECT * FROM "+ RouteMaster.RoutesT.TABLE_NAME;
        SQLiteDatabase db= this.getReadableDatabase();
 
+
        Cursor cursor=null;
        if(db!=null){
            cursor=db.rawQuery(query,null);
        }
        return cursor;
     }
+
 
     //@piyoshila use this method to get routes details with the default flag
     //If a particular route is default is default flag will be 1
@@ -210,6 +236,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values1.put(RouteMaster.RoutesT.COLUMN_NAME_IS_DEFAULT,0);
         String selection1= RouteMaster.RoutesT.COLUMN_NAME_IS_DEFAULT+" = '1' ";
 
+
         int inq1=db.update(RouteMaster.RoutesT.TABLE_NAME,
                 values1,
                 selection1,
@@ -219,3 +246,4 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 }
+

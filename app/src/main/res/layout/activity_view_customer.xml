@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 app:cardElevation="0dp"
-                app:strokeColor="@color/black_12"
+                app:strokeColor="@color/white"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -45,7 +45,7 @@
                         <ImageView
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:contentDescription="@string/store_owner_name"
+                            android:contentDescription="store_owner_name"
                             app:srcCompat="@drawable/store_owner" />
 
                         <LinearLayout
@@ -57,14 +57,14 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/store_name"
+                                android:text="store_name"
                                 android:textAppearance="?attr/textAppearanceHeadline6" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:text="@string/store_owner_name"
+                                android:text="store_owner_name"
                                 android:textAppearance="?attr/textAppearanceBody2"
                                 android:textColor="?android:attr/textColorSecondary" />
                         </LinearLayout>
@@ -89,75 +89,75 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
+                            android:text="customer_id"
                             android:textAllCaps="true"
-                            android:text="@string/customer_id"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/cus_id"
+                            android:text="cus_id"
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
+                            android:text="phone_no"
                             android:textAllCaps="true"
-                            android:text="@string/phone_no"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/mobile_no"
+                            android:text="mobile_no"
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
+                            android:text="address"
                             android:textAllCaps="true"
-                            android:text="@string/address"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/cus_address"
+                            android:text="cus_address"
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
+                            android:text="created_title"
                             android:textAllCaps="true"
-                            android:text="@string/created_title"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/created_data"
+                            android:text="created_data"
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
+                            android:text="modified_title"
                             android:textAllCaps="true"
-                            android:text="@string/modified_title"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/modified_data"
+                            android:text="modified_data"
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
                     </LinearLayout>
@@ -225,7 +225,7 @@
                 android:elevation="0dp"
                 app:menu="@menu/top_app_bar"
                 app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
-                app:title="@string/cus_id" />
+                app:title="cus_id" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
