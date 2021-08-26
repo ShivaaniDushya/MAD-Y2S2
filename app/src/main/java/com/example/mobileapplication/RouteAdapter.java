@@ -1,5 +1,6 @@
 package com.example.mobileapplication;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -67,7 +68,7 @@ public class RouteAdapter extends RecyclerView.Adapter<RouteAdapter.MyViewHolder
        }
 
     @Override
-    public void onBindViewHolder(@NonNull RouteAdapter.MyViewHolder holder,int position) {
+    public void onBindViewHolder(@NonNull RouteAdapter.MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Log.d("workflow","RouteAdapter onBindViewHolder method  Called");
 
         holder.rid_txt.setText(String.valueOf(route_id.get(position)));
@@ -129,8 +130,8 @@ public class RouteAdapter extends RecyclerView.Adapter<RouteAdapter.MyViewHolder
            mainLayout = itemView.findViewById(R.id.mainLayout);
 
            imgbtn=itemView.findViewById(R.id.imageButton);
-           Animation translate_anim= AnimationUtils.loadAnimation(context,R.anim.translate_anim);
-           mainLayout.setAnimation(translate_anim);
+          // Animation translate_anim= AnimationUtils.loadAnimation(context,R.anim.translate_anim);
+           //mainLayout.setAnimation(translate_anim);
         }
     }
 

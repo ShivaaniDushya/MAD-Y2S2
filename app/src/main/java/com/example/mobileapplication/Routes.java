@@ -12,19 +12,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.mobileapplication.database.DBHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Routes extends AppCompatActivity {
 
@@ -47,7 +42,7 @@ public class Routes extends AppCompatActivity {
 
         Log.d("workflow","Routes on_create method Called");
 
-        recyclerView=findViewById(R.id.recyclerView);
+        recyclerView=findViewById(R.id.recyclerView3);
         empty_imageview=findViewById(R.id.empty_image);
         no_data = findViewById(R.id.no_data);
 
