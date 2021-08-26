@@ -22,8 +22,6 @@ import com.google.android.material.snackbar.Snackbar;
 public class Create_item_Activity extends AppCompatActivity {
 
     EditText ItemName_input, ItemBrand_input, ItemCount_input, BuyPriceItem_input, SellPriceItem_input, ItemDescrip_input;
-    ImageButton back;
-    //Button create;
     public boolean isfieldsvalidated=false;
     String issetasdefault="0";
 
@@ -35,13 +33,12 @@ public class Create_item_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_create_item);
 
         Log.d("workflow", "Add Items onCreate  method  Called");
-        ItemName_input = findViewById(R.id.Item_Name);
-        ItemBrand_input = findViewById(R.id.Item_Brand);
-        ItemCount_input = findViewById(R.id.Item_Count);
-        BuyPriceItem_input = findViewById(R.id.Buy_price);
-        SellPriceItem_input = findViewById(R.id.Sell_price);
-        ItemDescrip_input = findViewById(R.id.Item_Description);
-        //create = findViewById(R.id.btn_create);
+        ItemName_input = findViewById(R.id.inp_itemname);
+        ItemBrand_input = findViewById(R.id.inp_itembrand);
+        ItemCount_input = findViewById(R.id.inp_itemcount);
+        BuyPriceItem_input = findViewById(R.id.inp_itemBuyPrice);
+        SellPriceItem_input = findViewById(R.id.inp_itemSellPrice);
+        ItemDescrip_input = findViewById(R.id.inp_itemDescription);
 
 
 
@@ -84,14 +81,7 @@ public class Create_item_Activity extends AppCompatActivity {
             }
         });
 
-        //create a back button
-//        back = findViewById(R.id.imageButton2_back);
-//        back.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                openItemsActivity();
-//            }
-//        });
+
     }
 
 
@@ -99,9 +89,9 @@ public class Create_item_Activity extends AppCompatActivity {
         @RequiresApi(api = VERSION_CODES.O)
         public void addItem(View view) {
             Log.d("workflow","Add Item addItem  method  Called");
-            //isfieldsvalidated = CheckAllFields();
+            isfieldsvalidated = CheckAllFields();
 
-          //  if (isfieldsvalidated) {
+          if (isfieldsvalidated) {
                 DBHelper dbHelper = new DBHelper(this);
                 //removedefault(issetasdefault);
 
@@ -122,51 +112,44 @@ public class Create_item_Activity extends AppCompatActivity {
                 startActivity(intent);
                 Log.i("BTN Click", "Add Item Confirmation button clicked");
             }
-      //  }
+}
 
-//        private void removedefault(String issetasdefault) {
-//            Log.d("workflow","Add Item removedefault  method  Called");
-//            if(Integer.parseInt(issetasdefault)==1){
-//                DBHelper dbHelper = new DBHelper(this);
-//                int res=dbHelper.update_def_item_on_create();
-//                Toast.makeText(this, "Default Item Changed Succesfully", Toast.LENGTH_SHORT).show();
-//            }
-//        }
 
-//        private boolean CheckAllFields() {
-//            Log.d("workflow","Add Item CheckAllFields  method  Called");
-//            if (ItemName_input.length() == 0) {
-//                ItemName_input.setError("This field is required");
-//                return false;
-//            }
-//
-//            if (ItemBrand_input.length() == 0) {
-//                ItemBrand_input.setError("This field is required");
-//                return false;
-//            }
-//
-//            if (ItemCount_input.length() == 0) {
-//                ItemCount_input.setError("This field is required");
-//                return false;
-//            }
-//            if (BuyPriceItem_input.length() > 10) {
-//                BuyPriceItem_input.setError("Maximum Characters can be entered is 10");
-//                return false;
-//            }
-//
-//            if (SellPriceItem_input.length() > 10) {
-//                SellPriceItem_input.setError("Maximum Characters can be entered is 10");
-//                return false;
-//            }
-//
-//            if (ItemDescrip_input.length() > 4) {
-//                ItemDescrip_input.setError("Maximum value can be entered is 999");
-//                return false;
-//            }
-//
-//            return true;
-//
-//        }
+
+        private boolean CheckAllFields() {
+            Log.d("workflow","Add Item CheckAllFields  method  Called");
+            if (ItemName_input.length() == 0) {
+                ItemName_input.setError("This field is required");
+                return false;
+            }
+
+            if (ItemBrand_input.length() == 0) {
+                ItemBrand_input.setError("This field is required");
+                return false;
+            }
+
+            if (ItemCount_input.length() == 0) {
+                ItemCount_input.setError("This field is required");
+                return false;
+            }
+            if (BuyPriceItem_input.length() == 0) {
+                BuyPriceItem_input.setError("This field is required");
+                return false;
+            }
+
+            if (SellPriceItem_input.length() == 0) {
+                SellPriceItem_input.setError("This field is required");
+                return false;
+            }
+
+            if (ItemDescrip_input.length()  == 0 ) {
+                ItemDescrip_input.setError("This field is required");
+                return false;
+            }
+
+            return true;
+
+        }
 
 
 //    public void openItemsActivity() {

@@ -42,7 +42,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonAddItem"
         android:layout_width="384dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/bottom_navigation"

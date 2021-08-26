@@ -14,10 +14,6 @@
             android:exported="true"
             android:label="ITEMS > EDIT ITEM" />
         <activity
-            android:name=".View_item_Activity"
-            android:exported="true"
-            android:label="ITEMS > VIEW AN ITEM" />
-        <activity
             android:name=".Create_item_Activity"
             android:exported="true"
             android:label="ITEMS > CREATE AN ITEM" />

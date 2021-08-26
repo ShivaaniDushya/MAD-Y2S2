@@ -1,10 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Edit_item_Activity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="34dp"
+            android:orientation="vertical"
+            android:paddingBottom="150dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                app:helperText="Item Code"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/design_default_color_secondary_variant">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/item_code_update"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                app:helperText="Item Name"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/design_default_color_secondary_variant">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/item_name_update"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                app:helperText="Item Brand"
+                app:hintTextColor="@color/design_default_color_secondary_variant">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/item_brand_update"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:inputType="phone"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                app:helperText="Item Count"
+                app:hintTextColor="@color/design_default_color_secondary_variant"
+                app:prefixText="+94">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/item_count_update"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                app:helperText="Item Buying Price Per Item"
+                app:hintTextColor="@color/design_default_color_secondary_variant">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/item_buyprice_update"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                app:helperText="Item Selling Price Per Item"
+                app:hintTextColor="@color/design_default_color_secondary_variant">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/item_sellrice_update"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                app:helperText="Item Description"
+                app:hintTextColor="@color/design_default_color_secondary_variant">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/item_description_update"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/item_update_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:backgroundTint="@color/purple_500"
+                    android:elevation="0dp"
+                    android:onClick="updateItem"
+                    android:padding="20dp"
+                    android:text="@string/btn_update"
+                    app:elevation="0dp"
+                    tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck,UsingOnClickInXml" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/topAppBarParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="12dp"
+            android:background="@color/transparent"
+            app:elevation="0dp">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                style="@style/Widget.MaterialComponents.Toolbar.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_margin="4dp"
+                android:background="@drawable/round_corner_rectangle"
+                android:elevation="0dp"
+                app:menu="@menu/top_app_bar"
+                app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+                app:title="@string/header_update_item" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -14,269 +216,8 @@
         app:itemBackground="@color/light_blue"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/bottom">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/topAppBar3"
-        style="@style/Widget.MaterialComponents.Toolbar.Primary"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_margin="4dp"
-        android:background="@drawable/round_corner_rectangle"
-        android:elevation="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01"
-        app:layout_scrollFlags="scroll|enterAlways|snap"
-        app:menu="@menu/top_app_bar"
-        app:navigationIcon="@drawable/back_arrow_icon"
-        app:title="Update Item" />
-
-
-    <ScrollView
-        android:id="@+id/scrollView3"
-        android:layout_width="320dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-        <LinearLayout
-            android:layout_width="290dp"
-            android:layout_height="589dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.493"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.887">
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/item_code"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/item_code"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Item_Code"
-                    tools:ignore="DuplicateIds" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/textView21"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Enter Item Code" />
-
-            <TextView
-                android:id="@+id/textView23"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:ignore="DuplicateIds">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/Item_Name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Item_Brand"
-                    tools:ignore="DuplicateIds" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/textView24"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Enter Item Name" />
-
-            <TextView
-                android:id="@+id/textView26"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/Item_Brand"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:ignore="DuplicateIds">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/Item_Brand"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Item_Count" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/textView27"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Enter Item Brand" />
-
-            <TextView
-                android:id="@+id/textView28"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/outlinedTextField"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/item_count_VIEW"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Item_Count" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/textView29"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Enter Item Count" />
-
-            <TextView
-                android:id="@+id/textView30"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/Item_Description"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:ignore="DuplicateIds">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/Item_Description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Sell_price_item" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Enter Buying price (per item)"
-                tools:ignore="DuplicateIds" />
-
-            <TextView
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/Item_Description"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:ignore="DuplicateIds">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/Item_Description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Sell_price_item" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Enter Selling price (per item)" />
-
-            <TextView
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/Item_Description"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:ignore="DuplicateIds">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/Item_Description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Item_Desc" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/textView32"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Enter Item Description" />
-
-            <TextView
-                android:id="@+id/textView33"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <Button
-                android:id="@+id/btn_create"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#80DEEA"
-                android:text="@string/btn_edit" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="34sp"
-                tools:ignore="DuplicateIds" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                tools:ignore="DuplicateIds" />
-
-        </LinearLayout>
-
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
