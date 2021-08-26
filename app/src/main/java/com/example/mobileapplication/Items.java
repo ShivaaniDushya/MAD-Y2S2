@@ -65,7 +65,7 @@ public class Items extends AppCompatActivity {
 
 
         //create button
-        create_item_btn = (FloatingActionButton) findViewById(R.id.create_item_button);
+        create_item_btn = (FloatingActionButton) findViewById(R.id.btn_add_item);
         create_item_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +74,7 @@ public class Items extends AppCompatActivity {
         });
 
         //"View an Item" button
-        view_item_btn = (View) findViewById(R.id.view_action1);
+        view_item_btn = (View) findViewById(R.id.btn_add_item);
         view_item_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

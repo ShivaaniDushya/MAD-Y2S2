@@ -23,59 +23,64 @@
             android:paddingBottom="150dp">
 
             <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/pp_img"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@color/black_12"
                 android:scaleType="centerCrop"
                 android:adjustViewBounds="true"
                 android:layout_gravity="center_horizontal"
-                app:shapeAppearanceOverlay="@style/Theme.MobileApplication.CircleImageV"/>
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CircleImageV"/>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_pp_img"
                 style="?attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:text="@string/add_pp"
+                android:text="@string/btn_add_pp"
                 android:textColor="@color/design_default_color_secondary_variant"
                 tools:ignore="TextContrastCheck" />
 
             <ImageView
+                android:id="@+id/sp_img"
                 android:layout_width="match_parent"
                 android:layout_height="170dp"
                 android:layout_marginTop="20dp"
                 android:background="@color/black_12"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="centerCrop"
-                android:contentDescription="@string/add_sp" />
+                tools:ignore="ContentDescription" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_sp_img"
                 style="?attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:onClick="modifyCustomer"
                 android:layout_marginTop="10dp"
-                android:text="@string/add_sp"
+                android:text="@string/btn_add_sp"
                 android:textColor="@color/design_default_color_secondary_variant"
-                tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+                tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck,UsingOnClickInXml" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:id="@+id/customer_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:helperTextEnabled="true"
                 app:endIconMode="clear_text"
-                app:helperText="@string/cus_name_ht"
+                app:helperText="@string/helptxt_cus_name"
                 android:textColorHint="@color/black"
                 app:boxStrokeWidthFocused="1dp"
-                android:hint="@string/customer_name"
+                android:hint="@string/hint_cus_name"
                 app:hintTextColor="@color/design_default_color_secondary_variant"
                 app:boxStrokeColor="@color/design_default_color_secondary_variant">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/customer_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -83,19 +88,19 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:id="@+id/store_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:endIconMode="clear_text"
-                app:helperText="@string/store_name_ht"
+                app:helperText="@string/helptxt_store_name"
                 android:textColorHint="@color/black"
                 app:boxStrokeWidthFocused="1dp"
-                android:hint="@string/store_name_text"
+                android:hint="@string/hint_store_name"
                 app:hintTextColor="@color/design_default_color_secondary_variant"
                 app:boxStrokeColor="@color/design_default_color_secondary_variant">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/store_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -103,21 +108,21 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:id="@+id/phone_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:endIconMode="clear_text"
-                app:helperText="@string/mobile_ht"
+                app:helperText="@string/helptxt_cus_mobile"
                 app:prefixText="+94"
                 android:inputType="phone"
                 android:textColorHint="@color/black"
                 app:boxStrokeWidthFocused="1dp"
-                android:hint="@string/phone_no"
+                android:hint="@string/hint_cus_mobile"
                 app:hintTextColor="@color/design_default_color_secondary_variant"
                 app:boxStrokeColor="@color/design_default_color_secondary_variant">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phone_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="phone"/>
@@ -126,19 +131,19 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:id="@+id/street_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:endIconMode="clear_text"
-                app:helperText="@string/address_ht"
+                app:helperText="@string/helptxt_cus_street_address"
                 android:textColorHint="@color/black"
                 app:boxStrokeWidthFocused="1dp"
-                android:hint="@string/street_address"
+                android:hint="@string/hint_cus_street_address"
                 app:hintTextColor="@color/design_default_color_secondary_variant"
                 app:boxStrokeColor="@color/design_default_color_secondary_variant">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/street_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -146,23 +151,24 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:id="@+id/city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:endIconMode="clear_text"
-                app:helperText="@string/city_ht"
+                app:helperText="@string/helptxt_cus_city"
                 android:textColorHint="@color/black"
                 app:boxStrokeWidthFocused="1dp"
-                android:hint="@string/city"
+                android:hint="@string/hint_cus_city"
                 app:hintTextColor="@color/design_default_color_secondary_variant"
                 app:boxStrokeColor="@color/design_default_color_secondary_variant">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/city"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/modify_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -170,8 +176,9 @@
                     android:padding="20dp"
                     android:elevation="0dp"
                     app:elevation="0dp"
+                    android:onClick="modifyCustomer"
                     android:backgroundTint="@color/purple_500"
-                    android:text="@string/save_cus"
+                    android:text="@string/btn_save"
                     tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -204,7 +211,7 @@
                 android:elevation="0dp"
                 app:menu="@menu/top_app_bar"
                 app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
-                app:title="@string/add_new_customer" />
+                app:title="@string/header_add_customer" />
 
         </com.google.android.material.appbar.AppBarLayout>
 

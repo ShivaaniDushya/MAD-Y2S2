@@ -42,7 +42,7 @@
         <TextView
             android:layout_width="217dp"
             android:layout_height="wrap_content"
-            android:text="@string/item_name_example"
+            android:text="@string/text_test_data"
             android:textAlignment="center"
             android:textAppearance="?attr/textAppearanceHeadline6" />
 
@@ -50,7 +50,7 @@
             android:layout_width="139dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/item_brand_example"
+            android:text="@string/text_test_data"
             android:textAlignment="center"
             android:textAppearance="?attr/textAppearanceBody2"
             android:textColor="?android:attr/textColorSecondary" />
@@ -68,7 +68,7 @@
             android:id="@+id/code_view"
             android:layout_width="124dp"
             android:layout_height="wrap_content"
-            android:text="@string/code_view"
+            android:text="@string/text_test_data"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -87,7 +87,7 @@
             android:id="@+id/code_view2"
             android:layout_width="78dp"
             android:layout_height="wrap_content"
-            android:text="@string/count_view"
+            android:text="@string/text_test_data"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -106,7 +106,7 @@
             android:id="@+id/code_view3"
             android:layout_width="99dp"
             android:layout_height="wrap_content"
-            android:text="@string/buyPrice_view"
+            android:text="@string/text_test_data"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -125,7 +125,7 @@
             android:id="@+id/code_view4"
             android:layout_width="91dp"
             android:layout_height="wrap_content"
-            android:text="@string/sellPrice_view"
+            android:text="@string/text_test_data"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -144,7 +144,7 @@
             android:id="@+id/code_view5"
             android:layout_width="282dp"
             android:layout_height="43dp"
-            android:text="@string/Description_view"
+            android:text="@string/text_test_data"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -164,7 +164,7 @@
                 android:layout_width="75dp"
                 android:layout_height="35dp"
                 android:layout_marginEnd="8dp"
-                android:text="@string/delete_action"
+                android:text="@string/btn_delete"
                 android:textAlignment="center"
                 android:textColor="#00838F"
                 tools:ignore="DuplicateIds,TouchTargetSizeCheck" />

@@ -16,7 +16,8 @@
     <string name="btn_proceed">PROCEED</string>
     <string name="btn_edit">EDIT</string>
     <string name="label_route">ROUTE</string>
-  
+    <string name="label_customer">CUSTOMERS</string>
+
     <!-- View Route -->
     <string name="label_search">Search Route</string>
     <string name="label_no_data">No Data</string>
@@ -30,14 +31,14 @@
     <string name="helptxt_start_location">Enter Route Start Location</string>
     <string name="helptxt_end_location">Enter Route End Location</string>
     <string name="helptxt_distance_location">Enter Total Distance of the Route</string>
-  
+
     <!-- Manage Route -->
     <string name="label_route_id">ROUTE ID</string>
     <string name="label_total_customers">TOTAL CUSTOMERS</string>
-        
-   
+
+
     <!--Confirm Delete Route -->
-    
+
     <string name="msg_confirm_delete_route">Do you really want to delete this Route?This Process cannot be undone.</string>
 
     <!-- Banner -->
@@ -48,8 +49,11 @@
     <string name="notification_title">Notification</string>
     <string name="setting">Settings</string>
     <string name="header_route">MY ROUTES</string>
+    <string name="header_item">ITEMS</string>
+    <string name="header_update_item">UPDATE ITEM</string>
     <string name="header_manage_route">MANAGE ROUTE</string>
     <string name="header_create_route">CREATE ROUTE</string>
+    <string name="header_add_customer">ADD CUSTOMER</string>
 
     <!-- Items -->
     <string name="CreatePage">Create an Item</string>
@@ -59,16 +63,16 @@
     <string name="Item_Count"> </string>
     <string name="Buy_price_item"> </string>
     <string name="Sell_price_item"> </string>
-    <string name="item_name_example">Fabulous Chocolate</string>
-    <string name="item_name_example2">Vanilla Biscuits</string>
-    <string name="item_brand_example">Riyanna Factory</string>
-    <string name="item_descrip_example">Lorem ipsum.Lorem ipsum.Lorem ipsum.</string>
-    <string name="Item_Desc">description</string>
-    <string name="code_view"> DFK1564 </string>
-    <string name="count_view"> 1250 </string>
-    <string name="buyPrice_view"> 125.00 </string>
-    <string name="sellPrice_view"> 175.25 </string>
-    <string name="Description_view"> Lorem ipsum.Lorem ipsum. </string>
+    <string name="Item_Description"> </string>
+
+
+    <!--    create item-->
+    <string name="label_item_name"></string>
+    <string name="label_item_brand"></string>
+    <string name="label_item_count_"></string>
+    <string name="label_item_buyPrice"></string>
+    <string name="label_item_sellPrice"></string>
+    <string name="label_item_description"></string>
 
     <!-- Sales -->
     <string name="cus_label">Customer</string>
@@ -143,13 +147,40 @@
         <item>I04 - Item 04</item>
         <item>I05 - Item 05</item>
     </string-array>
-  
+
     <string name="ItemCreatebtn">CREATE</string>
-    
+
+    <!--Add Customer-->
+    <string name="btn_add_pp">Add profile picture</string>
+    <string name="btn_add_sp">Add store picture</string>
+    <string name="hint_cus_name">Customer Name</string>
+    <string name="helptxt_cus_name">Enter customer\'s first and last name</string>
+    <string name="hint_store_name">Store Name</string>
+    <string name="helptxt_store_name">Enter customer\'s store name</string>
+    <string name="hint_cus_mobile">Phone Number</string>
+    <string name="helptxt_cus_mobile">Enter customer\'s phone number</string>
+    <string name="hint_cus_street_address">Street Address</string>
+    <string name="helptxt_cus_street_address">Enter customer\'s street address</string>
+    <string name="hint_cus_city">City</string>
+    <string name="helptxt_cus_city">Enter customer\'s city</string>
+
+    <!--View Customer-->
+    <string name="label_cus_id">Customer ID</string>
+    <string name="label_cus_address">Address</string>
+    <string name="text_test_data">DB not connected</string>
+    <string name="owned">owned by</string>
+    <string name="located">and it located at</string>
+    <string name="in">in</string>
+    <string name="no_customers">No customers to show. Press + button to add a new customer.</string>
+
     <!--Bottom Bar-->
     <string name="bottom_sales">SALES</string>
     <string name="bottom_home">HOME</string>
     <string name="bottom_customer">CUSTOMERS</string>
     <string name="bottom_item">ITEMS</string>
     <string name="bottom_routes">ROUTES</string>
+    <string name="title_activity_bottom">bottom</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
