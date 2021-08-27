@@ -16,6 +16,7 @@
     <string name="btn_proceed">PROCEED</string>
     <string name="btn_edit">EDIT</string>
     <string name="label_route">ROUTE</string>
+    <string name="label_customer">CUSTOMERS</string>
   
     <!-- View Route -->
     <string name="label_search">Search Route</string>
@@ -52,6 +53,7 @@
     <string name="header_create_route">CREATE ROUTE</string>
     <string name="header_item">ITEMS</string>
     <string name="header_update_item">UPDATE ITEM</string>
+    <string name="header_add_customer">ADD CUSTOMER</string>
 
     <!-- Items -->
     <string name="CreatePage">Create an Item</string>
@@ -64,7 +66,7 @@
     <string name="Item_Description"> </string>
 
 
-<!--    create item-->
+    <!-- create item-->
     <string name="label_item_name"></string>
     <string name="label_item_brand"></string>
     <string name="label_item_count_"></string>
@@ -148,6 +150,29 @@
     </string-array>
   
     <string name="ItemCreatebtn">CREATE</string>
+
+    <!--Add Customer-->
+    <string name="btn_add_pp">Add profile picture</string>
+    <string name="btn_add_sp">Add store picture</string>
+    <string name="hint_cus_name">Customer Name</string>
+    <string name="helptxt_cus_name">Enter customer\'s first and last name</string>
+    <string name="hint_store_name">Store Name</string>
+    <string name="helptxt_store_name">Enter customer\'s store name</string>
+    <string name="hint_cus_mobile">Phone Number</string>
+    <string name="helptxt_cus_mobile">Enter customer\'s phone number</string>
+    <string name="hint_cus_street_address">Street Address</string>
+    <string name="helptxt_cus_street_address">Enter customer\'s street address</string>
+    <string name="hint_cus_city">City</string>
+    <string name="helptxt_cus_city">Enter customer\'s city</string>
+
+    <!--View Customer-->
+    <string name="label_cus_id">Customer ID</string>
+    <string name="label_cus_address">Address</string>
+    <string name="text_test_data">DB not connected</string>
+    <string name="owned">owned by</string>
+    <string name="located">and it located at</string>
+    <string name="in">in</string>
+    <string name="no_customers">No customers to show. Press + button to add a new customer.</string>
     
     <!--Bottom Bar-->
     <string name="bottom_sales">SALES</string>

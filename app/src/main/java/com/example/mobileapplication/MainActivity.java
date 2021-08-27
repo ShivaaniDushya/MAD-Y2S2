@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 import java.net.NoRouteToHostException;
 
@@ -62,14 +63,12 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        MenuInflater inflater =getMenuInflater();
+        MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main, menu);
         return super.onCreateOptionsMenu(menu);
     }
