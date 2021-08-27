@@ -23,14 +23,17 @@
             android:paddingBottom="150dp">
 
             <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/pp_img"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
                 android:adjustViewBounds="true"
-                android:background="@color/white"
-                android:scaleType="centerCrop" />
+                android:background="@color/black_12"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CircleImageV"/>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_pp_img"
                 style="?attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -41,109 +44,114 @@
                 tools:ignore="TextContrastCheck" />
 
             <ImageView
+                android:id="@+id/sp_img"
                 android:layout_width="match_parent"
                 android:layout_height="170dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
-                android:background="@color/white"
-                android:scaleType="centerCrop" />
+                android:background="@color/black_12"
+                android:scaleType="centerCrop"
+                tools:ignore="ContentDescription"/>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_sp_img"
                 style="?attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:text="add_sp"
+                android:text="@string/btn_add_sp"
                 android:textColor="@color/design_default_color_secondary_variant"
                 tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/customer_name"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:hint="customer_name"
+                android:hint="@string/hint_cus_name"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/design_default_color_secondary_variant"
                 app:boxStrokeWidthFocused="1dp"
                 app:endIconMode="clear_text"
-                app:helperText="cus_name_ht"
+                app:helperText="@string/helptxt_cus_name"
                 app:helperTextEnabled="true"
                 app:hintTextColor="@color/design_default_color_secondary_variant">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/customer_name"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    tools:ignore="TextContrastCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/store_name"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:hint="store_name_text"
+                android:hint="@string/hint_store_name"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/design_default_color_secondary_variant"
                 app:boxStrokeWidthFocused="1dp"
                 app:endIconMode="clear_text"
-                app:helperText="store_name_ht"
+                app:helperText="@string/helptxt_store_name"
                 app:hintTextColor="@color/design_default_color_secondary_variant">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/store_name"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    tools:ignore="TextContrastCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/phone_number"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:hint="phone_no"
+                android:hint="@string/hint_cus_mobile"
                 android:inputType="phone"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/design_default_color_secondary_variant"
                 app:boxStrokeWidthFocused="1dp"
                 app:endIconMode="clear_text"
-                app:helperText="mobile_ht"
+                app:helperText="@string/helptxt_cus_mobile"
                 app:hintTextColor="@color/design_default_color_secondary_variant"
                 app:prefixText="+94">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phone_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="phone" />
+                    android:inputType="phone"
+                    tools:ignore="TextContrastCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/street_address"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:hint="street_address"
+                android:hint="@string/hint_cus_street_address"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/design_default_color_secondary_variant"
                 app:boxStrokeWidthFocused="1dp"
                 app:endIconMode="clear_text"
-                app:helperText="address_ht"
+                app:helperText="@string/helptxt_cus_street_address"
                 app:hintTextColor="@color/design_default_color_secondary_variant">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/street_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/city"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -152,14 +160,17 @@
                 app:boxStrokeColor="@color/design_default_color_secondary_variant"
                 app:boxStrokeWidthFocused="1dp"
                 app:endIconMode="clear_text"
-                app:helperText="city_ht"
+                app:helperText="@string/helptxt_cus_city"
+                android:hint="@string/hint_cus_city"
                 app:hintTextColor="@color/design_default_color_secondary_variant">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/city"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/modify_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -167,7 +178,8 @@
                     android:backgroundTint="@color/purple_500"
                     android:elevation="0dp"
                     android:padding="20dp"
-                    android:text="save_cus"
+                    android:onClick="modifyCustomer"
+                    android:text="@string/btn_save"
                     app:elevation="0dp"
                     tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 

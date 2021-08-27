@@ -42,11 +42,13 @@
                         android:orientation="horizontal"
                         android:padding="16dp">
 
-                        <ImageView
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/customer_pic_v"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:contentDescription="store_owner_name"
-                            app:srcCompat="@drawable/store_owner" />
+                            android:background="@color/black_12"
+                            android:scaleType="centerCrop"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CircleImageV" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -55,29 +57,31 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/store_name_v"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="store_name"
+                                android:text="@string/text_test_data"
                                 android:textAppearance="?attr/textAppearanceHeadline6" />
 
                             <TextView
+                                android:id="@+id/customer_name_v"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:text="store_owner_name"
+                                android:text="@string/text_test_data"
                                 android:textAppearance="?attr/textAppearanceBody2"
                                 android:textColor="?android:attr/textColorSecondary" />
                         </LinearLayout>
 
                     </LinearLayout>
 
-                    <!-- Media -->
                     <ImageView
+                        android:id="@+id/store_pic_v"
                         android:layout_width="match_parent"
                         android:layout_height="194dp"
+                        android:background="@color/black_12"
                         android:contentDescription="@string/store_banner_desc"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/customer_store_banner" />
+                        android:scaleType="centerCrop"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -89,75 +93,80 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
-                            android:text="customer_id"
+                            android:text="@string/label_cus_id"
                             android:textAllCaps="true"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
 
                         <TextView
+                            android:id="@+id/customer_id_v"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="cus_id"
+                            android:text="@string/text_test_data"
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
-                            android:text="phone_no"
+                            android:text="@string/hint_cus_mobile"
                             android:textAllCaps="true"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
 
                         <TextView
+                            android:id="@+id/mobile_v"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="mobile_no"
+                            android:text="@string/text_test_data"
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
-                            android:text="address"
+                            android:text="@string/label_cus_address"
                             android:textAllCaps="true"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
 
                         <TextView
+                            android:id="@+id/address_v"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="cus_address"
+                            android:text="@string/text_test_data"
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
-                            android:text="created_title"
+                            android:text="@string/label_create_date"
                             android:textAllCaps="true"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
 
                         <TextView
+                            android:id="@+id/created_date_v"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="created_data"
+                            android:text="@string/text_test_data"
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
-                            android:text="modified_title"
+                            android:text="@string/label_modified_date"
                             android:textAllCaps="true"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
 
                         <TextView
+                            android:id="@+id/modified_date_v"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="modified_data"
+                            android:text="@string/text_test_data"
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
                     </LinearLayout>
@@ -170,7 +179,7 @@
                         android:orientation="horizontal">
 
                         <com.google.android.material.button.MaterialButton
-                            android:id="@+id/delete"
+                            android:id="@+id/delete_v"
                             style="?attr/borderlessButtonStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -180,6 +189,7 @@
                             tools:ignore="TextContrastCheck" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/edit_v"
                             style="?attr/borderlessButtonStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
