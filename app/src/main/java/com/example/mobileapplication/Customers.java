@@ -40,7 +40,7 @@ public class Customers extends AppCompatActivity {
         try {
             bundle = getIntent().getExtras();
             String addCustomerStatus = bundle.getString("passMessage");
-            Snackbar snackbar = Snackbar.make(findViewById(R.id.customersLayout), addCustomerStatus, Snackbar.LENGTH_INDEFINITE);
+            Snackbar snackbar = Snackbar.make(findViewById(R.id.routesLayout), addCustomerStatus, Snackbar.LENGTH_INDEFINITE);
             snackbar.setAction("OKAY", v -> snackbar.dismiss());
             snackbar.setActionTextColor(Color.CYAN);
             snackbar.show();

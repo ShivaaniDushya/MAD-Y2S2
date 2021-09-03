@@ -20,7 +20,7 @@
   
     <!-- View Route -->
     <string name="label_search">Search Route</string>
-    <string name="label_no_data">No Data</string>
+    <string name="label_no_data">No Routes to show. Press + button to add a new Route.</string>
 
     <!-- Create Route -->
     <string name="label_start_location">Start Location *</string>
