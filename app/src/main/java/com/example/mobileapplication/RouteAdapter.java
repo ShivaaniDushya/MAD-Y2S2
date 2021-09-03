@@ -130,8 +130,8 @@ public class RouteAdapter extends RecyclerView.Adapter<RouteAdapter.MyViewHolder
            mainLayout = itemView.findViewById(R.id.mainLayout);
 
            imgbtn=itemView.findViewById(R.id.imageButton);
-          // Animation translate_anim= AnimationUtils.loadAnimation(context,R.anim.translate_anim);
-           //mainLayout.setAnimation(translate_anim);
+           Animation translate_anim= AnimationUtils.loadAnimation(context,R.anim.translate_anim);
+           mainLayout.setAnimation(translate_anim);
         }
     }
 
