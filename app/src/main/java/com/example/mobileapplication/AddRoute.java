@@ -23,7 +23,7 @@ public class AddRoute extends AppCompatActivity {
     EditText etstartloc,etendloc,etdistance;
     boolean isfieldsvalidated=false;  //check all field validations
     Switch aSwitch;
-    String issetasdefault="0";
+    String setStatusMsg,issetasdefault="0";
 
 
 
@@ -50,8 +50,8 @@ public class AddRoute extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.items:
-                        startActivity(new Intent(getApplicationContext()
-                                , Items.class));
+                          startActivity(new Intent(getApplicationContext() , Items.class));
+
                         overridePendingTransition(0,0);
                         return true;
 
@@ -98,11 +98,14 @@ public class AddRoute extends AppCompatActivity {
                     etendloc.getText().toString(),
                     Float.parseFloat(etdistance.getText().toString()),issetasdefault);
 
-            Snackbar.make(view,"Record Added Succesfully", BaseTransientBottomBar.LENGTH_LONG).setAction("OK",null).show();
+            if (val == -1) {
+                setStatusMsg = "Route addition unsuccessful.";
+            }
+            else {
+                setStatusMsg = "Route added successfully.";
+            }
 
-            Toast.makeText(this, "Record Added Succesfully", Toast.LENGTH_SHORT).show();
-
-            Intent intent = new Intent(this, Routes.class);
+            Intent intent = new Intent(this, Routes.class).putExtra("status", setStatusMsg);
             startActivity(intent);
             Log.i("BTN Click", "Add route Confirmation button clicked");
         }
@@ -113,7 +116,7 @@ public class AddRoute extends AppCompatActivity {
         if(Integer.parseInt(issetasdefault)==1){
             DBHelper dbHelper = new DBHelper(this);
             int res=dbHelper.update_def_route_on_create();
-            Toast.makeText(this, "Default Route Changed Succesfully", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this, "Default Route Changed Succesfully", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="deleteRoute"
     tools:context=".ModifyRoute">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -12,8 +13,8 @@
         android:layout_height="wrap_content"
         android:background="@color/transparent"
         app:elevation="0dp"
-        tools:layout_editor_absoluteX="12dp"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="12dp">
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -231,7 +232,7 @@
                 android:text="@string/btn_update" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/del_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

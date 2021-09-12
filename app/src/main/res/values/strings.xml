@@ -17,7 +17,7 @@
     <string name="btn_edit">EDIT</string>
     <string name="label_route">ROUTE</string>
     <string name="label_customer">CUSTOMERS</string>
-  
+
     <!-- View Route -->
     <string name="label_search">Search Route</string>
     <string name="label_no_data">No Routes to show. Press + button to add a new Route.</string>
@@ -31,14 +31,14 @@
     <string name="helptxt_start_location">Enter Route Start Location</string>
     <string name="helptxt_end_location">Enter Route End Location</string>
     <string name="helptxt_distance_location">Enter Total Distance of the Route</string>
-  
+
     <!-- Manage Route -->
     <string name="label_route_id">ROUTE ID</string>
     <string name="label_total_customers">TOTAL CUSTOMERS</string>
-        
-   
+
+
     <!--Confirm Delete Route -->
-    
+
     <string name="msg_confirm_delete_route">Do you really want to delete this Route?This Process cannot be undone.</string>
 
     <!-- Banner -->
@@ -148,7 +148,7 @@
         <item>I04 - Item 04</item>
         <item>I05 - Item 05</item>
     </string-array>
-  
+
     <string name="ItemCreatebtn">CREATE</string>
 
     <!--Add Customer-->
@@ -173,11 +173,13 @@
     <string name="located">and it located at</string>
     <string name="in">in</string>
     <string name="no_customers">No customers to show. Press + button to add a new customer.</string>
-    
+
     <!--Bottom Bar-->
     <string name="bottom_sales">SALES</string>
     <string name="bottom_home">HOME</string>
     <string name="bottom_customer">CUSTOMERS</string>
     <string name="bottom_item">ITEMS</string>
     <string name="bottom_routes">ROUTES</string>
+    <string name="title_activity_findshops">findshops</string>
+    <string name="btn_search_shops">Search Shops nearby</string>
 </resources>

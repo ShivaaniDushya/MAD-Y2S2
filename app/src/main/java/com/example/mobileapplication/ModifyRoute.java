@@ -24,7 +24,7 @@ public class ModifyRoute extends AppCompatActivity {
     TextInputEditText etrouteid,etstartloc,etendloc,etdistance,etcreateddate,etmodifieddate;
 
     String rid,startloc,endloc,distance,created,modified,issetdefault;
-    String issetasdefault="0";
+    String setStatusMsg,issetasdefault="0";
 
     boolean isfieldsvalidated=false;
 
@@ -151,10 +151,18 @@ public class ModifyRoute extends AppCompatActivity {
                     etendloc.getText().toString(),
                     Float.parseFloat(etdistance.getText().toString()),issetasdefault);
 
-            Toast.makeText(this, "Record Updated Succesfully ", Toast.LENGTH_SHORT).show();
 
-            Intent intent = new Intent(this, Routes.class);
+
+            if (val == -1) {
+                setStatusMsg = "Route Update unsuccessful.";
+            }
+            else {
+                setStatusMsg = "Route Update successful.";
+            }
+
+            Intent intent = new Intent(this, Routes.class).putExtra("status", setStatusMsg);
             startActivity(intent);
+
             Log.i("BTN Click", "Update route Confirmation button clicked");
         }
     }
@@ -213,6 +221,7 @@ public class ModifyRoute extends AppCompatActivity {
 
         confirmDialog();
         Log.d("workflow","Modify Route deleteRoute  method  Called");
+
     }
 
      void confirmDialog() {
@@ -225,10 +234,27 @@ public class ModifyRoute extends AppCompatActivity {
              @Override
              public void onClick(DialogInterface dialogInterface, int i) {
                  DBHelper dbHelper=new DBHelper(ModifyRoute.this);
-                 dbHelper.deleteRoute(etrouteid.getText().toString());
-                 finish();
+                 int val= dbHelper.deleteRoute(etrouteid.getText().toString());
+                 if (val == 1) {
+                     setStatusMsg = "Route Deleted successfully.";
+
+                 }
+                 else {
+                     setStatusMsg = "Route deletion unsuccessful.";
+
+                 }
+                 Intent intent = new Intent(ModifyRoute.this,Routes.class).putExtra("status", setStatusMsg);
+                 startActivity(intent);
+                 Log.i("BTN Click", "Add route Confirmation button clicked");
+
+
              }
-         });
+
+          }
+
+          );
+
+
          builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
              @Override
              public void onClick(DialogInterface dialogInterface, int i) {

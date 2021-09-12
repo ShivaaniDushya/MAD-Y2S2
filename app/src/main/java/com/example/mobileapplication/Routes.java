@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import com.example.mobileapplication.database.DBHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -27,6 +29,7 @@ public class Routes extends AppCompatActivity {
     FloatingActionButton fab;
     ImageView empty_imageview;
     TextView no_data;
+    Bundle bundle;
 
     DBHelper db;
     ArrayList<String> route_id,route_start_location,route_end_location,route_distance,route_created_date,route_modified_date,route_isdefault;
@@ -39,6 +42,14 @@ public class Routes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_routes);
+
+        try {
+            bundle = getIntent().getExtras();
+            String getstatus = bundle.getString("status");
+            Snackbar snackbar = Snackbar.make(findViewById(R.id.routesLayout), getstatus, Snackbar.LENGTH_LONG);
+            snackbar.setAction("OKAY", v -> snackbar.dismiss());
+            snackbar.show();
+        } catch (Exception ignore) { }
 
         Log.d("workflow","Routes on_create method Called");
 
@@ -187,7 +198,7 @@ public class Routes extends AppCompatActivity {
         Log.d("workflow","Routes openViewRoute method Called");
         Intent intent = new Intent(this,ModifyRoute.class);
         startActivity(intent);
-        Log.i("Lifecycle","Add route button clicked");
+        Log.i("workflow","Add route button clicked");
     }
 
     //finish code for Add new Route

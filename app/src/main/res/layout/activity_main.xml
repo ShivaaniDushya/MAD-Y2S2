@@ -7,9 +7,24 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/btn_search_shops"
+        android:layout_width="match_parent"
+        android:layout_height="79dp"
+
+        android:layout_marginTop="551dp"
+        android:layout_marginBottom="45dp"
+        android:text="@string/btn_search_shops" />
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
         android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.AppBarLayout
