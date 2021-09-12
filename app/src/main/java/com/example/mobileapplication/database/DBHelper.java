@@ -27,7 +27,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {        //creating the table
         Log.d("workflow", "DB onCreate method Called");
-        String SQL_CREATE_ENTRIES =
+        String SQL_CREATE_ROUTES_TABLE =
                 "CREATE TABLE "
                         + RouteMaster.RoutesT.TABLE_NAME +
                         " ("
@@ -93,7 +93,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
         //defining the sql query
-        db.execSQL(SQL_CREATE_ENTRIES);//Execute the table creation
+        db.execSQL(SQL_CREATE_ROUTES_TABLE);//Execute the table creation
         Log.d("DBcreation", "Db created succesfully");
         db.execSQL(SQL_CREATE_ITEMS);
         db.execSQL(SQL_CREATE_CUSTOMER); //Execute the customer table creation
@@ -146,16 +146,22 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-    public void deleteRoute(String routeid) {
+    public int deleteRoute(String routeid) {
         Log.d("workflow", "DB delete route method Called");
 
         SQLiteDatabase db = getReadableDatabase();
         String selection = RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID + " = ? ";
         String[] selectionArgs = {routeid};
-        db.delete(RouteMaster.RoutesT.TABLE_NAME,   //table name
-                selection,                         //where clause
-                selectionArgs                       //selection clause
-        );
+    //     db.delete(RouteMaster.RoutesT.TABLE_NAME,   //table name
+  //              selection,                         //where clause
+ //               selectionArgs                       //selection clause
+ //       );
+
+         int status=db.delete(RouteMaster.RoutesT.TABLE_NAME,   //table name
+                 selection,                         //where clause
+                 selectionArgs                       //selection clause
+         );
+    return status;
     }
 
 
