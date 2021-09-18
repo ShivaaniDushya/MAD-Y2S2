@@ -58,7 +58,7 @@
                 android:elevation="0dp"
                 app:menu="@menu/top_app_bar"
                 app:navigationIcon="@drawable/ic_round_account_circle_24"
-                app:title="@string/app_name" />
+                app:title="@string/header_route" />
 
         </com.google.android.material.appbar.AppBarLayout>
 

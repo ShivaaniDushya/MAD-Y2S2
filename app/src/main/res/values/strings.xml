@@ -2,27 +2,77 @@
     <!-- App Name -->
     <string name="app_name">D STOCK</string>
 
+
+
     <!-- Global Actions -->
+    <string name="btn_eng">English</string>
+    <string name="btn_sin">Sinhala</string>
+    <string name="btn_tam">Tamil</string>
+    <!-- Global Buttons -->
     <string name="btn_add">ADD</string>
-    <string name="label_create_date">CREATED</string>
-    <string name="label_modified_date">MODIFIED</string>
     <string name="btn_update">UPDATE</string>
     <string name="btn_delete">DELETE</string>
     <string name="btn_cancel">CANCEL</string>
-    <string name="msg_are_u_sure">Are You Sure?</string>
-    <string name="btn_view">VIEW</string>
     <string name="btn_create">Create</string>
     <string name="btn_save">SAVE</string>
+    <string name="btn_ok">OKAY</string>
+    <string name="btn_yes">yes</string>
+    <string name="btn_no">no</string>
+    <string name="btn_view">VIEW</string>
     <string name="btn_proceed">PROCEED</string>
     <string name="btn_edit">EDIT</string>
+    <!-- END Global Buttons -->
+
+    <!-- Global Labels -->
+    <string name="label_create_date">CREATED DATE</string>
+    <string name="label_modified_date">MODIFIED DATE</string>
     <string name="label_route">ROUTE</string>
     <string name="label_customer">CUSTOMERS</string>
+    <!-- END Global Labels -->
+
+    <!-- Global Messages -->
+    <string name="msg_are_u_sure">Are You Sure?</string>
+    <string name="msg_confirm_delete">"Do you really want to delete this "</string>
+    <string name="msg_confirm_delete_canot_be_undone">This Process cannot be undone.</string>
+    <!-- END Global Messages -->
+
+    <!-- Global Errors -->
+    <string name="error_msg_mandatory">This field is required</string>
+    <!-- END Global Messages -->
+
+    <!-- Bottom Menu -->
+
+    <string name="bottom_sales">SALES</string>
+    <string name="bottom_home">HOME</string>
+    <string name="bottom_customer">CUSTOMERS</string>
+    <string name="bottom_item">ITEMS</string>
+    <string name="bottom_routes">ROUTES</string>
+
+    <!-- END Bottom Menu -->
+
+    <!-- END Global Actions -->
+
+
+
+
+
 
     <!-- View Route -->
+    <!-- View Route Buttons -->
+    <!-- END View Route Buttons -->
+    <!-- View Route Labels -->
     <string name="label_search">Search Route</string>
     <string name="label_no_data">No Routes to show. Press + button to add a new Route.</string>
+    <!-- END View Route Buttons -->
+    <!-- View Route Messages -->
+    <!-- END View Route Messages -->
+    <!-- END View Route -->
 
-    <!-- Create Route -->
+
+
+
+
+
     <string name="label_start_location">Start Location *</string>
     <string name="label_end_location">End Location *</string>
     <string name="label_distance">Distance</string>
@@ -31,15 +81,24 @@
     <string name="helptxt_start_location">Enter Route Start Location</string>
     <string name="helptxt_end_location">Enter Route End Location</string>
     <string name="helptxt_distance_location">Enter Total Distance of the Route</string>
+    <string name="msg_route_add_succesfull">Route added successfully.</string>
+    <string name="msg_route_add_unsuccesfull">Route addition unsuccessful.</string>
+    <string name="error_msg_max_characters">Maximum Characters can be entered is</string>
+    <string name="error_msg_max_distance">Maximum distance can be entered is</string>
 
     <!-- Manage Route -->
     <string name="label_route_id">ROUTE ID</string>
     <string name="label_total_customers">TOTAL CUSTOMERS</string>
-
+    <string name="msg_route_update_succesfull">Route update successfully.</string>
+    <string name="msg_route_update_unsuccesfull">Route update unsuccessful.</string>
 
     <!--Confirm Delete Route -->
 
-    <string name="msg_confirm_delete_route">Do you really want to delete this Route?This Process cannot be undone.</string>
+
+    <string name="msg_route_delete_succesfull">Route delete successfully.</string>
+    <string name="msg_route_delete_unsuccesfull">Route deletion unsuccessful.</string>
+
+
 
     <!-- Banner -->
     <string name="store_desc">Hi welcome to my store at polgahavelw</string>
@@ -174,12 +233,10 @@
     <string name="in">in</string>
     <string name="no_customers">No customers to show. Press + button to add a new customer.</string>
 
-    <!--Bottom Bar-->
-    <string name="bottom_sales">SALES</string>
-    <string name="bottom_home">HOME</string>
-    <string name="bottom_customer">CUSTOMERS</string>
-    <string name="bottom_item">ITEMS</string>
-    <string name="bottom_routes">ROUTES</string>
+
     <string name="title_activity_findshops">findshops</string>
     <string name="btn_search_shops">Search Shops nearby</string>
+
+    <string name="language">English</string>
+    <string name="label_shops">shops</string>
 </resources>

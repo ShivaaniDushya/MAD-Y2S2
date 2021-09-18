@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2-Language/app/src/main/res/layout/activity_main.xml" value="0.18385416666666668" />
+        <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2-Language/app/src/main/res/layout/activity_modify_route.xml" value="0.18385416666666668" />
+        <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2-Language/app/src/main/res/layout/activity_routes.xml" value="0.18385416666666668" />
+        <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2-Language/app/src/main/res/layout/my_row.xml" value="0.18385416666666668" />
+        <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2-Language/app/src/main/res/menu/bottom.xml" value="0.18385416666666668" />
+        <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2-Language/app/src/main/res/menu/top_app_bar.xml" value="0.18385416666666668" />
         <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2-final/app/src/main/res/layout/activity_add_customer.xml" value="0.18385416666666668" />
         <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2-final/app/src/main/res/layout/activity_add_route.xml" value="0.18385416666666668" />
         <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2-final/app/src/main/res/layout/activity_customers.xml" value="0.18385416666666668" />

@@ -3,27 +3,27 @@
 
     <item
         android:id="@+id/items"
-        android:title="Items"
+        android:title="@string/bottom_routes"
         android:icon="@drawable/item_icon"/>
 
     <item
         android:id="@+id/customers"
-        android:title="Customers"
+        android:title="@string/bottom_customer"
         android:icon="@drawable/customer_icon"/>
 
     <item
         android:id="@+id/home"
-        android:title="Home"
+        android:title="@string/bottom_home"
         android:icon="@drawable/home_icon"/>
 
     <item
         android:id="@+id/routes"
-        android:title="Routes"
+        android:title="@string/bottom_routes"
         android:icon="@drawable/route_icon"/>
 
     <item
         android:id="@+id/sales"
-        android:title="Sales"
+        android:title="@string/bottom_sales"
         android:icon="@drawable/sales_icon"/>
 
 
