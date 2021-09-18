@@ -39,13 +39,13 @@
             android:orientation="vertical"
             android:paddingTop="10dp">
 
-        <!--
-            <com.google.android.gms.maps.MapView
-                android:id="@+id/mapView"
-                android:layout_width="match_parent"
-                android:layout_height="243dp"
-                android:accessibilityLiveRegion="none" />
-            -->
+            <!--
+                <com.google.android.gms.maps.MapView
+                    android:id="@+id/mapView"
+                    android:layout_width="match_parent"
+                    android:layout_height="243dp"
+                    android:accessibilityLiveRegion="none" />
+                -->
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="22dp"
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/label_start_location"
                 app:helperText="@string/helptxt_start_location"
-                        >
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inp_startloc"
@@ -107,7 +107,7 @@
                 android:layout_weight="1"
                 android:hint="@string/label_distance"
                 app:helperText="@string/helptxt_distance_location"
-                app:suffixText="KM">
+                app:suffixText="@string/label_unit_distance">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inp_distance"

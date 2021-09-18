@@ -12,12 +12,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Switch;
-import android.widget.Toast;
+
 
 import com.example.mobileapplication.database.DBHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
+
 
 public class AddRoute extends AppCompatActivity {
     EditText etstartloc,etendloc,etdistance;
@@ -28,7 +27,7 @@ public class AddRoute extends AppCompatActivity {
 
 
     @Override
-        protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_route);
 
@@ -50,7 +49,7 @@ public class AddRoute extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.items:
-                          startActivity(new Intent(getApplicationContext() , Items.class));
+                        startActivity(new Intent(getApplicationContext() , Items.class));
 
                         overridePendingTransition(0,0);
                         return true;
@@ -99,10 +98,10 @@ public class AddRoute extends AppCompatActivity {
                     Float.parseFloat(etdistance.getText().toString()),issetasdefault);
 
             if (val == -1) {
-                setStatusMsg = "Route addition unsuccessful.";
+                setStatusMsg = getString(R.string.msg_route_add_unsuccesfull);
             }
             else {
-                setStatusMsg = "Route added successfully.";
+                setStatusMsg = getString(R.string.msg_route_add_succesfull);
             }
 
             Intent intent = new Intent(this, Routes.class).putExtra("status", setStatusMsg);
@@ -116,38 +115,45 @@ public class AddRoute extends AppCompatActivity {
         if(Integer.parseInt(issetasdefault)==1){
             DBHelper dbHelper = new DBHelper(this);
             int res=dbHelper.update_def_route_on_create();
-           // Toast.makeText(this, "Default Route Changed Succesfully", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(this, "Default Route Changed Succesfully", Toast.LENGTH_SHORT).show();
         }
     }
 
     private boolean CheckAllFields() {
+
+        //if values are changed pls change in modify route as well
+
+        int maxchar=10;
+        double maxdistance=999.99;
+
         Log.d("workflow","Add Route CheckAllFields  method  Called");
         if (etstartloc.length() == 0) {
-            etstartloc.setError("This field is required");
+            etstartloc.setError(getString(R.string.error_msg_mandatory));
             return false;
         }
 
         if (etendloc.length() == 0) {
-            etendloc.setError("This field is required");
+            etendloc.setError(getString(R.string.error_msg_mandatory));
             return false;
         }
 
         if (etdistance.length() == 0) {
-            etdistance.setError("This field is required");
+            etdistance.setError(getString(R.string.error_msg_mandatory));
             return false;
         }
-        if (etstartloc.length() > 10) {
-            etstartloc.setError("Maximum Characters can be entered is 10");
+        if (etstartloc.length() > maxchar) {
+
+            etstartloc.setError(getString(R.string.error_msg_max_characters)+" "+maxchar);
             return false;
         }
 
-        if (etendloc.length() > 10) {
-            etendloc.setError("Maximum Characters can be entered is 10");
+        if (etendloc.length() > maxchar) {
+            etendloc.setError(getString(R.string.error_msg_max_characters)+" "+maxchar);
             return false;
         }
 
-        if (etdistance.length() > 4) {
-            etdistance.setError("Maximum value can be entered is 999");
+        if (Double.parseDouble(String.valueOf(etdistance.getText())) > maxdistance) {
+            etdistance.setError(getString(R.string.error_msg_max_distance)+" "+maxdistance+" "+getString(R.string.label_unit_distance));
             return false;
         }
 
@@ -155,4 +161,4 @@ public class AddRoute extends AppCompatActivity {
 
     }
 
-   }
+}

@@ -116,7 +116,7 @@ public class ModifyRoute extends AppCompatActivity {
             modified = getIntent().getStringExtra("modified");
             issetdefault=getIntent().getStringExtra("isdefaullt");
 
-          //  Log.d("mvalies",rid);
+            //  Log.d("mvalies",rid);
             etrouteid.setText(rid);
             etstartloc.setText(startloc);
             etendloc.setText(endloc);
@@ -131,7 +131,7 @@ public class ModifyRoute extends AppCompatActivity {
         else{
             Toast.makeText(this, "No data Available", Toast.LENGTH_SHORT).show();
         }
-   }
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void updateRoute(View view) {
@@ -145,7 +145,7 @@ public class ModifyRoute extends AppCompatActivity {
 
             DBHelper dbHelper = new DBHelper(this);
 
-         //   int val1=dbHelper.update_def_route();
+            //   int val1=dbHelper.update_def_route();
 
             int val = dbHelper.updateRoute(etrouteid.getText().toString(), etstartloc.getText().toString(),
                     etendloc.getText().toString(),
@@ -154,10 +154,10 @@ public class ModifyRoute extends AppCompatActivity {
 
 
             if (val == -1) {
-                setStatusMsg = "Route Update unsuccessful.";
+                setStatusMsg = getString(R.string.msg_route_update_unsuccesfull);
             }
             else {
-                setStatusMsg = "Route Update successful.";
+                setStatusMsg = getString(R.string.msg_route_update_succesfull);
             }
 
             Intent intent = new Intent(this, Routes.class).putExtra("status", setStatusMsg);
@@ -174,7 +174,9 @@ public class ModifyRoute extends AppCompatActivity {
             DBHelper dbHelper = new DBHelper(this);
             int res;
             res = dbHelper.update_def_route();
-            Toast.makeText(this, "Default Route Changed Succesfully", Toast.LENGTH_SHORT).show();
+
+            //  Toast.makeText(this, "Default Route Changed Succesfully", Toast.LENGTH_SHORT).show();
+            //try to have a notification
             issetasdefault="1";
         }
         else{
@@ -184,32 +186,39 @@ public class ModifyRoute extends AppCompatActivity {
 
     private boolean CheckAllFields() {
         Log.d("workflow","Modify Route CheckAllFields  method  Called");
+
+        //if values are changed pls change in add route as well
+        int maxchar=10;
+        double maxdistance=999.99;
+
+        Log.d("workflow","Add Route CheckAllFields  method  Called");
         if (etstartloc.length() == 0) {
-            etstartloc.setError("This field is required");
+            etstartloc.setError(getString(R.string.error_msg_mandatory));
             return false;
         }
 
         if (etendloc.length() == 0) {
-            etendloc.setError("This field is required");
+            etendloc.setError(getString(R.string.error_msg_mandatory));
             return false;
         }
 
         if (etdistance.length() == 0) {
-            etdistance.setError("This field is required");
+            etdistance.setError(getString(R.string.error_msg_mandatory));
             return false;
         }
-        if (etstartloc.length() > 10) {
-            etstartloc.setError("Maximum Characters can be entered is 10");
+        if (etstartloc.length() > maxchar) {
+
+            etstartloc.setError(getString(R.string.error_msg_max_characters)+" "+maxchar);
             return false;
         }
 
-        if (etendloc.length() > 10) {
-            etendloc.setError("Maximum Characters can be entered is 10");
+        if (etendloc.length() > maxchar) {
+            etendloc.setError(getString(R.string.error_msg_max_characters)+" "+maxchar);
             return false;
         }
 
-        if (etdistance.length() > 4) {
-            etdistance.setError("Maximum value can be entered is 999");
+        if (Double.parseDouble(String.valueOf(etdistance.getText())) > maxdistance) {
+            etdistance.setError(getString(R.string.error_msg_max_distance)+" "+maxdistance+" "+getString(R.string.label_unit_distance));
             return false;
         }
 
@@ -224,43 +233,49 @@ public class ModifyRoute extends AppCompatActivity {
 
     }
 
-     void confirmDialog() {
+    void confirmDialog() {
 
-         Log.d("workflow","Modify Route confirmDialog  method  Called");
-         AlertDialog.Builder builder=new AlertDialog.Builder(this);
-         builder.setTitle("Are You Sure?");
-         builder.setMessage("Do you really want to delete this Route " +rid+" ?This Process cannot be undone.");
-         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-             @Override
-             public void onClick(DialogInterface dialogInterface, int i) {
-                 DBHelper dbHelper=new DBHelper(ModifyRoute.this);
-                 int val= dbHelper.deleteRoute(etrouteid.getText().toString());
-                 if (val == 1) {
-                     setStatusMsg = "Route Deleted successfully.";
+        Log.d("workflow","Modify Route confirmDialog  method  Called");
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.msg_are_u_sure));
+        builder.setMessage((getString(R.string.msg_confirm_delete))
+                +" "+
+                (getString(R.string.label_route))
+                +" "+
+                rid
+                +" ? "+
+                (getString(R.string.msg_confirm_delete_canot_be_undone)));
+        builder.setPositiveButton(R.string.btn_yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        DBHelper dbHelper=new DBHelper(ModifyRoute.this);
+                        int val= dbHelper.deleteRoute(etrouteid.getText().toString());
+                        if (val == 1) {
+                            setStatusMsg = getString(R.string.msg_route_delete_succesfull);
 
-                 }
-                 else {
-                     setStatusMsg = "Route deletion unsuccessful.";
+                        }
+                        else {
+                            setStatusMsg = getString(R.string.msg_route_delete_unsuccesfull);
 
-                 }
-                 Intent intent = new Intent(ModifyRoute.this,Routes.class).putExtra("status", setStatusMsg);
-                 startActivity(intent);
-                 Log.i("BTN Click", "Add route Confirmation button clicked");
-
-
-             }
-
-          }
-
-          );
+                        }
+                        Intent intent = new Intent(ModifyRoute.this,Routes.class).putExtra("status", setStatusMsg);
+                        startActivity(intent);
+                        Log.i("BTN Click", "Add route Confirmation button clicked");
 
 
-         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-             @Override
-             public void onClick(DialogInterface dialogInterface, int i) {
+                    }
 
-             }
-         });
+                }
+
+        );
+
+
+        builder.setNegativeButton(R.string.btn_no, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
         builder.create().show();
     }
 }

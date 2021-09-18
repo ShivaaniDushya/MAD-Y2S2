@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">D STOCK</string>
+    <string name="btn_eng">English</string>
+    <string name="btn_sin">සිංහල</string>
+    <string name="btn_tam">தமிழ்</string>
+</resources>

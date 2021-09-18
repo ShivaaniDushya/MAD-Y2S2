@@ -6,10 +6,10 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
@@ -32,9 +32,6 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
-
-import java.net.NoRouteToHostException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,9 +40,15 @@ public class MainActivity extends AppCompatActivity {
     // object
     FusedLocationProviderClient mFusedLocationClient;
 
+    TextView messageView;
+    Button btnTamil, btnEnglish,btnSinhala;
+    Context context;
+    Resources resources;
+
+
     // Initializing other items
     // from layout file
-    //TextView latitudeTextView, longitTextView;
+
     Button B1;
     int PERMISSION_ID = 44;
 
@@ -55,7 +58,28 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // referencing the text and button views
 
+        btnEnglish = findViewById(R.id.buttoneng);
+        btnSinhala = findViewById(R.id.buttonsin);
+        btnTamil = findViewById(R.id.buttontam);
+        LanguageManager lang=new LanguageManager(this);
+
+
+        btnEnglish.setOnClickListener(view -> {
+            lang.updateResource("en");
+            recreate();
+        });
+
+        btnSinhala.setOnClickListener(view -> {
+            lang.updateResource("si");
+            recreate();
+        });
+
+        btnTamil.setOnClickListener(view -> {
+            lang.updateResource("ta");
+            recreate();
+        });
 
         //Bottom Navigation Bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -66,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.items:
-                            startActivity(new Intent(getApplicationContext()
-                            , Items.class));
+                        startActivity(new Intent(getApplicationContext()
+                                , Items.class));
                         overridePendingTransition(0,0);
                         return true;
 

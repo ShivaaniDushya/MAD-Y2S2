@@ -6,7 +6,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
 
+        <Button
+            android:id="@+id/buttoneng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_eng"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/buttonsin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_sin"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/buttontam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_tam"
+            android:visibility="invisible" />
+
+    </LinearLayout>
     <Button
         android:id="@+id/btn_search_shops"
         android:layout_width="match_parent"
