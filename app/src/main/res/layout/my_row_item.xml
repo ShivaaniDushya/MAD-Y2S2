@@ -8,34 +8,53 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="224dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="30dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="12dp"
-            android:layout_marginTop="12dp">
+            android:layout_height="231dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="25dp"
+            android:padding="12dp">
+
 
             <TextView
                 android:id="@+id/item_name_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fabulous Chocolate"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.082" />
+                app:layout_constraintVertical_bias="0.132" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/item_pic"
+                android:layout_width="76dp"
+                android:layout_height="70dp"
+                android:background="@color/black_12"
+                android:contentDescription="@string/text_test_data"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.91"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.099"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CircleImageV" />
 
             <TextView
                 android:id="@+id/item_brand_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Riyana Factory"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -59,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lorem ipsum.Lorem ipsum. Lorem. Lorem ipsum"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -82,40 +101,30 @@
                 android:id="@+id/button_delete_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="deleteItem"
                 android:text="@string/btn_delete"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/space2"
-                app:layout_constraintVertical_bias="0.0"
-                android:onClick="deleteItem"
 
-                />
+                app:layout_constraintVertical_bias="0.0" />
+
 
             <Button
                 android:id="@+id/button_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/btn_view"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.34"
+                app:layout_constraintHorizontal_bias="0.424"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/space2"
                 app:layout_constraintVertical_bias="0.0" />
-
-            <ImageView
-                android:id="@+id/imageView_edit"
-                android:layout_width="36dp"
-                android:layout_height="42dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.763"
-                app:layout_constraintStart_toEndOf="@+id/button_view"
-                app:layout_constraintTop_toBottomOf="@+id/item_description_txt"
-                app:layout_constraintVertical_bias="0.891"
-                app:srcCompat="@drawable/edit" />
 
             <TextView
                 android:id="@+id/item_code_txt"
@@ -168,6 +177,24 @@
                 app:layout_constraintStart_toEndOf="@+id/item_name_txt"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.219" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/Item_single_view"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="46dp"
+                android:layout_height="49dp"
+                android:layout_alignParentEnd="true"
+                android:minWidth="24dp"
+                app:icon="@drawable/ic_round_edit_24"
+                app:iconTint="@color/black_60"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.918"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.912"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

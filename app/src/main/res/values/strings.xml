@@ -54,6 +54,7 @@
     <string name="header_item">ITEMS</string>
     <string name="header_update_item">UPDATE ITEM</string>
     <string name="header_add_customer">ADD CUSTOMER</string>
+    <string name="add_item_header">Add Item</string>
 
     <!-- Items -->
     <string name="CreatePage">Create an Item</string>
@@ -64,6 +65,12 @@
     <string name="Buy_price_item"> </string>
     <string name="Sell_price_item"> </string>
     <string name="Item_Description"> </string>
+    <string name="no_items">No items to show. Press + button to add a new customer.</string>
+    <string name="item_pic"></string>
+    <string name="add_item_pic"></string>
+    <string name="Item_img_btn">Add an image</string>
+    <string name="Item_single_view"></string>
+    <string name="Ïtem_image"></string>
 
 
     <!-- create item-->

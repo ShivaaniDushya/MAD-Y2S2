@@ -46,24 +46,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="parent" />
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/topAppBar4"
-        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/topAppBarParent"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="666dp"
-        android:background="@drawable/round_corner_rectangle"
-        android:elevation="0dp"
-        app:layout_scrollFlags="scroll|enterAlways|snap"
-        app:menu="@menu/top_app_bar"
-        app:navigationIcon="@drawable/ic_round_account_circle_24"
-        app:title="@string/header_item" />
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@color/transparent"
+            app:elevation="0dp">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                style="@style/Widget.MaterialComponents.Toolbar.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@drawable/round_corner_rectangle"
+                android:elevation="0dp"
+                app:menu="@menu/top_app_bar"
+                app:navigationIcon="@drawable/back_arrow_icon"
+                app:title="@string/header_item" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <LinearLayout
         android:layout_width="407dp"
@@ -116,20 +127,21 @@
             android:layout_width="130dp"
             android:layout_height="131dp"
             android:layout_marginLeft="135dp"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="220dp"
             app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.496"
-            app:srcCompat="@drawable/nodata" />
+            app:srcCompat="@drawable/ic_not_found" />
 
         <TextView
             android:id="@+id/no_data2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:text="@string/label_no_data"
+            android:layout_width="271dp"
+            android:layout_height="61dp"
+            android:layout_marginLeft="67dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/no_items"
             android:textAlignment="center"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"

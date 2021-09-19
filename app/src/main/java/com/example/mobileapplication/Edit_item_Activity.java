@@ -41,7 +41,7 @@ public class Edit_item_Activity extends AppCompatActivity {
         getAndSetIntentData_Item();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setSelectedItemId(R.id.routes);
+        bottomNavigationView.setSelectedItemId(R.id.items);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
