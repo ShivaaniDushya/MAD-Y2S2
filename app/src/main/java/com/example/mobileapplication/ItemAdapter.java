@@ -23,7 +23,7 @@ import com.example.mobileapplication.database.DBHelper;
 
 import java.util.ArrayList;
 
-public class ItemAdapter extends RecyclerView.Adapter <ItemAdapter.MyViewHolder>{
+public class ItemAdapter<itemURL> extends RecyclerView.Adapter <ItemAdapter.MyViewHolder>{
 
     private Context context;
     private Activity activity;
@@ -34,6 +34,7 @@ public class ItemAdapter extends RecyclerView.Adapter <ItemAdapter.MyViewHolder>
             item_buy_price,
             item_sell_price,
             item_description;
+
     private int result;
 
     ItemAdapter(Activity activity,
@@ -44,7 +45,8 @@ public class ItemAdapter extends RecyclerView.Adapter <ItemAdapter.MyViewHolder>
                  ArrayList item_count,
                  ArrayList item_buy_price,
                  ArrayList item_sell_price,
-                 ArrayList item_description) {
+                 ArrayList item_description,
+                ArrayList itemURL) {
 
         Log.d("workflow","ItemAdapter Constructor Called");
         this.activity=activity;
@@ -163,7 +165,7 @@ public class ItemAdapter extends RecyclerView.Adapter <ItemAdapter.MyViewHolder>
 
             mainLayout = itemView.findViewById(R.id.mainLayout);
 
-            button_view_item=itemView.findViewById(R.id.button_view);
+            button_view_item=itemView.findViewById(R.id.Item_single_view);
             // Animation translate_anim= AnimationUtils.loadAnimation(context,R.anim.translate_anim);
             //mainLayout.setAnimation(translate_anim);
         }

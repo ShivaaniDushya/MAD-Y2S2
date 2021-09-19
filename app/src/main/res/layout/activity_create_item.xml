@@ -8,78 +8,50 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="15dp">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="338dp"
-        android:layout_marginBottom="-340dp"
-        app:itemBackground="@color/light_blue"
-        app:itemIconTint="@drawable/selector"
-        app:itemTextColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/bottom">
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/transparent"
-        app:elevation="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/topAppBar"
-        style="@style/Widget.MaterialComponents.Toolbar.Primary"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_margin="4dp"
-        android:background="@drawable/round_corner_rectangle"
-        android:elevation="0dp"
-        app:layout_scrollFlags="scroll|enterAlways|snap"
-        app:menu="@menu/top_app_bar"
-        app:navigationIcon="@drawable/back_arrow_icon"
-        app:title="Add Item"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="4dp"
-        tools:layout_editor_absoluteY="16dp" />
-
 
     <ScrollView
-        android:layout_width="394dp"
-        android:layout_height="584dp"
-        android:paddingLeft="10dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.764"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topAppBar"
-        app:layout_constraintVertical_bias="0.28">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="34dp"
             android:orientation="vertical"
-            android:paddingTop="10dp">
+            android:paddingBottom="150dp">
+            >
 
-            <!--
-                <com.google.android.gms.maps.MapView
-                    android:id="@+id/mapView"
-                    android:layout_width="match_parent"
-                    android:layout_height="243dp"
-                    android:accessibilityLiveRegion="none" />
-                -->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/Ïtem_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:adjustViewBounds="true"
+                android:background="@color/black_12"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CircleImageV" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/Item_img_btn"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="@string/Item_img_btn"
+                android:textColor="@color/design_default_color_secondary_variant"
+                tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txt_item_name"
@@ -264,18 +236,68 @@
                 android:id="@+id/buttonAddItem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/purple_500"
+                android:elevation="0dp"
                 android:onClick="addItem"
-                android:text="@string/btn_add" />
+                android:padding="20dp"
+                android:text="ADD"
+                app:elevation="0dp" />
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="22dp"
                 android:layout_weight="1" />
 
+
         </LinearLayout>
 
     </ScrollView>
 
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/topAppBarParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@color/transparent"
+            app:elevation="0dp">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                style="@style/Widget.MaterialComponents.Toolbar.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@drawable/round_corner_rectangle"
+                android:elevation="0dp"
+                app:menu="@menu/top_app_bar"
+                app:navigationIcon="@drawable/back_arrow_icon"
+                app:title="@string/add_item_header" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/light_blue"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

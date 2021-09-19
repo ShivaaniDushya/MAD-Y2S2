@@ -64,7 +64,9 @@ public class DBHelper extends SQLiteOpenHelper {
                         + ItemMaster.ItemsT.COLUMN_ItemSellPrice +
                         " REAL, "
                         + ItemMaster.ItemsT.COLUMN_ItemDescription +
-                        " TEXT" + ")";
+                        " TEXT"
+                        + ItemMaster.ItemsT.COLUMN_Item_URL
+                        + ")";
 
         String SQL_CREATE_CUSTOMER =
                 "CREATE TABLE "
@@ -272,7 +274,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     //add an Item
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public long addItem(String itemname, String itembrand, int itemcount, double buyprice, double sellprice, String itemdescription) //enter all the parameter to be added to DB
+    public long addItem(String itemname, String itembrand, int itemcount, double buyprice, double sellprice, String itemdescription, String itemURL) //enter all the parameter to be added to DB
     {
         Log.d("workflow", "DB addItems method Called");
 
@@ -282,12 +284,15 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();// get the data repository in writable mode
 
         ContentValues values = new ContentValues();  //create a new map of values , where column names the key
+
         values.put(ItemMaster.ItemsT.COLUMN_ItemName, itemname);
         values.put(ItemMaster.ItemsT.COLUMN_ItemBrand, itembrand);
         values.put(ItemMaster.ItemsT.COLUMN_ItemCount, itemcount);
         values.put(ItemMaster.ItemsT.COLUMN_ItemBuyPrice, buyprice);
         values.put(ItemMaster.ItemsT.COLUMN_ItemSellPrice, sellprice);
         values.put(ItemMaster.ItemsT.COLUMN_ItemDescription, itemdescription);
+        values.put(ItemMaster.ItemsT.COLUMN_Item_URL, itemURL);
+
 
         long newRowID = db.insert(ItemMaster.ItemsT.TABLE_NAME, null, values); //Insert a new row and returning the primary
         //key values of the new row

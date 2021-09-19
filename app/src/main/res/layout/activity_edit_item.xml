@@ -92,14 +92,12 @@
                 app:boxStrokeWidthFocused="1dp"
                 app:endIconMode="clear_text"
                 app:helperText="Item Count"
-                app:hintTextColor="@color/design_default_color_secondary_variant"
-                app:prefixText="+94">
+                app:hintTextColor="@color/design_default_color_secondary_variant">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/item_count_update"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="phone" />
+                    android:layout_height="wrap_content" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

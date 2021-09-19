@@ -15,6 +15,7 @@ public class ItemMaster {
         public static final String COLUMN_ItemBuyPrice = "ItemBuyPrice";
         public static final String COLUMN_ItemSellPrice = "ItemSellPrice";
         public static final String COLUMN_ItemDescription = "ItemDescription";
+        public static final String COLUMN_Item_URL = "item_url";
 
     }
 }
