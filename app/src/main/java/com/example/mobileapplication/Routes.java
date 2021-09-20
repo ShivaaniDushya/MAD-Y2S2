@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -32,7 +33,7 @@ public class Routes extends AppCompatActivity {
     Bundle bundle;
 
     DBHelper db;
-    ArrayList<String> route_id,route_start_location,route_end_location,route_distance,route_created_date,route_modified_date,route_isdefault;
+    ArrayList<String> route_id,route_start_location,route_end_location,route_distance,route_created_date,route_modified_date,route_isdefault,route_getcxcount;
     RouteAdapter routeAdapter;
 
 
@@ -66,6 +67,7 @@ public class Routes extends AppCompatActivity {
         route_created_date = new ArrayList<>();
         route_modified_date = new ArrayList<>();
         route_isdefault = new ArrayList<>();
+        route_getcxcount=new ArrayList<>();
 
         storeDataInArrays();
         Log.d("workflow","Routes storeDataInArrays method Called");
@@ -76,7 +78,8 @@ public class Routes extends AppCompatActivity {
                 route_distance,
                 route_created_date,
                 route_modified_date,
-                route_isdefault);
+                route_isdefault,
+                route_getcxcount);
 
         recyclerView.setAdapter(routeAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -164,6 +167,7 @@ public class Routes extends AppCompatActivity {
         }
         else
         {
+            Resources resources=getResources();
             while(cursor.moveToNext()){
                 route_id.add(cursor.getString(0));
                 route_start_location.add(cursor.getString(1));
@@ -172,6 +176,8 @@ public class Routes extends AppCompatActivity {
                 route_created_date.add(cursor.getString(4));
                 route_modified_date.add(cursor.getString(5));
                 route_isdefault.add(cursor.getString(6));
+                route_getcxcount.add(cursor.getString(7));
+                Log.d("workflow",cursor.getString(7));
             }
             empty_imageview.setVisibility(View.GONE);
             no_data.setVisibility(View.GONE);

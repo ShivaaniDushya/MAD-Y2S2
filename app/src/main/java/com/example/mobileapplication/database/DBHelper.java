@@ -4,8 +4,10 @@ package com.example.mobileapplication.database;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.os.Build;
 import android.util.Log;
 
@@ -13,13 +15,15 @@ import androidx.annotation.RequiresApi;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "UserInfo.db";
 
     public DBHelper(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, 2);
     }
     //change the DB version when upgrading the DB
 
@@ -91,7 +95,18 @@ public class DBHelper extends SQLiteOpenHelper {
                         + CustomerMaster.CustomerT.COLUMN_NAME_PP_URL +
                         " TEXT, "
                         + CustomerMaster.CustomerT.COLUMN_NAME_SP_URL +
-                        " TEXT" + ")";
+                        " TEXT, "
+                        + CustomerMaster.CustomerT.COLUMN_NAME_CX_route +
+                        " INTEGER,FOREIGN KEY"
+                        +"("
+                        +CustomerMaster.CustomerT.COLUMN_NAME_CX_route
+                        +") "
+                        +" REFERENCES "
+                        +RouteMaster.RoutesT.TABLE_NAME
+                        +"("
+                        + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID
+                        +")"
+                        + ")";
 
 
         //defining the sql query
@@ -99,6 +114,7 @@ public class DBHelper extends SQLiteOpenHelper {
         Log.d("DBcreation", "Db created succesfully");
         db.execSQL(SQL_CREATE_ITEMS);
         db.execSQL(SQL_CREATE_CUSTOMER); //Execute the customer table creation
+        Log.d("DBcreation", SQL_CREATE_CUSTOMER);
         Log.d("workflow", "Customer Db created successfully");
 
 
@@ -108,6 +124,12 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.d("workflow", "DB Onupgrade method Called");
+        db.execSQL("DROP TABLE IF EXISTS " + CustomerMaster.CustomerT.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + RouteMaster.RoutesT.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + ItemMaster.ItemsT.TABLE_NAME);
+
+        // Create tables again
+        onCreate(db);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -147,6 +169,61 @@ public class DBHelper extends SQLiteOpenHelper {
         return newRowID;
     }
 
+    public List<String> getstartStoplocation(){
+        List<String> list = new ArrayList<String>();
+
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + RouteMaster.RoutesT.TABLE_NAME
+                +" ORDER BY "+
+                RouteMaster.RoutesT.COLUMN_NAME_IS_DEFAULT
+                +" DESC";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);//selectQuery,selectedArguments
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                list.add(cursor.getString(1)+" - "+cursor.getString(2));//adding 2nd column data
+                Log.d("workflow",cursor.getString(1));
+            } while (cursor.moveToNext());
+        }
+
+        // closing connection
+        cursor.close();
+        db.close();
+        // returning lables
+        return list;
+    }
+
+    public List<String> getroutelist(){
+        List<String> list = new ArrayList<String>();
+
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + RouteMaster.RoutesT.TABLE_NAME
+                +" ORDER BY "+
+                RouteMaster.RoutesT.COLUMN_NAME_IS_DEFAULT
+                +" DESC";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);//selectQuery,selectedArguments
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                list.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+        // closing connection
+        cursor.close();
+        db.close();
+        // returning lables
+        return list;
+    }
+
+
+
+
 
     public int deleteRoute(String routeid) {
         Log.d("workflow", "DB delete route method Called");
@@ -154,10 +231,7 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         String selection = RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID + " = ? ";
         String[] selectionArgs = {routeid};
-    //     db.delete(RouteMaster.RoutesT.TABLE_NAME,   //table name
-  //              selection,                         //where clause
- //               selectionArgs                       //selection clause
- //       );
+
 
          int status=db.delete(RouteMaster.RoutesT.TABLE_NAME,   //table name
                  selection,                         //where clause
@@ -195,43 +269,49 @@ public class DBHelper extends SQLiteOpenHelper {
     public Cursor readAllRoutes() {
         Log.d("workflow", "DB read All Routes method Called");
 
-        String query = "SELECT * FROM " + RouteMaster.RoutesT.TABLE_NAME;
+
+        String query = "SELECT "
+                + RouteMaster.RoutesT.TABLE_NAME+
+                ".*, COUNT"+
+                "("
+                +CustomerMaster.CustomerT.TABLE_NAME+
+                "."
+                +CustomerMaster.CustomerT.COLUMN_NAME_CX_route+
+                ") AS NumberOfRoutes From "
+                +RouteMaster.RoutesT.TABLE_NAME+
+                " LEFT JOIN "
+                +CustomerMaster.CustomerT.TABLE_NAME+
+                " ON "
+                +CustomerMaster.CustomerT.TABLE_NAME+
+                "."
+                +CustomerMaster.CustomerT.COLUMN_NAME_CX_route+
+                "="
+                +RouteMaster.RoutesT.TABLE_NAME+
+                "."
+                +RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID+
+                " GROUP BY "
+                +RouteMaster.RoutesT.TABLE_NAME+
+                "."
+                +RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID
+                +" ORDER BY "+
+                RouteMaster.RoutesT.COLUMN_NAME_IS_DEFAULT
+                +" DESC";
+
+        Log.d("workflow",query);
+
         SQLiteDatabase db = this.getReadableDatabase();
 
 
         Cursor cursor = null;
         if (db != null) {
             cursor = db.rawQuery(query, null);
+
         }
         return cursor;
     }
 
 
-    //@piyoshila use this method to get routes details with the default flag
-    //If a particular route is default is default flag will be 1
-    public Cursor readRouteData() {
 
-        Log.d("workflow", "DB readRouteData method Called");
-        String query =
-                "SELECT "
-                        + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID +
-                        " , "
-                        + RouteMaster.RoutesT.COLUMN_NAME_START_LOCATION +
-                        " , "
-                        + RouteMaster.RoutesT.COLUMN_NAME_END_LOCATION +
-                        " , "
-                        + RouteMaster.RoutesT.COLUMN_NAME_IS_DEFAULT +
-                        " FROM "
-                        + RouteMaster.RoutesT.TABLE_NAME;
-
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor cursor = null;
-        if (db != null) {
-            cursor = db.rawQuery(query, null);
-        }
-        return cursor;
-    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public int update_def_route() {
@@ -384,7 +464,9 @@ public class DBHelper extends SQLiteOpenHelper {
 
     //Insert Customer to the DB
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public long insertCustomer(String cusName, String storeName, int mobile, String streetAddress, String city, String profileUri, String storeUri) {
+    public long insertCustomer(String cusName, String storeName, int mobile, String streetAddress, String city, String profileUri, String storeUri,String cxroute) {
+     //cxroute
+
         Log.d("workflow", "DB insertCustomer method called");
         String currentTime = getTimeStamp();
         Log.d("workflow", "DB getTimeStamp method Called");
@@ -400,6 +482,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(CustomerMaster.CustomerT.COLUMN_NAME_CREATED_DATE, currentTime);
         values.put(CustomerMaster.CustomerT.COLUMN_NAME_PP_URL, profileUri);
         values.put(CustomerMaster.CustomerT.COLUMN_NAME_SP_URL, storeUri);
+        values.put(CustomerMaster.CustomerT.COLUMN_NAME_CX_route,cxroute);
 
         long newRowID = db.insert(CustomerMaster.CustomerT.TABLE_NAME, null, values); //Insert a new row and returning the primary key values of the new row
         Log.d("workflow", "DB insertCustomer method Called finished");

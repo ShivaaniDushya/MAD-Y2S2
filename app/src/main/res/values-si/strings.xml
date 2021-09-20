@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">D STOCK</string>
     <string name="btn_eng">English</string>
     <string name="btn_sin">සිංහල</string>
@@ -49,4 +50,7 @@
     <string name="bottom_item">අයිතම</string>
     <string name="label_shops">සාප්පු</string>
     <string name="header_create_route">"මාර්ග සෑදීම "</string>
+    <string name="msg_oops">අපොයි</string>
+    <string name="msg_unable_delete">" මේ මොහොතේ මැකීමට නොහැකිය"</string>
+    <string name="msg_retry_delete">" මෙම මාර්ගයේ ගණුදෙනු කර ඇති පාරිභෝගිකයින් සිටී. පාරිභෝගිකයින් මැකීමෙන් පසු නැවත උත්සාහ කරන්න."</string>
 </resources>
