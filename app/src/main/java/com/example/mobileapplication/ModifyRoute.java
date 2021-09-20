@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,9 +22,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class ModifyRoute extends AppCompatActivity {
-    TextInputEditText etrouteid,etstartloc,etendloc,etdistance,etcreateddate,etmodifieddate;
+    TextInputEditText etrouteid,etstartloc,etendloc,etdistance,etcreateddate,etmodifieddate,etcxcount;
 
-    String rid,startloc,endloc,distance,created,modified,issetdefault;
+    String rid,startloc,endloc,distance,created,modified,issetdefault,cxcount;
     String setStatusMsg,issetasdefault="0";
 
     boolean isfieldsvalidated=false;
@@ -43,6 +44,7 @@ public class ModifyRoute extends AppCompatActivity {
         etdistance=findViewById(R.id.inp_distanceup1);
         etcreateddate =findViewById(R.id.inp_created1);
         etmodifieddate=findViewById(R.id.inp_modified1);
+        etcxcount=findViewById(R.id.view_cxcount);
         aSwitch=findViewById(R.id.switch_mod);
 
 
@@ -108,6 +110,8 @@ public class ModifyRoute extends AppCompatActivity {
                 getIntent().hasExtra("endloc") &&
                 getIntent().hasExtra("distance"))// && getIntent().hasExtra("created") && getIntent().hasExtra("modified")
         {
+
+
             rid = getIntent().getStringExtra("rid");
             startloc = getIntent().getStringExtra("startloc");
             endloc = getIntent().getStringExtra("endloc");
@@ -115,6 +119,9 @@ public class ModifyRoute extends AppCompatActivity {
             created = getIntent().getStringExtra("created");
             modified = getIntent().getStringExtra("modified");
             issetdefault=getIntent().getStringExtra("isdefaullt");
+            cxcount=getIntent().getStringExtra("cxcount");
+
+
 
             //  Log.d("mvalies",rid);
             etrouteid.setText(rid);
@@ -123,6 +130,7 @@ public class ModifyRoute extends AppCompatActivity {
             etdistance.setText(distance);
             etcreateddate.setText(created);
             etmodifieddate.setText(modified);
+            etcxcount.setText(cxcount);
 
             if(Integer.parseInt(issetdefault)==1){
                 aSwitch.setChecked(true);
@@ -145,7 +153,7 @@ public class ModifyRoute extends AppCompatActivity {
 
             DBHelper dbHelper = new DBHelper(this);
 
-            //   int val1=dbHelper.update_def_route();
+
 
             int val = dbHelper.updateRoute(etrouteid.getText().toString(), etstartloc.getText().toString(),
                     etendloc.getText().toString(),
@@ -227,10 +235,33 @@ public class ModifyRoute extends AppCompatActivity {
     }
 
     public void deleteRoute(View view){
+        if(Integer.parseInt(cxcount)==0) {
+            confirmDialog();
+            Log.d("workflow", "Modify Route deleteRoute  method  Called");
+        }
+        else{
+            errorDialog();
+        }
 
-        confirmDialog();
-        Log.d("workflow","Modify Route deleteRoute  method  Called");
+    }
 
+    private void errorDialog() {
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.msg_oops));
+        builder.setMessage((getString(R.string.label_route))
+                +" "+
+                rid
+                +" "+
+                (getString(R.string.msg_unable_delete))
+                +"."+
+                (getString(R.string.msg_retry_delete)));
+        builder.setPositiveButton(R.string.btn_ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
     }
 
     void confirmDialog() {

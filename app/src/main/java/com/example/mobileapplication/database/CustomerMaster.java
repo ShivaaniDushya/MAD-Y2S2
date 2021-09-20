@@ -18,5 +18,6 @@ public class CustomerMaster {
         public static final String COLUMN_NAME_MODIFIED_DATE = "modified_date";
         public static final String COLUMN_NAME_PP_URL = "pp_url";
         public static final String COLUMN_NAME_SP_URL = "sp_url";
+        public static final String COLUMN_NAME_CX_route = "cust_route";
     }
 }

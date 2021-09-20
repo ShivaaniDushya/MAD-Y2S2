@@ -20,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,7 +34,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends  AppCompatActivity {
 
     // initializing
     // FusedLocationProviderClient
@@ -90,8 +91,11 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.items:
-                        startActivity(new Intent(getApplicationContext()
-                                , Items.class));
+                    startActivity(new Intent(getApplicationContext()
+                             , Items.class));
+
+
+
                         overridePendingTransition(0,0);
                         return true;
 
