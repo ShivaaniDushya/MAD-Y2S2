@@ -12,7 +12,11 @@ import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,15 +32,16 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
-public class AddCustomer extends AppCompatActivity {
+public class AddCustomer extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
 
     TextInputEditText customerName, storeName, mobile, streetAddress, city;
     MaterialButton modifyBtn, addPP, addSP;
     ShapeableImageView storePPImg;
     boolean allFieldsValid = false;
-    String AddStatusMsg, customerID, profilePicUri = null, storePicUri = null;
+    String AddStatusMsg, customerID, profilePicUri = null, storePicUri = null,cxroute;
     Bundle bundle;
     DBHelper db;
     Cursor cursor;
@@ -44,11 +49,14 @@ public class AddCustomer extends AppCompatActivity {
     static final int REQUEST_IMAGE_CAPTURE_PP = 1;
     static final int REQUEST_IMAGE_CAPTURE_SP = 2;
     File photoFile;
+    Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_customer);
+
+        spinner = findViewById(R.id.spinner);
 
         customerName = findViewById(R.id.customer_name);
         storeName = findViewById(R.id.store_name);
@@ -60,6 +68,11 @@ public class AddCustomer extends AppCompatActivity {
         addSP = findViewById(R.id.btn_sp_img);
         storeSPImg = findViewById(R.id.sp_img);
         storePPImg = findViewById(R.id.pp_img);
+
+        spinner.setOnItemSelectedListener(this);
+
+        // Loading spinner data from database
+        loadSpinnerData();
 
         addPP.setOnClickListener(v -> dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE_PP));
         addSP.setOnClickListener(v -> dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE_SP));
@@ -106,6 +119,20 @@ public class AddCustomer extends AppCompatActivity {
 
             return false;
         });
+    }
+
+    private void loadSpinnerData() {
+        DBHelper db = new DBHelper(getApplicationContext());
+        List<String> labels = db.getstartStoplocation();
+        Log.d("workflow","loadspinnermethodcalled");
+        // Creating adapter for spinner
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, labels);
+
+        // Drop down layout style - list view with radio button
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // attaching data adapter to spinner
+        spinner.setAdapter(dataAdapter);
     }
 
     private void dispatchTakePictureIntent(int REQUEST_IMAGE_CAPTURE) {
@@ -209,7 +236,7 @@ public class AddCustomer extends AppCompatActivity {
                     Objects.requireNonNull(streetAddress.getText()).toString(),
                     Objects.requireNonNull(city.getText()).toString(),
                     profilePicUri,
-                    storePicUri
+                    storePicUri,cxroute
             );
 
             Log.d("workflow", String.valueOf(val));
@@ -320,5 +347,25 @@ public class AddCustomer extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int i, long id) {
+        int label=parent.getSelectedItemPosition();
+
+        DBHelper db = new DBHelper(getApplicationContext());
+        List<String> labels=db.getroutelist();
+
+        cxroute = labels.get(label);
+
+
+        // Showing selected spinner item
+       Toast.makeText(parent.getContext(), "You selected: " + cxroute,
+              Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }

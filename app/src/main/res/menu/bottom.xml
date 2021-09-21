@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/items"
-        android:title="@string/bottom_routes"
+        android:title="@string/bottom_item"
         android:icon="@drawable/item_icon"/>
 
     <item
