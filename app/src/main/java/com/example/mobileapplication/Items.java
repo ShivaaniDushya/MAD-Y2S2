@@ -34,7 +34,7 @@ public class Items extends AppCompatActivity {
       TextView no_data2;
 
       DBHelper db;
-      ArrayList<String> Item_Code, Item_Name,Item_Brand,Item_Count,BuyPrice_Item,SellPrice_Item,Item_Descrip, Item_URL;
+      ArrayList<String> Item_Code, Item_Name,Item_Brand,Item_Count,BuyPrice_Item,SellPrice_Item,Item_Descrip;
       ItemAdapter itemAdapter;
 
 
@@ -59,7 +59,7 @@ public class Items extends AppCompatActivity {
         BuyPrice_Item = new ArrayList<>();
         SellPrice_Item = new ArrayList<>();
         Item_Descrip = new ArrayList<>();
-        Item_URL = new ArrayList<>();
+
 
         storeDataInArrays_Items();
         Log.d("workflow","Items storeDataInArrays_Items method Called");
@@ -70,8 +70,8 @@ public class Items extends AppCompatActivity {
                 Item_Count,
                 BuyPrice_Item,
                 SellPrice_Item,
-                Item_Descrip,
-                Item_URL);
+                Item_Descrip
+                );
 
 
         recyclerView.setAdapter(itemAdapter);
@@ -163,7 +163,7 @@ public class Items extends AppCompatActivity {
                 BuyPrice_Item.add(cursor.getString(4));
                 SellPrice_Item.add(cursor.getString(5));
                 Item_Descrip.add(cursor.getString(6));
-                Item_URL.add(cursor.getString(7));
+
             }
             empty_imageview.setVisibility(View.GONE);
             no_data2.setVisibility(View.GONE);
