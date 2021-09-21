@@ -45,8 +45,8 @@ public class ItemAdapter<itemURL> extends RecyclerView.Adapter <ItemAdapter.MyVi
                  ArrayList item_count,
                  ArrayList item_buy_price,
                  ArrayList item_sell_price,
-                 ArrayList item_description,
-                ArrayList itemURL) {
+                 ArrayList item_description
+               ) {
 
         Log.d("workflow","ItemAdapter Constructor Called");
         this.activity=activity;
