@@ -9,10 +9,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
 import android.util.Log;
 
+import com.example.mobileapplication.SalesItem;
+
 import androidx.annotation.RequiresApi;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -91,8 +95,110 @@ public class DBHelper extends SQLiteOpenHelper {
                         + CustomerMaster.CustomerT.COLUMN_NAME_PP_URL +
                         " TEXT, "
                         + CustomerMaster.CustomerT.COLUMN_NAME_SP_URL +
-                        " TEXT" + ")";
+                        " TEXT, "
+                        + CustomerMaster.CustomerT.COLUMN_NAME_CX_route +
+                        " INTEGER,FOREIGN KEY"
+                        +"("
+                        + CustomerMaster.CustomerT.COLUMN_NAME_CX_route
+                        +") "
+                        +" REFERENCES "
+                        + RouteMaster.RoutesT.TABLE_NAME
+                        +"("
+                        + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID
+                        +")"
+                        + ")";
 
+        String SQL_CREATE_SALES_TABLE =
+                "CREATE TABLE "
+                        + SalesMaster.SalesT.TABLE_NAME +
+                        " ("
+                        + SalesMaster.SalesT.COLUMN_NAME_INVOICE_ID +
+                        " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                        + SalesMaster.SalesT.COLUMN_NAME_CUSTOMER_ID +
+                        " INTEGER, "
+                        + SalesMaster.SalesT.COLUMN_NAME_BALANCE +
+                        " TEXT, "
+                        + SalesMaster.SalesT.COLUMN_NAME_DELIVERY_DATE +
+                        " TEXT, "
+                        + SalesMaster.SalesT.COLUMN_NAME_CREATED_DATE +
+                        " TEXT, "
+                        + "FOREIGN KEY"
+                        + "("
+                        + SalesMaster.SalesT.COLUMN_NAME_CUSTOMER_ID
+                        + ") "
+                        +" REFERENCES "
+                        + CustomerMaster.CustomerT.TABLE_NAME
+                        + "("
+                        + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID
+                        + ")"
+                        + ")";
+
+        String SQL_CREATE_SALES_ITEMS_TABLE =
+                "CREATE TABLE "
+                        + SalesItemsMaster.SalesItemsT.TABLE_NAME +
+                        " ("
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_INVOICE_ID +
+                        " INTEGER,"
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_ITEM_ID +
+                        " INTEGER,"
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_QTY +
+                        " TEXT, "
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_AMOUNT +
+                        " TEXT, "
+                        + "PRIMARY KEY"
+                        +"("
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_INVOICE_ID
+                        +", "
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_ITEM_ID
+                        +"), "
+                        + "FOREIGN KEY"
+                        +"("
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_INVOICE_ID
+                        +") "
+                        +" REFERENCES "
+                        + SalesMaster.SalesT.TABLE_NAME
+                        +"("
+                        + SalesMaster.SalesT.COLUMN_NAME_INVOICE_ID
+                        + "),"
+                        + "FOREIGN KEY"
+                        + "("
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_ITEM_ID
+                        + ") "
+                        + " REFERENCES "
+                        + ItemMaster.ItemsT.TABLE_NAME
+                        + "("
+                        + ItemMaster.ItemsT.COLUMN_ItemCode
+                        + ")"
+                        + ")";
+
+        String SQL_CREATE_PAYMENT_TABLE =
+                "CREATE TABLE "
+                        + PaymentMaster.PaymentsT.TABLE_NAME +
+                        " ("
+                        + PaymentMaster.PaymentsT.COLUMN_NAME_INVOICE_ID +
+                        " INTEGER, "
+                        + PaymentMaster.PaymentsT.COLUMN_NAME_PAYMENT_DATE +
+                        " TEXT, "
+                        + PaymentMaster.PaymentsT.COLUMN_NAME_INVOICE_AMOUNT +
+                        " INTEGER, "
+                        + PaymentMaster.PaymentsT.COLUMN_NAME_PAYMENT +
+                        " TEXT, "
+                        + "PRIMARY KEY"
+                        + "("
+                        + PaymentMaster.PaymentsT.COLUMN_NAME_INVOICE_ID
+                        + ", "
+                        + PaymentMaster.PaymentsT.COLUMN_NAME_PAYMENT_DATE
+                        + "), "
+                        + "FOREIGN KEY"
+                        + "("
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_INVOICE_ID
+                        + ") "
+                        +" REFERENCES "
+                        + SalesMaster.SalesT.TABLE_NAME
+                        + "("
+                        + SalesMaster.SalesT.COLUMN_NAME_INVOICE_ID
+                        + ")"
+                        + ")";
 
         //defining the sql query
         db.execSQL(SQL_CREATE_ROUTES_TABLE);//Execute the table creation
@@ -100,7 +206,12 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_ITEMS);
         db.execSQL(SQL_CREATE_CUSTOMER); //Execute the customer table creation
         Log.d("workflow", "Customer Db created successfully");
-
+        db.execSQL(SQL_CREATE_SALES_TABLE); //Execute the sales table creation
+        Log.d("workflow", "Sales table created successfully");
+        db.execSQL(SQL_CREATE_SALES_ITEMS_TABLE); //Execute the sales_items table creation
+        Log.d("workflow", "SalesItems table created successfully");
+        db.execSQL(SQL_CREATE_PAYMENT_TABLE); //Execute the payment table creation
+        Log.d("workflow", "Payment table created successfully");
 
     }
 
@@ -214,15 +325,31 @@ public class DBHelper extends SQLiteOpenHelper {
         Log.d("workflow", "DB readRouteData method Called");
         String query =
                 "SELECT "
-                        + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID +
-                        " , "
-                        + RouteMaster.RoutesT.COLUMN_NAME_START_LOCATION +
-                        " , "
-                        + RouteMaster.RoutesT.COLUMN_NAME_END_LOCATION +
-                        " , "
-                        + RouteMaster.RoutesT.COLUMN_NAME_IS_DEFAULT +
-                        " FROM "
-                        + RouteMaster.RoutesT.TABLE_NAME;
+                        + RouteMaster.RoutesT.TABLE_NAME+
+                        ".*, COUNT"+
+                        "("
+                        +CustomerMaster.CustomerT.TABLE_NAME+
+                        "."
+                        +CustomerMaster.CustomerT.COLUMN_NAME_CX_route+
+                        ") AS NumberOfRoutes From "
+                        +RouteMaster.RoutesT.TABLE_NAME+
+                        " LEFT JOIN "
+                        +CustomerMaster.CustomerT.TABLE_NAME+
+                        " ON "
+                        +CustomerMaster.CustomerT.TABLE_NAME+
+                        "."
+                        +CustomerMaster.CustomerT.COLUMN_NAME_CX_route+
+                        "="
+                        +RouteMaster.RoutesT.TABLE_NAME+
+                        "."
+                        +RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID+
+                        " GROUP BY "
+                        +RouteMaster.RoutesT.TABLE_NAME+
+                        "."
+                        +RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID
+                        +" ORDER BY "+
+                        RouteMaster.RoutesT.COLUMN_NAME_IS_DEFAULT
+                        +" DESC";
 
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -465,6 +592,7 @@ public class DBHelper extends SQLiteOpenHelper {
         Log.d("workflow", String.valueOf(cursor));
         return cursor;
     }
+
 }
 
 
