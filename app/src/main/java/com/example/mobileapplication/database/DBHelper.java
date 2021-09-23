@@ -107,6 +107,98 @@ public class DBHelper extends SQLiteOpenHelper {
                         +")"
                         + ")";
 
+        String SQL_CREATE_SALES_TABLE =
+                "CREATE TABLE "
+                        + SalesMaster.SalesT.TABLE_NAME +
+                        " ("
+                        + SalesMaster.SalesT.COLUMN_NAME_INVOICE_ID +
+                        " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                        + SalesMaster.SalesT.COLUMN_NAME_CUSTOMER_ID +
+                        " INTEGER, "
+                        + SalesMaster.SalesT.COLUMN_NAME_BALANCE +
+                        " TEXT, "
+                        + SalesMaster.SalesT.COLUMN_NAME_DELIVERY_DATE +
+                        " TEXT, "
+                        + SalesMaster.SalesT.COLUMN_NAME_CREATED_DATE +
+                        " TEXT, "
+                        + "FOREIGN KEY"
+                        + "("
+                        + SalesMaster.SalesT.COLUMN_NAME_CUSTOMER_ID
+                        + ") "
+                        +" REFERENCES "
+                        + CustomerMaster.CustomerT.TABLE_NAME
+                        + "("
+                        + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID
+                        + ")"
+                        + ")";
+
+        String SQL_CREATE_SALES_ITEMS_TABLE =
+                "CREATE TABLE "
+                        + SalesItemsMaster.SalesItemsT.TABLE_NAME +
+                        " ("
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_INVOICE_ID +
+                        " INTEGER,"
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_ITEM_ID +
+                        " INTEGER,"
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_QTY +
+                        " TEXT, "
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_AMOUNT +
+                        " TEXT, "
+                        + "PRIMARY KEY"
+                        +"("
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_INVOICE_ID
+                        +", "
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_ITEM_ID
+                        +"), "
+                        + "FOREIGN KEY"
+                        +"("
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_INVOICE_ID
+                        +") "
+                        +" REFERENCES "
+                        + SalesMaster.SalesT.TABLE_NAME
+                        +"("
+                        + SalesMaster.SalesT.COLUMN_NAME_INVOICE_ID
+                        + "),"
+                        + "FOREIGN KEY"
+                        + "("
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_ITEM_ID
+                        + ") "
+                        + " REFERENCES "
+                        + ItemMaster.ItemsT.TABLE_NAME
+                        + "("
+                        + ItemMaster.ItemsT.COLUMN_ItemCode
+                        + ")"
+                        + ")";
+
+        String SQL_CREATE_PAYMENT_TABLE =
+                "CREATE TABLE "
+                        + PaymentMaster.PaymentsT.TABLE_NAME +
+                        " ("
+                        + PaymentMaster.PaymentsT.COLUMN_NAME_INVOICE_ID +
+                        " INTEGER, "
+                        + PaymentMaster.PaymentsT.COLUMN_NAME_PAYMENT_DATE +
+                        " TEXT, "
+                        + PaymentMaster.PaymentsT.COLUMN_NAME_INVOICE_AMOUNT +
+                        " INTEGER, "
+                        + PaymentMaster.PaymentsT.COLUMN_NAME_PAYMENT +
+                        " TEXT, "
+                        + "PRIMARY KEY"
+                        + "("
+                        + PaymentMaster.PaymentsT.COLUMN_NAME_INVOICE_ID
+                        + ", "
+                        + PaymentMaster.PaymentsT.COLUMN_NAME_PAYMENT_DATE
+                        + "), "
+                        + "FOREIGN KEY"
+                        + "("
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_INVOICE_ID
+                        + ") "
+                        +" REFERENCES "
+                        + SalesMaster.SalesT.TABLE_NAME
+                        + "("
+                        + SalesMaster.SalesT.COLUMN_NAME_INVOICE_ID
+                        + ")"
+                        + ")";
+
 
         //defining the sql query
         db.execSQL(SQL_CREATE_ROUTES_TABLE);//Execute the table creation
@@ -115,7 +207,12 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_CUSTOMER); //Execute the customer table creation
         Log.d("DBcreation", SQL_CREATE_CUSTOMER);
         Log.d("workflow", "Customer Db created successfully");
-
+        db.execSQL(SQL_CREATE_SALES_TABLE); //Execute the sales table creation
+        Log.d("workflow", "Sales table created successfully");
+        db.execSQL(SQL_CREATE_SALES_ITEMS_TABLE); //Execute the sales_items table creation
+        Log.d("workflow", "SalesItems table created successfully");
+        db.execSQL(SQL_CREATE_PAYMENT_TABLE); //Execute the payment table creation
+        Log.d("workflow", "Payment table created successfully");
 
     }
 

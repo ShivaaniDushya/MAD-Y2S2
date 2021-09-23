@@ -43,6 +43,18 @@
             android:exported="true"
             android:label="SALES" />
         <activity
+            android:name=".AddSalesOrder"
+            android:exported="true" />
+        <activity
+            android:name=".ViewSalesOrders"
+            android:exported="true" />
+        <activity
+            android:name=".SalesSummary"
+            android:exported="true" />
+        <activity
+            android:name=".UpdatePayment"
+            android:exported="true" />
+        <activity
             android:name=".Routes"
             android:exported="true"
             android:label="ROUTES" />
