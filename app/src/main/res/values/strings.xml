@@ -2,6 +2,8 @@
     <!-- App Name -->
     <string name="app_name">D STOCK</string>
 
+
+
     <!-- Global Actions -->
     <string name="btn_eng">English</string>
     <string name="btn_sin">Sinhala</string>
@@ -51,6 +53,10 @@
     <!-- END Global Actions -->
 
 
+
+
+
+
     <!-- View Route -->
     <!-- View Route Buttons -->
     <!-- END View Route Buttons -->
@@ -61,6 +67,10 @@
     <!-- View Route Messages -->
     <!-- END View Route Messages -->
     <!-- END View Route -->
+
+
+
+
 
 
     <string name="label_start_location">Start Location *</string>
@@ -81,16 +91,13 @@
     <string name="label_total_customers">TOTAL CUSTOMERS</string>
     <string name="msg_route_update_succesfull">Route update successfully.</string>
     <string name="msg_route_update_unsuccesfull">Route update unsuccessful.</string>
-    <string name="msg_oops"> OOPS </string>
-    <string name="msg_unable_delete">Unable to Delete at this moment</string>
-    <string name="msg_retry_delete">There are customers saved in this route.Please retry after deleting customers.</string>
-
 
     <!--Confirm Delete Route -->
 
 
     <string name="msg_route_delete_succesfull">Route delete successfully.</string>
     <string name="msg_route_delete_unsuccesfull">Route deletion unsuccessful.</string>
+
 
 
     <!-- Banner -->
@@ -191,6 +198,9 @@
     <string name="received_payment_val">0.00</string>
     <string name="payment_due_val">0.00</string>
     <string name="avg_sales_val">0.00</string>
+    <string name="monthly_sales_val">0.00</string>
+    <string name="monthly_profit_val">0.00</string>
+    <string name="label_no_so">No sales orders to show. Press + button to add a new sales order.</string>
 
     <string-array name="customers_array">
         <item>C01 - Customer 01</item>
