@@ -43,18 +43,17 @@
 
     <!--Field 1-->
     <com.google.android.material.textfield.TextInputLayout
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:id="@+id/filledTextField"
-
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="140dp"
         android:layout_marginEnd="32dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_text1"
+        <AutoCompleteTextView
+            android:id="@+id/invSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/inv_no"
@@ -75,7 +74,7 @@
         android:layout_marginEnd="32dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_text2"
+            android:id="@+id/txtbal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/pay_due" />
@@ -95,7 +94,7 @@
         android:layout_marginEnd="32dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_text3"
+            android:id="@+id/txtpay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/pay_amt" />
@@ -115,7 +114,7 @@
         android:layout_marginEnd="32dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_text4"
+            android:id="@+id/txtpaydate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/pay_date" />
@@ -135,10 +134,11 @@
         android:layout_marginEnd="32dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_text5"
+            android:id="@+id/txtnewbal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/bal_due" />
+            android:hint="@string/bal_due"
+            android:onClick="addPayment" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -151,6 +151,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="60dp"
+        android:onClick="addPayment"
         android:text="@string/update"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -165,6 +166,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="12dp"
+        android:onClick="Discard"
         android:text="@string/discard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
