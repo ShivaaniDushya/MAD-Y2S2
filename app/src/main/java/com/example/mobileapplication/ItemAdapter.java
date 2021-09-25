@@ -124,11 +124,11 @@ public class ItemAdapter<itemURL> extends RecyclerView.Adapter <ItemAdapter.MyVi
             dialogBuilder.show();
         });
 
-        holder.viewBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(context, View_item_Activity.class);
-            intent.putExtra("ItemCode", String.valueOf(item_code.get(position)));
-            context.startActivity(intent);
-        });
+//        holder.editBtn.setOnClickListener(v -> {
+//            Intent intent = new Intent(context, Edit_item_Activity.class);
+//            intent.putExtra("CustomerID", String.valueOf(item_code.get(position)));
+//            context.startActivity(intent);
+//        });
 
 
     }
@@ -160,7 +160,6 @@ public class ItemAdapter<itemURL> extends RecyclerView.Adapter <ItemAdapter.MyVi
             item_sellprice_txt=itemView.findViewById(R.id.item_sellprice_txt);
             item_description_txt= itemView.findViewById(R.id.item_description_txt);
             deleteBtn = itemView.findViewById(R.id.button_delete_item);
-            viewBtn = itemView.findViewById(R.id.button_view);
             //editBtn = itemView.findViewById(R.id.imageView_edit);
 
 

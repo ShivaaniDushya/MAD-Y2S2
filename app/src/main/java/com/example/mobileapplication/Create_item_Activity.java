@@ -42,7 +42,7 @@ public class Create_item_Activity extends AppCompatActivity {
     Button back;
     MaterialButton addItemBtn;
     Bundle bundle;
-    String ItemName,AddStatusMsg;
+    String ItemName;
     File itemPhotoFile;
 
 
@@ -104,52 +104,96 @@ public class Create_item_Activity extends AppCompatActivity {
     }
 
 
+//    private void dispatchTakePictureIntent(int REQUEST_IMAGE_CAPTURE) throws IOException {
+//        Log.d("workflow", "dispatchTakePictureIntent");
+//        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//        Log.d("workflow", "Intent - " + takePictureIntent);
+//        // Ensure that there's a camera activity to handle the intent
+//        Log.d("workflow", "Intent not null pass ");
+//        // Create the File where the photo should go
+//        itemPhotoFile = null;
+//        itemPhotoFile = createImageFile();
+//        // Continue only if the File was successfully created
+//        if (itemPhotoFile != null) {
+//            Uri photoURI = FileProvider.getUriForFile(this,
+//                    "com.example.mobileapplication.fileprovider",
+//                    itemPhotoFile);
+//            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+//            Log.d("workflow", "takePictureIntent - " + String.valueOf(takePictureIntent));
+//            Log.d("workflow", "takePictureIntent - " + String.valueOf(takePictureIntent.getExtras()));
+//            Log.d("workflow", "takePictureIntent string - " + String.valueOf(takePictureIntent.getExtras()));
+//            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+//        }
+//    }
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        Intent i = new Intent(Intent.ACTION_VIEW);
+//        Log.d("workflow", "New Intent - " + String.valueOf(i));
+//        Uri outputUri = FileProvider.getUriForFile(this, "com.example.mobileapplication.fileprovider", itemPhotoFile);
+//        Log.d("workflow", "outputUri - " + String.valueOf(outputUri));
+//
+//        if (resultCode == RESULT_OK) {
+//            Bitmap imageBitmap = null;
+//            ItemImageURL = String.valueOf(outputUri);
+//            try {
+//                imageBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), outputUri);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            Log.d("workflow", "ImageBitmap - " + String.valueOf(imageBitmap));
+//        }
+//    }
+
+//    String currentPhotoPath;
+//    @SuppressLint("SimpleDateFormat")
+//    private File createImageFile() throws IOException {
+//        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+//        String imageFileName = "JPEG_DS_" + timeStamp + "_";
+//        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+//        File image = File.createTempFile(
+//                imageFileName,
+//                ".jpg",
+//                storageDir
+//        );
+//
+//        currentPhotoPath = image.getAbsolutePath();
+//        Log.d("workflow", "Photo path " + currentPhotoPath);
+//        return image;
+//    }
+
 
     @RequiresApi(api = VERSION_CODES.O)
         public void addItem(View view) {
-        Log.d("workflow", "Add Item addItem  method  Called");
-        isfieldsvalidated = CheckAllFields();
+            Log.d("workflow","Add Item addItem  method  Called");
+            isfieldsvalidated = CheckAllFields();
 
-        if (isfieldsvalidated) {
-            DBHelper dbHelper = new DBHelper(this);
-            //removedefault(issetasdefault);
+          if (isfieldsvalidated) {
+                DBHelper dbHelper = new DBHelper(this);
+                //removedefault(issetasdefault);
 
-            long val;
-            val = dbHelper.addItem(ItemName_input.getText().toString(),
-                    ItemBrand_input.getText().toString(),
-                    Integer.parseInt(ItemCount_input.getText().toString()),
-                    Double.parseDouble(BuyPriceItem_input.getText().toString()),
-                    Double.parseDouble(SellPriceItem_input.getText().toString()),
-                    ItemDescrip_input.getText().toString()
+                long val;
+                val = dbHelper.addItem(ItemName_input.getText().toString(),
+                        ItemBrand_input.getText().toString(),
+                        Integer.parseInt(ItemCount_input.getText().toString()),
+                        Double.parseDouble(BuyPriceItem_input.getText().toString()),
+                        Double.parseDouble(SellPriceItem_input.getText().toString()),
+                        ItemDescrip_input.getText().toString()
 
-            );
+                        );
 
-//            Snackbar.make(view, "Record Added Succesfully", BaseTransientBottomBar.LENGTH_LONG).setAction("OK", null).show();
+                Snackbar.make(view,"Record Added Succesfully", BaseTransientBottomBar.LENGTH_LONG).setAction("OK",null).show();
 
-//            Toast.makeText(this, "Record Added Succesfully", Toast.LENGTH_SHORT).show();
-//
-//            Intent intent = new Intent(this, Items.class);
-//            startActivity(intent);
-//            Log.i("BTN Click", "Add Item Confirmation button clicked");
+                Toast.makeText(this, "Record Added Succesfully", Toast.LENGTH_SHORT).show();
 
-            Log.d("workflow", String.valueOf(val));
-            AddStatusMsg = "Item added successful.";
+                Intent intent = new Intent(this, Items.class);
+                startActivity(intent);
+                Log.i("BTN Click", "Add Item Confirmation button clicked");
+            }
+}
 
-//            if (val == -1) {
-//                AddStatusMsg = "Item added unsuccessful.";
-//            }
-//            else {
-//                AddStatusMsg = "Item added successful.";
-//            }
 
-            Intent intent = new Intent(this, Items.class)
-                    .putExtra("passMessage", AddStatusMsg);
-            startActivity(intent);
-            Log.d("BTN Click", "Save item button clicked");
-
-        }
-
-    }
 
         private boolean CheckAllFields() {
             Log.d("workflow","Add Item CheckAllFields  method  Called");
