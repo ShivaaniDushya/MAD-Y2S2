@@ -407,6 +407,24 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    //Item profit expectation calculation
+    public int itemProf(String itemCode) {
+        Log.d("workflow", "ItemProf initiated");
+        String[] selectionArgs = {itemCode};
+        Integer count = Integer.valueOf("SELECT " + ItemMaster.ItemsT.COLUMN_ItemCount + " FROM " + ItemMaster.ItemsT.TABLE_NAME + " WHERE " + ItemMaster.ItemsT.COLUMN_ItemCode + " = ? ");
+        Integer btotal = Integer.valueOf("SELECT " + ItemMaster.ItemsT.COLUMN_ItemBuyPrice + " FROM " + ItemMaster.ItemsT.TABLE_NAME + " WHERE " + ItemMaster.ItemsT.COLUMN_ItemCode + " = ? ");
+        Integer stotal = Integer.valueOf("SELECT " + ItemMaster.ItemsT.COLUMN_ItemSellPrice + " FROM " + ItemMaster.ItemsT.TABLE_NAME + " WHERE " + ItemMaster.ItemsT.COLUMN_ItemCode + " = ? ");
+
+        Integer a = btotal*count;
+        Integer b = stotal*count;
+        Integer profit = b-a;
+
+        SQLiteDatabase db = getReadableDatabase();
+
+        return profit.intValue();
+    }
+
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public int updateItem(String id, String itemname, String itembrand, int itemcount, double buyprice, double sellprice, String description) { //define the attributes and parameters to be sent
 

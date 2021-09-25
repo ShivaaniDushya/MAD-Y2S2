@@ -2,9 +2,7 @@ package com.example.mobileapplication;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.ClipData;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -152,12 +150,12 @@ public class ItemAdapter<itemURL> extends RecyclerView.Adapter <ItemAdapter.MyVi
 
        public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            item_code_txt=itemView.findViewById(R.id.item_code_txt);
-            item_name_txt=itemView.findViewById(R.id.item_name_txt);
-            item_brand_txt=itemView.findViewById(R.id.item_brand_txt);
-            item_count_txt=itemView.findViewById(R.id.item_count_txt);
-            item_byuprice_txt=itemView.findViewById(R.id.item_byuprice_txt);
-            item_sellprice_txt=itemView.findViewById(R.id.item_sellprice_txt);
+            item_code_txt=itemView.findViewById(R.id.item_code_best);
+            item_name_txt=itemView.findViewById(R.id.item_name_best);
+            item_brand_txt=itemView.findViewById(R.id.item_brand_best);
+            item_count_txt=itemView.findViewById(R.id.item_count_best);
+            item_byuprice_txt=itemView.findViewById(R.id.item_buy_best);
+            item_sellprice_txt=itemView.findViewById(R.id.item_sell_best);
             item_description_txt= itemView.findViewById(R.id.item_description_txt);
             deleteBtn = itemView.findViewById(R.id.button_delete_item);
             viewBtn = itemView.findViewById(R.id.button_view);

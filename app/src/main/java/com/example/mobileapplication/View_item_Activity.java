@@ -33,6 +33,7 @@ public class View_item_Activity extends AppCompatActivity {
     Button btGenerate;
     ImageView ivOutput;
     String itemCode;
+    Button profit;
 
 
 
@@ -50,6 +51,14 @@ public class View_item_Activity extends AppCompatActivity {
         idesc = findViewById(R.id.item_description_view);
         btGenerate = findViewById(R.id.bt_generate);
         ivOutput = findViewById(R.id.iv_output);
+        profit = findViewById(R.id.profit_margin);
+
+        profit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OpenActivityProfit();
+            }
+        });
 
         btGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,6 +139,11 @@ public class View_item_Activity extends AppCompatActivity {
             return false;
         });
 
+    }
+
+    private void OpenActivityProfit() {
+        Intent intent = new Intent(this, ItemProfitMargin.class);
+        startActivity(intent);
     }
 
     private void loadItem(String itemCode) {

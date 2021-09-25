@@ -16,6 +16,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -82,6 +83,9 @@ public class MainActivity extends  AppCompatActivity {
             recreate();
         });
 
+
+
+
         //Bottom Navigation Bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
@@ -146,6 +150,9 @@ public class MainActivity extends  AppCompatActivity {
             }
         });
 
+    }
+
+    private void loadItem(String itemCode) {
     }
 
     @Override
@@ -271,4 +278,8 @@ public class MainActivity extends  AppCompatActivity {
             getLastLocation();
         }
     }
+
+
+
+
 }

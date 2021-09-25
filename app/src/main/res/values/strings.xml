@@ -108,6 +108,7 @@
     <string name="header_add_customer">ADD CUSTOMER</string>
     <string name="add_item_header">Add Item</string>
     <string name="view_item_header">View Single Item</string>
+    <string name= "profit_margin_header">Profit Expectation</string>
 
     <!-- Items -->
     <string name="CreatePage">Create an Item</string>
@@ -142,6 +143,11 @@
     <string name ="item_buyprice_view" translatable="false"></string>
     <string name ="item_sellprice_view" translatable="false"></string>
     <string name ="item_description_view" translatable="false"></string>
+    <string name = "profit_margin"> Profit Expec</string>
+    <string name = "bprice_total"></string>
+    <string name = "sprice_total"></string>
+    <string name = "prof"></string>
+
 
     <!--home page item-->
     <string name = "item_name_best" translatable="false"></string>

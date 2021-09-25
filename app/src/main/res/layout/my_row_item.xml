@@ -22,7 +22,7 @@
 
 
             <TextView
-                android:id="@+id/item_name_txt"
+                android:id="@+id/item_name_best"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fabulous Chocolate"
@@ -35,7 +35,7 @@
                 app:layout_constraintVertical_bias="0.132" />
 
             <TextView
-                android:id="@+id/item_brand_txt"
+                android:id="@+id/item_brand_best"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Riyana Factory"
@@ -44,7 +44,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/item_name_txt"
+                app:layout_constraintTop_toBottomOf="@+id/item_name_best"
                 app:layout_constraintVertical_bias="0.0" />
 
             <Space
@@ -55,7 +55,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/item_brand_txt"
+                app:layout_constraintTop_toBottomOf="@+id/item_brand_best"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
@@ -112,7 +112,7 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/item_code_txt"
+                android:id="@+id/item_code_best"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -120,12 +120,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.875"
-                app:layout_constraintStart_toEndOf="@+id/item_name_txt"
+                app:layout_constraintStart_toEndOf="@+id/item_name_best"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.078" />
 
             <TextView
-                android:id="@+id/item_sellprice_txt"
+                android:id="@+id/item_sell_best"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -133,12 +133,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.875"
-                app:layout_constraintStart_toEndOf="@+id/item_name_txt"
+                app:layout_constraintStart_toEndOf="@+id/item_name_best"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.346" />
 
             <TextView
-                android:id="@+id/item_count_txt"
+                android:id="@+id/item_count_best"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -146,12 +146,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.875"
-                app:layout_constraintStart_toEndOf="@+id/item_name_txt"
+                app:layout_constraintStart_toEndOf="@+id/item_name_best"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.463" />
 
             <TextView
-                android:id="@+id/item_byuprice_txt"
+                android:id="@+id/item_buy_best"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -159,7 +159,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.875"
-                app:layout_constraintStart_toEndOf="@+id/item_name_txt"
+                app:layout_constraintStart_toEndOf="@+id/item_name_best"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.219" />
 
