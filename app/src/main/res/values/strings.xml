@@ -191,22 +191,10 @@
     <string name="received_payment_val">0.00</string>
     <string name="payment_due_val">0.00</string>
     <string name="avg_sales_val">0.00</string>
-
-    <string-array name="customers_array">
-        <item>C01 - Customer 01</item>
-        <item>C02 - Customer 02</item>
-        <item>C03 - Customer 03</item>
-        <item>C04 - Customer 04</item>
-        <item>C05 - Customer 05</item>
-    </string-array>
-
-    <string-array name="items_array">
-        <item>I01 - Item 01</item>
-        <item>I02 - Item 02</item>
-        <item>I03 - Item 03</item>
-        <item>I04 - Item 04</item>
-        <item>I05 - Item 05</item>
-    </string-array>
+    <string name="monthly_sales_val">0.00</string>
+    <string name="monthly_profit_val">0.00</string>
+    <string name="del_date">Delivery Date</string>
+    <string name="label_no_so">No sales orders to show. Press + button to add a new sales order.</string>
 
     <string name="ItemCreatebtn">CREATE</string>
 
