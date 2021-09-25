@@ -118,7 +118,8 @@
                 android:visibility="invisible"
                 tools:layout_editor_absoluteX="85dp"
                 tools:layout_editor_absoluteY="69dp"
-                tools:visibility="visible" />
+                tools:visibility="visible"
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/is_default_txt"
@@ -142,7 +143,8 @@
                 android:visibility="invisible"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="225dp"
-                tools:visibility="visible" />
+                tools:visibility="visible"
+                tools:ignore="MissingConstraints" />
 
             <ImageView
                 android:id="@+id/imageView5"

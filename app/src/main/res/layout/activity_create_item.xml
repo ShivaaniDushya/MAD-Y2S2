@@ -24,14 +24,7 @@
             android:orientation="vertical"
             android:paddingBottom="150dp"><![CDATA[
             >
-
-
-
-
-
-
-
-            ]]>
+   ]]>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txt_item_name"
@@ -106,7 +99,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:inputType="text"
+                    android:inputType="number"
 
                     android:text="@string/label_item_count_" />
 
@@ -136,7 +129,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:inputType="text"
+                    android:inputType="numberDecimal"
 
                     android:text="@string/label_item_buyPrice" />
 
@@ -166,7 +159,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:inputType="text"
+                    android:inputType="numberDecimal"
 
                     android:text="@string/label_item_sellPrice" />
 
