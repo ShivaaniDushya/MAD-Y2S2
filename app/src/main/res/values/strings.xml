@@ -107,6 +107,7 @@
     <string name="header_update_item">UPDATE ITEM</string>
     <string name="header_add_customer">ADD CUSTOMER</string>
     <string name="add_item_header">Add Item</string>
+    <string name="view_item_header">View Single Item</string>
 
     <!-- Items -->
     <string name="CreatePage">Create an Item</string>
@@ -133,6 +134,23 @@
     <string name="label_item_sellPrice"></string>
     <string name="label_item_description"></string>
 
+    <!-- view item-->
+    <string name ="item_name_view" translatable="false"></string>
+    <string name ="item_brand_view" translatable="false"></string>
+    <string name ="item_code_view" translatable="false"></string>
+    <string name ="item_count_view" translatable="false"></string>
+    <string name ="item_buyprice_view" translatable="false"></string>
+    <string name ="item_sellprice_view" translatable="false"></string>
+    <string name ="item_description_view" translatable="false"></string>
+
+    <!--home page item-->
+    <string name = "item_name_best" translatable="false"></string>
+    <string name = "item_code_best" translatable="false"></string>
+    <string name = "item_brand_best" translatable="false"></string>
+    <string name = "item_buy_best" translatable="false"></string>
+    <string name = "item_sell_best" translatable="false"></string>
+    <string name = "item_count_best" translatable="false"></string>
+    <string name = "item_desc_best" translatable="false"></string>
 
     <!-- Sales -->
     <string name="cus_label">Customer</string>

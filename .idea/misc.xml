@@ -70,9 +70,15 @@
         <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MobileApplication/app/src/main/res/menu/bottom.xml" value="0.21510416666666668" />
         <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MobileApplication/app/src/main/res/menu/main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MobileApplication/app/src/main/res/menu/main_menu.xml" value="0.264" />
-        <entry key="..\:/Users/Shivaani/Desktop/andr/MAD-Y2S2/app/src/main/res/layout/activity_create_item.xml" value="0.23072916666666668" />
+        <entry key="..\:/Users/Shivaani/Desktop/andr/MAD-Y2S2/app/src/main/res/layout/activity_create_item.xml" value="0.20512820512820512" />
+        <entry key="..\:/Users/Shivaani/Desktop/andr/MAD-Y2S2/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Shivaani/Desktop/andr/MAD-Y2S2/app/src/main/res/layout/activity_view_customer.xml" value="0.21458333333333332" />
+        <entry key="..\:/Users/Shivaani/Desktop/andr/MAD-Y2S2/app/src/main/res/layout/activity_view_item.xml" value="0.264" />
+        <entry key="..\:/Users/Shivaani/Desktop/andr/MAD-Y2S2/app/src/main/res/layout/customer_row.xml" value="0.16822916666666668" />
         <entry key="..\:/Users/Shivaani/Desktop/andr/MAD-Y2S2/app/src/main/res/layout/my_row.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Shivaani/Desktop/andr/MAD-Y2S2/app/src/main/res/layout/my_row_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Shivaani/Desktop/andr/MAD-Y2S2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.184375" />
+        <entry key="..\:/Users/Shivaani/Desktop/andr/MAD-Y2S2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.184375" />
         <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_add_customer.xml" value="0.264" />
         <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_customers.xml" value="0.264" />
         <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_main.xml" value="0.264" />
