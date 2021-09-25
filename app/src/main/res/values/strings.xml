@@ -79,12 +79,12 @@
     <!-- Manage Route -->
     <string name="label_route_id">ROUTE ID</string>
     <string name="label_total_customers">TOTAL CUSTOMERS</string>
+    <string name="label_to">To</string>
     <string name="msg_route_update_succesfull">Route update successfully.</string>
     <string name="msg_route_update_unsuccesfull">Route update unsuccessful.</string>
     <string name="msg_oops"> OOPS </string>
     <string name="msg_unable_delete">Unable to Delete at this moment</string>
     <string name="msg_retry_delete">There are customers saved in this route.Please retry after deleting customers.</string>
-
 
     <!--Confirm Delete Route -->
 
@@ -196,6 +196,23 @@
     <string name="del_date">Delivery Date</string>
     <string name="label_no_so">No sales orders to show. Press + button to add a new sales order.</string>
 
+
+    <string-array name="customers_array">
+        <item>C01 - Customer 01</item>
+        <item>C02 - Customer 02</item>
+        <item>C03 - Customer 03</item>
+        <item>C04 - Customer 04</item>
+        <item>C05 - Customer 05</item>
+    </string-array>
+
+    <string-array name="items_array">
+        <item>I01 - Item 01</item>
+        <item>I02 - Item 02</item>
+        <item>I03 - Item 03</item>
+        <item>I04 - Item 04</item>
+        <item>I05 - Item 05</item>
+    </string-array>
+
     <string name="ItemCreatebtn">CREATE</string>
 
     <!--Add Customer-->
@@ -227,4 +244,7 @@
 
     <string name="language">English</string>
     <string name="label_shops">shops</string>
+    <string name="label_to_travel">To Travel</string>
+    <string name="label_you_need"> KMs.You will need</string>
+    <string name="label_fuel_need"> Liters of fuel approximately.</string>
 </resources>
