@@ -39,13 +39,7 @@
             android:orientation="vertical"
             android:paddingTop="10dp">
 
-            <!--
-                <com.google.android.gms.maps.MapView
-                    android:id="@+id/mapView"
-                    android:layout_width="match_parent"
-                    android:layout_height="243dp"
-                    android:accessibilityLiveRegion="none" />
-                -->
+
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="22dp"
@@ -56,6 +50,12 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/design_default_color_secondary_variant"
                 android:hint="@string/label_start_location"
                 app:helperText="@string/helptxt_start_location"
                 >
@@ -82,6 +82,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/design_default_color_secondary_variant"
                 android:hint="@string/label_end_location"
                 app:helperText="@string/helptxt_end_location">
 
@@ -105,6 +111,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidthFocused="1dp"
+                app:endIconMode="clear_text"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/design_default_color_secondary_variant"
                 android:hint="@string/label_distance"
                 app:helperText="@string/helptxt_distance_location"
                 app:suffixText="@string/label_unit_distance">
@@ -117,6 +129,19 @@
                     android:inputType="numberDecimal" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/setdistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:textAlignment="center"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="match_parent"

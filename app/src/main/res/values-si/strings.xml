@@ -53,4 +53,27 @@
     <string name="msg_oops">අපොයි</string>
     <string name="msg_unable_delete">" මේ මොහොතේ මැකීමට නොහැකිය"</string>
     <string name="msg_retry_delete">" මෙම මාර්ගයේ ගණුදෙනු කර ඇති පාරිභෝගිකයින් සිටී. පාරිභෝගිකයින් මැකීමෙන් පසු නැවත උත්සාහ කරන්න."</string>
+    <string name="btn_create">සාදන්න</string>
+    <string name="btn_save">සුරකින්න</string>
+    <string name="btn_view">බලන්න</string>
+    <string name="label_customer">පාරිභෝගිකයන්</string>
+    <string name="label_to">සිට</string>
+    <string name="store_desc">" ආයුබෝවන් මගේ සාප්පුවට සාදරයෙන් පිළිගනිමු"</string>
+    <string name="store_banner_desc">නැවත මගේ සාප්පුවට සාදරයෙන් පිළිගනිමු</string>
+    <string name="notification_title">" දැනුම් දීම"</string>
+    <string name="setting">සැකසුම්</string>
+    <string name="header_item">අයිතම</string>
+    <string name="header_update_item">අයිතමය යාවත්කාලීන කරන්න</string>
+    <string name="header_add_customer">" පාරිභෝගිකයා එකතු කරන්න"</string>
+    <string name="add_item_header">" අයිතමය එකතු කරන්න"</string>
+    <string name="CreatePage">" අයිතමයක් සාදන්න"</string>
+    <string name="no_items">පෙන්වීමට අයිතම නොමැත. නව පාරිභෝගිකයෙකු එකතු කර ගැනීමට + බොත්තම ඔබන්න.</string>
+    <string name="Item_img_btn">" රූපයක් එකතු කරන්න"</string>
+    <string name="cus_label">පාරිභෝගික</string>
+    <string name="date_label">දිනය</string>
+    <string name="prod_label">නිෂ්පාදන</string>
+    <string name="cus_name_ph">" පාරිභෝගිකයාගේ නම"</string>
+    <string name="label_to_travel">"ඔබට ගමන් කිරීමට  කි.මී. "</string>
+    <string name="label_you_need">"ක්. අවශ්‍ය වනු ඇත ඉන්ධන ලීටර් "</string>
+    <string name="label_fuel_need">ක්. ආසන්න වශයෙන්.</string>
 </resources>

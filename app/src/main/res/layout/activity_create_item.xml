@@ -22,36 +22,16 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="34dp"
             android:orientation="vertical"
-            android:paddingBottom="150dp">
+            android:paddingBottom="150dp"><![CDATA[
             >
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/Ïtem_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center_horizontal"
-                android:adjustViewBounds="true"
-                android:background="@color/black_12"
-                android:scaleType="centerCrop"
-                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CircleImageV" />
 
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/Item_img_btn"
-                style="?attr/borderlessButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:text="@string/Item_img_btn"
-                android:textColor="@color/design_default_color_secondary_variant"
-                tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="22dp"
-                android:layout_weight="1" />
+
+
+            ]]>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txt_item_name"

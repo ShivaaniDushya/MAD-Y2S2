@@ -2,182 +2,194 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/mainLayout">
+    android:layout_height="220dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="224dp"
+        android:layout_height="210dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="30dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="231dp"
+            android:layout_height="190dp"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="12dp"
             android:layout_marginRight="25dp"
             android:padding="12dp">
 
 
-            <TextView
-                android:id="@+id/item_name_txt"
+            <Button
+                android:id="@+id/btnpay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fabulous Chocolate"
+                android:text="@string/update_payment"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/space1"
+                app:layout_constraintVertical_bias="0.466" />
+
+            <Space
+                android:id="@+id/space1"
+                android:layout_width="96dp"
+                android:layout_height="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblbal"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txtinv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/inv_no"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.132" />
+                app:layout_constraintVertical_bias="0.001" />
+
 
             <TextView
-                android:id="@+id/item_brand_txt"
+                android:id="@+id/lblcus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Riyana Factory"
+                android:text="@string/label_cus_id"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/item_name_txt"
+                app:layout_constraintTop_toBottomOf="@+id/txtinv"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <Space
-                android:id="@+id/space1"
-                android:layout_width="96dp"
-                android:layout_height="21dp"
+            <TextView
+                android:id="@+id/txtcus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:text="@string/label_cus_id"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtinv"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/lbldeldate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/del_date"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/item_brand_txt"
+                app:layout_constraintTop_toBottomOf="@+id/txtcus"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/item_description_txt"
+                android:id="@+id/txturg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lorem ipsum.Lorem ipsum. Lorem. Lorem ipsum"
-                android:textSize="14sp"
+                android:text="del_date"
+                android:textSize="16sp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/txtdeldate"
+                app:layout_constraintTop_toTopOf="@+id/lblcus"
+                app:layout_constraintVertical_bias="0.714"
+                tools:layout_editor_absoluteX="126dp" />
+
+            <TextView
+                android:id="@+id/txtcreateddate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:text="created_date"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtcus" />
+
+            <TextView
+                android:id="@+id/lblinvamt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Invoice Amount"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/space1"
+                app:layout_constraintTop_toBottomOf="@+id/lbldeldate"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <Space
-                android:id="@+id/space2"
-                android:layout_width="96dp"
-                android:layout_height="28dp"
+            <TextView
+                android:id="@+id/txtinvamt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:text="inv_amt"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/lblinvamt"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/lblbal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bal_due"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/item_description_txt"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <Button
-                android:id="@+id/button_delete_item"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="deleteItem"
-                android:text="@string/btn_delete"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/space2"
-
-                app:layout_constraintVertical_bias="0.0" />
-
-
-            <Button
-                android:id="@+id/button_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btn_view"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.424"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/space2"
+                app:layout_constraintTop_toBottomOf="@+id/txtinvamt"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/item_code_txt"
+                android:id="@+id/txtbal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.875"
-                app:layout_constraintStart_toEndOf="@+id/item_name_txt"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.078" />
+                android:layout_marginEnd="32dp"
+                android:text="bal_due"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/lblbal"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
-                android:id="@+id/item_sellprice_txt"
+                android:id="@+id/txtdeldate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="TextView"
                 android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.875"
-                app:layout_constraintStart_toEndOf="@+id/item_name_txt"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.346" />
-
-            <TextView
-                android:id="@+id/item_count_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.875"
-                app:layout_constraintStart_toEndOf="@+id/item_name_txt"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.463" />
-
-            <TextView
-                android:id="@+id/item_byuprice_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.875"
-                app:layout_constraintStart_toEndOf="@+id/item_name_txt"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.219" />
+                app:layout_constraintTop_toBottomOf="@+id/lblinvamt"
+                tools:layout_editor_absoluteX="171dp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/Item_single_view"
+                android:id="@+id/btndel"
                 style="?attr/borderlessButtonStyle"
                 android:layout_width="46dp"
                 android:layout_height="49dp"
                 android:layout_alignParentEnd="true"
                 android:minWidth="24dp"
-                app:icon="@drawable/ic_round_edit_24"
+                app:icon="@android:drawable/ic_menu_delete"
                 app:iconTint="@color/black_60"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.918"
+                app:layout_constraintHorizontal_bias="0.940"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.912"
+                app:layout_constraintVertical_bias="1.05"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

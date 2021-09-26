@@ -37,13 +37,12 @@ public class Create_item_Activity extends AppCompatActivity {
 
     private static final int REQUEST_IMAGE_CAPTURE_PP = 1 ;
     EditText ItemName_input, ItemBrand_input, ItemCount_input, BuyPriceItem_input, SellPriceItem_input, ItemDescrip_input;
-    ImageView itemImage;
     public boolean isfieldsvalidated=false;
     String issetasdefault="0";
     Button back;
     MaterialButton addItemBtn;
     Bundle bundle;
-    String ItemName, ItemImageURL=null;
+    String ItemName;
     File itemPhotoFile;
 
 
@@ -60,17 +59,7 @@ public class Create_item_Activity extends AppCompatActivity {
         BuyPriceItem_input = findViewById(R.id.inp_itemBuyPrice);
         SellPriceItem_input = findViewById(R.id.inp_itemSellPrice);
         ItemDescrip_input = findViewById(R.id.inp_itemDescription);
-        itemImage = findViewById(R.id.Ïtem_image);
-        addItemBtn = findViewById(R.id.Item_img_btn);
 
-
-        addItemBtn.setOnClickListener(v -> {
-            try {
-                dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE_PP);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.items);
@@ -115,64 +104,64 @@ public class Create_item_Activity extends AppCompatActivity {
     }
 
 
-    private void dispatchTakePictureIntent(int REQUEST_IMAGE_CAPTURE) throws IOException {
-        Log.d("workflow", "dispatchTakePictureIntent");
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        Log.d("workflow", "Intent - " + takePictureIntent);
-        // Ensure that there's a camera activity to handle the intent
-        Log.d("workflow", "Intent not null pass ");
-        // Create the File where the photo should go
-        itemPhotoFile = null;
-        itemPhotoFile = createImageFile();
-        // Continue only if the File was successfully created
-        if (itemPhotoFile != null) {
-            Uri photoURI = FileProvider.getUriForFile(this,
-                    "com.example.mobileapplication.fileprovider",
-                    itemPhotoFile);
-            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-            Log.d("workflow", "takePictureIntent - " + String.valueOf(takePictureIntent));
-            Log.d("workflow", "takePictureIntent - " + String.valueOf(takePictureIntent.getExtras()));
-            Log.d("workflow", "takePictureIntent string - " + String.valueOf(takePictureIntent.getExtras()));
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-        }
-    }
+//    private void dispatchTakePictureIntent(int REQUEST_IMAGE_CAPTURE) throws IOException {
+//        Log.d("workflow", "dispatchTakePictureIntent");
+//        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//        Log.d("workflow", "Intent - " + takePictureIntent);
+//        // Ensure that there's a camera activity to handle the intent
+//        Log.d("workflow", "Intent not null pass ");
+//        // Create the File where the photo should go
+//        itemPhotoFile = null;
+//        itemPhotoFile = createImageFile();
+//        // Continue only if the File was successfully created
+//        if (itemPhotoFile != null) {
+//            Uri photoURI = FileProvider.getUriForFile(this,
+//                    "com.example.mobileapplication.fileprovider",
+//                    itemPhotoFile);
+//            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+//            Log.d("workflow", "takePictureIntent - " + String.valueOf(takePictureIntent));
+//            Log.d("workflow", "takePictureIntent - " + String.valueOf(takePictureIntent.getExtras()));
+//            Log.d("workflow", "takePictureIntent string - " + String.valueOf(takePictureIntent.getExtras()));
+//            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+//        }
+//    }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        Log.d("workflow", "New Intent - " + String.valueOf(i));
-        Uri outputUri = FileProvider.getUriForFile(this, "com.example.mobileapplication.fileprovider", itemPhotoFile);
-        Log.d("workflow", "outputUri - " + String.valueOf(outputUri));
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        Intent i = new Intent(Intent.ACTION_VIEW);
+//        Log.d("workflow", "New Intent - " + String.valueOf(i));
+//        Uri outputUri = FileProvider.getUriForFile(this, "com.example.mobileapplication.fileprovider", itemPhotoFile);
+//        Log.d("workflow", "outputUri - " + String.valueOf(outputUri));
+//
+//        if (resultCode == RESULT_OK) {
+//            Bitmap imageBitmap = null;
+//            ItemImageURL = String.valueOf(outputUri);
+//            try {
+//                imageBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), outputUri);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            Log.d("workflow", "ImageBitmap - " + String.valueOf(imageBitmap));
+//        }
+//    }
 
-        if (resultCode == RESULT_OK) {
-            Bitmap imageBitmap = null;
-            ItemImageURL = String.valueOf(outputUri);
-            try {
-                imageBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), outputUri);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Log.d("workflow", "ImageBitmap - " + String.valueOf(imageBitmap));
-        }
-    }
-
-    String currentPhotoPath;
-    @SuppressLint("SimpleDateFormat")
-    private File createImageFile() throws IOException {
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_DS_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(
-                imageFileName,
-                ".jpg",
-                storageDir
-        );
-
-        currentPhotoPath = image.getAbsolutePath();
-        Log.d("workflow", "Photo path " + currentPhotoPath);
-        return image;
-    }
+//    String currentPhotoPath;
+//    @SuppressLint("SimpleDateFormat")
+//    private File createImageFile() throws IOException {
+//        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+//        String imageFileName = "JPEG_DS_" + timeStamp + "_";
+//        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+//        File image = File.createTempFile(
+//                imageFileName,
+//                ".jpg",
+//                storageDir
+//        );
+//
+//        currentPhotoPath = image.getAbsolutePath();
+//        Log.d("workflow", "Photo path " + currentPhotoPath);
+//        return image;
+//    }
 
 
     @RequiresApi(api = VERSION_CODES.O)
@@ -190,8 +179,8 @@ public class Create_item_Activity extends AppCompatActivity {
                         Integer.parseInt(ItemCount_input.getText().toString()),
                         Double.parseDouble(BuyPriceItem_input.getText().toString()),
                         Double.parseDouble(SellPriceItem_input.getText().toString()),
-                        ItemDescrip_input.getText().toString(),
-                        ItemImageURL
+                        ItemDescrip_input.getText().toString()
+
                         );
 
                 Snackbar.make(view,"Record Added Succesfully", BaseTransientBottomBar.LENGTH_LONG).setAction("OK",null).show();

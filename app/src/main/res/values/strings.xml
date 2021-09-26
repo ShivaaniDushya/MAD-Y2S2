@@ -82,12 +82,12 @@
     <!-- Manage Route -->
     <string name="label_route_id">ROUTE ID</string>
     <string name="label_total_customers">TOTAL CUSTOMERS</string>
+    <string name="label_to">To</string>
     <string name="msg_route_update_succesfull">Route update successfully.</string>
     <string name="msg_route_update_unsuccesfull">Route update unsuccessful.</string>
     <string name="msg_oops"> OOPS </string>
     <string name="msg_unable_delete">Unable to Delete at this moment</string>
     <string name="msg_retry_delete">There are customers saved in this route.Please retry after deleting customers.</string>
-
 
     <!--Confirm Delete Route -->
 
@@ -126,6 +126,15 @@
     <string name="Item_img_btn">Add an image</string>
     <string name="Item_single_view"></string>
     <string name="Ïtem_image"></string>
+    <string name="iname_view"></string>
+    <string name="icode_view"></string>
+    <string name="ibrand_view"></string>
+    <string name="ibuy_view"></string>
+    <string name="isell_view"></string>
+    <string name="icount_view"></string>
+    <string name="idesc_view"></string>
+    <string name="qrgenerate_btn">Generate QR</string>
+    <string name="iv_output"></string>
 
 
     <!-- create item-->
@@ -194,6 +203,11 @@
     <string name="received_payment_val">0.00</string>
     <string name="payment_due_val">0.00</string>
     <string name="avg_sales_val">0.00</string>
+    <string name="monthly_sales_val">0.00</string>
+    <string name="monthly_profit_val">0.00</string>
+    <string name="del_date">Delivery Date</string>
+    <string name="label_no_so">No sales orders to show. Press + button to add a new sales order.</string>
+
 
     <string-array name="customers_array">
         <item>C01 - Customer 01</item>
@@ -256,4 +270,8 @@
     <string name="chip_best_selling_item">Best Selling Item</string>
     <string name="chip_top_customer">Top Customer</string>
     <string name="chip_best_route">Best Route</string>
+
+    <string name="label_to_travel">To Travel</string>
+    <string name="label_you_need"> KMs.You will need</string>
+    <string name="label_fuel_need"> Liters of fuel approximately.</string>
 </resources>

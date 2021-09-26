@@ -23,6 +23,7 @@
         android:roundIcon="@drawable/ic_dstock"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileApplication">
+
         <activity
             android:name=".OnBoarding"
             android:exported="true" />
@@ -55,6 +56,10 @@
             android:exported="true"
             android:label="ITEMS > CREATE AN ITEM" />
         <activity
+            android:name=".View_item_Activity"
+            android:exported="true"
+            android:label="ITEMS > VIEW A SINGLE ITEM" />
+        <activity
             android:name=".ModifyRoute"
             android:exported="true" />
         <activity
@@ -64,6 +69,18 @@
             android:name=".Sales"
             android:exported="true"
             android:label="SALES" />
+        <activity
+            android:name=".AddSalesOrder"
+            android:exported="true" />
+        <activity
+            android:name=".ViewSalesOrders"
+            android:exported="true" />
+        <activity
+            android:name=".SalesSummary"
+            android:exported="true" />
+        <activity
+            android:name=".UpdatePayment"
+            android:exported="true" />
         <activity
             android:name=".Routes"
             android:exported="true"

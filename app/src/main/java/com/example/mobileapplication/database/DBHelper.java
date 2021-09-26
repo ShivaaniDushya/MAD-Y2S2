@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
 import android.util.Log;
 
+import com.example.mobileapplication.Product;
+
 import androidx.annotation.RequiresApi;
 
 import java.time.LocalDateTime;
@@ -21,7 +23,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "UserInfo.db";
 
     public DBHelper(Context context) {
-        super(context, DATABASE_NAME, null, 2);
+        super(context, DATABASE_NAME, null, 3);
     }
     //change the DB version when upgrading the DB
 
@@ -67,7 +69,6 @@ public class DBHelper extends SQLiteOpenHelper {
                         " REAL, "
                         + ItemMaster.ItemsT.COLUMN_ItemDescription +
                         " TEXT"
-                        + ItemMaster.ItemsT.COLUMN_Item_URL
                         + ")";
 
         String SQL_CREATE_CUSTOMER =
@@ -106,6 +107,100 @@ public class DBHelper extends SQLiteOpenHelper {
                         + ")"
                         + ")";
 
+        String SQL_CREATE_SALES_TABLE =
+                "CREATE TABLE "
+                        + SalesMaster.SalesT.TABLE_NAME +
+                        " ("
+                        + SalesMaster.SalesT.COLUMN_NAME_INVOICE_ID +
+                        " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                        + SalesMaster.SalesT.COLUMN_NAME_CUSTOMER_ID +
+                        " INTEGER, "
+                        + SalesMaster.SalesT.COLUMN_NAME_INVOICE_AMOUNT +
+                        " REAL, "
+                        + SalesMaster.SalesT.COLUMN_NAME_BALANCE +
+                        " REAL, "
+                        + SalesMaster.SalesT.COLUMN_NAME_DELIVERY_DATE +
+                        " TEXT, "
+                        + SalesMaster.SalesT.COLUMN_NAME_CREATED_DATE +
+                        " TEXT, "
+                        + SalesMaster.SalesT.COLUMN_NAME_IS_URGENT +
+                        " TEXT, "
+                        + "FOREIGN KEY"
+                        + "("
+                        + SalesMaster.SalesT.COLUMN_NAME_CUSTOMER_ID
+                        + ") "
+                        +" REFERENCES "
+                        + CustomerMaster.CustomerT.TABLE_NAME
+                        + "("
+                        + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID
+                        + ")"
+                        + ")";
+
+        String SQL_CREATE_SALES_ITEMS_TABLE =
+                "CREATE TABLE "
+                        + SalesItemsMaster.SalesItemsT.TABLE_NAME +
+                        " ("
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_INVOICE_ID +
+                        " INTEGER,"
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_ITEM_ID +
+                        " INTEGER,"
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_QTY +
+                        " TEXT, "
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_AMOUNT +
+                        " TEXT, "
+                        + "PRIMARY KEY"
+                        +"("
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_INVOICE_ID
+                        +", "
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_ITEM_ID
+                        +"), "
+                        + "FOREIGN KEY"
+                        +"("
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_INVOICE_ID
+                        +") "
+                        +" REFERENCES "
+                        + SalesMaster.SalesT.TABLE_NAME
+                        +"("
+                        + SalesMaster.SalesT.COLUMN_NAME_INVOICE_ID
+                        + "),"
+                        + "FOREIGN KEY"
+                        + "("
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_ITEM_ID
+                        + ") "
+                        + " REFERENCES "
+                        + ItemMaster.ItemsT.TABLE_NAME
+                        + "("
+                        + ItemMaster.ItemsT.COLUMN_ItemCode
+                        + ")"
+                        + ")";
+
+        String SQL_CREATE_PAYMENT_TABLE =
+                "CREATE TABLE "
+                        + PaymentMaster.PaymentT.TABLE_NAME +
+                        " ("
+                        + PaymentMaster.PaymentT.COLUMN_NAME_INVOICE_ID +
+                        " INTEGER, "
+                        + PaymentMaster.PaymentT.COLUMN_NAME_PAYMENT_DATE +
+                        " TEXT, "
+                        + PaymentMaster.PaymentT.COLUMN_NAME_PAYMENT +
+                        " TEXT, "
+                        + "PRIMARY KEY"
+                        + "("
+                        + PaymentMaster.PaymentT.COLUMN_NAME_INVOICE_ID
+                        + ", "
+                        + PaymentMaster.PaymentT.COLUMN_NAME_PAYMENT_DATE
+                        + "), "
+                        + "FOREIGN KEY"
+                        + "("
+                        + SalesItemsMaster.SalesItemsT.COLUMN_NAME_INVOICE_ID
+                        + ") "
+                        +" REFERENCES "
+                        + SalesMaster.SalesT.TABLE_NAME
+                        + "("
+                        + SalesMaster.SalesT.COLUMN_NAME_INVOICE_ID
+                        + ")"
+                        + ")";
+
 
         //defining the sql query
         db.execSQL(SQL_CREATE_ROUTES_TABLE);//Execute the table creation
@@ -114,7 +209,12 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_CUSTOMER); //Execute the customer table creation
         Log.d("DBcreation", SQL_CREATE_CUSTOMER);
         Log.d("workflow", "Customer Db created successfully");
-
+        db.execSQL(SQL_CREATE_SALES_TABLE); //Execute the sales table creation
+        Log.d("workflow", "Sales table created successfully");
+        db.execSQL(SQL_CREATE_SALES_ITEMS_TABLE); //Execute the sales_items table creation
+        Log.d("workflow", "SalesItems table created successfully");
+        db.execSQL(SQL_CREATE_PAYMENT_TABLE); //Execute the payment table creation
+        Log.d("workflow", "Payment table created successfully");
 
     }
 
@@ -123,10 +223,13 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.d("workflow", "DB Onupgrade method Called");
         db.execSQL("DROP TABLE IF EXISTS " + CustomerMaster.CustomerT.TABLE_NAME);
-        db.execSQL("DROP TABLE IF EXISTS " + RouteMaster.RoutesT.TABLE_NAME);
+       db.execSQL("DROP TABLE IF EXISTS " + RouteMaster.RoutesT.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + ItemMaster.ItemsT.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + SalesMaster.SalesT.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + SalesItemsMaster.SalesItemsT.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + PaymentMaster.PaymentT.TABLE_NAME);
 
-        // Create tables again
+      //  Create tables again
         onCreate(db);
     }
 
@@ -347,7 +450,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     //add an Item
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public long addItem(String itemname, String itembrand, int itemcount, double buyprice, double sellprice, String itemdescription, String itemURL) //enter all the parameter to be added to DB
+    public long addItem(String itemname, String itembrand, int itemcount, double buyprice, double sellprice, String itemdescription) //enter all the parameter to be added to DB
     {
         Log.d("workflow", "DB addItems method Called");
 
@@ -364,7 +467,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(ItemMaster.ItemsT.COLUMN_ItemBuyPrice, buyprice);
         values.put(ItemMaster.ItemsT.COLUMN_ItemSellPrice, sellprice);
         values.put(ItemMaster.ItemsT.COLUMN_ItemDescription, itemdescription);
-        values.put(ItemMaster.ItemsT.COLUMN_Item_URL, itemURL);
+
 
 
         long newRowID = db.insert(ItemMaster.ItemsT.TABLE_NAME, null, values); //Insert a new row and returning the primary
@@ -386,6 +489,17 @@ public class DBHelper extends SQLiteOpenHelper {
         if (db != null) {
             cursor = db.rawQuery(query, null);
         }
+        return cursor;
+    }
+
+    public Cursor readOneItem(String itemCode) {
+        Log.d("workflow", "readOneItem initiated");
+        String[] selectionArgs = {itemCode};
+        String query = "SELECT * FROM " + ItemMaster.ItemsT.TABLE_NAME + " WHERE " + ItemMaster.ItemsT.COLUMN_ItemCode + " = ? ";
+
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        Log.d("workflow", String.valueOf(cursor));
         return cursor;
     }
 
@@ -459,6 +573,7 @@ public class DBHelper extends SQLiteOpenHelper {
     //Insert Customer to the DB
     @RequiresApi(api = Build.VERSION_CODES.O)
     public long insertCustomer(String cusName, String storeName, int mobile, String streetAddress, String city, String profileUri, String storeUri, String cxroute) {
+
         //cxroute
 
         Log.d("workflow", "DB insertCustomer method called");
@@ -565,10 +680,197 @@ public class DBHelper extends SQLiteOpenHelper {
         Log.d("workflow", String.valueOf(cursor));
         return cursor;
     }
+
+    //Get all customers loaded into spinner in sales order page
+    public List<String> getAllCustomers(){
+        List<String> customerslist = new ArrayList<String>();
+        String selectQuery = "SELECT CUSTOMER_ID FROM " + CustomerMaster.CustomerT.TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                customerslist.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return customerslist;
+    }
+
+    //Get all items loaded into spinner in sales order page
+    public List<Product> getAllProducts(String search){
+        List<Product> productlist = new ArrayList<Product>();
+        String selectQuery = "SELECT ItemCode,ItemName,ItemSellPrice FROM " + ItemMaster.ItemsT.TABLE_NAME + " WHERE ItemName LIKE '%"+ search +"%'";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Product pro = new Product();
+                pro.setItemCode(cursor.getInt(0));
+                pro.setItemName(cursor.getString(1));
+                pro.setPrice(cursor.getFloat(2));
+                productlist.add(pro);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return productlist;
+    }
+
+    // Add sales order to DB
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public long addSalesOrder(Integer cusid, String date, String invamt, String bal, String isurgent)
+    {
+        Log.d("workflow", "DB addSalesOrder method called");
+
+        String currentTime = getTimeStamp();
+        Log.d("workflow", "DB gettimpstamp method called");
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        //values.put(SalesMaster.SalesT.COLUMN_NAME_INVOICE_ID, inv_id);
+        values.put(SalesMaster.SalesT.COLUMN_NAME_CUSTOMER_ID, cusid);
+        values.put(SalesMaster.SalesT.COLUMN_NAME_DELIVERY_DATE, date);
+        values.put(SalesMaster.SalesT.COLUMN_NAME_INVOICE_AMOUNT, invamt);
+        values.put(SalesMaster.SalesT.COLUMN_NAME_BALANCE, bal);
+        values.put(SalesMaster.SalesT.COLUMN_NAME_CREATED_DATE, currentTime);
+        values.put(SalesMaster.SalesT.COLUMN_NAME_IS_URGENT, isurgent);
+
+        //Insert new row and return the primary key value
+        long newSalesRowID = db.insert(SalesMaster.SalesT.TABLE_NAME, null, values);
+
+        Log.d("workflow", "DB addSalesOrder method call finished");
+
+        return newSalesRowID;
+    }
+
+    public int deleteSalesOrder(String invid) {
+        Log.d("workflow", "DB deleteSalesOrder method called");
+
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = SalesMaster.SalesT.COLUMN_NAME_INVOICE_ID + " = ? ";
+        String[] selectionArgs = {invid};
+
+        int status=db.delete(SalesMaster.SalesT.TABLE_NAME,
+                selection,
+                selectionArgs
+        );
+        return status;
+    }
+
+    public Cursor getAllSalesOrders() {
+        Log.d("workflow", "DB getAllSalesOrders method called");
+
+        String query = "SELECT * FROM " + SalesMaster.SalesT.TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+
+        Cursor cursor = null;
+        if (db != null) {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
+    public Cursor readAllSalesOrders() {
+        Log.d("workflow", "DB readAllSalesOrders method called");
+
+
+        String query = "SELECT "
+                + SalesMaster.SalesT.TABLE_NAME+
+                ".* From "
+                +SalesMaster.SalesT.TABLE_NAME+
+                " LEFT JOIN "
+                +CustomerMaster.CustomerT.TABLE_NAME+
+                " ON "
+                +CustomerMaster.CustomerT.TABLE_NAME+
+                "."
+                +CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID+
+                "="
+                +SalesMaster.SalesT.TABLE_NAME+
+                "."
+                +SalesMaster.SalesT.COLUMN_NAME_CUSTOMER_ID;
+
+        Log.d("workflow",query);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+
+        Cursor cursor = null;
+        if (db != null) {
+            cursor = db.rawQuery(query, null);
+
+        }
+        return cursor;
+    }
+
+
+    //Get all invoices loaded into spinner in payment page
+    public List<String> getAllInvoices(){
+        List<String> invoicelist = new ArrayList<String>();
+        String selectQuery = "SELECT inv_id FROM " + SalesMaster.SalesT.TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                invoicelist.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return invoicelist;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public long addPayment(String txtinv, float txtpay, String txtdate, float txtnewbal)
+    {
+        Log.d("workflow", "DB addPayment method called");
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(PaymentMaster.PaymentT.COLUMN_NAME_INVOICE_ID, txtinv);
+        values.put(PaymentMaster.PaymentT.COLUMN_NAME_PAYMENT, txtpay);
+        values.put(PaymentMaster.PaymentT.COLUMN_NAME_PAYMENT_DATE, txtdate);
+        //values.put(SalesMaster.SalesT.COLUMN_NAME_BALANCE, txtnewbal);
+
+        long newRowID = db.insert(PaymentMaster.PaymentT.TABLE_NAME, null, values); //Insert a new row and returning the primary
+        //key values of the new row
+
+        Log.d("workflow", "DB addPayment method call finished");
+
+        updateSalesBalance(txtinv, txtnewbal);
+        return newRowID;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public int updateSalesBalance(String invid, Float bal) {
+
+        Log.d("workflow", "DB updateSalesBalance method called");
+
+        SQLiteDatabase db = getReadableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(SalesMaster.SalesT.COLUMN_NAME_BALANCE, bal);
+
+        String selection = SalesMaster.SalesT.COLUMN_NAME_INVOICE_ID + " = ? ";
+        String[] selectionArgs = {invid};
+
+        int count = db.update(SalesMaster.SalesT.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
 }
-
-
-
-
-
-

@@ -7,15 +7,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
 
 
 import com.example.mobileapplication.database.DBHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.text.DecimalFormat;
 
 
 public class AddRoute extends AppCompatActivity {
@@ -23,8 +28,8 @@ public class AddRoute extends AppCompatActivity {
     boolean isfieldsvalidated=false;  //check all field validations
     Switch aSwitch;
     String setStatusMsg,issetasdefault="0";
-
-
+    TextView bdistance;
+    Calculations calc=new Calculations();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,47 @@ public class AddRoute extends AppCompatActivity {
         etendloc=findViewById(R.id.inp_endloc);
         etdistance=findViewById(R.id.inp_distance);
         aSwitch=findViewById(R.id.switch_mod);
+        bdistance=findViewById(R.id.setdistance);
+        bdistance.setVisibility(View.GONE);
+
+        etdistance.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int start, int count, int after) {
+                if (start>count) {
+                    double entdist, fuelamount ;
+                    bdistance.setVisibility(View.VISIBLE);
+                    bdistance.setText(charSequence.toString());
+                    entdist = Double.parseDouble(charSequence.toString());
+
+                    fuelamount=calc.calcfuel(entdist);
+                    bdistance.setText(getString(R.string.label_to_travel) +
+                            " " +
+                            charSequence.toString() +
+                            " " +
+                            getString(R.string.label_you_need) +
+                            " " +
+                            (String.valueOf(fuelamount)) +
+                            " " +
+                            getString(R.string.label_fuel_need));
+                    Log.d("TXTchange","start:"+start);
+                    Log.d("TXTchange","count:"+count);
+                    Log.d("TXTchange","after:"+after);
+                    //To travel 50Kms you will need 12 literes of fuel on average.*/
+                }
+                else
+                    bdistance.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
         aSwitch.setOnCheckedChangeListener((compoundButton, b) ->
                 issetasdefault="1"
@@ -83,9 +129,8 @@ public class AddRoute extends AppCompatActivity {
 
     }
 
-
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void addRoute(View view) {
+    protected void addRoute(View view) {
         Log.d("workflow","Add Route addRoute  method  Called");
         isfieldsvalidated = CheckAllFields();
 
@@ -110,7 +155,7 @@ public class AddRoute extends AppCompatActivity {
         }
     }
 
-    private void removedefault(String issetasdefault) {
+    protected void removedefault(String issetasdefault) {
         Log.d("workflow","Add Route removedefault  method  Called");
         if(Integer.parseInt(issetasdefault)==1){
             DBHelper dbHelper = new DBHelper(this);
@@ -119,7 +164,7 @@ public class AddRoute extends AppCompatActivity {
         }
     }
 
-    private boolean CheckAllFields() {
+    protected boolean CheckAllFields() {
 
         //if values are changed pls change in modify route as well
 
@@ -144,6 +189,7 @@ public class AddRoute extends AppCompatActivity {
         if (etstartloc.length() > maxchar) {
 
             etstartloc.setError(getString(R.string.error_msg_max_characters)+" "+maxchar);
+
             return false;
         }
 
