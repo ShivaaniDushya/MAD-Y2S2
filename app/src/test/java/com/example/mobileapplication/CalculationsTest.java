@@ -6,7 +6,6 @@ import org.junit.Test;
 
 public class CalculationsTest {
 
-
     @Test
     public void textcalc(){
         double input=4;
@@ -18,4 +17,10 @@ public class CalculationsTest {
         output=calculations.calcfuel(input);
         assertEquals(expected,output,delta);
     }
+
+    @Test
+    public void testNewBalDue(){
+        assertEquals(750,1000-250);
+    }
+
 }
