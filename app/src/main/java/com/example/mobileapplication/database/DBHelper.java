@@ -223,13 +223,13 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.d("workflow", "DB Onupgrade method Called");
         db.execSQL("DROP TABLE IF EXISTS " + CustomerMaster.CustomerT.TABLE_NAME);
-       db.execSQL("DROP TABLE IF EXISTS " + RouteMaster.RoutesT.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + RouteMaster.RoutesT.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + ItemMaster.ItemsT.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + SalesMaster.SalesT.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + SalesItemsMaster.SalesItemsT.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + PaymentMaster.PaymentT.TABLE_NAME);
 
-      //  Create tables again
+        //  Create tables again
         onCreate(db);
     }
 
@@ -644,11 +644,11 @@ public class DBHelper extends SQLiteOpenHelper {
                 + CustomerMaster.CustomerT.COLUMN_NAME_CX_route + ", "
                 + RouteMaster.RoutesT.COLUMN_NAME_START_LOCATION + ", "
                 + RouteMaster.RoutesT.COLUMN_NAME_END_LOCATION
-                        + " FROM " + CustomerMaster.CustomerT.TABLE_NAME
-                        + " LEFT JOIN " + RouteMaster.RoutesT.TABLE_NAME
-                        + " ON " + CustomerMaster.CustomerT.COLUMN_NAME_CX_route
-                        + " = " + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID
-                        + " WHERE " + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID + " = ?";
+                + " FROM " + CustomerMaster.CustomerT.TABLE_NAME
+                + " LEFT JOIN " + RouteMaster.RoutesT.TABLE_NAME
+                + " ON " + CustomerMaster.CustomerT.COLUMN_NAME_CX_route
+                + " = " + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID
+                + " WHERE " + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID + " = ?";
         Cursor cursor1 = db.rawQuery(query, selectionArgs);
         Log.d("workflow", String.valueOf(cursor1.toString()));
         return cursor1;
@@ -670,11 +670,11 @@ public class DBHelper extends SQLiteOpenHelper {
                 + CustomerMaster.CustomerT.COLUMN_NAME_SP_URL + ", "
                 + RouteMaster.RoutesT.COLUMN_NAME_START_LOCATION + ", "
                 + RouteMaster.RoutesT.COLUMN_NAME_END_LOCATION
-                        + " FROM " + CustomerMaster.CustomerT.TABLE_NAME
-                        + " LEFT JOIN " + RouteMaster.RoutesT.TABLE_NAME
-                        + " ON " + CustomerMaster.CustomerT.COLUMN_NAME_CX_route
-                        + " = " + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID
-                        + " WHERE " + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID + " = ?";
+                + " FROM " + CustomerMaster.CustomerT.TABLE_NAME
+                + " LEFT JOIN " + RouteMaster.RoutesT.TABLE_NAME
+                + " ON " + CustomerMaster.CustomerT.COLUMN_NAME_CX_route
+                + " = " + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID
+                + " WHERE " + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID + " = ?";
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery(query, selectionArgs);
         Log.d("workflow", String.valueOf(cursor));
@@ -871,6 +871,17 @@ public class DBHelper extends SQLiteOpenHelper {
                 selection,
                 selectionArgs);
         return count;
+    }
+
+    public Cursor readOneSalesOrder(String invid) {
+        Log.d("workflow", "readOneSalesOrder initiated");
+        String[] selectionArgs = {invid};
+        String query = "SELECT * FROM " + SalesMaster.SalesT.TABLE_NAME + " WHERE " + SalesMaster.SalesT.COLUMN_NAME_INVOICE_ID + " = ? ";
+
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        Log.d("workflow", String.valueOf(cursor));
+        return cursor;
     }
 
 }

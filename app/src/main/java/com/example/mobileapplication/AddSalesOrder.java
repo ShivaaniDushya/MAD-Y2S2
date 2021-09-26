@@ -193,7 +193,7 @@ public class AddSalesOrder extends AppCompatActivity {
 
             Toast.makeText(this, "Record added successfully", Toast.LENGTH_SHORT).show();
 
-            Intent intent = new Intent(this, ViewSalesOrders.class);
+            Intent intent = new Intent(this, Sales.class);
             startActivity(intent);
             Log.i("BTN Click", "addSalesOrderConfirmation button clicked");
 
