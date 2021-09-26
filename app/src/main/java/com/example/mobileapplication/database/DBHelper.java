@@ -499,6 +499,17 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor readOneItem(String itemCode) {
+        Log.d("workflow", "readOneItem initiated");
+        String[] selectionArgs = {itemCode};
+        String query = "SELECT * FROM " + ItemMaster.ItemsT.TABLE_NAME + " WHERE " + ItemMaster.ItemsT.COLUMN_ItemCode + " = ? ";
+
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        Log.d("workflow", String.valueOf(cursor));
+        return cursor;
+    }
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public int updateItem(String id, String itemname, String itembrand, int itemcount, double buyprice, double sellprice, String description) { //define the attributes and parameters to be sent

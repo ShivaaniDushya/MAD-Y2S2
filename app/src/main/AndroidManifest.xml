@@ -33,6 +33,10 @@
             android:exported="true"
             android:label="ITEMS > CREATE AN ITEM" />
         <activity
+            android:name=".View_item_Activity"
+            android:exported="true"
+            android:label="ITEMS > VIEW A SINGLE ITEM" />
+        <activity
             android:name=".ModifyRoute"
             android:exported="true" />
         <activity

@@ -123,6 +123,15 @@
     <string name="Item_img_btn">Add an image</string>
     <string name="Item_single_view"></string>
     <string name="Ïtem_image"></string>
+    <string name="iname_view"></string>
+    <string name="icode_view"></string>
+    <string name="ibrand_view"></string>
+    <string name="ibuy_view"></string>
+    <string name="isell_view"></string>
+    <string name="icount_view"></string>
+    <string name="idesc_view"></string>
+    <string name="qrgenerate_btn">Generate QR</string>
+    <string name="iv_output"></string>
 
 
     <!-- create item-->

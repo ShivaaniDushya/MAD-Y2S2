@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View_item_Activity">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/topAppBarParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="12dp"
+            android:background="@color/transparent"
+            app:elevation="0dp">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                style="@style/Widget.MaterialComponents.Toolbar.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_margin="4dp"
+                android:background="@drawable/round_corner_rectangle"
+                android:elevation="0dp"
+                app:menu="@menu/top_app_bar"
+                app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+                app:title="View_item_header" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/light_blue"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:menu="@menu/bottom">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <TextView
+        android:id="@+id/iname_view"
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="598dp"
+        android:text="@string/iname_view"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/ibrand_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="134dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="559dp"
+        android:text="@string/ibrand_view"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/icode_view"
+        android:layout_width="169dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="211dp"
+        android:layout_marginEnd="212dp"
+        android:layout_marginBottom="482dp"
+        android:text="@string/icode_view"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/ibuy_view"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="279dp"
+        android:layout_marginEnd="211dp"
+        android:layout_marginBottom="414dp"
+        android:text="@string/ibuy_view"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/idesc_view"
+        android:layout_width="355dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="348dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="345dp"
+        android:text="@string/idesc_view"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/icount_view"
+        android:layout_width="181dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="202dp"
+        android:layout_marginTop="212dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="481dp"
+        android:text="@string/icount_view"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/isell_view"
+        android:layout_width="181dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="413dp"
+        android:text="@string/isell_view"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="203dp"
+        android:layout_marginTop="190dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="521dp"
+        android:text="Item Count"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="163dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="188dp"
+        android:layout_marginEnd="218dp"
+        android:layout_marginBottom="523dp"
+        android:text="Item Code"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="256dp"
+        android:layout_marginEnd="211dp"
+        android:layout_marginBottom="454dp"
+        android:text="Buy Price (per item)"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="171dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="326dp"
+        android:layout_marginEnd="210dp"
+        android:layout_marginBottom="384dp"
+        android:text="Item Description"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="202dp"
+        android:layout_marginTop="256dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="454dp"
+        android:text="Sell Price (per item)"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/qrgenerate_btn"
+        android:layout_width="149dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="393dp"
+        android:layout_marginEnd="134dp"
+        android:layout_marginBottom="290dp"
+        android:text="@string/qrgenerate_btn" />
+
+    <ImageView
+        android:id="@+id/iv_output"
+        android:layout_width="346dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="464dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="80dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter" />
+
+</RelativeLayout>
