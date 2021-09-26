@@ -84,10 +84,6 @@ public class View_item_Activity extends AppCompatActivity{
                     BarcodeEncoder encoder = new BarcodeEncoder();
                     Bitmap bitmap = encoder.createBitmap(matrix);
                     ivOutput.setImageBitmap(bitmap);
-//                    InputMethodManager manager = (InputMethodManager) getSystemService(
-//                            Context.INPUT_METHOD_SERVICE
-//                    );
-//                    manager.hideSoftInputFromWindow(etInput.getApplicationWindowToken(), 0);
                 } catch (WriterException e) {
                     e.printStackTrace();
                 }
@@ -96,7 +92,7 @@ public class View_item_Activity extends AppCompatActivity{
         });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setSelectedItemId(R.id.customers);
+        bottomNavigationView.setSelectedItemId(R.id.items);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
             switch (menuItem.getItemId()){

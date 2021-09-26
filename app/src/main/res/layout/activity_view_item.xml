@@ -107,6 +107,7 @@
         android:layout_marginTop="279dp"
         android:layout_marginEnd="211dp"
         android:layout_marginBottom="414dp"
+        android:inputType="numberDecimal"
         android:text="@string/ibuy_view"
         android:textSize="16sp" />
 
@@ -152,6 +153,7 @@
         android:layout_marginTop="280dp"
         android:layout_marginEnd="26dp"
         android:layout_marginBottom="413dp"
+        android:inputType="numberDecimal"
         android:text="@string/isell_view"
         android:textSize="16sp" />
 
@@ -232,16 +234,16 @@
 
     <Button
         android:id="@+id/qrgenerate_btn"
-        android:layout_width="149dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="393dp"
-        android:layout_marginEnd="134dp"
-        android:layout_marginBottom="290dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="398dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginBottom="269dp"
         android:text="@string/qrgenerate_btn" />
 
     <ImageView

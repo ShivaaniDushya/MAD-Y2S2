@@ -135,6 +135,10 @@
     <string name="idesc_view"></string>
     <string name="qrgenerate_btn">Generate QR</string>
     <string name="iv_output"></string>
+    <string name="btncal">Calculation</string>
+    <string name="Item_calculation">ITEM CALCULATION</string>
+    <string name="Expected_profit"> EXPECTED PROFIT </string>
+    <string name="expected_prof_amount"></string>
 
 
     <!-- create item-->
