@@ -136,7 +136,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:inputType="text"
+                    android:inputType="numberDecimal"
 
                     android:text="@string/label_item_buyPrice" />
 
@@ -166,7 +166,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:inputType="text"
+                    android:inputType="numberDecimal"
 
                     android:text="@string/label_item_sellPrice" />
 
@@ -207,11 +207,6 @@
                 android:layout_height="22dp"
                 android:layout_weight="1" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="22dp"
-                android:layout_weight="1" />
-
             <Button
                 android:id="@+id/buttonAddItem"
                 android:layout_width="match_parent"
@@ -226,10 +221,6 @@
                 android:text="ADD"
                 app:elevation="0dp" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="22dp"
-                android:layout_weight="1" />
 
 
         </LinearLayout>

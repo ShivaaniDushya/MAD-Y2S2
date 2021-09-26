@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ public class Edit_item_Activity extends AppCompatActivity {
     EditText edID, editItemName_input, editItemBrand_input, editItemCount_input, editBuyPriceItem_input, editSellPriceItem_input, editItemDescrip_input;
     public boolean isfieldsvalidated = false;
     String issetasdefault = "0";
+    Button calculation;
 
     String itemCode, itemName, itemBrand, itemCount, itemBuyPrice, itemSellPrice, itemDescription;
 
@@ -37,6 +39,16 @@ public class Edit_item_Activity extends AppCompatActivity {
         editBuyPriceItem_input = findViewById(R.id.item_buyprice_update);
         editSellPriceItem_input = findViewById(R.id.item_sellrice_update);
         editItemDescrip_input = findViewById(R.id.item_description_update);
+
+        calculation = findViewById(R.id.btncal);
+
+        calculation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openCalculationActivity();
+                Log.d("workflow","Calculation Button Clicked");
+            }
+        });
 
         getAndSetIntentData_Item();
 
@@ -78,6 +90,11 @@ public class Edit_item_Activity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    public void openCalculationActivity() {
+        Intent intent = new Intent(this, ItemCalculation.class);
+        startActivity(intent);
     }
 
     void getAndSetIntentData_Item() {

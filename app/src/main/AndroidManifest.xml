@@ -29,6 +29,10 @@
             android:exported="true"
             android:label="ITEMS > EDIT ITEM" />
         <activity
+            android:name=".ItemCalculation"
+            android:exported="true"
+            android:label="ITEMS > ITEM CALCULATION" />
+        <activity
             android:name=".Create_item_Activity"
             android:exported="true"
             android:label="ITEMS > CREATE AN ITEM" />
