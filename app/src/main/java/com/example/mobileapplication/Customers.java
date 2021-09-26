@@ -44,7 +44,8 @@ public class Customers extends AppCompatActivity {
             snackbar.setAction("OKAY", v -> snackbar.dismiss());
             snackbar.setActionTextColor(Color.CYAN);
             snackbar.show();
-        } catch (Exception ignore) { }
+        } catch (Exception ignore) {
+        }
 
         recyclerView = findViewById(R.id.recycleView);
         no_customer = findViewById(R.id.no_customer);
@@ -69,11 +70,11 @@ public class Customers extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.customers);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
-            switch (menuItem.getItemId()){
+            switch (menuItem.getItemId()) {
                 case R.id.items:
                     startActivity(new Intent(getApplicationContext()
                             , Items.class));
-                    overridePendingTransition(0,0);
+                    overridePendingTransition(0, 0);
                     return true;
 
                 case R.id.customers:
@@ -82,19 +83,19 @@ public class Customers extends AppCompatActivity {
                 case R.id.home:
                     startActivity(new Intent(getApplicationContext()
                             , MainActivity.class));
-                    overridePendingTransition(0,0);
+                    overridePendingTransition(0, 0);
                     return true;
 
                 case R.id.routes:
                     startActivity(new Intent(getApplicationContext()
                             , Routes.class));
-                    overridePendingTransition(0,0);
+                    overridePendingTransition(0, 0);
                     return true;
 
                 case R.id.sales:
                     startActivity(new Intent(getApplicationContext()
                             , Sales.class));
-                    overridePendingTransition(0,0);
+                    overridePendingTransition(0, 0);
                     return true;
             }
 
@@ -115,15 +116,14 @@ public class Customers extends AppCompatActivity {
             Cursor cursor = db.readAllCustomers();
             if (cursor.getCount() == 0) {
                 Log.d("workflow", "No customers");
-            }
-            else {
+            } else {
                 no_customer.setVisibility(View.GONE);
                 no_customer_text.setVisibility(View.GONE);
                 while (cursor.moveToNext()) {
                     customer_id.add(cursor.getString(0));
                     customer_name.add(cursor.getString(1));
                     store_name.add(cursor.getString(2));
-                    address.add(cursor.getString(2) + " "  + getString(R.string.owned) + " " + cursor.getString(1) + " " + getString(R.string.located) + " " + cursor.getString(3) + " " + getString(R.string.in) + " " + cursor.getString(4) + " " + getString(R.string.hint_cus_city));
+                    address.add(cursor.getString(2) + " " + getString(R.string.owned) + " " + cursor.getString(1) + " " + getString(R.string.located) + " " + cursor.getString(3) + " " + getString(R.string.in) + " " + cursor.getString(4) + " " + getString(R.string.hint_cus_city));
                     pp_img_uri.add(cursor.getString(5));
                     sp_img_uri.add(cursor.getString(6));
                 }

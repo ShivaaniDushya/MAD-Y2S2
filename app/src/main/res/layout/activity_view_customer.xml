@@ -141,6 +141,22 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
+                            android:text="@string/label_route"
+                            android:textAllCaps="true"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            android:textColor="?android:attr/textColorSecondary" />
+
+                        <TextView
+                            android:id="@+id/route_v"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_test_data"
+                            android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
                             android:text="@string/label_create_date"
                             android:textAllCaps="true"
                             android:textAppearance="?attr/textAppearanceBody2"
@@ -154,6 +170,7 @@
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
                         <TextView
+                            android:id="@+id/modified_date_vt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"

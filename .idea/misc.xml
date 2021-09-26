@@ -70,12 +70,31 @@
         <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MobileApplication/app/src/main/res/menu/bottom.xml" value="0.21510416666666668" />
         <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MobileApplication/app/src/main/res/menu/main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Shivaani/AndroidStudioProjects/MobileApplication/app/src/main/res/menu/main_menu.xml" value="0.264" />
-        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_add_customer.xml" value="0.264" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/drawable/full_round.xml" value="0.2755208333333333" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/drawable/ic_dstock.xml" value="0.2755208333333333" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/drawable/round_corner_rectangle.xml" value="0.2755208333333333" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/drawable/sales_icon.xml" value="0.2755208333333333" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/drawable/selector.xml" value="0.2755208333333333" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/drawable/splash_corner.xml" value="0.2755208333333333" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout-v28/activity_on_boarding.xml" value="0.259375" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_add_customer.xml" value="0.1" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_add_route.xml" value="0.125" />
         <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_customers.xml" value="0.264" />
-        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_items.xml" value="0.2033514492753623" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_main.xml" value="0.2941834451901566" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_on_boarding.xml" value="0.176" />
         <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_routes.xml" value="0.13179347826086957" />
-        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_view_customer.xml" value="0.1" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_splash_screen.xml" value="0.264" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_test.xml" value="0.4" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_view_customer.xml" value="0.264" />
         <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/customer_row.xml" value="0.4" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/list_route.xml" value="0.259375" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/my_row.xml" value="0.2033514492753623" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/my_row_item.xml" value="0.259375" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/onBoard_pager.xml" value="0.259375" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/on_board_pager.xml" value="0.259375" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/on_board_pager_details.xml" value="0.259375" />
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/splash_pager.xml" value="0.12613981762917933" />
         <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/xml/file_paths.xml" value="0.259375" />
       </map>
     </option>

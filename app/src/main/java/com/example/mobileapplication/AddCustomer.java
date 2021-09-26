@@ -12,11 +12,9 @@ import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
-import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,13 +33,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-public class AddCustomer extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
+public class AddCustomer extends AppCompatActivity {
 
     TextInputEditText customerName, storeName, mobile, streetAddress, city;
     MaterialButton modifyBtn, addPP, addSP;
     ShapeableImageView storePPImg;
     boolean allFieldsValid = false;
-    String AddStatusMsg, customerID, profilePicUri = null, storePicUri = null,cxroute;
+    String AddStatusMsg, customerID, profilePicUri = null, storePicUri = null, route;
     Bundle bundle;
     DBHelper db;
     Cursor cursor;
@@ -49,14 +47,12 @@ public class AddCustomer extends AppCompatActivity  implements AdapterView.OnIte
     static final int REQUEST_IMAGE_CAPTURE_PP = 1;
     static final int REQUEST_IMAGE_CAPTURE_SP = 2;
     File photoFile;
-    Spinner spinner;
+    AutoCompleteTextView selectRoute;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_customer);
-
-        spinner = findViewById(R.id.spinner);
 
         customerName = findViewById(R.id.customer_name);
         storeName = findViewById(R.id.store_name);
@@ -68,11 +64,19 @@ public class AddCustomer extends AppCompatActivity  implements AdapterView.OnIte
         addSP = findViewById(R.id.btn_sp_img);
         storeSPImg = findViewById(R.id.sp_img);
         storePPImg = findViewById(R.id.pp_img);
+        selectRoute = findViewById(R.id.load_route);
 
-        spinner.setOnItemSelectedListener(this);
+        selectRoute.setOnItemClickListener((parent, view, position, id) -> {
+            DBHelper db = new DBHelper(getApplicationContext());
+            List<String> labels = db.getroutelist();
 
-        // Loading spinner data from database
-        loadSpinnerData();
+            route = labels.get(position);
+
+            Log.d("workflow", route);
+        });
+
+        loadRouteData();
+
 
         addPP.setOnClickListener(v -> dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE_PP));
         addSP.setOnClickListener(v -> dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE_SP));
@@ -82,17 +86,18 @@ public class AddCustomer extends AppCompatActivity  implements AdapterView.OnIte
             customerID = bundle.getString("CustomerID");
             modifyBtn.setText(getString(R.string.btn_update));
             setData(customerID);
-        } catch (Exception ignore) { }
+        } catch (Exception ignore) {
+        }
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.customers);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
-            switch (menuItem.getItemId()){
+            switch (menuItem.getItemId()) {
                 case R.id.items:
                     startActivity(new Intent(getApplicationContext()
                             , Items.class));
-                    overridePendingTransition(0,0);
+                    overridePendingTransition(0, 0);
                     return true;
 
                 case R.id.customers:
@@ -101,19 +106,19 @@ public class AddCustomer extends AppCompatActivity  implements AdapterView.OnIte
                 case R.id.home:
                     startActivity(new Intent(getApplicationContext()
                             , MainActivity.class));
-                    overridePendingTransition(0,0);
+                    overridePendingTransition(0, 0);
                     return true;
 
                 case R.id.routes:
                     startActivity(new Intent(getApplicationContext()
                             , Routes.class));
-                    overridePendingTransition(0,0);
+                    overridePendingTransition(0, 0);
                     return true;
 
                 case R.id.sales:
                     startActivity(new Intent(getApplicationContext()
                             , Sales.class));
-                    overridePendingTransition(0,0);
+                    overridePendingTransition(0, 0);
                     return true;
             }
 
@@ -121,18 +126,11 @@ public class AddCustomer extends AppCompatActivity  implements AdapterView.OnIte
         });
     }
 
-    private void loadSpinnerData() {
-        DBHelper db = new DBHelper(getApplicationContext());
-        List<String> labels = db.getstartStoplocation();
-        Log.d("workflow","loadspinnermethodcalled");
-        // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, labels);
-
-        // Drop down layout style - list view with radio button
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // attaching data adapter to spinner
-        spinner.setAdapter(dataAdapter);
+    private void loadRouteData() {
+        DBHelper dbHelper = new DBHelper(getApplicationContext());
+        List<String> routes = dbHelper.getstartStoplocation();
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, routes);
+        selectRoute.setAdapter(arrayAdapter);
     }
 
     private void dispatchTakePictureIntent(int REQUEST_IMAGE_CAPTURE) {
@@ -145,7 +143,8 @@ public class AddCustomer extends AppCompatActivity  implements AdapterView.OnIte
         photoFile = null;
         try {
             photoFile = createImageFile();
-        } catch (IOException ignored) { }
+        } catch (IOException ignored) {
+        }
         // Continue only if the File was successfully created
         if (photoFile != null) {
             Uri photoURI = FileProvider.getUriForFile(this,
@@ -195,6 +194,7 @@ public class AddCustomer extends AppCompatActivity  implements AdapterView.OnIte
     }
 
     String currentPhotoPath;
+
     @SuppressLint("SimpleDateFormat")
     private File createImageFile() throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -215,15 +215,14 @@ public class AddCustomer extends AppCompatActivity  implements AdapterView.OnIte
     public void modifyCustomer(View view) {
         if (TextUtils.isEmpty(customerID)) {
             insertCustomer();
-        }
-        else {
+        } else {
             updateCustomer();
         }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void insertCustomer() {
-        Log.d("workflow","Add insertCustomer  method  Called");
+        Log.d("workflow", "Add insertCustomer  method  Called");
         allFieldsValid = CheckAllFields();
 
         if (allFieldsValid) {
@@ -236,15 +235,15 @@ public class AddCustomer extends AppCompatActivity  implements AdapterView.OnIte
                     Objects.requireNonNull(streetAddress.getText()).toString(),
                     Objects.requireNonNull(city.getText()).toString(),
                     profilePicUri,
-                    storePicUri,cxroute
+                    storePicUri,
+                    route
             );
 
             Log.d("workflow", String.valueOf(val));
 
             if (val == -1) {
                 AddStatusMsg = "Customer added unsuccessful.";
-            }
-            else {
+            } else {
                 AddStatusMsg = "Customer added successful.";
             }
 
@@ -254,9 +253,10 @@ public class AddCustomer extends AppCompatActivity  implements AdapterView.OnIte
             Log.d("BTN Click", "Save customer button clicked");
         }
     }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void updateCustomer() {
-        Log.d("workflow","Add updateCustomer  method  Called");
+        Log.d("workflow", "Add updateCustomer  method  Called");
         allFieldsValid = CheckAllFields();
 
         if (allFieldsValid) {
@@ -269,15 +269,15 @@ public class AddCustomer extends AppCompatActivity  implements AdapterView.OnIte
                     Objects.requireNonNull(streetAddress.getText()).toString(),
                     Objects.requireNonNull(city.getText()).toString(),
                     profilePicUri,
-                    storePicUri
+                    storePicUri,
+                    route
             );
 
             Log.d("workflow", String.valueOf(val));
 
             if (val == -1) {
                 AddStatusMsg = "Customer updated unsuccessful.";
-            }
-            else {
+            } else {
                 AddStatusMsg = "Customer updated successful.";
             }
 
@@ -294,10 +294,18 @@ public class AddCustomer extends AppCompatActivity  implements AdapterView.OnIte
         db = new DBHelper(getApplicationContext());
         cursor = db.getExistingDataToUpdate(customerID);
         Log.d("workflow", "get row to cursor");
+        Log.d("workflow", String.valueOf(cursor.getColumnNames()));
         if (cursor.getCount() == 0) {
             Log.d("workflow", "No customer");
         } else {
             if (cursor.moveToFirst()) {
+                Log.d("workflow", "route" + cursor.getString(7));
+                String newRoute = cursor.getString(8) + " - " + cursor.getString(9);
+                if (cursor.getString(8) != null) {
+                    selectRoute.setText(newRoute, false);
+                }
+                route = cursor.getString(7);
+                Log.d("workflow", "route new " + newRoute);
                 customerName.setText(cursor.getString(0));
                 storeName.setText(cursor.getString(1));
                 mobile.setText(cursor.getString(2));
@@ -316,7 +324,7 @@ public class AddCustomer extends AppCompatActivity  implements AdapterView.OnIte
     }
 
     private boolean CheckAllFields() {
-        Log.d("workflow","Add customer CheckAllFields  method  Called");
+        Log.d("workflow", "Add customer CheckAllFields  method  Called");
         if (customerName.length() == 0) {
             customerName.setError("Customer name is required");
             return false;
@@ -347,25 +355,5 @@ public class AddCustomer extends AppCompatActivity  implements AdapterView.OnIte
         }
 
         return true;
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int i, long id) {
-        int label=parent.getSelectedItemPosition();
-
-        DBHelper db = new DBHelper(getApplicationContext());
-        List<String> labels=db.getroutelist();
-
-        cxroute = labels.get(label);
-
-
-        // Showing selected spinner item
-       Toast.makeText(parent.getContext(), "You selected: " + cxroute,
-              Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
 }

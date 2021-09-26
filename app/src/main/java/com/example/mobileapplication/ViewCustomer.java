@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,7 +20,7 @@ import com.google.android.material.imageview.ShapeableImageView;
 public class ViewCustomer extends AppCompatActivity {
     Bundle bundle;
     DBHelper db;
-    TextView customer_id, customer_name, store_name, mobile, address, created_date, modified_date;
+    TextView customer_id, customer_name, store_name, mobile, address, created_date, modified_date, modified_date_t, route;
     MaterialButton delBtn, editBtn;
     ShapeableImageView storePPImg;
     ImageView storeSPImg;
@@ -38,10 +39,12 @@ public class ViewCustomer extends AppCompatActivity {
         address = findViewById(R.id.address_v);
         created_date = findViewById(R.id.created_date_v);
         modified_date = findViewById(R.id.modified_date_v);
+        modified_date_t = findViewById(R.id.modified_date_vt);
         delBtn = findViewById(R.id.delete_v);
         editBtn = findViewById(R.id.edit_v);
         storeSPImg = findViewById(R.id.store_pic_v);
         storePPImg = findViewById(R.id.customer_pic_v);
+        route = findViewById(R.id.route_v);
 
         try {
             bundle = getIntent().getExtras();
@@ -57,11 +60,11 @@ public class ViewCustomer extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.customers);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
-            switch (menuItem.getItemId()){
+            switch (menuItem.getItemId()) {
                 case R.id.items:
                     startActivity(new Intent(getApplicationContext()
                             , Items.class));
-                    overridePendingTransition(0,0);
+                    overridePendingTransition(0, 0);
                     return true;
 
                 case R.id.customers:
@@ -70,19 +73,19 @@ public class ViewCustomer extends AppCompatActivity {
                 case R.id.home:
                     startActivity(new Intent(getApplicationContext()
                             , MainActivity.class));
-                    overridePendingTransition(0,0);
+                    overridePendingTransition(0, 0);
                     return true;
 
                 case R.id.routes:
                     startActivity(new Intent(getApplicationContext()
                             , Routes.class));
-                    overridePendingTransition(0,0);
+                    overridePendingTransition(0, 0);
                     return true;
 
                 case R.id.sales:
                     startActivity(new Intent(getApplicationContext()
                             , Sales.class));
-                    overridePendingTransition(0,0);
+                    overridePendingTransition(0, 0);
                     return true;
             }
 
@@ -94,13 +97,12 @@ public class ViewCustomer extends AppCompatActivity {
             dialogBuilder.setTitle("Are you sure?");
             dialogBuilder.setMessage("Do you really want to delete this customer? This Process cannot be undone.");
             dialogBuilder.setPositiveButton("Yes", (dialog, which) -> {
-                DBHelper dbHelper=new DBHelper(ViewCustomer.this);
+                DBHelper dbHelper = new DBHelper(ViewCustomer.this);
                 long result = dbHelper.deleteCustomer(customerID);
                 String delMsg;
                 if (result < 1) {
                     delMsg = "Customer deleted unsuccessful.";
-                }
-                else {
+                } else {
                     delMsg = "Customer deleted successful.";
                 }
                 Log.d("TAG", "snack started");
@@ -130,20 +132,24 @@ public class ViewCustomer extends AppCompatActivity {
             Log.d("workflow", "get row to cursor");
             if (cursor.getCount() == 0) {
                 Log.d("workflow", "No customer");
-            }
-            else {
+            } else {
                 if (cursor.moveToFirst()) {
                     customer_id.setText(cursor.getString(0));
                     customer_name.setText(cursor.getString(1));
                     store_name.setText(cursor.getString(2));
-                    mobile.setText("+94" +cursor.getString(3));
+                    mobile.setText("+94" + cursor.getString(3));
                     address.setText(cursor.getString(4) + ", " + cursor.getString(5));
+                    if (cursor.getString(10) != null) {
+                        route.setText(cursor.getString(10) + " - " + cursor.getString(11));
+                    } else {
+                        route.setText("-");
+                    }
                     created_date.setText(cursor.getString(6));
                     if (!(String.valueOf(cursor.getString(7)).equals("null"))) {
                         modified_date.setText(cursor.getString(7));
-                    }
-                    else {
-                        modified_date.setText("-");
+                    } else {
+                        modified_date.setVisibility(View.GONE);
+                        modified_date_t.setVisibility(View.GONE);
                     }
                     if (!(String.valueOf(cursor.getString(8)).equals("null"))) {
                         storePPImg.setImageURI(Uri.parse(cursor.getString(8)));

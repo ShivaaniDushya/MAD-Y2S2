@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OnBoarding">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="190dp"
+        android:scaleType="fitXY"
+        android:layout_alignParentBottom="true"
+        app:srcCompat="@drawable/ic_splash_back"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/splash_logo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginStart="34dp"
+        android:layout_alignParentStart="true"
+        app:srcCompat="@drawable/ic_dstock"
+        tools:ignore="ContentDescription" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/splash_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/splash_skip"
+        android:layout_below="@id/splash_logo"
+        android:layout_marginBottom="34dp"
+        android:translationZ="1dp"
+        tools:ignore="SpeakableTextPresentCheck">
+
+    </androidx.viewpager.widget.ViewPager>
+
+    <LinearLayout
+        android:id="@+id/dots"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/on_board_details"
+        android:gravity="center"
+        android:orientation="horizontal" />
+
+    <ImageView
+        android:id="@+id/on_board_details"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:elevation="2dp"
+        android:translationZ="-2dp"
+        android:layout_alignParentBottom="true"
+        app:srcCompat="@drawable/splash_corner"
+        tools:ignore="ContentDescription" />
+
+    <Button
+        android:id="@+id/splash_skip"
+        android:onClick="skip"
+        style="?attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/transparent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="34dp"
+        android:layout_marginBottom="34dp"
+        android:text="@string/btn_skip"
+        android:textColor="@color/design_default_color_secondary_variant"/>
+
+    <Button
+        android:id="@+id/btn_on_board_next"
+        android:onClick="next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:paddingVertical="10dp"
+        android:layout_marginBottom="34dp"
+        android:layout_marginEnd="34dp"
+        android:text="@string/btn_next"
+        android:textColor="@color/white"
+        android:background="@drawable/full_round"
+        app:backgroundTint="@color/black"
+        tools:ignore="RelativeOverlap,UsingOnClickInXml" />
+
+    <Button
+        android:id="@+id/btn_on_board_started"
+        android:onClick="skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:paddingVertical="10dp"
+        android:layout_marginBottom="34dp"
+        android:layout_marginEnd="34dp"
+        android:text="@string/btn_get_started"
+        android:textColor="@color/white"
+        android:background="@drawable/full_round"
+        app:backgroundTint="@color/black"
+        tools:ignore="RelativeOverlap,UsingOnClickInXml" />
+
+</RelativeLayout>
