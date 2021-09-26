@@ -4,10 +4,8 @@ package com.example.mobileapplication.database;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.database.sqlite.SQLiteQueryBuilder;
 import android.os.Build;
 import android.util.Log;
 
@@ -99,14 +97,14 @@ public class DBHelper extends SQLiteOpenHelper {
                         " TEXT, "
                         + CustomerMaster.CustomerT.COLUMN_NAME_CX_route +
                         " INTEGER,FOREIGN KEY"
-                        +"("
-                        +CustomerMaster.CustomerT.COLUMN_NAME_CX_route
-                        +") "
-                        +" REFERENCES "
-                        +RouteMaster.RoutesT.TABLE_NAME
-                        +"("
+                        + "("
+                        + CustomerMaster.CustomerT.COLUMN_NAME_CX_route
+                        + ") "
+                        + " REFERENCES "
+                        + RouteMaster.RoutesT.TABLE_NAME
+                        + "("
                         + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID
-                        +")"
+                        + ")"
                         + ")";
 
         String SQL_CREATE_SALES_TABLE =
@@ -272,14 +270,14 @@ public class DBHelper extends SQLiteOpenHelper {
         return newRowID;
     }
 
-    public List<String> getstartStoplocation(){
+    public List<String> getstartStoplocation() {
         List<String> list = new ArrayList<String>();
 
         // Select All Query
         String selectQuery = "SELECT  * FROM " + RouteMaster.RoutesT.TABLE_NAME
-                +" ORDER BY "+
+                + " ORDER BY " +
                 RouteMaster.RoutesT.COLUMN_NAME_IS_DEFAULT
-                +" DESC";
+                + " DESC";
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);//selectQuery,selectedArguments
@@ -287,8 +285,8 @@ public class DBHelper extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                list.add(cursor.getString(1)+" - "+cursor.getString(2));//adding 2nd column data
-                Log.d("workflow",cursor.getString(1));
+                list.add(cursor.getString(1) + " - " + cursor.getString(2));//adding 2nd column data
+                Log.d("workflow", cursor.getString(1));
             } while (cursor.moveToNext());
         }
 
@@ -299,14 +297,14 @@ public class DBHelper extends SQLiteOpenHelper {
         return list;
     }
 
-    public List<String> getroutelist(){
+    public List<String> getroutelist() {
         List<String> list = new ArrayList<String>();
 
         // Select All Query
         String selectQuery = "SELECT  * FROM " + RouteMaster.RoutesT.TABLE_NAME
-                +" ORDER BY "+
+                + " ORDER BY " +
                 RouteMaster.RoutesT.COLUMN_NAME_IS_DEFAULT
-                +" DESC";
+                + " DESC";
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);//selectQuery,selectedArguments
@@ -325,9 +323,6 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-
-
-
     public int deleteRoute(String routeid) {
         Log.d("workflow", "DB delete route method Called");
 
@@ -336,7 +331,7 @@ public class DBHelper extends SQLiteOpenHelper {
         String[] selectionArgs = {routeid};
 
 
-        int status=db.delete(RouteMaster.RoutesT.TABLE_NAME,   //table name
+        int status = db.delete(RouteMaster.RoutesT.TABLE_NAME,   //table name
                 selection,                         //where clause
                 selectionArgs                       //selection clause
         );
@@ -374,33 +369,33 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
         String query = "SELECT "
-                + RouteMaster.RoutesT.TABLE_NAME+
-                ".*, COUNT"+
+                + RouteMaster.RoutesT.TABLE_NAME +
+                ".*, COUNT" +
                 "("
-                +CustomerMaster.CustomerT.TABLE_NAME+
+                + CustomerMaster.CustomerT.TABLE_NAME +
                 "."
-                +CustomerMaster.CustomerT.COLUMN_NAME_CX_route+
+                + CustomerMaster.CustomerT.COLUMN_NAME_CX_route +
                 ") AS NumberOfRoutes From "
-                +RouteMaster.RoutesT.TABLE_NAME+
+                + RouteMaster.RoutesT.TABLE_NAME +
                 " LEFT JOIN "
-                +CustomerMaster.CustomerT.TABLE_NAME+
+                + CustomerMaster.CustomerT.TABLE_NAME +
                 " ON "
-                +CustomerMaster.CustomerT.TABLE_NAME+
+                + CustomerMaster.CustomerT.TABLE_NAME +
                 "."
-                +CustomerMaster.CustomerT.COLUMN_NAME_CX_route+
+                + CustomerMaster.CustomerT.COLUMN_NAME_CX_route +
                 "="
-                +RouteMaster.RoutesT.TABLE_NAME+
+                + RouteMaster.RoutesT.TABLE_NAME +
                 "."
-                +RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID+
+                + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID +
                 " GROUP BY "
-                +RouteMaster.RoutesT.TABLE_NAME+
+                + RouteMaster.RoutesT.TABLE_NAME +
                 "."
-                +RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID
-                +" ORDER BY "+
+                + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID
+                + " ORDER BY " +
                 RouteMaster.RoutesT.COLUMN_NAME_IS_DEFAULT
-                +" DESC";
+                + " DESC";
 
-        Log.d("workflow",query);
+        Log.d("workflow", query);
 
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -412,8 +407,6 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         return cursor;
     }
-
-
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -553,7 +546,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     //Update Customer in the DB
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public long updateCustomer(String customerID, String customerName, String storeName, int mobile, String streetAddress, String city, String profilePicUri, String storePicUri) {
+    public long updateCustomer(String customerID, String customerName, String storeName, int mobile, String streetAddress, String city, String profilePicUri, String storePicUri, String routeID) {
         SQLiteDatabase db = this.getReadableDatabase();
         ContentValues contentValues = new ContentValues();
         String currentTime = getTimeStamp();
@@ -566,6 +559,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(CustomerMaster.CustomerT.COLUMN_NAME_MODIFIED_DATE, currentTime);
         contentValues.put(CustomerMaster.CustomerT.COLUMN_NAME_PP_URL, profilePicUri);
         contentValues.put(CustomerMaster.CustomerT.COLUMN_NAME_SP_URL, storePicUri);
+        contentValues.put(CustomerMaster.CustomerT.COLUMN_NAME_CX_route, routeID);
 
         String selection = CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID + " = ? ";
         String[] selectionArgs = {customerID};
@@ -578,7 +572,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     //Insert Customer to the DB
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public long insertCustomer(String cusName, String storeName, int mobile, String streetAddress, String city, String profileUri, String storeUri,String cxroute) {
+    public long insertCustomer(String cusName, String storeName, int mobile, String streetAddress, String city, String profileUri, String storeUri, String cxroute) {
+
         //cxroute
 
         Log.d("workflow", "DB insertCustomer method called");
@@ -596,7 +591,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(CustomerMaster.CustomerT.COLUMN_NAME_CREATED_DATE, currentTime);
         values.put(CustomerMaster.CustomerT.COLUMN_NAME_PP_URL, profileUri);
         values.put(CustomerMaster.CustomerT.COLUMN_NAME_SP_URL, storeUri);
-        values.put(CustomerMaster.CustomerT.COLUMN_NAME_CX_route,cxroute);
+        values.put(CustomerMaster.CustomerT.COLUMN_NAME_CX_route, cxroute);
 
         long newRowID = db.insert(CustomerMaster.CustomerT.TABLE_NAME, null, values); //Insert a new row and returning the primary key values of the new row
         Log.d("workflow", "DB insertCustomer method Called finished");
@@ -636,27 +631,50 @@ public class DBHelper extends SQLiteOpenHelper {
     //View one customer in the DB
     public Cursor getExistingDataToUpdate(String customerID) {
         Log.d("workflow", "getExistingDataToUpdate initiated");
-        String[] columns = {CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_NAME,
-                CustomerMaster.CustomerT.COLUMN_NAME_STORE_NAME,
-                CustomerMaster.CustomerT.COLUMN_NAME_MOBILE,
-                CustomerMaster.CustomerT.COLUMN_NAME_STREET_ADDRESS,
-                CustomerMaster.CustomerT.COLUMN_NAME_CITY,
-                CustomerMaster.CustomerT.COLUMN_NAME_PP_URL,
-                CustomerMaster.CustomerT.COLUMN_NAME_SP_URL};
-        String where = CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID + " = ? ";
+        Log.d("workflow", "uID " + customerID);
         String[] selectionArgs = {customerID};
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.query(CustomerMaster.CustomerT.TABLE_NAME, columns, where, selectionArgs, null, null, null);
-        Log.d("workflow", String.valueOf(cursor));
-        return cursor;
+        String query = "SELECT " + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_NAME + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_STORE_NAME + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_MOBILE + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_STREET_ADDRESS + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_CITY + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_PP_URL + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_SP_URL + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_CX_route + ", "
+                + RouteMaster.RoutesT.COLUMN_NAME_START_LOCATION + ", "
+                + RouteMaster.RoutesT.COLUMN_NAME_END_LOCATION
+                        + " FROM " + CustomerMaster.CustomerT.TABLE_NAME
+                        + " LEFT JOIN " + RouteMaster.RoutesT.TABLE_NAME
+                        + " ON " + CustomerMaster.CustomerT.COLUMN_NAME_CX_route
+                        + " = " + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID
+                        + " WHERE " + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID + " = ?";
+        Cursor cursor1 = db.rawQuery(query, selectionArgs);
+        Log.d("workflow", String.valueOf(cursor1.toString()));
+        return cursor1;
     }
 
     //View all details of one customer in the DB
     public Cursor readOneCustomer(String customerID) {
         Log.d("workflow", "readOneCustomer initiated");
         String[] selectionArgs = {customerID};
-        String query = "SELECT * FROM " + CustomerMaster.CustomerT.TABLE_NAME + " WHERE " + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID + " = ? ";
-
+        String query = "SELECT " + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_NAME + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_STORE_NAME + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_MOBILE + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_STREET_ADDRESS + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_CITY + ", "
+                + CustomerMaster.CustomerT.TABLE_NAME + "." + CustomerMaster.CustomerT.COLUMN_NAME_CREATED_DATE + ", "
+                + CustomerMaster.CustomerT.TABLE_NAME + "." +  CustomerMaster.CustomerT.COLUMN_NAME_MODIFIED_DATE + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_PP_URL + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_SP_URL + ", "
+                + RouteMaster.RoutesT.COLUMN_NAME_START_LOCATION + ", "
+                + RouteMaster.RoutesT.COLUMN_NAME_END_LOCATION
+                        + " FROM " + CustomerMaster.CustomerT.TABLE_NAME
+                        + " LEFT JOIN " + RouteMaster.RoutesT.TABLE_NAME
+                        + " ON " + CustomerMaster.CustomerT.COLUMN_NAME_CX_route
+                        + " = " + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID
+                        + " WHERE " + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID + " = ?";
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery(query, selectionArgs);
         Log.d("workflow", String.valueOf(cursor));

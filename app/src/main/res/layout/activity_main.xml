@@ -6,54 +6,469 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_marginTop="75dp"
+        tools:ignore="SpeakableTextPresentCheck">
 
-        <Button
-            android:id="@+id/buttoneng"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_eng"
-            android:visibility="invisible" />
-
-        <Button
-            android:id="@+id/buttonsin"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btn_sin"
-            android:visibility="invisible" />
+            android:layout_marginHorizontal="34dp"
+            android:layout_marginTop="20dp">
 
-        <Button
-            android:id="@+id/buttontam"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_tam"
-            android:visibility="invisible" />
+            <ImageView
+                android:id="@+id/add_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/ic_add_01" />
 
-    </LinearLayout>
-    <Button
-        android:id="@+id/btn_search_shops"
-        android:layout_width="match_parent"
-        android:layout_height="79dp"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_search"
+                android:layout_marginVertical="15dp"
+                android:text="@string/bottom_sales"
+                app:chipEndPadding="10dp"
+                app:chipIcon="@drawable/ic_heart"
+                app:chipIconSize="16dp"
+                app:chipIconTint="@color/design_default_color_secondary_variant"
+                app:chipStartPadding="10dp" />
 
-        android:layout_marginTop="551dp"
-        android:layout_marginBottom="45dp"
-        android:text="@string/btn_search_shops" />
+            <RelativeLayout
+                android:id="@+id/sales_card"
+                android:layout_below="@id/chip_00"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/sales_income"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:textSize="18sp"
+                    android:background="@drawable/round_corner_rectangle"
+                    android:text="Monthly Income"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:padding="15dp"
+                    android:textSize="18sp"
+                    android:text="1000K"
+                    android:textAppearance="?attr/textAppearanceHeadline6"/>
+
+                <TextView
+                    android:layout_below="@+id/sales_income"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:textSize="18sp"
+                    android:background="@drawable/round_corner_rectangle"
+                    android:text="Monthly Profit"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sales_income"
+                    android:layout_alignParentEnd="true"
+                    android:padding="15dp"
+                    android:textSize="18sp"
+                    android:text="10K"
+                    android:textAppearance="?attr/textAppearanceHeadline6"/>
+
+
+            </RelativeLayout>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sales_card"
+                android:layout_marginVertical="15dp"
+                android:text="@string/chip_best_selling_item"
+                app:chipEndPadding="10dp"
+                app:chipIcon="@drawable/ic_heart"
+                app:chipIconSize="16dp"
+                app:chipIconTint="@color/design_default_color_secondary_variant"
+                app:chipStartPadding="10dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/item_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/chip_01"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/black_12">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp">
+
+                    <TextView
+                        android:id="@+id/item_name_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fabulous Chocolate"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/item_pic"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@color/black_12"
+                        android:contentDescription="@string/text_test_data"
+                        android:scaleType="centerCrop"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CircleImageV" />
+
+                    <TextView
+                        android:id="@+id/item_brand_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/item_name_txt"
+                        android:text="Riyana Factory"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/item_description_txt"
+                        android:layout_below="@+id/item_pic"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lorem ipsum.Lorem ipsum. Lorem. Lorem ipsum"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_card"
+                android:layout_marginVertical="15dp"
+                android:text="@string/chip_top_customer"
+                app:chipEndPadding="10dp"
+                app:chipIcon="@drawable/ic_heart"
+                app:chipIconSize="16dp"
+                app:chipIconTint="@color/design_default_color_secondary_variant"
+                app:chipStartPadding="10dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/customer_card"
+                android:layout_below="@id/chip_02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/black_12"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/store_owner_pic"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:scaleType="centerCrop"
+                            android:contentDescription="@string/text_test_data"
+                            android:background="@color/black_12"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CircleImageV"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:id="@+id/store_name_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/text_test_data"
+                                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                            <TextView
+                                android:id="@+id/customer_name_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/text_test_data"
+                                android:textAppearance="?attr/textAppearanceBody2"
+                                android:textColor="?android:attr/textColorSecondary" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/store_pic"
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:background="@color/black_12"
+                        android:contentDescription="@string/store_banner_desc"
+                        android:scaleType="centerCrop"
+                        tools:ignore="ImageContrastCheck" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/address_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:text="@string/text_test_data"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            android:textColor="?android:attr/textColorSecondary" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/customer_card"
+                android:layout_marginVertical="15dp"
+                android:text="@string/chip_best_route"
+                app:chipEndPadding="10dp"
+                app:chipIcon="@drawable/ic_heart"
+                app:chipIconSize="16dp"
+                app:chipIconTint="@color/design_default_color_secondary_variant"
+                app:chipStartPadding="10dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/route_card"
+                android:layout_below="@id/chip_03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="120dp"
+                app:cardBackgroundColor="@color/celeste">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="153dp">
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_weight="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ocation" />
+
+                    <TextView
+                        android:id="@+id/start_loc_txt"
+                        android:layout_width="0dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="16dp"
+                        android:capitalize="characters"
+                        android:fontFamily="@font/roboto"
+                        android:includeFontPadding="true"
+                        android:text="Horana"
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textColor="@color/material_on_surface_emphasis_high_type"
+                        app:layout_constraintStart_toEndOf="@+id/imageView4"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/end_loc_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto"
+                        android:text="Colombo"
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textColor="@color/material_on_surface_emphasis_high_type"
+                        app:layout_constraintStart_toEndOf="@+id/to"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/to"
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto"
+                        android:paddingLeft="2dp"
+                        android:paddingRight="2dp"
+                        android:text="To"
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textColor="@color/material_on_surface_emphasis_high_type"
+                        android:textSize="22sp"
+                        app:layout_constraintStart_toEndOf="@+id/start_loc_txt"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="R"
+                        android:textColor="@color/material_on_surface_emphasis_high_type"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageView4"
+                        app:layout_constraintTop_toBottomOf="@+id/start_loc_txt" />
+
+                    <TextView
+                        android:id="@+id/rid_txt"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto"
+                        android:text="1234"
+                        android:textAllCaps="true"
+                        android:textColor="@color/material_on_surface_emphasis_high_type"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@+id/textView6"
+                        app:layout_constraintTop_toBottomOf="@+id/start_loc_txt" />
+
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="100dp"
+                        android:layout_weight="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/customer_shop" />
+
+                    <TextView
+                        android:id="@+id/cxcount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto"
+                        android:paddingLeft="2dp"
+                        android:text="3"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textColor="@color/material_on_surface_emphasis_high_type"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView5"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.842" />
+
+                    <TextView
+                        android:id="@+id/lnl_shops"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto"
+                        android:paddingLeft="2dp"
+                        android:text="@string/label_shops"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textColor="@color/material_on_surface_emphasis_high_type"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/cxcount"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.842" />
+
+                    <TextView
+                        android:id="@+id/distance_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto"
+                        android:text="01"
+                        android:textColor="@color/material_on_surface_emphasis_high_type"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView6"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.842" />
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="180dp"
+                        android:layout_weight="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.826"
+                        app:srcCompat="@drawable/map_pinpoint" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/label_unit_distance"
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/material_on_surface_emphasis_high_type"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/distance_txt"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.842" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton"
+                        style="@android:style/Widget.DeviceDefault.Light.ImageButton"
+                        android:layout_width="63dp"
+                        android:layout_height="81dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/celeste"
+                        android:rotation="0"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.951"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.777"
+                        app:srcCompat="@drawable/forward" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="4dp"
-        android:fitsSystemWindows="true">
+        android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"

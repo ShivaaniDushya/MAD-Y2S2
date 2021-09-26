@@ -169,26 +169,42 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/modify_btn"
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/load_route_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/label_route"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidthFocused="1dp"
+                app:helperText="@string/helptxt_select_route"
+                app:hintTextColor="@color/design_default_color_secondary_variant">
+
+                <AutoCompleteTextView
+                    android:id="@+id/load_route"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="30dp"
-                    android:backgroundTint="@color/purple_500"
-                    android:elevation="0dp"
-                    android:onClick="modifyCustomer"
-                    android:padding="20dp"
-                    android:text="@string/btn_save"
-                    app:elevation="0dp"
-                    tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
-
-                <Spinner
-                    android:id="@+id/spinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:inputType="none" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/modify_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/purple_500"
+                android:elevation="0dp"
+                android:onClick="modifyCustomer"
+                android:padding="20dp"
+                android:text="@string/btn_save"
+                app:elevation="0dp"
+                tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
         </LinearLayout>
 
@@ -218,7 +234,7 @@
                 android:elevation="0dp"
                 app:menu="@menu/top_app_bar"
                 app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
-                app:title="add_new_customer" />
+                app:title="@string/header_add_customer" />
 
         </com.google.android.material.appbar.AppBarLayout>
 

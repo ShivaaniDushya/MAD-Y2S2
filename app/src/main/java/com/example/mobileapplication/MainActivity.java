@@ -22,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,7 +51,7 @@ public class MainActivity extends  AppCompatActivity {
     // Initializing other items
     // from layout file
 
-    Button B1;
+    ImageView searchNearby;
     int PERMISSION_ID = 44;
 
     String longitude,latitude;
@@ -59,28 +60,6 @@ public class MainActivity extends  AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // referencing the text and button views
-
-        btnEnglish = findViewById(R.id.buttoneng);
-        btnSinhala = findViewById(R.id.buttonsin);
-        btnTamil = findViewById(R.id.buttontam);
-        LanguageManager lang=new LanguageManager(this);
-
-
-        btnEnglish.setOnClickListener(view -> {
-            lang.updateResource("en");
-            recreate();
-        });
-
-        btnSinhala.setOnClickListener(view -> {
-            lang.updateResource("si");
-            recreate();
-        });
-
-        btnTamil.setOnClickListener(view -> {
-            lang.updateResource("ta");
-            recreate();
-        });
 
         //Bottom Navigation Bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -125,22 +104,23 @@ public class MainActivity extends  AppCompatActivity {
             }
         });
 
-        B1=findViewById(R.id.btn_search_shops);
+        searchNearby = (ImageView) findViewById(R.id.add_search);
+
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         // method to get the location
         getLastLocation();
 
-        B1.setOnClickListener(new View.OnClickListener() {
+        searchNearby.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Uri gmmIntentUri = Uri.parse("geo:" +
+            public void onClick(View v) {
+                Uri gmnIntentUri = Uri.parse("geo:" +
                         latitude +
                         "," +
                         longitude +
                         "?q=groceries");
-                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmnIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");
                 startActivity(mapIntent);
             }

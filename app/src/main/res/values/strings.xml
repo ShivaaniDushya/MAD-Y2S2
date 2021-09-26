@@ -19,6 +19,9 @@
     <string name="btn_view">VIEW</string>
     <string name="btn_proceed">PROCEED</string>
     <string name="btn_edit">EDIT</string>
+    <string name="btn_skip">SKIP NOW</string>
+    <string name="btn_next">NEXT</string>
+    <string name="btn_get_started">GET STARTED</string>
     <!-- END Global Buttons -->
 
     <!-- Global Labels -->
@@ -237,6 +240,7 @@
     <string name="helptxt_cus_street_address">Enter customer\'s street address</string>
     <string name="hint_cus_city">City</string>
     <string name="helptxt_cus_city">Enter customer\'s city</string>
+    <string name="helptxt_select_route">Select route</string>
 
     <!--View Customer-->
     <string name="label_cus_id">Customer ID</string>
@@ -253,6 +257,20 @@
 
     <string name="language">English</string>
     <string name="label_shops">shops</string>
+
+    <!-- On Boarding -->
+    <string name="heading_trilingual">Trilingual Support</string>
+    <string name="heading_search_nearby_shops">Search Nearby Shops</string>
+    <string name="heading_easy_to_use">Easy To Use</string>
+    <string name="text_trilingual">DSTOCK empowers unity by adding your preferred language whether it is English, Sinhala, or Tamil.</string>
+    <string name="text_search_nearby_shops">Integrate with Google Map API we bring you a easy search shops nearby you for just one tap.</string>
+    <string name="text_easy_to_use">With the minimalist design it is super simple and straightforward to your daily use.</string>
+    
+    <!-- Main -->
+    <string name="chip_best_selling_item">Best Selling Item</string>
+    <string name="chip_top_customer">Top Customer</string>
+    <string name="chip_best_route">Best Route</string>
+
     <string name="label_to_travel">To Travel</string>
     <string name="label_you_need"> KMs.You will need</string>
     <string name="label_fuel_need"> Liters of fuel approximately.</string>
