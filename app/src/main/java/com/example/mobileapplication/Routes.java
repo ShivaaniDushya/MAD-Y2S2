@@ -170,8 +170,8 @@ public class Routes extends AppCompatActivity {
             Resources resources=getResources();
             while(cursor.moveToNext()){
                 route_id.add(cursor.getString(0));
-                route_start_location.add(cursor.getString(1));
-                route_end_location.add(cursor.getString(2));
+                route_start_location.add(cursor.getString(1).substring(0, 1).toUpperCase() + cursor.getString(1).substring(1));
+                route_end_location.add(cursor.getString(2).substring(0, 1).toUpperCase() + cursor.getString(2).substring(1));
                 route_distance.add(cursor.getString(3));
                 route_created_date.add(cursor.getString(4));
                 route_modified_date.add(cursor.getString(5));
