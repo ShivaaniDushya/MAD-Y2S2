@@ -41,7 +41,7 @@ public class AddSalesOrder extends AppCompatActivity {
     EditText deldate;
     Switch urgswitch;
     boolean isfieldsvalidated=false;
-    String isurgent = "0";
+    String isurgent = "No";
     TextView balance;
     float totamount = 0;
 
@@ -63,7 +63,7 @@ public class AddSalesOrder extends AppCompatActivity {
         balance.setText(String.valueOf(totamount));
 
         urgswitch.setOnCheckedChangeListener((compoundButton, b) ->
-                isurgent="1"
+                isurgent="Yes"
         );
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
