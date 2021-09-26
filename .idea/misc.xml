@@ -3,12 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Nacap/MAD-Y2S2/app/src/main/res/layout/product_item_view.xml" value="0.1" />
-        <entry key="..\:/Nacap/MAD-Y2S2/app/src/main/res/layout/sales_order_row.xml" value="0.18" />
-        <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2-10.40.25.09/app/src/main/res/layout/activity_add_route.xml" value="0.18385416666666668" />
-        <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2-10.40.25.09/app/src/main/res/layout/activity_modify_route.xml" value="0.18385416666666668" />
-        <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2-10.40.25.09/app/src/main/res/layout/activity_routes.xml" value="0.18385416666666668" />
-        <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2-10.40.25.09/app/src/main/res/layout/my_row.xml" value="0.18385416666666668" />
         <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2-Language/app/src/main/res/layout/activity_main.xml" value="0.18385416666666668" />
         <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2-Language/app/src/main/res/layout/activity_modify_route.xml" value="0.18385416666666668" />
         <entry key="..\:/Users/94777/AndroidStudioProjects/MAD-Y2S2-Language/app/src/main/res/layout/activity_routes.xml" value="0.18385416666666668" />
@@ -83,19 +77,8 @@
         <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/drawable/selector.xml" value="0.2755208333333333" />
         <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/drawable/splash_corner.xml" value="0.2755208333333333" />
         <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout-v28/activity_on_boarding.xml" value="0.259375" />
-        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_add_customer.xml" value="0.1" />
-        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_add_route.xml" value="0.125" />
-<!--
-        <entry key="..\:/Users/Shivaani/Desktop/andr/MAD-Y2S2/app/src/main/res/layout/activity_create_item.xml" value="0.23072916666666668" />
-        <entry key="..\:/Users/Shivaani/Desktop/andr/MAD-Y2S2/app/src/main/res/layout/my_row.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Shivaani/Desktop/andr/MAD-Y2S2/app/src/main/res/layout/my_row_item.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Shivaani/Desktop/new android/MAD-Y2S2/app/src/main/res/layout/activity_add_customer.xml" value="0.23854166666666668" />
-        <entry key="..\:/Users/Shivaani/Desktop/new android/MAD-Y2S2/app/src/main/res/layout/activity_create_item.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Shivaani/Desktop/new android/MAD-Y2S2/app/src/main/res/layout/activity_edit_item.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Shivaani/Desktop/new android/MAD-Y2S2/app/src/main/res/layout/activity_item_cal.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Shivaani/Desktop/new android/MAD-Y2S2/app/src/main/res/layout/activity_view_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_add_customer.xml" value="0.264" />
--->
+        <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_add_route.xml" value="0.125" />
         <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_customers.xml" value="0.264" />
         <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_items.xml" value="0.2033514492753623" />
         <entry key="..\:/Workspace/MAD-Y2S2/app/src/main/res/layout/activity_main.xml" value="0.2941834451901566" />

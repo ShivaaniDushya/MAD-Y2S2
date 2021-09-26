@@ -484,7 +484,6 @@
                 style="@style/Widget.MaterialComponents.Toolbar.Primary"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:layout_margin="4dp"
                 android:background="@drawable/round_corner_rectangle"
                 android:elevation="0dp"
                 app:layout_scrollFlags="scroll|enterAlways|snap"

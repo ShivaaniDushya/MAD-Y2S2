@@ -681,6 +681,31 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    //Get Top Customer
+    public Cursor topCustomer() {
+        String query = "SELECT " + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_NAME + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_STORE_NAME + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_STREET_ADDRESS + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_CITY + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_PP_URL + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_SP_URL + ", "
+                + " SUM( " + SalesItemsMaster.SalesItemsT.COLUMN_NAME_QTY + "*" + SalesItemsMaster.SalesItemsT.COLUMN_NAME_AMOUNT
+                + " ) AS cash FROM " + SalesMaster.SalesT.TABLE_NAME
+                + " LEFT JOIN " + SalesItemsMaster.SalesItemsT.TABLE_NAME
+                + " ON " + SalesMaster.SalesT.TABLE_NAME + "." + SalesMaster.SalesT.COLUMN_NAME_INVOICE_ID
+                + " = " + SalesItemsMaster.SalesItemsT.TABLE_NAME + "." + SalesItemsMaster.SalesItemsT.COLUMN_NAME_INVOICE_ID
+                + " JOIN " + CustomerMaster.CustomerT.TABLE_NAME
+                + " ON " + SalesMaster.SalesT.TABLE_NAME + "." + SalesMaster.SalesT.COLUMN_NAME_CUSTOMER_ID
+                + " = " + CustomerMaster.CustomerT.TABLE_NAME + "." + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID
+                + " GROUP BY " + SalesMaster.SalesT.TABLE_NAME + "." + SalesMaster.SalesT.COLUMN_NAME_CUSTOMER_ID
+                + " ORDER BY cash DESC LIMIT " + 1;
+        SQLiteDatabase database = getReadableDatabase();
+        Cursor cursor = database.rawQuery(query, null);
+        Log.d("workflow", "Top Customer: " + String.valueOf(cursor));
+        return cursor;
+    }
+
     //Get all customers loaded into spinner in sales order page
     public List<String> getAllCustomers(){
         List<String> customerslist = new ArrayList<String>();
