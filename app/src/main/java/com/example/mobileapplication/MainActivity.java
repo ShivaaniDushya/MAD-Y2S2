@@ -37,6 +37,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -54,8 +55,9 @@ public class MainActivity extends  AppCompatActivity {
 
     ShapeableImageView storePPImg;
     ImageView storeSPImg;
-    TextView customerName, storeName, address;
-    String topCustomerID, profilePicUri, storePicUri;
+    TextView customerName, storeName, address, startLocation, endLocation, distance, routeID, numberOfShops, itemName, itemBrand, itemDescription;
+    String topCustomerID, profilePicUri, storePicUri, topItemID;
+    MaterialCardView itemCard1, itemCard2, customerCard1, customerCard2, routeCard1, routeCard2;
 
     // Initializing other items
     // from layout file
@@ -75,8 +77,24 @@ public class MainActivity extends  AppCompatActivity {
         customerName = findViewById(R.id.customer_name_txt);
         storeName = findViewById(R.id.store_name_txt);
         address = findViewById(R.id.address_txt);
+        startLocation = findViewById(R.id.start_loc_txt);
+        endLocation = findViewById(R.id.end_loc_txt);
+        distance = findViewById(R.id.distance_txt);
+        routeID = findViewById(R.id.rid_txt);
+        numberOfShops = findViewById(R.id.cxcount);
+        itemName = findViewById(R.id.item_name_txt);
+        itemBrand = findViewById(R.id.item_brand_txt);
+        itemDescription = findViewById(R.id.item_description_txt);
+        itemCard1 = findViewById(R.id.item_card);
+        itemCard2 = findViewById(R.id.item_card_2);
+        customerCard1 = findViewById(R.id.customer_card);
+        customerCard2 = findViewById(R.id.customer_card_2);
+        routeCard1 = findViewById(R.id.route_card);
+        routeCard2 = findViewById(R.id.route_card_2);
 
         loadTopCustomer();
+        loadTopRoute();
+        loadTopItem();
 
         //Bottom Navigation Bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -274,8 +292,12 @@ public class MainActivity extends  AppCompatActivity {
         Cursor cursor = db.topCustomer();
         if (cursor.getCount() == 0) {
             Log.d("workflow", "No customer");
+            customerCard1.setVisibility(View.GONE);
+            customerCard2.setVisibility(View.VISIBLE);
         }
         else {
+            routeCard1.setVisibility(View.VISIBLE);
+            routeCard2.setVisibility(View.GONE);
             if (cursor.moveToFirst()) {
                 topCustomerID = cursor.getString(0);
                 customerName.setText(cursor.getString(1));
@@ -289,6 +311,47 @@ public class MainActivity extends  AppCompatActivity {
                 if (storePicUri != null) {
                     storeSPImg.setImageURI(Uri.parse(storePicUri));
                 }
+            }
+        }
+    }
+
+    public void loadTopRoute() {
+        DBHelper db = new DBHelper(getApplicationContext());
+        Cursor cursor = db.topRoute();
+        if (cursor.getCount() == 0) {
+            Log.d("workflow", "No Route");
+            routeCard1.setVisibility(View.GONE);
+            routeCard2.setVisibility(View.VISIBLE);
+        }
+        else {
+            routeCard1.setVisibility(View.VISIBLE);
+            routeCard2.setVisibility(View.GONE);
+            if (cursor.moveToFirst()) {
+                routeID.setText(cursor.getString(0));
+                startLocation.setText(cursor.getString(1));
+                endLocation.setText(cursor.getString(2));
+                distance.setText(cursor.getString(3));
+                numberOfShops.setText(cursor.getString(4));
+            }
+        }
+    }
+
+    public void loadTopItem() {
+        DBHelper db = new DBHelper(getApplicationContext());
+        Cursor cursor = db.topItem();
+        if (cursor.getCount() == 0) {
+            Log.d("workflow", "No Route");
+            itemCard1.setVisibility(View.GONE);
+            itemCard2.setVisibility(View.VISIBLE);
+        }
+        else {
+            itemCard1.setVisibility(View.VISIBLE);
+            itemCard2.setVisibility(View.GONE);
+            if (cursor.moveToFirst()) {
+                topItemID = cursor.getString(0);
+                itemName.setText(cursor.getString(1));
+                itemBrand.setText(cursor.getString(2));
+                itemDescription.setText(cursor.getString(3));
             }
         }
     }

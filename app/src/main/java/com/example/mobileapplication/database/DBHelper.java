@@ -408,6 +408,24 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor topRoute() {
+        String query = "SELECT " + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID + ", "
+                + RouteMaster.RoutesT.COLUMN_NAME_START_LOCATION + ", "
+                + RouteMaster.RoutesT.COLUMN_NAME_END_LOCATION + ", "
+                + RouteMaster.RoutesT.COLUMN_NAME_DISTANCE + ", "
+                + " COUNT( " + CustomerMaster.CustomerT.COLUMN_NAME_CX_route
+                + " ) AS nmb FROM " + RouteMaster.RoutesT.TABLE_NAME
+                + " LEFT JOIN " + CustomerMaster.CustomerT.TABLE_NAME
+                + " ON " + CustomerMaster.CustomerT.COLUMN_NAME_CX_route
+                + " = " + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID
+                + " GROUP BY " + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID
+                + " ORDER BY nmb DESC LIMIT " + 1;
+        SQLiteDatabase database = getReadableDatabase();
+        Cursor cursor = database.rawQuery(query, null);
+        Log.d("workflow", "Top Route: " + String.valueOf(cursor));
+        return cursor;
+    }
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public int update_def_route() {
@@ -542,6 +560,24 @@ public class DBHelper extends SQLiteOpenHelper {
                 selectionArgs                       //selection clause
         );
 
+    }
+
+    public Cursor topItem() {
+        String query = "SELECT " + ItemMaster.ItemsT.COLUMN_ItemCode + ", "
+                + ItemMaster.ItemsT.COLUMN_ItemName + ", "
+                + ItemMaster.ItemsT.COLUMN_ItemBrand + ", "
+                + ItemMaster.ItemsT.COLUMN_ItemDescription + ", "
+                + " SUM( " + SalesItemsMaster.SalesItemsT.COLUMN_NAME_QTY
+                + " ) AS itemQty FROM " + ItemMaster.ItemsT.TABLE_NAME
+                + " LEFT JOIN " + SalesItemsMaster.SalesItemsT.TABLE_NAME
+                + " ON " + ItemMaster.ItemsT.COLUMN_ItemCode
+                + " = " + SalesItemsMaster.SalesItemsT.COLUMN_NAME_ITEM_ID
+                + " GROUP BY " + SalesItemsMaster.SalesItemsT.COLUMN_NAME_ITEM_ID
+                + " ORDER BY itemQty DESC LIMIT " + 1;
+        SQLiteDatabase database = getReadableDatabase();
+        Cursor cursor = database.rawQuery(query, null);
+        Log.d("workflow", "Top Item: " + String.valueOf(cursor));
+        return cursor;
     }
 
     //Update Customer in the DB
@@ -691,14 +727,14 @@ public class DBHelper extends SQLiteOpenHelper {
                 + CustomerMaster.CustomerT.COLUMN_NAME_PP_URL + ", "
                 + CustomerMaster.CustomerT.COLUMN_NAME_SP_URL + ", "
                 + " SUM( " + SalesItemsMaster.SalesItemsT.COLUMN_NAME_QTY + "*" + SalesItemsMaster.SalesItemsT.COLUMN_NAME_AMOUNT
-                + " ) AS cash FROM " + SalesMaster.SalesT.TABLE_NAME
+                + " ) AS cash FROM " + CustomerMaster.CustomerT.TABLE_NAME
+                + " LEFT JOIN " + SalesMaster.SalesT.TABLE_NAME
+                + " ON " + CustomerMaster.CustomerT.TABLE_NAME + "." + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID
+                + " = " + SalesMaster.SalesT.TABLE_NAME + "." + SalesMaster.SalesT.COLUMN_NAME_CUSTOMER_ID
                 + " LEFT JOIN " + SalesItemsMaster.SalesItemsT.TABLE_NAME
                 + " ON " + SalesMaster.SalesT.TABLE_NAME + "." + SalesMaster.SalesT.COLUMN_NAME_INVOICE_ID
                 + " = " + SalesItemsMaster.SalesItemsT.TABLE_NAME + "." + SalesItemsMaster.SalesItemsT.COLUMN_NAME_INVOICE_ID
-                + " JOIN " + CustomerMaster.CustomerT.TABLE_NAME
-                + " ON " + SalesMaster.SalesT.TABLE_NAME + "." + SalesMaster.SalesT.COLUMN_NAME_CUSTOMER_ID
-                + " = " + CustomerMaster.CustomerT.TABLE_NAME + "." + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID
-                + " GROUP BY " + SalesMaster.SalesT.TABLE_NAME + "." + SalesMaster.SalesT.COLUMN_NAME_CUSTOMER_ID
+                + " GROUP BY " + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID
                 + " ORDER BY cash DESC LIMIT " + 1;
         SQLiteDatabase database = getReadableDatabase();
         Cursor cursor = database.rawQuery(query, null);

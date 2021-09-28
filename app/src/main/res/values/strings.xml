@@ -60,6 +60,7 @@
     <!-- View Route Labels -->
     <string name="label_search">Search Route</string>
     <string name="label_no_data">No Routes to show. Press + button to add a new Route.</string>
+    <string name="no_top_route">No Routes to show.</string>
     <!-- END View Route Buttons -->
     <!-- View Route Messages -->
     <!-- END View Route Messages -->
@@ -120,7 +121,8 @@
     <string name="Buy_price_item"> </string>
     <string name="Sell_price_item"> </string>
     <string name="Item_Description"> </string>
-    <string name="no_items">No items to show. Press + button to add a new customer.</string>
+    <string name="no_items">No items to show. Press + button to add a new item.</string>
+    <string name="no_top_item">No items to show.</string>
     <string name="item_pic"></string>
     <string name="add_item_pic"></string>
     <string name="Item_img_btn">Add an image</string>
@@ -254,6 +256,7 @@
     <string name="located">and it located at</string>
     <string name="in">in</string>
     <string name="no_customers">No customers to show. Press + button to add a new customer.</string>
+    <string name="no_top_customer">No customers to show.</string>
 
 
     <string name="title_activity_findshops">findshops</string>
@@ -278,4 +281,6 @@
     <string name="label_to_travel">To Travel</string>
     <string name="label_you_need"> KMs.You will need</string>
     <string name="label_fuel_need"> Liters of fuel approximately.</string>
+    <string name="r">R</string>
+    <string name="test">Test</string>
 </resources>
