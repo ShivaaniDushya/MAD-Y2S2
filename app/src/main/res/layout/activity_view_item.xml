@@ -168,7 +168,7 @@
         android:layout_marginTop="190dp"
         android:layout_marginEnd="26dp"
         android:layout_marginBottom="521dp"
-        android:text="Item Count"
+        android:text="@string/icount_update"
         android:textSize="14sp" />
 
     <TextView
@@ -183,7 +183,7 @@
         android:layout_marginTop="188dp"
         android:layout_marginEnd="218dp"
         android:layout_marginBottom="523dp"
-        android:text="Item Code"
+        android:text="@string/icode_update"
         android:textSize="14sp" />
 
     <TextView
@@ -198,7 +198,7 @@
         android:layout_marginTop="256dp"
         android:layout_marginEnd="211dp"
         android:layout_marginBottom="454dp"
-        android:text="Buy Price (per item)"
+        android:text="@string/ibuy_view"
         android:textSize="14sp" />
 
     <TextView
@@ -213,7 +213,7 @@
         android:layout_marginTop="326dp"
         android:layout_marginEnd="210dp"
         android:layout_marginBottom="384dp"
-        android:text="Item Description"
+        android:text="@string/idesc_update"
         android:textSize="14sp" />
 
     <TextView
@@ -228,7 +228,7 @@
         android:layout_marginTop="256dp"
         android:layout_marginEnd="27dp"
         android:layout_marginBottom="454dp"
-        android:text="Sell Price (per item)"
+        android:text="@string/isell_view"
         android:textSize="14sp" />
 
     <Button

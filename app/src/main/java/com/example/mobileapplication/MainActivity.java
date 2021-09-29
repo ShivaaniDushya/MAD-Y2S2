@@ -340,7 +340,7 @@ public class MainActivity extends  AppCompatActivity {
         DBHelper db = new DBHelper(getApplicationContext());
         Cursor cursor = db.topItem();
         if (cursor.getCount() == 0) {
-            Log.d("workflow", "No Route");
+            Log.d("workflow", "No Item");
             itemCard1.setVisibility(View.GONE);
             itemCard2.setVisibility(View.VISIBLE);
         }
