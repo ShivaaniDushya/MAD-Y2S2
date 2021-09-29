@@ -130,7 +130,7 @@ public class AddRoute extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    protected void addRoute(View view) {
+    public void addRoute(View view) {
         Log.d("workflow","Add Route addRoute  method  Called");
         isfieldsvalidated = CheckAllFields();
 

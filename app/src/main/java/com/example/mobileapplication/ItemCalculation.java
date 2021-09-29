@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -82,23 +83,29 @@ public class ItemCalculation extends AppCompatActivity {
         profitbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 calculateExpectedProfit();
             }
         });
 
     }
 
-    protected double calculateExpectedProfit() {
-        double buy = Double.parseDouble(ibuypr.getText().toString());
-        double sell = Double.parseDouble(isellpr.getText().toString());
-        double count = Double.parseDouble(itcount.getText().toString());
-        double cost = Double.parseDouble(icost.getText().toString());
 
-        double profitex = (sell*count) - (buy*count) - cost;
+    protected void calculateExpectedProfit() {
 
-        profit.setText(String.valueOf(profitex));
-        return buy;
+        try {
+            double buy = Double.parseDouble(ibuypr.getText().toString());
+            double sell = Double.parseDouble(isellpr.getText().toString());
+            double count = Double.parseDouble(itcount.getText().toString());
+            double cost = Double.parseDouble(icost.getText().toString());
+            double profitex = (sell*count) - (buy*count) - cost;
+
+            profit.setText(String.valueOf(profitex));
+
+        }catch (Exception e) {
+            Toast.makeText(this, "Please add all mandatory fields", Toast.LENGTH_SHORT).show();
+        }
+
     }
+
 
 }

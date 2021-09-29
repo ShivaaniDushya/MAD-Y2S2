@@ -113,42 +113,14 @@
 
     <!-- Items -->
     <string name="CreatePage">Create an Item</string>
-    <string name="Item_Code"> </string>
-    <string name="Item_Name"> </string>
-    <string name="Item_Brand"> </string>
-    <string name="Item_Count"> </string>
-    <string name="Buy_price_item"> </string>
-    <string name="Sell_price_item"> </string>
-    <string name="Item_Description"> </string>
     <string name="no_items">No items to show. Press + button to add a new customer.</string>
     <string name="item_pic"></string>
     <string name="add_item_pic"></string>
-    <string name="Item_img_btn">Add an image</string>
-    <string name="Item_single_view"></string>
-    <string name="Ïtem_image"></string>
-    <string name="iname_view"></string>
-    <string name="icode_view"></string>
-    <string name="ibrand_view"></string>
-    <string name="ibuy_view"></string>
-    <string name="isell_view"></string>
-    <string name="icount_view"></string>
-    <string name="idesc_view"></string>
     <string name="qrgenerate_btn">Generate QR</string>
-    <string name="iv_output"></string>
     <string name="btncal">Calculation</string>
     <string name="Item_calculation">ITEM CALCULATION</string>
     <string name="Expected_profit"> EXPECTED PROFIT </string>
-    <string name="expected_prof_amount"></string>
-
-
-    <!-- create item-->
-    <string name="label_item_name"></string>
-    <string name="label_item_brand"></string>
-    <string name="label_item_count_"></string>
-    <string name="label_item_buyPrice"></string>
-    <string name="label_item_sellPrice"></string>
-    <string name="label_item_description"></string>
-
+    <string name="share">SHARE</string>
 
     <!-- Sales -->
     <string name="cus_label">Customer</string>

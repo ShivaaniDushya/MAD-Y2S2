@@ -8,8 +8,13 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +31,11 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class View_item_Activity extends AppCompatActivity{
 
     Bundle bundle;
@@ -35,7 +45,9 @@ public class View_item_Activity extends AppCompatActivity{
     Cursor cursor;
     Button btGenerate;
     ImageView ivOutput;
-
+    ImageView shareQR;
+    BitmapDrawable drawable;
+    Bitmap bit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +63,7 @@ public class View_item_Activity extends AppCompatActivity{
         idesc = findViewById(R.id.idesc_view);
         btGenerate = findViewById(R.id.qrgenerate_btn);
         ivOutput = findViewById(R.id.iv_output);
-
-        ActivityCompat.requestPermissions(View_item_Activity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-        ActivityCompat.requestPermissions(View_item_Activity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+        shareQR = findViewById(R.id.sharebtn);
 
 
         try {
@@ -77,19 +87,31 @@ public class View_item_Activity extends AppCompatActivity{
                         icount.getText().toString().trim() + ", " +
                         ibuy.getText().toString().trim() + ", " +
                         isell.getText().toString().trim() + ", " +
-                        idesc.getText().toString().trim()  ;
+                        idesc.getText().toString().trim();
                 MultiFormatWriter writer = new MultiFormatWriter();
+                Bitmap bitmap = null;
                 try {
                     BitMatrix matrix = writer.encode(sText, BarcodeFormat.QR_CODE, 350, 350);
                     BarcodeEncoder encoder = new BarcodeEncoder();
-                    Bitmap bitmap = encoder.createBitmap(matrix);
+                    bitmap = encoder.createBitmap(matrix);
                     ivOutput.setImageBitmap(bitmap);
+
                 } catch (WriterException e) {
                     e.printStackTrace();
                 }
 
+
+
             }
         });
+
+        shareQR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shareImage();
+            }
+        });
+
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.items);
@@ -128,6 +150,28 @@ public class View_item_Activity extends AppCompatActivity{
         });
 
 
+    }
+
+    private void shareImage() {
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+        drawable = (BitmapDrawable) ivOutput.getDrawable();
+        bit = drawable.getBitmap();
+        File file = new File(getExternalCacheDir()+ "/"+"QR Code" + ".png");
+        Intent intent;
+        try{
+            FileOutputStream outputStream = new FileOutputStream(file);
+            bit.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+            outputStream.flush();
+            outputStream.close();
+            intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("image/*");
+            intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        startActivity(Intent.createChooser(intent, "Share image via: "));
     }
 
     private void loadItem(String ItemCode) {
