@@ -31,14 +31,15 @@
                 app:boxStrokeColor="@color/design_default_color_secondary_variant"
                 app:boxStrokeWidthFocused="1dp"
                 app:endIconMode="clear_text"
-                app:helperText="Item Code"
+                app:helperText="@string/icode_update"
                 app:helperTextEnabled="true"
                 app:hintTextColor="@color/design_default_color_secondary_variant">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/item_code_update"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:editable="false"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -51,7 +52,7 @@
                 app:boxStrokeColor="@color/design_default_color_secondary_variant"
                 app:boxStrokeWidthFocused="1dp"
                 app:endIconMode="clear_text"
-                app:helperText="Item Name"
+                app:helperText="@string/iname_update"
                 app:helperTextEnabled="true"
                 app:hintTextColor="@color/design_default_color_secondary_variant">
 
@@ -71,7 +72,7 @@
                 app:boxStrokeColor="@color/design_default_color_secondary_variant"
                 app:boxStrokeWidthFocused="1dp"
                 app:endIconMode="clear_text"
-                app:helperText="Item Brand"
+                app:helperText="@string/ibrand_update"
                 app:hintTextColor="@color/design_default_color_secondary_variant">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -97,7 +98,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/item_count_update"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:inputType="number"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -110,14 +112,14 @@
                 app:boxStrokeColor="@color/design_default_color_secondary_variant"
                 app:boxStrokeWidthFocused="1dp"
                 app:endIconMode="clear_text"
-                app:helperText="Item Buying Price Per Item"
+                app:helperText="@string/ibuy_update"
                 app:hintTextColor="@color/design_default_color_secondary_variant">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/item_buyprice_update"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"/>
+                    android:inputType="numberDecimal" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -130,14 +132,14 @@
                 app:boxStrokeColor="@color/design_default_color_secondary_variant"
                 app:boxStrokeWidthFocused="1dp"
                 app:endIconMode="clear_text"
-                app:helperText="Item Selling Price Per Item"
+                app:helperText="@string/isell_update"
                 app:hintTextColor="@color/design_default_color_secondary_variant">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/item_sellrice_update"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"/>
+                    android:inputType="numberDecimal" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -150,7 +152,7 @@
                 app:boxStrokeColor="@color/design_default_color_secondary_variant"
                 app:boxStrokeWidthFocused="1dp"
                 app:endIconMode="clear_text"
-                app:helperText="Item Description"
+                app:helperText="@string/idesc_update"
                 app:hintTextColor="@color/design_default_color_secondary_variant">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -171,7 +173,6 @@
                     android:text="@string/btn_update"
                     app:elevation="0dp"
                     tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck,UsingOnClickInXml" />
-
 
 
                 <Button
