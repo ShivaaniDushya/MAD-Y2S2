@@ -81,6 +81,11 @@ public class SalesOrderAdapter extends RecyclerView.Adapter <SalesOrderAdapter.M
         holder.created_date_txt.setText(String.valueOf(created_date.get(position)));
         holder.is_urgent_txt.setText(String.valueOf(isurgent.get(position)));
 
+        holder.btnviewso.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ViewSalesOrder.class);
+            intent.putExtra("InvNo", String.valueOf(inv_id.get(position)));
+            context.startActivity(intent);
+        });
 
         holder.btnpay.setOnClickListener (v -> {
             Intent intent = new Intent(context, UpdatePayment.class);
@@ -125,6 +130,7 @@ public class SalesOrderAdapter extends RecyclerView.Adapter <SalesOrderAdapter.M
 
         TextView inv_txt, cus_txt, del_date_txt, inv_amt_txt, balance_txt, created_date_txt, is_urgent_txt;
         LinearLayout mainLayout;
+        ImageButton btnviewso;
         MaterialButton btndel;
         Button btnpay;
 
@@ -137,6 +143,7 @@ public class SalesOrderAdapter extends RecyclerView.Adapter <SalesOrderAdapter.M
             balance_txt=itemView.findViewById(R.id.txtbal);
             created_date_txt=itemView.findViewById(R.id.txtcreateddate);
             is_urgent_txt= itemView.findViewById(R.id.txturg);
+            btnviewso=itemView.findViewById(R.id.btnviewso);
             btnpay=itemView.findViewById(R.id.btnpay);
             btndel=itemView.findViewById(R.id.btndel);
             mainLayout = itemView.findViewById(R.id.mainLayout);
