@@ -59,7 +59,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="130dp"
         android:layout_marginBottom="556dp"
-        android:hint="Enter buy price (per Item)" />
+        android:hint="@string/buyprice_cal" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/isellp"
@@ -69,7 +69,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="209dp"
         android:layout_marginBottom="477dp"
-        android:hint="Enter sell price (per Item)" />
+        android:hint="@string/sellprice_cal" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/icount"
@@ -79,7 +79,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="289dp"
         android:layout_marginBottom="397dp"
-        android:hint="Enter item count" />
+        android:hint="@string/itemcount_cal" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/cost"
@@ -89,7 +89,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="363dp"
         android:layout_marginBottom="323dp"
-        android:hint="Enter expected cost" />
+        android:hint="@string/cost_cal" />
 
     <TextView
         android:id="@+id/expected_prof_amount"
