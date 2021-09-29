@@ -114,7 +114,6 @@
 
     <!-- Items -->
     <string name="CreatePage">Create an Item</string>
-    <string name="no_items">No items to show. Press + button to add a new customer.</string>
     <string name="no_items">No items to show. Press + button to add a new item.</string>
     <string name="no_top_item">No items to show.</string>
     <string name="item_pic"></string>
