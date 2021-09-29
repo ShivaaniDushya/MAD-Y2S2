@@ -47,8 +47,7 @@
                     android:layout_height="wrap_content"
                     android:autoText="false"
                     android:inputType="text"
-
-                    android:text="@string/label_item_name" />
+                />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -77,8 +76,7 @@
                     android:layout_height="wrap_content"
                     android:autoText="false"
                     android:inputType="text"
-
-                    android:text="@string/label_item_brand" />
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -106,9 +104,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:inputType="text"
-
-                    android:text="@string/label_item_count_" />
+                    android:inputType="number"
+            />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -136,9 +133,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:inputType="numberDecimal"
-
-                    android:text="@string/label_item_buyPrice" />
+                    android:inputType="numberDecimal" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -166,9 +161,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:inputType="numberDecimal"
-
-                    android:text="@string/label_item_sellPrice" />
+                    android:inputType="numberDecimal"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -197,8 +190,7 @@
                     android:layout_height="wrap_content"
                     android:autoText="false"
                     android:inputType="text"
-
-                    android:text="@string/label_item_description" />
+/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -250,7 +242,7 @@
                 android:background="@drawable/round_corner_rectangle"
                 android:elevation="0dp"
                 app:menu="@menu/top_app_bar"
-                app:navigationIcon="@drawable/back_arrow_icon"
+
                 app:title="@string/add_item_header" />
 
         </com.google.android.material.appbar.AppBarLayout>
