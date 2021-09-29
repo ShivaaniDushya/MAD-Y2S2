@@ -16,7 +16,7 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        int SPLASH_SCREEN_TIME_OUT = 3000;
+        int SPLASH_SCREEN_TIME_OUT = 2000;
         new Handler().postDelayed(() -> {
 
             onBoardingScreen = getSharedPreferences("onBoardingScreen", MODE_PRIVATE);

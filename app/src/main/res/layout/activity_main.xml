@@ -58,6 +58,7 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/monthly_sales"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -77,6 +78,7 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/monthly_profit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/sales_income"
@@ -135,7 +137,8 @@
                         android:background="@color/black_12"
                         android:contentDescription="@string/text_test_data"
                         android:scaleType="centerCrop"
-                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CircleImageV" />
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CircleImageV"
+                        app:srcCompat="@drawable/ic_dstock_bg" />
 
                     <TextView
                         android:id="@+id/item_brand_txt"
@@ -220,6 +223,7 @@
                             android:id="@+id/store_owner_pic"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
+                            app:srcCompat="@drawable/ic_dstock_bg"
                             android:background="@color/black_12"
                             android:contentDescription="@string/text_test_data"
                             android:scaleType="centerCrop"
@@ -254,6 +258,7 @@
                         android:id="@+id/store_pic"
                         android:layout_width="match_parent"
                         android:layout_height="160dp"
+                        app:srcCompat="@drawable/ic_dstock_bg"
                         android:background="@color/black_12"
                         android:contentDescription="@string/store_banner_desc"
                         android:scaleType="centerCrop"
@@ -566,9 +571,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@drawable/round_corner_rectangle"
+                android:layout_margin="4dp"
                 android:elevation="0dp"
                 app:layout_scrollFlags="scroll|enterAlways|snap"
                 app:menu="@menu/top_app_bar"
+                app:navigationIcon="@drawable/ic_dstock_24"
                 app:title="@string/app_name" />
 
         </com.google.android.material.appbar.AppBarLayout>

@@ -18,7 +18,6 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView3"
         android:layout_width="409dp"
@@ -52,7 +51,7 @@
                 android:background="@drawable/round_corner_rectangle"
                 android:elevation="0dp"
                 app:menu="@menu/top_app_bar"
-
+                app:navigationIcon="@drawable/ic_dstock_24"
                 app:title="@string/header_item" />
 
         </com.google.android.material.appbar.AppBarLayout>

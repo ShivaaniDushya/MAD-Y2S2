@@ -56,9 +56,9 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="@drawable/round_corner_rectangle"
                 android:elevation="0dp"
+                app:navigationIcon="@drawable/ic_dstock_24"
                 app:menu="@menu/top_app_bar"
-                app:navigationIcon="@drawable/ic_round_account_circle_24"
-                app:title="@string/app_name" />
+                app:title="@string/bottom_customer" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -88,6 +88,7 @@
         app:itemBackground="@color/light_blue"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
+        app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>

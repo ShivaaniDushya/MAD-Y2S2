@@ -30,7 +30,7 @@
                 android:background="@drawable/round_corner_rectangle"
                 android:elevation="0dp"
                 app:menu="@menu/top_app_bar"
-                app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+                app:navigationIcon="@drawable/ic_dstock_24"
                 app:title="VIEW SALES ORDER" />
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -207,11 +207,12 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         app:itemBackground="@color/light_blue"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
-        app:menu="@menu/bottom"
-        android:layout_alignParentBottom="true"/>
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom" />
 
     <TextView
         android:id="@+id/txtinv_view"
