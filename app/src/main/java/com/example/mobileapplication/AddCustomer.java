@@ -11,16 +11,21 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
 import com.example.mobileapplication.database.DBHelper;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
@@ -48,7 +53,9 @@ public class AddCustomer extends AppCompatActivity {
     static final int REQUEST_IMAGE_CAPTURE_SP = 2;
     File photoFile;
     AutoCompleteTextView selectRoute;
+    MaterialToolbar topAppBar;
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +72,7 @@ public class AddCustomer extends AppCompatActivity {
         storeSPImg = findViewById(R.id.sp_img);
         storePPImg = findViewById(R.id.pp_img);
         selectRoute = findViewById(R.id.load_route);
+        topAppBar = findViewById(R.id.topAppBar);
 
         selectRoute.setOnItemClickListener((parent, view, position, id) -> {
             DBHelper db = new DBHelper(getApplicationContext());
@@ -86,8 +94,11 @@ public class AddCustomer extends AppCompatActivity {
             customerID = bundle.getString("CustomerID");
             modifyBtn.setText(getString(R.string.btn_update));
             setData(customerID);
+            topAppBar.setTitle("#CID" + customerID);
         } catch (Exception ignore) {
         }
+
+        setSupportActionBar(topAppBar);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.customers);
@@ -124,6 +135,25 @@ public class AddCustomer extends AppCompatActivity {
 
             return false;
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.top_app_bar, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.settings) {
+            startActivity(new Intent(getApplicationContext()
+                    , com.example.mobileapplication.Settings.class));
+            overridePendingTransition(0, 0);
+        }
+        return true;
     }
 
     private void loadRouteData() {

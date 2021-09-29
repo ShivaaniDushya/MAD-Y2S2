@@ -945,4 +945,13 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor monthlySale() {
+        String query = "SELECT SUM( " + SalesMaster.SalesT.COLUMN_NAME_INVOICE_AMOUNT
+                + " ) AS total, SUBSTR( " + SalesMaster.SalesT.COLUMN_NAME_CREATED_DATE
+                + ", 4, 7 ) AS dates, SUBSTR( STRFTIME( '%d-%m-%Y', 'now' ), 4, 7 ) AS today FROM " + SalesMaster.SalesT.TABLE_NAME
+                + " WHERE dates = today";
+        SQLiteDatabase db = getReadableDatabase();
+        return db.rawQuery(query, null);
+    }
+
 }

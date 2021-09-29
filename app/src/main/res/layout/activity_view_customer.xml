@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 app:cardElevation="0dp"
-                app:strokeColor="@color/white"
+                app:strokeColor="@color/black_12"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -46,6 +46,7 @@
                             android:id="@+id/customer_pic_v"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
+                            app:srcCompat="@drawable/ic_dstock_bg"
                             android:background="@color/black_12"
                             android:scaleType="centerCrop"
                             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CircleImageV" />
@@ -81,7 +82,9 @@
                         android:layout_height="194dp"
                         android:background="@color/black_12"
                         android:contentDescription="@string/store_banner_desc"
-                        android:scaleType="centerCrop"/>
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/ic_dstock_bg"
+                        tools:ignore="ImageContrastCheck" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -177,7 +180,8 @@
                             android:text="@string/label_modified_date"
                             android:textAllCaps="true"
                             android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary" />
+                            android:textColor="?android:attr/textColorSecondary"
+                            tools:ignore="TextContrastCheck" />
 
                         <TextView
                             android:id="@+id/modified_date_v"
@@ -214,7 +218,7 @@
                             android:minWidth="24dp"
                             app:icon="@drawable/ic_round_edit_24"
                             app:iconTint="@color/black_60"
-                            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                            tools:ignore="RelativeOverlap,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 
                     </RelativeLayout>
@@ -250,8 +254,8 @@
                 android:layout_margin="4dp"
                 android:background="@drawable/round_corner_rectangle"
                 android:elevation="0dp"
+                app:navigationIcon="@drawable/ic_dstock_24"
                 app:menu="@menu/top_app_bar"
-                app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
                 app:title="VIEW CUSTOMER" />
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -266,6 +270,7 @@
         app:itemBackground="@color/light_blue"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
+        app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>

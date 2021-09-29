@@ -30,7 +30,7 @@
                 android:background="@drawable/round_corner_rectangle"
                 android:elevation="0dp"
                 app:menu="@menu/top_app_bar"
-                app:navigationIcon="@drawable/back_arrow_icon"
+                app:navigationIcon="@drawable/ic_dstock_24"
                 app:title="@string/Item_calculation" />
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -46,6 +46,7 @@
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>

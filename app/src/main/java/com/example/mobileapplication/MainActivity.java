@@ -1,15 +1,10 @@
 package com.example.mobileapplication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.location.Location;
 import android.location.LocationManager;
@@ -22,11 +17,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.example.mobileapplication.database.DBHelper;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -34,42 +31,42 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.imageview.ShapeableImageView;
-import com.google.android.material.textfield.TextInputEditText;
 
-public class MainActivity extends  AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
-    // initializing
-    // FusedLocationProviderClient
-    // object
     FusedLocationProviderClient mFusedLocationClient;
-
-    TextView messageView;
-    Button btnTamil, btnEnglish,btnSinhala;
-    Context context;
-    Resources resources;
 
     ShapeableImageView storePPImg;
     ImageView storeSPImg;
-    TextView customerName, storeName, address, startLocation, endLocation, distance, routeID, numberOfShops, itemName, itemBrand, itemDescription;
+    TextView customerName, storeName, address, startLocation, endLocation, distance, routeID, numberOfShops, itemName, itemBrand, itemDescription, monthlySale, monthlyProfit;
     String topCustomerID, profilePicUri, storePicUri, topItemID;
     MaterialCardView itemCard1, itemCard2, customerCard1, customerCard2, routeCard1, routeCard2;
-
-    // Initializing other items
-    // from layout file
+    MaterialToolbar materialToolbar;
 
     ImageView searchNearby;
     int PERMISSION_ID = 44;
 
-    String longitude,latitude;
+    String longitude, latitude;
+    private final LocationCallback mLocationCallback = new LocationCallback() {
 
+        @Override
+        public void onLocationResult(LocationResult locationResult) {
+            Location mLastLocation = locationResult.getLastLocation();
+
+            longitude = String.valueOf(mLastLocation.getLongitude());
+            latitude = String.valueOf(mLastLocation.getLatitude());
+        }
+    };
+
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        localeHelper.loadLocale(this);
         setContentView(R.layout.activity_main);
 
         storePPImg = findViewById(R.id.store_owner_pic);
@@ -91,55 +88,55 @@ public class MainActivity extends  AppCompatActivity {
         customerCard2 = findViewById(R.id.customer_card_2);
         routeCard1 = findViewById(R.id.route_card);
         routeCard2 = findViewById(R.id.route_card_2);
+        monthlySale = findViewById(R.id.monthly_sales);
+        monthlyProfit = findViewById(R.id.monthly_profit);
 
         loadTopCustomer();
         loadTopRoute();
         loadTopItem();
+        loadMonthlySale();
+
+        materialToolbar = findViewById(R.id.topAppBar);
+        setSupportActionBar(materialToolbar);
 
         //Bottom Navigation Bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()){
-                    case R.id.items:
+        bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
+            switch (menuItem.getItemId()) {
+                case R.id.items:
                     startActivity(new Intent(getApplicationContext()
-                             , Items.class));
+                            , Items.class));
+                    overridePendingTransition(0, 0);
+                    return true;
 
+                case R.id.customers:
+                    startActivity(new Intent(getApplicationContext()
+                            , Customers.class));
+                    overridePendingTransition(0, 0);
+                    return true;
 
+                case R.id.home:
+                    return true;
 
-                        overridePendingTransition(0,0);
-                        return true;
+                case R.id.routes:
+                    startActivity(new Intent(getApplicationContext()
+                            , Routes.class));
+                    overridePendingTransition(0, 0);
+                    return true;
 
-                    case R.id.customers:
-                        startActivity(new Intent(getApplicationContext()
-                                , Customers.class));
-                        overridePendingTransition(0,0);
-                        return true;
-
-                    case R.id.home:
-                        return true;
-
-                    case R.id.routes:
-                        startActivity(new Intent(getApplicationContext()
-                                , Routes.class));
-                        overridePendingTransition(0,0);
-                        return true;
-
-                    case R.id.sales:
-                        startActivity(new Intent(getApplicationContext()
-                                , Sales.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                }
-
-                return false;
+                case R.id.sales:
+                    startActivity(new Intent(getApplicationContext()
+                            , Sales.class));
+                    overridePendingTransition(0, 0);
+                    return true;
             }
+
+            return false;
         });
 
-        searchNearby = (ImageView) findViewById(R.id.add_search);
+        searchNearby = findViewById(R.id.add_search);
 
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
@@ -147,18 +144,15 @@ public class MainActivity extends  AppCompatActivity {
         // method to get the location
         getLastLocation();
 
-        searchNearby.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Uri gmnIntentUri = Uri.parse("geo:" +
-                        latitude +
-                        "," +
-                        longitude +
-                        "?q=groceries");
-                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmnIntentUri);
-                mapIntent.setPackage("com.google.android.apps.maps");
-                startActivity(mapIntent);
-            }
+        searchNearby.setOnClickListener(v -> {
+            Uri gmnIntentUri = Uri.parse("geo:" +
+                    latitude +
+                    "," +
+                    longitude +
+                    "?q=groceries");
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmnIntentUri);
+            mapIntent.setPackage("com.google.android.apps.maps");
+            startActivity(mapIntent);
         });
 
     }
@@ -167,13 +161,20 @@ public class MainActivity extends  AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main, menu);
+        inflater.inflate(R.menu.top_app_bar, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
-
-    // Create a Uri from an intent string. Use the result to create an Intent.
-
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.settings) {
+            startActivity(new Intent(getApplicationContext()
+                    , com.example.mobileapplication.Settings.class));
+            overridePendingTransition(0, 0);
+        }
+        return true;
+    }
 
     @SuppressLint("MissingPermission")
     private void getLastLocation() {
@@ -187,18 +188,14 @@ public class MainActivity extends  AppCompatActivity {
                 // location from
                 // FusedLocationClient
                 // object
-                mFusedLocationClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Location> task) {
-                        Location location = task.getResult();
-                        if (location == null) {
-                            requestNewLocationData();
-                        }
-                        else {
+                mFusedLocationClient.getLastLocation().addOnCompleteListener(task -> {
+                    Location location = task.getResult();
+                    if (location == null) {
+                        requestNewLocationData();
+                    } else {
 
-                            longitude= String.valueOf(location.getLongitude());
-                            latitude= String.valueOf(location.getLatitude());
-                        }
+                        longitude = String.valueOf(location.getLongitude());
+                        latitude = String.valueOf(location.getLatitude());
                     }
                 });
             } else {
@@ -229,17 +226,6 @@ public class MainActivity extends  AppCompatActivity {
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
     }
-
-    private LocationCallback mLocationCallback = new LocationCallback() {
-
-        @Override
-        public void onLocationResult(LocationResult locationResult) {
-            Location mLastLocation = locationResult.getLastLocation();
-
-            longitude= String.valueOf(mLastLocation.getLongitude());
-            latitude= String.valueOf(mLastLocation.getLatitude());
-        }
-    };
 
     // method to check for permissions
     private boolean checkPermissions() {
@@ -287,6 +273,7 @@ public class MainActivity extends  AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     public void loadTopCustomer() {
         DBHelper db = new DBHelper(getApplicationContext());
         Cursor cursor = db.topCustomer();
@@ -294,8 +281,7 @@ public class MainActivity extends  AppCompatActivity {
             Log.d("workflow", "No customer");
             customerCard1.setVisibility(View.GONE);
             customerCard2.setVisibility(View.VISIBLE);
-        }
-        else {
+        } else {
             routeCard1.setVisibility(View.VISIBLE);
             routeCard2.setVisibility(View.GONE);
             if (cursor.moveToFirst()) {
@@ -322,8 +308,7 @@ public class MainActivity extends  AppCompatActivity {
             Log.d("workflow", "No Route");
             routeCard1.setVisibility(View.GONE);
             routeCard2.setVisibility(View.VISIBLE);
-        }
-        else {
+        } else {
             routeCard1.setVisibility(View.VISIBLE);
             routeCard2.setVisibility(View.GONE);
             if (cursor.moveToFirst()) {
@@ -343,8 +328,7 @@ public class MainActivity extends  AppCompatActivity {
             Log.d("workflow", "No Route");
             itemCard1.setVisibility(View.GONE);
             itemCard2.setVisibility(View.VISIBLE);
-        }
-        else {
+        } else {
             itemCard1.setVisibility(View.VISIBLE);
             itemCard2.setVisibility(View.GONE);
             if (cursor.moveToFirst()) {
@@ -352,6 +336,19 @@ public class MainActivity extends  AppCompatActivity {
                 itemName.setText(cursor.getString(1));
                 itemBrand.setText(cursor.getString(2));
                 itemDescription.setText(cursor.getString(3));
+            }
+        }
+    }
+
+    @SuppressLint("SetTextI18n")
+    public void loadMonthlySale() {
+        DBHelper db = new DBHelper(getApplicationContext());
+        Cursor cursor = db.monthlySale();
+        if (cursor.getCount() == 0) {
+            monthlySale.setText("0K");
+        } else {
+            if (cursor.moveToFirst()) {
+                monthlySale.setText(cursor.getString(0) + "K");
             }
         }
     }

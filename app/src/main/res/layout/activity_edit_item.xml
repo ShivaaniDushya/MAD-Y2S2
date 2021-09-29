@@ -220,7 +220,7 @@
                 android:background="@drawable/round_corner_rectangle"
                 android:elevation="0dp"
                 app:menu="@menu/top_app_bar"
-                app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+                app:navigationIcon="@drawable/ic_dstock_24"
                 app:title="@string/header_update_item" />
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -235,6 +235,7 @@
         app:itemBackground="@color/light_blue"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
+        app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>

@@ -287,6 +287,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
@@ -296,7 +297,9 @@
         style="@style/Widget.MaterialComponents.Toolbar.Primary"
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
-        android:layout_margin="4dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/round_corner_rectangle"
         android:elevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -304,7 +307,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_scrollFlags="scroll|enterAlways|snap"
         app:menu="@menu/top_app_bar"
-        app:navigationIcon="@drawable/ic_round_account_circle_24"
+        app:navigationIcon="@drawable/ic_dstock_24"
         app:title="@string/header_manage_route" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

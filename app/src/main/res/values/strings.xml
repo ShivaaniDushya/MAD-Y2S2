@@ -1,6 +1,6 @@
 <resources>
     <!-- App Name -->
-    <string name="app_name">D STOCK</string>
+    <string name="app_name">DSTOCK</string>
 
     <!-- Global Actions -->
     <string name="btn_eng">English</string>
@@ -29,6 +29,7 @@
     <string name="label_modified_date">MODIFIED DATE</string>
     <string name="label_route">ROUTE</string>
     <string name="label_customer">CUSTOMERS</string>
+    <string name="label_settings">SETTINGS</string>
     <!-- END Global Labels -->
 
     <!-- Global Messages -->
@@ -272,7 +273,7 @@
     <string name="text_trilingual">DSTOCK empowers unity by adding your preferred language whether it is English, Sinhala, or Tamil.</string>
     <string name="text_search_nearby_shops">Integrate with Google Map API we bring you a easy search shops nearby you for just one tap.</string>
     <string name="text_easy_to_use">With the minimalist design it is super simple and straightforward to your daily use.</string>
-    
+
     <!-- Main -->
     <string name="chip_best_selling_item">Best Selling Item</string>
     <string name="chip_top_customer">Top Customer</string>
@@ -283,4 +284,5 @@
     <string name="label_fuel_need"> Liters of fuel approximately.</string>
     <string name="r">R</string>
     <string name="test">Test</string>
+    <string name="change_language">Change Language</string>
 </resources>
