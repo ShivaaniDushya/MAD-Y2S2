@@ -203,6 +203,67 @@ public class UpdatePayment extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public void printReceipt(View view)
+    {
+        printInvoice(String.valueOf(invid), String.valueOf(txtpay), String.valueOf(txtpaydate), String.valueOf(txtnewbal));
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void printInvoice(String invid, String txtpay, String txtpaydate, String txtnewbal) {
+        Log.d("workflow", "printInvoice method called");
+
+        PdfDocument pdfInvoice = new PdfDocument();
+        Paint invPaint = new Paint();
+
+        String[] columns = {"Invoice No", "Payment", "Date"};
+
+        //DBHelper db = new DBHelper(this);
+        //cursor = db.readAllPayments();
+
+        PdfDocument.PageInfo invPageInfo = new PdfDocument.PageInfo.Builder(1000, 900, 1).create();
+        PdfDocument.Page invPage = pdfInvoice.startPage(invPageInfo);
+        Canvas canvas = invPage.getCanvas();
+
+        invPaint.setTextSize(80);
+        canvas.drawText("DStock", 30, 80, invPaint);
+
+        invPaint.setTextSize(30);
+        canvas.drawText("123, Kollupitiya, Colombo 03", 30, 120, invPaint);
+
+        invPaint.setTextAlign(Paint.Align.RIGHT);
+        canvas.drawText("Invoice No", canvas.getWidth() - 40, 40, invPaint);
+        canvas.drawText(invid, canvas.getWidth() - 40, 40, invPaint);
+
+        invPaint.setTextAlign(Paint.Align.LEFT);
+        invPaint.setColor(Color.rgb(195, 195, 195));
+        canvas.drawRect(30, 150, canvas.getWidth() - 30, 160, invPaint);
+
+        invPaint.setColor(Color.BLACK);
+        canvas.drawText("Date", 50, 200, invPaint);
+        canvas.drawText(txtpaydate, 100, 200, invPaint);
+
+        canvas.drawText("Payment Amount", 50, 400, invPaint);
+        canvas.drawText(txtpay, 100, 400, invPaint);
+
+        canvas.drawText("Balance Due", 50, 600, invPaint);
+        canvas.drawText(txtnewbal, 100, 600, invPaint);
+
+        pdfInvoice.finishPage(invPage);
+
+        String myFilePath = Environment.getExternalStorageDirectory().getPath() + "/invoice.pdf";
+        File myFile = new File(myFilePath);
+        try {
+            pdfInvoice.writeTo(new FileOutputStream(myFile));
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        pdfInvoice.close();
+    }
+
+
     public void Discard(View view) {
         Intent intent = new Intent(this, Sales.class);
         startActivity(intent);
