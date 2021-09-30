@@ -143,7 +143,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btnUpdatePayment"
         android:layout_width="384dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/filledTextField5"
@@ -151,16 +151,29 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:onClick="addPayment"
-        android:text="@string/update"
+        android:text="Update Payment"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAddItem" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <Button
-        android:id="@+id/buttonAddItem"
+        android:id="@+id/btnReceipt"
         android:layout_width="384dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
+        android:layout_below="@+id/btnUpdatePayment"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="printReceipt"
+        android:text="Print Receipt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btndiscard" />
+
+    <Button
+        android:id="@+id/btndiscard"
+        android:layout_width="384dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnReceipt"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
