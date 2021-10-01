@@ -935,7 +935,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public Cursor readOneSalesOrder(String invid) {
-        Log.d("workflow", "readOneSalesOrder initiated");
+        Log.d("workflow", "DB readOneSalesOrder method called");
         String[] selectionArgs = {invid};
         String query = "SELECT * FROM " + SalesMaster.SalesT.TABLE_NAME + " WHERE " + SalesMaster.SalesT.COLUMN_NAME_INVOICE_ID + " = ? ";
 

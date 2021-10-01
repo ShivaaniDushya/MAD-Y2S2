@@ -129,21 +129,15 @@ public class UpdatePayment extends AppCompatActivity {
         Log.d("workflow", "Payment getPaymentDue method called");
 
         if (getIntent().hasExtra("inv_id") &&
-                getIntent().hasExtra("balance")) {
+            getIntent().hasExtra("balance")) {
 
             inputinvid = getIntent().getStringExtra("inv_id");
             inputbal = Float.parseFloat(getIntent().getStringExtra("balance"));
-                    //Float.valueOf(getIntent().getStringExtra("balance"));
-
-
-            //inputpay = Float.parseFloat(txtpay.getText().toString());
-            //inputnewbal = inputbal - inputpay;
 
             invid.setText(inputinvid);
             txtbal.setText(String.valueOf(inputbal));
-            //txtnewbal.setText(String.valueOf(inputnewbal));
-        }
 
+        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -157,6 +151,10 @@ public class UpdatePayment extends AppCompatActivity {
             long val = dbHelper.addPayment(invid.getText().toString(),
                     Float.parseFloat(txtpay.getText().toString()),
                     txtpaydate.getText().toString(),
+                    Float.parseFloat(txtnewbal.getText().toString()));
+
+            Log.d("workflow","Payment addPayment method called with values " + invid.getText().toString() +
+                    Float.parseFloat(txtpay.getText().toString()) + txtpaydate.getText().toString() +
                     Float.parseFloat(txtnewbal.getText().toString()));
 
             if (val == -1) {
@@ -173,6 +171,12 @@ public class UpdatePayment extends AppCompatActivity {
             startActivity(intent);
 
         }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void addPaymentAndPrintReceipt(View view) {
+        addPayment(view);
+        printReceipt(view);
     }
 
     private boolean CheckAllFields() {
@@ -195,48 +199,58 @@ public class UpdatePayment extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void printReceipt(View view)
     {
-        printInvoice(inputinvid, txtpay.toString(), txtpaydate.toString(), txtnewbal.toString());
+        printInvoice(inputinvid, Float.parseFloat(txtpay.getText().toString()), txtpaydate.getText().toString(), txtnewbal.getText().toString());
+        Log.d("workflow", "printReceipt method called");
+        Log.d("workflow", "parameters " + Float.parseFloat(txtpay.getText().toString()) + txtpaydate.getText().toString() +
+                Float.parseFloat(txtnewbal.getText().toString()));
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
-    private void printInvoice(String invid, String txtpay, String txtpaydate, String txtnewbal) {
-        Log.d("workflow", "printInvoice method called");
+    private void printInvoice(String invid, Float txtpay, String txtpaydate, String txtnewbal) {
+        Log.d("workflow", "printInvoice method called with parameters " + invid + txtpay + txtpaydate + txtnewbal);
 
         PdfDocument pdfInvoice = new PdfDocument();
         Paint invPaint = new Paint();
 
         String[] columns = {"Invoice No", "Payment", "Date"};
 
-        //DBHelper db = new DBHelper(this);
-        //cursor = db.readAllPayments();
+        DBHelper db = new DBHelper(this);
+        cursor = db.readOnePayment(invid);
 
         PdfDocument.PageInfo invPageInfo = new PdfDocument.PageInfo.Builder(1000, 900, 1).create();
         PdfDocument.Page invPage = pdfInvoice.startPage(invPageInfo);
         Canvas canvas = invPage.getCanvas();
 
-        invPaint.setTextSize(80);
-        canvas.drawText("DStock", 30, 80, invPaint);
+        invPaint.setTextSize(100);
+        canvas.drawText("DStock", 30, 100, invPaint);
 
-        invPaint.setTextSize(30);
-        canvas.drawText("123, Kollupitiya, Colombo 03", 30, 120, invPaint);
+        invPaint.setTextSize(40);
+        canvas.drawText("123, Kollupitiya, Colombo 03", 30, 150, invPaint);
 
         invPaint.setTextAlign(Paint.Align.RIGHT);
-        canvas.drawText("Invoice No", canvas.getWidth() - 40, 40, invPaint);
-        canvas.drawText(invid, canvas.getWidth() - 40, 40, invPaint);
+        canvas.drawText("Invoice No", canvas.getWidth() - 40, 60, invPaint);
+        canvas.drawText(invid, canvas.getWidth() - 40, 120, invPaint);
 
         invPaint.setTextAlign(Paint.Align.LEFT);
         invPaint.setColor(Color.rgb(195, 195, 195));
-        canvas.drawRect(30, 150, canvas.getWidth() - 30, 160, invPaint);
+        canvas.drawRect(30, 170, canvas.getWidth() - 30, 180, invPaint);
 
         invPaint.setColor(Color.BLACK);
-        canvas.drawText("Date", 50, 200, invPaint);
-        canvas.drawText(txtpaydate, 100, 200, invPaint);
+        canvas.drawText("Date", 50, 240, invPaint);
+        canvas.drawText(txtpaydate, 450, 255, invPaint);
 
-        canvas.drawText("Payment Amount", 50, 400, invPaint);
-        canvas.drawText(txtpay, 100, 400, invPaint);
+        canvas.drawText("Payment Amount", 50, 300, invPaint);
+        canvas.drawText(txtpay.toString(), 450, 300, invPaint);
 
-        canvas.drawText("Balance Due", 50, 600, invPaint);
-        canvas.drawText(txtnewbal, 100, 600, invPaint);
+        canvas.drawText("Balance Due", 50, 350, invPaint);
+        canvas.drawText(txtnewbal, 450, 350, invPaint);
+
+        invPaint.setTextAlign(Paint.Align.LEFT);
+        invPaint.setColor(Color.rgb(195, 195, 195));
+        canvas.drawRect(30, 400, canvas.getWidth() - 30, 410, invPaint);
+
+        invPaint.setColor(Color.BLACK);
+        canvas.drawText("Thank you for the payment", 50, 460, invPaint);
 
         pdfInvoice.finishPage(invPage);
 
