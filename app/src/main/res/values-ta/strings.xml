@@ -186,4 +186,17 @@
     <string name="test">பரிசோதனை</string>
     <string name="label_settings">அமைப்புகள்</string>
     <string name="change_language">மொழியை மாற்று</string>
+    <string name="customer_name_required">வாடிக்கையாளர் பெயர் தேவை</string>
+    <string name="customer_added_false">வாடிக்கையாளர் தோல்வியுற்றார்.</string>
+    <string name="customer_added_true">வாடிக்கையாளர் வெற்றிகரமாகச் சேர்க்கப்பட்டார்.</string>
+    <string name="customer_updated_true">வாடிக்கையாளர் வெற்றிகரமாக புதுப்பிக்கப்பட்டது.</string>
+    <string name="customer_updated_false">வாடிக்கையாளர் புதுப்பிக்கப்படவில்லை.</string>
+    <string name="store_name_required">கடையின் பெயர் தேவை</string>
+    <string name="mobile_10_number">மொபைல் 10 எண்களை தாண்டக்கூடாது</string>
+    <string name="street_address_required">தெரு முகவரி தேவை</string>
+    <string name="city_required">நகரம் தேவை</string>
+    <string name="channel_name">அறிவிப்பு சேனல்</string>
+    <string name="channel_description">சேனல் விளக்கம்</string>
+    <string name="customer_deleted_true">வாடிக்கையாளர் வெற்றிகரமாக நீக்கப்பட்டார்.</string>
+    <string name="customer_deleted_false">கடை தோல்வியுற்றது.</string>
 </resources>

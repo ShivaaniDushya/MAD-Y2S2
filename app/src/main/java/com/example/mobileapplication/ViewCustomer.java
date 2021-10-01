@@ -106,23 +106,23 @@ public class ViewCustomer extends AppCompatActivity {
 
         delBtn.setOnClickListener(v -> {
             AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-            dialogBuilder.setTitle("Are you sure?");
-            dialogBuilder.setMessage("Do you really want to delete this customer? This Process cannot be undone.");
-            dialogBuilder.setPositiveButton("Yes", (dialog, which) -> {
+            dialogBuilder.setTitle(getString(R.string.msg_are_u_sure));
+            dialogBuilder.setMessage(getString(R.string.msg_confirm_delete) + getString(R.string.label_customer) + "? " + getString(R.string.msg_confirm_delete_canot_be_undone));
+            dialogBuilder.setPositiveButton(getString(R.string.btn_yes), (dialog, which) -> {
                 DBHelper dbHelper = new DBHelper(ViewCustomer.this);
                 long result = dbHelper.deleteCustomer(customerID);
                 String delMsg;
                 if (result < 1) {
-                    delMsg = "Customer deleted unsuccessful.";
+                    delMsg = getString(R.string.customer_deleted_false);
                 } else {
-                    delMsg = "Customer deleted successful.";
+                    delMsg = getString(R.string.customer_deleted_true);
                 }
                 Log.d("TAG", "snack started");
                 Intent intent = new Intent(ViewCustomer.this, Customers.class)
                         .putExtra("passMessage", delMsg);
                 startActivity(intent);
             });
-            dialogBuilder.setNegativeButton("No", (dialog, which) -> {
+            dialogBuilder.setNegativeButton(getString(R.string.btn_no), (dialog, which) -> {
 
             });
             dialogBuilder.show();

@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
     ShapeableImageView storePPImg;
     ImageView storeSPImg;
-    TextView customerName, storeName, address, startLocation, endLocation, distance, routeID, numberOfShops, itemName, itemBrand, itemDescription, monthlySale, monthlyProfit;
+    TextView customerName, storeName, address, startLocation, endLocation, distance, routeID, numberOfShops, itemName, itemBrand, itemDescription, monthlySale;
     String topCustomerID, profilePicUri, storePicUri, topItemID;
     MaterialCardView itemCard1, itemCard2, customerCard1, customerCard2, routeCard1, routeCard2;
     MaterialToolbar materialToolbar;
@@ -89,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
         routeCard1 = findViewById(R.id.route_card);
         routeCard2 = findViewById(R.id.route_card_2);
         monthlySale = findViewById(R.id.monthly_sales);
-        monthlyProfit = findViewById(R.id.monthly_profit);
 
         loadTopCustomer();
         loadTopRoute();
@@ -348,7 +347,12 @@ public class MainActivity extends AppCompatActivity {
             monthlySale.setText("0K");
         } else {
             if (cursor.moveToFirst()) {
-                monthlySale.setText(cursor.getString(0) + "K");
+                if (cursor.getString(0) != null) {
+                    monthlySale.setText(cursor.getString(0) + "K");
+                }
+                else {
+                    monthlySale.setText("0K");
+                }
             }
         }
     }

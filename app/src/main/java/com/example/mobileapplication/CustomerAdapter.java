@@ -72,23 +72,22 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.MyView
 
         holder.deleteBtn.setOnClickListener(v -> {
             AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
-            dialogBuilder.setTitle("Are you sure?");
-            dialogBuilder.setMessage("Do you really want to delete this customer? This Process cannot be undone.");
-            dialogBuilder.setPositiveButton("Yes", (dialog, which) -> {
-                DBHelper dbHelper=new DBHelper(context);
+            dialogBuilder.setTitle(context.getString(R.string.msg_are_u_sure));
+            dialogBuilder.setMessage(context.getString(R.string.msg_confirm_delete) + context.getString(R.string.label_customer) + "? " + context.getString(R.string.msg_confirm_delete_canot_be_undone));
+            dialogBuilder.setPositiveButton(context.getString(R.string.btn_yes), (dialog, which) -> {
+                DBHelper dbHelper = new DBHelper(context);
                 long result = dbHelper.deleteCustomer(String.valueOf(customer_id.get(position)));
                 String delMsg;
                 if (result < 1) {
-                    delMsg = "Customer deleted unsuccessful.";
-                }
-                else {
-                    delMsg = "Customer deleted successful.";
+                    delMsg = context.getString(R.string.customer_deleted_false);
+                } else {
+                    delMsg = context.getString(R.string.customer_deleted_true);
                 }
                 Intent intent = new Intent(context, Customers.class)
                         .putExtra("passMessage", delMsg);
                 context.startActivity(intent);
             });
-            dialogBuilder.setNegativeButton("No", (dialog, which) -> {
+            dialogBuilder.setNegativeButton(context.getString(R.string.btn_no), (dialog, which) -> {
 
             });
             dialogBuilder.show();
