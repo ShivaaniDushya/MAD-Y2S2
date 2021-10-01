@@ -1,16 +1,7 @@
 package com.example.mobileapplication;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
-import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -22,15 +13,16 @@ import android.os.Environment;
 import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
 import android.print.PrintManager;
-import android.print.pdf.PrintedPdfDocument;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mobileapplication.database.DBHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -38,10 +30,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.List;
-
-import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class UpdatePayment extends AppCompatActivity {
 
@@ -206,7 +195,7 @@ public class UpdatePayment extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void printReceipt(View view)
     {
-        printInvoice(String.valueOf(invid), String.valueOf(txtpay), String.valueOf(txtpaydate), String.valueOf(txtnewbal));
+        printInvoice(inputinvid, txtpay.toString(), txtpaydate.toString(), txtnewbal.toString());
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -251,8 +240,9 @@ public class UpdatePayment extends AppCompatActivity {
 
         pdfInvoice.finishPage(invPage);
 
-        String myFilePath = Environment.getExternalStorageDirectory().getPath() + "/invoice.pdf";
+        String myFilePath = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS + "/dstock/").getAbsolutePath() + "invoice.pdf";
         File myFile = new File(myFilePath);
+        Log.d("workflow", myFile.getAbsolutePath());
         try {
             pdfInvoice.writeTo(new FileOutputStream(myFile));
         }
@@ -261,8 +251,15 @@ public class UpdatePayment extends AppCompatActivity {
         }
 
         pdfInvoice.close();
-    }
 
+        PrintManager printManager = (PrintManager) getSystemService(Context.PRINT_SERVICE);
+        try {
+            PrintDocumentAdapter printDocumentAdapter = new PdfDocumentAdapter(UpdatePayment.this, myFilePath);
+            printManager.print("Document", printDocumentAdapter, new PrintAttributes.Builder().build());
+        } catch (Exception e) {
+            Log.d("workflow", "" + e.getMessage());
+        }
+    }
 
     public void Discard(View view) {
         Intent intent = new Intent(this, Sales.class);
