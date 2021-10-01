@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.database.Cursor;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -16,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mobileapplication.database.DBHelper;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -33,6 +36,7 @@ public class Sales extends AppCompatActivity {
     DBHelper db;
     ArrayList<String> inv_id, cus_id, balance, del_date, created_date, isurgent;
     SalesOrderAdapter salesAdapter;
+    MaterialToolbar materialToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +78,9 @@ public class Sales extends AppCompatActivity {
 
         recyclerView.setAdapter(salesAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        materialToolbar = findViewById(R.id.topAppBar);
+        setSupportActionBar(materialToolbar);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.sales);
@@ -130,6 +137,25 @@ public class Sales extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.top_app_bar, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.settings) {
+            startActivity(new Intent(getApplicationContext()
+                    , com.example.mobileapplication.Settings.class));
+            overridePendingTransition(0, 0);
+        }
+        return true;
     }
 
 

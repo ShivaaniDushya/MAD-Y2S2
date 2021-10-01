@@ -68,7 +68,7 @@
                     android:textSize="18sp"
                     tools:ignore="RelativeOverlap" />
 
-                <TextView
+                <!--<TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/sales_income"
@@ -86,7 +86,7 @@
                     android:padding="15dp"
                     android:text="@string/text_test_data"
                     android:textAppearance="?attr/textAppearanceHeadline6"
-                    android:textSize="18sp" />
+                    android:textSize="18sp" />-->
 
 
             </RelativeLayout>

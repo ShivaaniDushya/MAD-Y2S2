@@ -12,12 +12,15 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mobileapplication.database.DBHelper;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -35,6 +38,7 @@ public class Routes extends AppCompatActivity {
     DBHelper db;
     ArrayList<String> route_id,route_start_location,route_end_location,route_distance,route_created_date,route_modified_date,route_isdefault,route_getcxcount;
     RouteAdapter routeAdapter;
+    MaterialToolbar materialToolbar;
 
 
 
@@ -84,7 +88,8 @@ public class Routes extends AppCompatActivity {
         recyclerView.setAdapter(routeAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
+        materialToolbar = findViewById(R.id.topAppBar);
+        setSupportActionBar(materialToolbar);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.routes);
@@ -147,6 +152,25 @@ public class Routes extends AppCompatActivity {
 
 
     }   //close the tag pls place over this any code related to on start
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.top_app_bar, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.settings) {
+            startActivity(new Intent(getApplicationContext()
+                    , com.example.mobileapplication.Settings.class));
+            overridePendingTransition(0, 0);
+        }
+        return true;
+    }
 
 
     @Override

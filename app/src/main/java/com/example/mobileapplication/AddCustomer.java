@@ -40,6 +40,8 @@ import java.util.Objects;
 
 public class AddCustomer extends AppCompatActivity {
 
+    static final int REQUEST_IMAGE_CAPTURE_PP = 1;
+    static final int REQUEST_IMAGE_CAPTURE_SP = 2;
     TextInputEditText customerName, storeName, mobile, streetAddress, city;
     MaterialButton modifyBtn, addPP, addSP;
     ShapeableImageView storePPImg;
@@ -49,11 +51,10 @@ public class AddCustomer extends AppCompatActivity {
     DBHelper db;
     Cursor cursor;
     ImageView storeSPImg;
-    static final int REQUEST_IMAGE_CAPTURE_PP = 1;
-    static final int REQUEST_IMAGE_CAPTURE_SP = 2;
     File photoFile;
     AutoCompleteTextView selectRoute;
     MaterialToolbar topAppBar;
+    String currentPhotoPath;
 
     @SuppressLint("NonConstantResourceId")
     @Override
@@ -77,9 +78,7 @@ public class AddCustomer extends AppCompatActivity {
         selectRoute.setOnItemClickListener((parent, view, position, id) -> {
             DBHelper db = new DBHelper(getApplicationContext());
             List<String> labels = db.getroutelist();
-
             route = labels.get(position);
-
             Log.d("workflow", route);
         });
 
@@ -95,8 +94,7 @@ public class AddCustomer extends AppCompatActivity {
             modifyBtn.setText(getString(R.string.btn_update));
             setData(customerID);
             topAppBar.setTitle("#CID" + customerID);
-        } catch (Exception ignore) {
-        }
+        } catch (Exception ignore) { }
 
         setSupportActionBar(topAppBar);
 
@@ -223,8 +221,6 @@ public class AddCustomer extends AppCompatActivity {
         }
     }
 
-    String currentPhotoPath;
-
     @SuppressLint("SimpleDateFormat")
     private File createImageFile() throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -272,9 +268,9 @@ public class AddCustomer extends AppCompatActivity {
             Log.d("workflow", String.valueOf(val));
 
             if (val == -1) {
-                AddStatusMsg = "Customer added unsuccessful.";
+                AddStatusMsg = getString(R.string.customer_added_false);
             } else {
-                AddStatusMsg = "Customer added successful.";
+                AddStatusMsg = getString(R.string.customer_added_true);
             }
 
             Intent intent = new Intent(this, Customers.class)
@@ -306,9 +302,9 @@ public class AddCustomer extends AppCompatActivity {
             Log.d("workflow", String.valueOf(val));
 
             if (val == -1) {
-                AddStatusMsg = "Customer updated unsuccessful.";
+                AddStatusMsg = getString(R.string.customer_updated_false);
             } else {
-                AddStatusMsg = "Customer updated successful.";
+                AddStatusMsg = getString(R.string.customer_updated_true);
             }
 
             Intent intent = new Intent(this, Customers.class)
@@ -356,31 +352,31 @@ public class AddCustomer extends AppCompatActivity {
     private boolean CheckAllFields() {
         Log.d("workflow", "Add customer CheckAllFields  method  Called");
         if (customerName.length() == 0) {
-            customerName.setError("Customer name is required");
+            customerName.setError(getString(R.string.customer_name_required));
             return false;
         }
 
         if (storeName.length() == 0) {
-            storeName.setError("Store name is required");
+            storeName.setError(getString(R.string.store_name_required));
             return false;
         }
 
         if (mobile.length() == 0) {
             mobile.setError("Mobile is required");
             if (mobile.length() > 10) {
-                mobile.setError("Mobile cannot exceed 10 numbers");
+                mobile.setError(getString(R.string.mobile_10_number));
                 return false;
             }
             return false;
         }
 
         if (streetAddress.length() == 0) {
-            streetAddress.setError("Street Address is required");
+            streetAddress.setError(getString(R.string.street_address_required));
             return false;
         }
 
         if (city.length() == 0) {
-            city.setError("City is required");
+            city.setError(getString(R.string.city_required));
             return false;
         }
 

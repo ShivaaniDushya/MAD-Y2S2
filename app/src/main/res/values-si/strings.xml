@@ -55,7 +55,7 @@
     <string name="btn_create">සාදන්න</string>
     <string name="btn_save">සුරකින්න</string>
     <string name="btn_view">බලන්න</string>
-    <string name="label_customer">පාරිභෝගිකයන්</string>
+    <string name="label_customer">සාප්පු</string>
     <string name="label_to">සිට</string>
     <string name="store_desc">" ආයුබෝවන් මගේ සාප්පුවට සාදරයෙන් පිළිගනිමු"</string>
     <string name="store_banner_desc">නැවත මගේ සාප්පුවට සාදරයෙන් පිළිගනිමු</string>
@@ -187,4 +187,17 @@
     <string name="update_payment">ගෙවීම යාවත්කාලීන කරන්න</string>
     <string name="sales_summary">විකුණුම් සාරාංශය</string>
     <string name="sales_orders">විකුණුම් ඇණවුම්</string>
+    <string name="customer_name_required">සාප්පු අයිතිකරුගේ නම අවශ්‍යයි</string>
+    <string name="customer_added_true">සාප්පුව සාර්ථකව එකතු කරන ලදි.</string>
+    <string name="customer_added_false">සාප්පුව එකතු කිරීම අසාර්ථක විය.</string>
+    <string name="customer_updated_false">සාප්පුව යාවත්කාලීන කිරීම අසාර්ථක විය.</string>
+    <string name="customer_updated_true">සාප්පුව සාර්ථකව යාවත්කාලීන කරන ලදි.</string>
+    <string name="store_name_required">සාප්පුවේ නම අවශ්‍යයි</string>
+    <string name="mobile_10_number">ජංගම දුරකථනයට අංක 10 නොඉක්මවිය යුතුය</string>
+    <string name="street_address_required">වීදි ලිපිනය අවශ්‍යයි</string>
+    <string name="city_required">නගරය අවශ්‍යයි</string>
+    <string name="channel_name">දැනුම් දීමේ නාලිකාව</string>
+    <string name="channel_description">නාලිකා විස්තරය</string>
+    <string name="customer_deleted_true">පාරිභෝගිකයා සාර්ථකව මකා දමන ලදි.</string>
+    <string name="customer_deleted_false">සාප්පුව මකා දැමීම අසාර්ථක විය.</string>
 </resources>

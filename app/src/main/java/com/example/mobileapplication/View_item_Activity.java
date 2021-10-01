@@ -2,10 +2,13 @@ package com.example.mobileapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.FileProvider;
 
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -32,9 +35,12 @@ import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class View_item_Activity extends AppCompatActivity{
 
@@ -108,7 +114,11 @@ public class View_item_Activity extends AppCompatActivity{
         shareQR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                shareImage();
+                try {
+                    shareImage();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -152,26 +162,28 @@ public class View_item_Activity extends AppCompatActivity{
 
     }
 
-    private void shareImage() {
+    private void shareImage() throws IOException {
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
         drawable = (BitmapDrawable) ivOutput.getDrawable();
         bit = drawable.getBitmap();
-        File file = new File(getExternalCacheDir()+ "/"+"QR Code" + ".png");
-        Intent intent;
-        try{
-            FileOutputStream outputStream = new FileOutputStream(file);
-            bit.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
-            outputStream.flush();
-            outputStream.close();
-            intent = new Intent(Intent.ACTION_SEND);
-            intent.setType("image/*");
-            intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        }catch (Exception e) {
-            throw new RuntimeException(e);
+        File image = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES)+ "/"+"qr_code" + ".png");
+        FileOutputStream outputStream = new FileOutputStream(image);
+        bit.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+        outputStream.flush();
+        outputStream.close();
+        Uri photoUri = FileProvider.getUriForFile(this, "com.example.mobileapplication.fileprovider", image);
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_STREAM, photoUri);
+        sendIntent.setType("image/*");
+        Intent chooser = Intent.createChooser(sendIntent, "Share QR Via: ");
+        List<ResolveInfo> resInfoList = this.getPackageManager().queryIntentActivities(chooser, PackageManager.MATCH_DEFAULT_ONLY);
+        for (ResolveInfo resolveInfo : resInfoList) {
+            String packageName = resolveInfo.activityInfo.packageName;
+            this.grantUriPermission(packageName, photoUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
         }
-        startActivity(Intent.createChooser(intent, "Share image via: "));
+        startActivity(chooser);
     }
 
     private void loadItem(String ItemCode) {

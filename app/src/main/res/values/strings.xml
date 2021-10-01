@@ -239,6 +239,17 @@
     <string name="hint_cus_city">City</string>
     <string name="helptxt_cus_city">Enter customer\'s city</string>
     <string name="helptxt_select_route">Select route</string>
+    <string name="customer_added_true">The customer added successfully.</string>
+    <string name="customer_added_false">The customer added unsuccessfully.</string>
+    <string name="customer_updated_true">The customer updated successfully.</string>
+    <string name="customer_updated_false">The customer updated unsuccessfully.</string>
+    <string name="customer_deleted_true">The customer deleted successfully.</string>
+    <string name="customer_deleted_false">The customer deleted unsuccessfully.</string>
+    <string name="customer_name_required">Customer name is required</string>
+    <string name="store_name_required">Store name is required</string>
+    <string name="mobile_10_number">Mobile cannot exceed 10 numbers</string>
+    <string name="street_address_required">Street Address is required</string>
+    <string name="city_required">City is required</string>
 
     <!--View Customer-->
     <string name="label_cus_id">Customer ID</string>
