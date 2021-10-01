@@ -1,19 +1,25 @@
 package com.example.mobileapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mobileapplication.database.DBHelper;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -28,10 +34,12 @@ public class Customers extends AppCompatActivity {
     TextView no_customer_text;
     ImageView no_customer;
     Bundle bundle;
+    MaterialToolbar materialToolbar;
 
     DBHelper db;
     ArrayList<String> customer_id, customer_name, store_name, address, pp_img_uri, sp_img_uri;
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +73,9 @@ public class Customers extends AppCompatActivity {
         customerAdapter = new CustomerAdapter(Customers.this, customer_id, customer_name, store_name, address, pp_img_uri, sp_img_uri);
         recyclerView.setAdapter(customerAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(Customers.this));
+
+        materialToolbar = findViewById(R.id.topAppBar);
+        setSupportActionBar(materialToolbar);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.customers);
@@ -108,6 +119,25 @@ public class Customers extends AppCompatActivity {
             startActivity(intent);
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.top_app_bar, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.settings) {
+            startActivity(new Intent(getApplicationContext()
+                    , com.example.mobileapplication.Settings.class));
+            overridePendingTransition(0, 0);
+        }
+        return true;
     }
 
     public void storeCustomerDataInArray() {

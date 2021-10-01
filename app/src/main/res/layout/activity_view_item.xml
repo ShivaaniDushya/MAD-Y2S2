@@ -29,13 +29,12 @@
                 android:background="@drawable/round_corner_rectangle"
                 android:elevation="0dp"
                 app:menu="@menu/top_app_bar"
-                app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
-                app:title="View_item_header" />
+                app:navigationIcon="@drawable/ic_dstock_24"
+                app:title="View Item" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -46,6 +45,7 @@
         app:itemBackground="@color/light_blue"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
+        app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
@@ -62,7 +62,7 @@
         android:layout_marginTop="95dp"
         android:layout_marginEnd="38dp"
         android:layout_marginBottom="598dp"
-        android:text="@string/iname_view"
+        android:text="iname_view1"
         android:textSize="20sp" />
 
     <TextView
@@ -77,7 +77,7 @@
         android:layout_marginTop="134dp"
         android:layout_marginEnd="41dp"
         android:layout_marginBottom="559dp"
-        android:text="@string/ibrand_view"
+        android:text="ibrand_view1"
         android:textSize="16sp" />
 
     <TextView
@@ -92,7 +92,7 @@
         android:layout_marginTop="211dp"
         android:layout_marginEnd="212dp"
         android:layout_marginBottom="482dp"
-        android:text="@string/icode_view"
+        android:text="icode_view1"
         android:textSize="16sp" />
 
     <TextView
@@ -108,7 +108,7 @@
         android:layout_marginEnd="211dp"
         android:layout_marginBottom="414dp"
         android:inputType="numberDecimal"
-        android:text="@string/ibuy_view"
+        android:text="ibuy_view1"
         android:textSize="16sp" />
 
     <TextView
@@ -123,7 +123,7 @@
         android:layout_marginTop="348dp"
         android:layout_marginEnd="26dp"
         android:layout_marginBottom="345dp"
-        android:text="@string/idesc_view"
+        android:text="idesc_view1"
         android:textSize="16sp" />
 
     <TextView
@@ -138,7 +138,7 @@
         android:layout_marginTop="212dp"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="481dp"
-        android:text="@string/icount_view"
+        android:text="icount_view1"
         android:textSize="16sp" />
 
     <TextView
@@ -154,7 +154,7 @@
         android:layout_marginEnd="26dp"
         android:layout_marginBottom="413dp"
         android:inputType="numberDecimal"
-        android:text="@string/isell_view"
+        android:text="isell_view1"
         android:textSize="16sp" />
 
     <TextView
@@ -169,7 +169,7 @@
         android:layout_marginTop="190dp"
         android:layout_marginEnd="26dp"
         android:layout_marginBottom="521dp"
-        android:text="Item Count"
+        android:text="@string/icount_update"
         android:textSize="14sp" />
 
     <TextView
@@ -184,7 +184,7 @@
         android:layout_marginTop="188dp"
         android:layout_marginEnd="218dp"
         android:layout_marginBottom="523dp"
-        android:text="Item Code"
+        android:text="@string/icode_update"
         android:textSize="14sp" />
 
     <TextView
@@ -199,7 +199,7 @@
         android:layout_marginTop="256dp"
         android:layout_marginEnd="211dp"
         android:layout_marginBottom="454dp"
-        android:text="Buy Price (per item)"
+        android:text="@string/ibuy_view"
         android:textSize="14sp" />
 
     <TextView
@@ -214,7 +214,7 @@
         android:layout_marginTop="326dp"
         android:layout_marginEnd="210dp"
         android:layout_marginBottom="384dp"
-        android:text="Item Description"
+        android:text="@string/idesc_update"
         android:textSize="14sp" />
 
     <TextView
@@ -229,7 +229,7 @@
         android:layout_marginTop="256dp"
         android:layout_marginEnd="27dp"
         android:layout_marginBottom="454dp"
-        android:text="Sell Price (per item)"
+        android:text="@string/isell_view"
         android:textSize="14sp" />
 
     <Button
@@ -260,5 +260,19 @@
         android:layout_marginBottom="80dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter" />
+
+    <ImageView
+        android:id="@+id/sharebtn"
+        android:layout_width="45dp"
+        android:layout_height="37dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="335dp"
+        android:layout_marginTop="589dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="105dp"
+        app:srcCompat="@drawable/share_icon" />
 
 </RelativeLayout>

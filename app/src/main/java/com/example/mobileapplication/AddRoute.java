@@ -130,7 +130,7 @@ public class AddRoute extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    protected void addRoute(View view) {
+    public void addRoute(View view) {
         Log.d("workflow","Add Route addRoute  method  Called");
         isfieldsvalidated = CheckAllFields();
 
@@ -155,7 +155,7 @@ public class AddRoute extends AppCompatActivity {
         }
     }
 
-    protected void removedefault(String issetasdefault) {
+    public void removedefault(String issetasdefault) {
         Log.d("workflow","Add Route removedefault  method  Called");
         if(Integer.parseInt(issetasdefault)==1){
             DBHelper dbHelper = new DBHelper(this);
@@ -164,7 +164,7 @@ public class AddRoute extends AppCompatActivity {
         }
     }
 
-    protected boolean CheckAllFields() {
+    public boolean CheckAllFields() {
 
         //if values are changed pls change in modify route as well
 

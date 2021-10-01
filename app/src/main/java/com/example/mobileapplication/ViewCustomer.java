@@ -1,18 +1,24 @@
 package com.example.mobileapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mobileapplication.database.DBHelper;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
@@ -26,7 +32,9 @@ public class ViewCustomer extends AppCompatActivity {
     ImageView storeSPImg;
     String customerID;
     Cursor cursor;
+    MaterialToolbar topAppBar;
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +53,7 @@ public class ViewCustomer extends AppCompatActivity {
         storeSPImg = findViewById(R.id.store_pic_v);
         storePPImg = findViewById(R.id.customer_pic_v);
         route = findViewById(R.id.route_v);
+        topAppBar = findViewById(R.id.topAppBar);
 
         try {
             bundle = getIntent().getExtras();
@@ -52,9 +61,12 @@ public class ViewCustomer extends AppCompatActivity {
             Log.d("workflow", "get customer id in earlier activity " + customerID);
             Log.i("TAG", "Thread ID " + Thread.currentThread().getId());
             loadCustomer(customerID);
+            topAppBar.setTitle("#CID" + customerID);
         } catch (Exception e) {
             finish();
         }
+
+        setSupportActionBar(topAppBar);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.customers);
@@ -123,6 +135,26 @@ public class ViewCustomer extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.top_app_bar, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.settings) {
+            startActivity(new Intent(getApplicationContext()
+                    , com.example.mobileapplication.Settings.class));
+            overridePendingTransition(0, 0);
+        }
+        return true;
+    }
+
+    @SuppressLint("SetTextI18n")
     private void loadCustomer(String customerID) {
         new Thread(() -> {
             Log.i("TAG", "Thread ID " + Thread.currentThread().getId());

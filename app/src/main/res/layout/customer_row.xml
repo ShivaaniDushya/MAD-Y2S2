@@ -36,6 +36,7 @@
                     android:layout_height="40dp"
                     android:scaleType="centerCrop"
                     android:contentDescription="@string/text_test_data"
+                    app:srcCompat="@drawable/ic_dstock_bg"
                     android:background="@color/black_12"
                     app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CircleImageV"/>
 
@@ -68,6 +69,7 @@
                 android:id="@+id/store_pic"
                 android:layout_width="match_parent"
                 android:layout_height="194dp"
+                app:srcCompat="@drawable/ic_dstock_bg"
                 android:background="@color/black_12"
                 android:contentDescription="@string/store_banner_desc"
                 android:scaleType="centerCrop"

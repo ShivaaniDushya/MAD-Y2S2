@@ -160,14 +160,10 @@ public class ItemAdapter<itemURL> extends RecyclerView.Adapter <ItemAdapter.MyVi
             item_sellprice_txt=itemView.findViewById(R.id.item_sellprice_txt);
             item_description_txt= itemView.findViewById(R.id.item_description_txt);
             deleteBtn = itemView.findViewById(R.id.button_delete_item);
-            //editBtn = itemView.findViewById(R.id.imageView_edit);
-           viewBtn = itemView.findViewById(R.id.button_view);
-
+            viewBtn = itemView.findViewById(R.id.button_view);
             mainLayout = itemView.findViewById(R.id.mainLayout);
-
             button_view_item=itemView.findViewById(R.id.Item_single_view);
-            // Animation translate_anim= AnimationUtils.loadAnimation(context,R.anim.translate_anim);
-            //mainLayout.setAnimation(translate_anim);
+
         }
     }
 

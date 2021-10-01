@@ -10,4 +10,6 @@ public class Calculations {
         fuelamount=entdist/avgdist;
         return Double.valueOf(df_obj.format(fuelamount));
     }
+
+
 }

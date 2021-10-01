@@ -1,6 +1,6 @@
 <resources>
     <!-- App Name -->
-    <string name="app_name">D STOCK</string>
+    <string name="app_name">DSTOCK</string>
 
     <!-- Global Actions -->
     <string name="btn_eng">English</string>
@@ -29,6 +29,7 @@
     <string name="label_modified_date">MODIFIED DATE</string>
     <string name="label_route">ROUTE</string>
     <string name="label_customer">CUSTOMERS</string>
+    <string name="label_settings">SETTINGS</string>
     <!-- END Global Labels -->
 
     <!-- Global Messages -->
@@ -60,6 +61,7 @@
     <!-- View Route Labels -->
     <string name="label_search">Search Route</string>
     <string name="label_no_data">No Routes to show. Press + button to add a new Route.</string>
+    <string name="no_top_route">No Routes to show.</string>
     <!-- END View Route Buttons -->
     <!-- View Route Messages -->
     <!-- END View Route Messages -->
@@ -113,41 +115,32 @@
 
     <!-- Items -->
     <string name="CreatePage">Create an Item</string>
-    <string name="Item_Code"> </string>
-    <string name="Item_Name"> </string>
-    <string name="Item_Brand"> </string>
-    <string name="Item_Count"> </string>
-    <string name="Buy_price_item"> </string>
-    <string name="Sell_price_item"> </string>
-    <string name="Item_Description"> </string>
-    <string name="no_items">No items to show. Press + button to add a new customer.</string>
-    <string name="item_pic"></string>
-    <string name="add_item_pic"></string>
-    <string name="Item_img_btn">Add an image</string>
-    <string name="Item_single_view"></string>
-    <string name="Ïtem_image"></string>
-    <string name="iname_view"></string>
-    <string name="icode_view"></string>
-    <string name="ibrand_view"></string>
-    <string name="ibuy_view"></string>
-    <string name="isell_view"></string>
-    <string name="icount_view"></string>
-    <string name="idesc_view"></string>
+    <string name="no_items">No items to show. Press + button to add a new item.</string>
+    <string name="no_top_item">No items to show.</string>
     <string name="qrgenerate_btn">Generate QR</string>
-    <string name="iv_output"></string>
     <string name="btncal">Calculation</string>
     <string name="Item_calculation">ITEM CALCULATION</string>
     <string name="Expected_profit"> EXPECTED PROFIT </string>
-    <string name="expected_prof_amount"></string>
-
-
-    <!-- create item-->
-    <string name="label_item_name"></string>
-    <string name="label_item_brand"></string>
-    <string name="label_item_count_"></string>
-    <string name="label_item_buyPrice"></string>
-    <string name="label_item_sellPrice"></string>
-    <string name="label_item_description"></string>
+    <string name="share">SHARE</string>
+    <string name="enter_iname">Enter Item Name</string>
+    <string name="enter_ibrand">Enter Item Brand</string>
+    <string name="enter_idesc">Enter Item Description</string>
+    <string name="enter_icount">Enter Item Count</string>
+    <string name="enter_ibuy">Enter Buying Price (per item)</string>
+    <string name="enter_isell">Enter Selling Price (per item)</string>
+    <string name="iname_update">Item Name</string>
+    <string name="idesc_update">Item Description</string>
+    <string name="icode_update">Item Code</string>
+    <string name="ibrand_update">Item Brand</string>
+    <string name="icount_update">Item Count</string>
+    <string name="ibuy_update">Item Buy Price (per item)</string>
+    <string name="isell_update">Item Sell Price (per item)</string>
+    <string name="buyprice_cal">Enter Buy Price (per item)</string>
+    <string name="sellprice_cal">Enter Sell Price (per item)</string>
+    <string name="itemcount_cal">Enter Item Count</string>
+    <string name="cost_cal">Enter Cost</string>
+    <string name="ibuy_view">Buy Price (per item)</string>
+    <string name="isell_view">Sell Price (per Item)</string>
 
 
     <!-- Sales -->
@@ -255,6 +248,7 @@
     <string name="located">and it located at</string>
     <string name="in">in</string>
     <string name="no_customers">No customers to show. Press + button to add a new customer.</string>
+    <string name="no_top_customer">No customers to show.</string>
 
 
     <string name="title_activity_findshops">findshops</string>
@@ -270,7 +264,7 @@
     <string name="text_trilingual">DSTOCK empowers unity by adding your preferred language whether it is English, Sinhala, or Tamil.</string>
     <string name="text_search_nearby_shops">Integrate with Google Map API we bring you a easy search shops nearby you for just one tap.</string>
     <string name="text_easy_to_use">With the minimalist design it is super simple and straightforward to your daily use.</string>
-    
+
     <!-- Main -->
     <string name="chip_best_selling_item">Best Selling Item</string>
     <string name="chip_top_customer">Top Customer</string>
@@ -279,4 +273,7 @@
     <string name="label_to_travel">To Travel</string>
     <string name="label_you_need"> KMs.You will need</string>
     <string name="label_fuel_need"> Liters of fuel approximately.</string>
+    <string name="r">R</string>
+    <string name="test">Test</string>
+    <string name="change_language">Change Language</string>
 </resources>

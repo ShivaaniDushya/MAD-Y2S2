@@ -408,6 +408,24 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor topRoute() {
+        String query = "SELECT " + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID + ", "
+                + RouteMaster.RoutesT.COLUMN_NAME_START_LOCATION + ", "
+                + RouteMaster.RoutesT.COLUMN_NAME_END_LOCATION + ", "
+                + RouteMaster.RoutesT.COLUMN_NAME_DISTANCE + ", "
+                + " COUNT( " + CustomerMaster.CustomerT.COLUMN_NAME_CX_route
+                + " ) AS nmb FROM " + RouteMaster.RoutesT.TABLE_NAME
+                + " LEFT JOIN " + CustomerMaster.CustomerT.TABLE_NAME
+                + " ON " + CustomerMaster.CustomerT.COLUMN_NAME_CX_route
+                + " = " + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID
+                + " GROUP BY " + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID
+                + " ORDER BY nmb DESC LIMIT " + 1;
+        SQLiteDatabase database = getReadableDatabase();
+        Cursor cursor = database.rawQuery(query, null);
+        Log.d("workflow", "Top Route: " + String.valueOf(cursor));
+        return cursor;
+    }
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public int update_def_route() {
@@ -544,6 +562,24 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+    public Cursor topItem() {
+        String query = "SELECT " + ItemMaster.ItemsT.COLUMN_ItemCode + ", "
+                + ItemMaster.ItemsT.COLUMN_ItemName + ", "
+                + ItemMaster.ItemsT.COLUMN_ItemBrand + ", "
+                + ItemMaster.ItemsT.COLUMN_ItemDescription + ", "
+                + " SUM( " + SalesItemsMaster.SalesItemsT.COLUMN_NAME_QTY
+                + " ) AS itemQty FROM " + ItemMaster.ItemsT.TABLE_NAME
+                + " LEFT JOIN " + SalesItemsMaster.SalesItemsT.TABLE_NAME
+                + " ON " + ItemMaster.ItemsT.COLUMN_ItemCode
+                + " = " + SalesItemsMaster.SalesItemsT.COLUMN_NAME_ITEM_ID
+                + " GROUP BY " + SalesItemsMaster.SalesItemsT.COLUMN_NAME_ITEM_ID
+                + " ORDER BY itemQty DESC LIMIT " + 1;
+        SQLiteDatabase database = getReadableDatabase();
+        Cursor cursor = database.rawQuery(query, null);
+        Log.d("workflow", "Top Item: " + String.valueOf(cursor));
+        return cursor;
+    }
+
     //Update Customer in the DB
     @RequiresApi(api = Build.VERSION_CODES.O)
     public long updateCustomer(String customerID, String customerName, String storeName, int mobile, String streetAddress, String city, String profilePicUri, String storePicUri, String routeID) {
@@ -678,6 +714,31 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery(query, selectionArgs);
         Log.d("workflow", String.valueOf(cursor));
+        return cursor;
+    }
+
+    //Get Top Customer
+    public Cursor topCustomer() {
+        String query = "SELECT " + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_NAME + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_STORE_NAME + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_STREET_ADDRESS + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_CITY + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_PP_URL + ", "
+                + CustomerMaster.CustomerT.COLUMN_NAME_SP_URL + ", "
+                + " SUM( " + SalesItemsMaster.SalesItemsT.COLUMN_NAME_QTY + "*" + SalesItemsMaster.SalesItemsT.COLUMN_NAME_AMOUNT
+                + " ) AS cash FROM " + CustomerMaster.CustomerT.TABLE_NAME
+                + " LEFT JOIN " + SalesMaster.SalesT.TABLE_NAME
+                + " ON " + CustomerMaster.CustomerT.TABLE_NAME + "." + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID
+                + " = " + SalesMaster.SalesT.TABLE_NAME + "." + SalesMaster.SalesT.COLUMN_NAME_CUSTOMER_ID
+                + " LEFT JOIN " + SalesItemsMaster.SalesItemsT.TABLE_NAME
+                + " ON " + SalesMaster.SalesT.TABLE_NAME + "." + SalesMaster.SalesT.COLUMN_NAME_INVOICE_ID
+                + " = " + SalesItemsMaster.SalesItemsT.TABLE_NAME + "." + SalesItemsMaster.SalesItemsT.COLUMN_NAME_INVOICE_ID
+                + " GROUP BY " + CustomerMaster.CustomerT.COLUMN_NAME_CUSTOMER_ID
+                + " ORDER BY cash DESC LIMIT " + 1;
+        SQLiteDatabase database = getReadableDatabase();
+        Cursor cursor = database.rawQuery(query, null);
+        Log.d("workflow", "Top Customer: " + String.valueOf(cursor));
         return cursor;
     }
 
@@ -882,6 +943,15 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query, selectionArgs);
         Log.d("workflow", String.valueOf(cursor));
         return cursor;
+    }
+
+    public Cursor monthlySale() {
+        String query = "SELECT SUM( " + SalesMaster.SalesT.COLUMN_NAME_INVOICE_AMOUNT
+                + " ) AS total, SUBSTR( " + SalesMaster.SalesT.COLUMN_NAME_CREATED_DATE
+                + ", 4, 7 ) AS dates, SUBSTR( STRFTIME( '%d-%m-%Y', 'now' ), 4, 7 ) AS today FROM " + SalesMaster.SalesT.TABLE_NAME
+                + " WHERE dates = today";
+        SQLiteDatabase db = getReadableDatabase();
+        return db.rawQuery(query, null);
     }
 
 }

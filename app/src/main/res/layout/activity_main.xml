@@ -10,7 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="68dp"
         tools:ignore="SpeakableTextPresentCheck">
 
         <RelativeLayout
@@ -24,7 +24,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                app:srcCompat="@drawable/ic_add_01" />
+                app:srcCompat="@drawable/ic_add_01"
+                tools:ignore="ContentDescription" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_00"
@@ -37,51 +38,55 @@
                 app:chipIcon="@drawable/ic_heart"
                 app:chipIconSize="16dp"
                 app:chipIconTint="@color/design_default_color_secondary_variant"
-                app:chipStartPadding="10dp" />
+                app:chipStartPadding="10dp"
+                tools:ignore="TextContrastCheck" />
 
             <RelativeLayout
                 android:id="@+id/sales_card"
-                android:layout_below="@id/chip_00"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:layout_below="@id/chip_00">
 
                 <TextView
                     android:id="@+id/sales_income"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="15dp"
                     android:layout_marginBottom="15dp"
-                    android:textSize="18sp"
                     android:background="@drawable/round_corner_rectangle"
-                    android:text="Monthly Income"/>
+                    android:padding="15dp"
+                    android:text="@string/monthly_sales"
+                    android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/monthly_sales"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:padding="15dp"
+                    android:text="@string/text_test_data"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
                     android:textSize="18sp"
-                    android:text="1000K"
-                    android:textAppearance="?attr/textAppearanceHeadline6"/>
+                    tools:ignore="RelativeOverlap" />
 
                 <TextView
-                    android:layout_below="@+id/sales_income"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:textSize="18sp"
+                    android:layout_below="@+id/sales_income"
                     android:background="@drawable/round_corner_rectangle"
-                    android:text="Monthly Profit"/>
+                    android:padding="15dp"
+                    android:text="@string/monthly_profit"
+                    android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/monthly_profit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/sales_income"
                     android:layout_alignParentEnd="true"
                     android:padding="15dp"
-                    android:textSize="18sp"
-                    android:text="10K"
-                    android:textAppearance="?attr/textAppearanceHeadline6"/>
+                    android:text="@string/text_test_data"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textSize="18sp" />
 
 
             </RelativeLayout>
@@ -105,8 +110,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/chip_01"
                 app:cardElevation="0dp"
-                app:strokeWidth="1dp"
-                app:strokeColor="@color/black_12">
+                app:strokeColor="@color/black_12"
+                app:strokeWidth="1dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -117,39 +122,66 @@
                         android:id="@+id/item_name_txt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Fabulous Chocolate"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginEnd="15dp"
+                        android:layout_toStartOf="@id/item_pic"
+                        android:text="@string/text_test_data"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/item_pic"
-                        android:layout_alignParentEnd="true"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
+                        android:layout_alignParentEnd="true"
                         android:background="@color/black_12"
                         android:contentDescription="@string/text_test_data"
                         android:scaleType="centerCrop"
-                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CircleImageV" />
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CircleImageV"
+                        app:srcCompat="@drawable/ic_dstock_bg" />
 
                     <TextView
                         android:id="@+id/item_brand_txt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/item_name_txt"
-                        android:text="Riyana Factory"
+                        android:text="@string/text_test_data"
                         android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/item_description_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_below="@+id/item_pic"
                         android:layout_alignParentBottom="true"
                         android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Lorem ipsum.Lorem ipsum. Lorem. Lorem ipsum"
+                        android:text="@string/text_test_data"
                         android:textSize="14sp" />
 
                 </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/item_card_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/item_card"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/black_12"
+                android:visibility="gone"
+                app:strokeWidth="1dp">
+
+                <TextView
+                    android:id="@+id/item_name_txt_no_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginEnd="15dp"
+                    android:padding="15dp"
+                    android:text="@string/no_top_item"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -157,7 +189,7 @@
                 android:id="@+id/chip_02"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/item_card"
+                android:layout_below="@id/item_card_2"
                 android:layout_marginVertical="15dp"
                 android:text="@string/chip_top_customer"
                 app:chipEndPadding="10dp"
@@ -168,9 +200,9 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/customer_card"
-                android:layout_below="@id/chip_02"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/chip_02"
                 app:cardElevation="0dp"
                 app:strokeColor="@color/black_12"
                 app:strokeWidth="1dp">
@@ -191,16 +223,17 @@
                             android:id="@+id/store_owner_pic"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:scaleType="centerCrop"
-                            android:contentDescription="@string/text_test_data"
+                            app:srcCompat="@drawable/ic_dstock_bg"
                             android:background="@color/black_12"
-                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CircleImageV"/>
+                            android:contentDescription="@string/text_test_data"
+                            android:scaleType="centerCrop"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CircleImageV" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
-                            android:orientation="vertical" >
+                            android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/store_name_txt"
@@ -225,6 +258,7 @@
                         android:id="@+id/store_pic"
                         android:layout_width="match_parent"
                         android:layout_height="160dp"
+                        app:srcCompat="@drawable/ic_dstock_bg"
                         android:background="@color/black_12"
                         android:contentDescription="@string/store_banner_desc"
                         android:scaleType="centerCrop"
@@ -251,11 +285,34 @@
 
             </com.google.android.material.card.MaterialCardView>
 
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/customer_card_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/customer_card"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/black_12"
+                android:visibility="gone"
+                app:strokeWidth="1dp">
+
+                <TextView
+                    android:id="@+id/customer_txt_no_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginEnd="15dp"
+                    android:padding="15dp"
+                    android:text="@string/no_top_customer"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+            </com.google.android.material.card.MaterialCardView>
+
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_03"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/customer_card"
+                android:layout_below="@id/customer_card_2"
                 android:layout_marginVertical="15dp"
                 android:text="@string/chip_best_route"
                 app:chipEndPadding="10dp"
@@ -266,9 +323,9 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/route_card"
-                android:layout_below="@id/chip_03"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/chip_03"
                 android:layout_marginBottom="120dp"
                 app:cardBackgroundColor="@color/celeste">
 
@@ -285,17 +342,17 @@
                         android:layout_weight="1"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ocation" />
+                        app:srcCompat="@drawable/ocation"
+                        tools:ignore="ContentDescription" />
 
                     <TextView
                         android:id="@+id/start_loc_txt"
                         android:layout_width="0dp"
                         android:layout_height="24dp"
                         android:layout_marginTop="16dp"
-                        android:capitalize="characters"
                         android:fontFamily="@font/roboto"
                         android:includeFontPadding="true"
-                        android:text="Horana"
+                        android:text="@string/test"
                         android:textAllCaps="true"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:textColor="@color/material_on_surface_emphasis_high_type"
@@ -309,7 +366,7 @@
                         android:layout_marginTop="16dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/roboto"
-                        android:text="Colombo"
+                        android:text="@string/test"
                         android:textAllCaps="true"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:textColor="@color/material_on_surface_emphasis_high_type"
@@ -325,7 +382,7 @@
                         android:fontFamily="@font/roboto"
                         android:paddingLeft="2dp"
                         android:paddingRight="2dp"
-                        android:text="To"
+                        android:text="@string/to"
                         android:textAllCaps="true"
                         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                         android:textColor="@color/material_on_surface_emphasis_high_type"
@@ -338,7 +395,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="20dp"
                         android:fontFamily="@font/roboto"
-                        android:text="R"
+                        android:text="@string/r"
                         android:textColor="@color/material_on_surface_emphasis_high_type"
                         android:textSize="16sp"
                         app:layout_constraintStart_toEndOf="@+id/imageView4"
@@ -350,7 +407,7 @@
                         android:layout_height="20dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/roboto"
-                        android:text="1234"
+                        android:text="@string/test"
                         android:textAllCaps="true"
                         android:textColor="@color/material_on_surface_emphasis_high_type"
                         android:textSize="16sp"
@@ -367,7 +424,8 @@
                         android:layout_weight="1"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/customer_shop" />
+                        app:srcCompat="@drawable/customer_shop"
+                        android:contentDescription="@string/label_shops" />
 
                     <TextView
                         android:id="@+id/cxcount"
@@ -375,8 +433,9 @@
                         android:layout_height="20dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/roboto"
-                        android:paddingLeft="2dp"
-                        android:text="3"
+                        android:paddingStart="2dp"
+                        android:paddingEnd="2dp"
+                        android:text="@string/test"
                         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                         android:textColor="@color/material_on_surface_emphasis_high_type"
                         android:textSize="16sp"
@@ -391,7 +450,8 @@
                         android:layout_height="20dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/roboto"
-                        android:paddingLeft="2dp"
+                        android:paddingStart="2dp"
+                        android:paddingEnd="2dp"
                         android:text="@string/label_shops"
                         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                         android:textColor="@color/material_on_surface_emphasis_high_type"
@@ -407,7 +467,7 @@
                         android:layout_height="20dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/roboto"
-                        android:text="01"
+                        android:text="@string/test"
                         android:textColor="@color/material_on_surface_emphasis_high_type"
                         android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -425,7 +485,8 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.826"
-                        app:srcCompat="@drawable/map_pinpoint" />
+                        app:srcCompat="@drawable/map_pinpoint"
+                        tools:ignore="ContentDescription" />
 
                     <TextView
                         android:id="@+id/textView5"
@@ -457,8 +518,33 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.777"
-                        app:srcCompat="@drawable/forward" />
+                        app:srcCompat="@drawable/forward"
+                        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/route_card_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/route_card"
+                android:layout_marginBottom="120dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/black_12"
+                android:visibility="gone"
+                app:strokeWidth="1dp">
+
+                <TextView
+                    android:id="@+id/route_txt_no_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginEnd="15dp"
+                    android:padding="15dp"
+                    android:text="@string/no_top_route"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -484,11 +570,12 @@
                 style="@style/Widget.MaterialComponents.Toolbar.Primary"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:layout_margin="4dp"
                 android:background="@drawable/round_corner_rectangle"
+                android:layout_margin="4dp"
                 android:elevation="0dp"
                 app:layout_scrollFlags="scroll|enterAlways|snap"
                 app:menu="@menu/top_app_bar"
+                app:navigationIcon="@drawable/ic_dstock_24"
                 app:title="@string/app_name" />
 
         </com.google.android.material.appbar.AppBarLayout>
