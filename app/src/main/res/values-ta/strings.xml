@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">D STOCK</string>
     <string name="btn_eng">English</string>
     <string name="btn_sin">සිංහල</string>
     <string name="btn_tam">தமிழ்</string>
@@ -145,14 +144,6 @@
     <string name="tot_sold">"விற்கப்பட்ட பொருட்களின் எண் "</string>
     <string name="received_payment">"கட்டணம் பெற்றுக்கொள்ளப்பட்டது "</string>
     <string name="avg_sales">"சராசரி தினசரி விற்பனை "</string>
-    <string name="tot_sales_val">0.00</string>
-    <string name="tot_cus_val">0</string>
-    <string name="tot_sold_val">0</string>
-    <string name="received_payment_val">0.00</string>
-    <string name="payment_due_val">0.00</string>
-    <string name="avg_sales_val">0.00</string>
-    <string name="monthly_sales_val">0.00</string>
-    <string name="monthly_profit_val">0.00</string>
     <string name="del_date">" விநியோக திகதி"</string>
     <string name="label_no_so">காண்பிக்க விற்பனைகள் இல்லை. புதிய விற்பனையை சேர்க்க + பொத்தானை அழுத்தவும்.</string>
     <string name="ItemCreatebtn">உருவாக்கு</string>
@@ -179,7 +170,6 @@
     <string name="no_top_customer">"காண்பிக்க வாடிக்கையாளர்கள் இல்லை. "</string>
     <string name="title_activity_findshops">கடைகள் தேட</string>
     <string name="btn_search_shops">"அருகிலுள்ள கடைகளைத் தேடுங்கள் "</string>
-    <string name="language">ஆங்கிலம்</string>
     <string name="label_shops">கடைகள்</string>
     <string name="heading_trilingual">"மும்மொழி ஆதரவு "</string>
     <string name="heading_search_nearby_shops">"அருகிலுள்ள கடைகளைத் தேடுங்கள் "</string>
@@ -193,6 +183,7 @@
     <string name="label_to_travel">"பயணம் செய்ய "</string>
     <string name="label_you_need">கி.மீ.உங்களுக்கு வேண்டும்</string>
     <string name="label_fuel_need">"ஏறத்தாழ லிட்டர் எரிபொருள். "</string>
-    <string name="r">ஆர்</string>
     <string name="test">பரிசோதனை</string>
+    <string name="label_settings">அமைப்புகள்</string>
+    <string name="change_language">மொழியை மாற்று</string>
 </resources>

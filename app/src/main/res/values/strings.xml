@@ -1,11 +1,11 @@
 <resources>
     <!-- App Name -->
-    <string name="app_name">DSTOCK</string>
+    <string name="app_name" translatable="false">DSTOCK</string>
 
     <!-- Global Actions -->
     <string name="btn_eng">English</string>
-    <string name="btn_sin">Sinhala</string>
-    <string name="btn_tam">Tamil</string>
+    <string name="btn_sin">සිංහල</string>
+    <string name="btn_tam">தமிழ்</string>
     <!-- Global Buttons -->
     <string name="btn_add">ADD</string>
     <string name="btn_update">UPDATE</string>
@@ -194,14 +194,14 @@
     <string name="tot_sold">No. of Items Sold</string>
     <string name="received_payment">Payment Received</string>
     <string name="avg_sales">Average Daily Sales</string>
-    <string name="tot_sales_val">0.00</string>
-    <string name="tot_cus_val">0</string>
-    <string name="tot_sold_val">0</string>
-    <string name="received_payment_val">0.00</string>
-    <string name="payment_due_val">0.00</string>
-    <string name="avg_sales_val">0.00</string>
-    <string name="monthly_sales_val">0.00</string>
-    <string name="monthly_profit_val">0.00</string>
+    <string name="tot_sales_val" translatable="false">0.00</string>
+    <string name="tot_cus_val" translatable="false">0</string>
+    <string name="tot_sold_val" translatable="false">0</string>
+    <string name="received_payment_val" translatable="false">0.00</string>
+    <string name="payment_due_val" translatable="false">0.00</string>
+    <string name="avg_sales_val" translatable="false">0.00</string>
+    <string name="monthly_sales_val" translatable="false">0.00</string>
+    <string name="monthly_profit_val" translatable="false">0.00</string>
     <string name="del_date">Delivery Date</string>
     <string name="label_no_so">No sales orders to show. Press + button to add a new sales order.</string>
     <string name="channel_name">Notification Channel</string>
@@ -254,7 +254,7 @@
     <string name="title_activity_findshops">findshops</string>
     <string name="btn_search_shops">Search Shops nearby</string>
 
-    <string name="language">English</string>
+    <string name="language" translatable="false">English</string>
     <string name="label_shops">shops</string>
 
     <!-- On Boarding -->
@@ -273,7 +273,7 @@
     <string name="label_to_travel">To Travel</string>
     <string name="label_you_need"> KMs.You will need</string>
     <string name="label_fuel_need"> Liters of fuel approximately.</string>
-    <string name="r">R</string>
+    <string name="r" translatable="false">R</string>
     <string name="test">Test</string>
     <string name="change_language">Change Language</string>
 </resources>
