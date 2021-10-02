@@ -11,5 +11,9 @@ public class Calculations {
         return Double.valueOf(df_obj.format(fuelamount));
     }
 
+    protected double calculateExpectedProfit(double buy, double sell, double count, double cost) {
 
+            double profitex = (sell*count) - (buy*count) - cost;
+            return profitex;
+    }
 }

@@ -87,7 +87,7 @@
             app:layout_constraintHorizontal_bias="0.918"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@android:drawable/ic_input_add"
-            tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+            tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck,SpeakableTextPresentCheck" />
 
     </LinearLayout>
 
@@ -102,7 +102,8 @@
         android:layout_marginTop="0dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="0dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UseCompoundDrawables">
 
         <ImageView
             android:id="@+id/empty_image2"
@@ -115,7 +116,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.496"
-            app:srcCompat="@drawable/ic_not_found" />
+            app:srcCompat="@drawable/ic_not_found"
+            tools:ignore="ContentDescription,RtlHardcoded" />
 
         <TextView
             android:id="@+id/no_data2"
@@ -129,7 +131,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/empty_image" />
+            app:layout_constraintTop_toBottomOf="@+id/empty_image"
+            tools:ignore="RtlHardcoded" />
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

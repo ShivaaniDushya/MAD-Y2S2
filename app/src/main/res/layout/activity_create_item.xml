@@ -22,15 +22,9 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="34dp"
             android:orientation="vertical"
-            android:paddingBottom="150dp"><![CDATA[
+            android:paddingBottom="150dp"
+            tools:ignore="ExtraText"><![CDATA[
             >
-
-
-
-
-
-
-
             ]]>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -45,7 +39,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    tools:ignore="Deprecated" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,7 +68,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    tools:ignore="Deprecated" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -101,7 +97,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    tools:ignore="Deprecated" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -129,7 +126,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    tools:ignore="Deprecated" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -157,7 +155,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    tools:ignore="Deprecated" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -185,7 +184,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoText="false"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    tools:ignore="Deprecated" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -206,7 +206,8 @@
                 android:onClick="addItem"
                 android:padding="20dp"
                 android:text="@string/btn_add"
-                app:elevation="0dp" />
+                app:elevation="0dp"
+                tools:ignore="UsingOnClickInXml" />
 
 
 

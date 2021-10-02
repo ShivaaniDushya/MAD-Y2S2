@@ -63,7 +63,8 @@
         android:layout_marginEnd="38dp"
         android:layout_marginBottom="598dp"
         android:text="iname_view1"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/ibrand_view"
@@ -78,7 +79,8 @@
         android:layout_marginEnd="41dp"
         android:layout_marginBottom="559dp"
         android:text="ibrand_view1"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/icode_view"
@@ -93,7 +95,8 @@
         android:layout_marginEnd="212dp"
         android:layout_marginBottom="482dp"
         android:text="icode_view1"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/ibuy_view"
@@ -109,7 +112,8 @@
         android:layout_marginBottom="414dp"
         android:inputType="numberDecimal"
         android:text="ibuy_view1"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        tools:ignore="HardcodedText,TextViewEdits" />
 
     <TextView
         android:id="@+id/idesc_view"
@@ -124,7 +128,8 @@
         android:layout_marginEnd="26dp"
         android:layout_marginBottom="345dp"
         android:text="idesc_view1"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/icount_view"
@@ -139,7 +144,8 @@
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="481dp"
         android:text="icount_view1"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/isell_view"
@@ -155,7 +161,8 @@
         android:layout_marginBottom="413dp"
         android:inputType="numberDecimal"
         android:text="isell_view1"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        tools:ignore="HardcodedText,TextViewEdits" />
 
     <TextView
         android:id="@+id/textView4"
@@ -259,7 +266,8 @@
         android:layout_marginEnd="34dp"
         android:layout_marginBottom="80dp"
         android:adjustViewBounds="true"
-        android:scaleType="fitCenter" />
+        android:scaleType="fitCenter"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/sharebtn"
@@ -273,6 +281,7 @@
         android:layout_marginTop="589dp"
         android:layout_marginEnd="31dp"
         android:layout_marginBottom="105dp"
-        app:srcCompat="@drawable/share_icon" />
+        app:srcCompat="@drawable/share_icon"
+        tools:ignore="ContentDescription" />
 
 </RelativeLayout>

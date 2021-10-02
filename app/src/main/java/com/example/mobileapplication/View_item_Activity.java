@@ -1,33 +1,26 @@
 package com.example.mobileapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.FileProvider;
-
-import android.Manifest;
-import android.app.AlertDialog;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.StrictMode;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
+
 import com.example.mobileapplication.database.DBHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.imageview.ShapeableImageView;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
@@ -35,11 +28,8 @@ import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 public class View_item_Activity extends AppCompatActivity{
@@ -55,6 +45,7 @@ public class View_item_Activity extends AppCompatActivity{
     BitmapDrawable drawable;
     Bitmap bit;
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,42 +74,36 @@ public class View_item_Activity extends AppCompatActivity{
         }
 
 
-        btGenerate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btGenerate.setOnClickListener(v -> {
 
-                String sText = icode.getText().toString().trim() + ", " +
-                        iname.getText().toString().trim() + ", " +
-                        ibrand.getText().toString().trim() + ", " +
-                        icount.getText().toString().trim() + ", " +
-                        ibuy.getText().toString().trim() + ", " +
-                        isell.getText().toString().trim() + ", " +
-                        idesc.getText().toString().trim();
-                MultiFormatWriter writer = new MultiFormatWriter();
-                Bitmap bitmap = null;
-                try {
-                    BitMatrix matrix = writer.encode(sText, BarcodeFormat.QR_CODE, 350, 350);
-                    BarcodeEncoder encoder = new BarcodeEncoder();
-                    bitmap = encoder.createBitmap(matrix);
-                    ivOutput.setImageBitmap(bitmap);
+            String sText = icode.getText().toString().trim() + ", " +
+                    iname.getText().toString().trim() + ", " +
+                    ibrand.getText().toString().trim() + ", " +
+                    icount.getText().toString().trim() + ", " +
+                    ibuy.getText().toString().trim() + ", " +
+                    isell.getText().toString().trim() + ", " +
+                    idesc.getText().toString().trim();
+            MultiFormatWriter writer = new MultiFormatWriter();
+            Bitmap bitmap;
+            try {
+                BitMatrix matrix = writer.encode(sText, BarcodeFormat.QR_CODE, 350, 350);
+                BarcodeEncoder encoder = new BarcodeEncoder();
+                bitmap = encoder.createBitmap(matrix);
+                ivOutput.setImageBitmap(bitmap);
 
-                } catch (WriterException e) {
-                    e.printStackTrace();
-                }
-
-
-
+            } catch (WriterException e) {
+                e.printStackTrace();
             }
+
+
+
         });
 
-        shareQR.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    shareImage();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        shareQR.setOnClickListener(v -> {
+            try {
+                shareImage();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
 
@@ -178,7 +163,7 @@ public class View_item_Activity extends AppCompatActivity{
         sendIntent.putExtra(Intent.EXTRA_STREAM, photoUri);
         sendIntent.setType("image/*");
         Intent chooser = Intent.createChooser(sendIntent, "Share QR Via: ");
-        List<ResolveInfo> resInfoList = this.getPackageManager().queryIntentActivities(chooser, PackageManager.MATCH_DEFAULT_ONLY);
+        @SuppressLint("QueryPermissionsNeeded") List<ResolveInfo> resInfoList = this.getPackageManager().queryIntentActivities(chooser, PackageManager.MATCH_DEFAULT_ONLY);
         for (ResolveInfo resolveInfo : resInfoList) {
             String packageName = resolveInfo.activityInfo.packageName;
             this.grantUriPermission(packageName, photoUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
