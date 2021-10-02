@@ -25,7 +25,7 @@ public class ItemCalculation extends AppCompatActivity {
     TextInputEditText ibuypr, isellpr, itcount, icost;
     TextView profit;
     Button profitbtn;
-    Calculations calculations;
+    Calculations calculations = new Calculations();
 
 
     @SuppressLint("NonConstantResourceId")
@@ -81,11 +81,11 @@ public class ItemCalculation extends AppCompatActivity {
             return false;
         });
 
-        profitbtn.setOnClickListener(v -> calculateExpectedProfit());
+        profitbtn.setOnClickListener(v -> calculateExpectedProfit1());
 
     }
 
-    private void calculateExpectedProfit() {
+    private void calculateExpectedProfit1() {
 
         try {
         double buy = Double.parseDouble(Objects.requireNonNull(ibuypr.getText()).toString());
@@ -93,7 +93,6 @@ public class ItemCalculation extends AppCompatActivity {
         double count = Double.parseDouble(Objects.requireNonNull(itcount.getText()).toString());
         double cost = Double.parseDouble(Objects.requireNonNull(icost.getText()).toString());
         double profitex = calculations.calculateExpectedProfit(buy, sell, count, cost);
-
         profit.setText(String.valueOf(profitex));
 
     }catch (Exception e) {
@@ -101,13 +100,5 @@ public class ItemCalculation extends AppCompatActivity {
     }
 
     }
-
-
-//    protected void calculateExpectedProfit() {
-//
-
-//
-//    }
-
 
 }
