@@ -214,9 +214,6 @@ public class UpdatePayment extends AppCompatActivity {
 
         String[] columns = {"Invoice No", "Payment", "Date"};
 
-        DBHelper db = new DBHelper(this);
-        cursor = db.readOnePayment(invid);
-
         PdfDocument.PageInfo invPageInfo = new PdfDocument.PageInfo.Builder(1000, 900, 1).create();
         PdfDocument.Page invPage = pdfInvoice.startPage(invPageInfo);
         Canvas canvas = invPage.getCanvas();
