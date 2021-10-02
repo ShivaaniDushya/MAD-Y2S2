@@ -776,6 +776,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 Product pro = new Product();
                 pro.setItemCode(cursor.getInt(0));
                 pro.setItemName(cursor.getString(1));
+                pro.setUnitprice(cursor.getFloat(2));
                 pro.setPrice(cursor.getFloat(2));
                 productlist.add(pro);
             } while (cursor.moveToNext());
@@ -809,6 +810,31 @@ public class DBHelper extends SQLiteOpenHelper {
 
         //Insert new row and return the primary key value
         long newSalesRowID = db.insert(SalesMaster.SalesT.TABLE_NAME, null, values);
+
+        Log.d("workflow", "DB addSalesOrder method call finished");
+
+        return newSalesRowID;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public long addSalesOrderItem(long invId, Integer itemId, int qty, String amount)
+    {
+        Log.d("workflow", "DB addSalesOrder method called");
+
+        String currentTime = getTimeStamp();
+        Log.d("workflow", "DB gettimpstamp method called");
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        //values.put(SalesMaster.SalesT.COLUMN_NAME_INVOICE_ID, inv_id);
+        values.put(SalesItemsMaster.SalesItemsT.COLUMN_NAME_INVOICE_ID, invId);
+        values.put(SalesItemsMaster.SalesItemsT.COLUMN_NAME_ITEM_ID, itemId);
+        values.put(SalesItemsMaster.SalesItemsT.COLUMN_NAME_QTY, qty);
+        values.put(SalesItemsMaster.SalesItemsT.COLUMN_NAME_AMOUNT, amount);
+
+        //Insert new row and return the primary key value
+        long newSalesRowID = db.insert(SalesItemsMaster.SalesItemsT.TABLE_NAME, null, values);
 
         Log.d("workflow", "DB addSalesOrder method call finished");
 

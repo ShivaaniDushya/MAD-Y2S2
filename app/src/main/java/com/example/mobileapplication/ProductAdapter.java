@@ -2,11 +2,7 @@ package com.example.mobileapplication;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.ClipData;
 import android.content.Context;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +24,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
     ArrayList<Float> AmtArray = new ArrayList<>();
     TextView totamount;
 
+    Calculations calculations = new Calculations();
+
     private List<Product> productList;
 
     public ProductAdapter(List<Product> itemsList) {
@@ -35,7 +33,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView itemCode, amount, totamount, qty;
+        public TextView itemCode, amount, totamount, unitprice, qty;
         public EditText itemQty;
         public ImageButton btnIncrease, btnDelete;
         public Button btnDecrease;
@@ -45,6 +43,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
             itemCode = (TextView) view.findViewById(R.id.lblcode);
             itemQty = (EditText) view.findViewById(R.id.txtqty);
             amount = (TextView) view.findViewById(R.id.lbamount);
+            unitprice = (TextView) view.findViewById(R.id.lblunitprice);
             totamount = (TextView) rootView.findViewById(R.id.totamount);
             btnIncrease = (ImageButton) view.findViewById(R.id.btnIncrease);
             btnDelete = (ImageButton) view.findViewById(R.id.itemdel);
@@ -63,26 +62,24 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
         return new MyViewHolder(itemView);
     }
 
+
     @Override
     public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Product product = productList.get(position);
         holder.itemCode.setText(Integer.toString(product.getItemCode()));
-        holder.amount.setText(Float.toString(product.getPrice()));
-
+        holder.itemQty.setText(Integer.toString(product.getQty()));
+        holder.unitprice.setText(Float.toString(product.getUnitprice()));
+        holder.amount.setText(Float.toString(product.getUnitprice() * product.getQty()));
         holder.btnIncrease.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Double Amt = Double.valueOf(product.getPrice());
-                Double TotalAmt = 0.0;
-
-                AmtArray.add(product.getPrice());
-                Log.d("workflow","AmtArray" + product.getPrice());
-
-                for (int i = 0; i < AmtArray.size(); i++) {
-                    Float tempTotal = AmtArray.get(i);
-                    TotalAmt  = TotalAmt + tempTotal;
-                }
-                totamount.setText(String.valueOf(TotalAmt));
+                Double Amt = Double.valueOf(product.getUnitprice());
+                product.setQty(product.getQty() + 1);
+                product.setPrice(calculations.calcPrice(product.getUnitprice(), product.getQty()));
+                //product.setPrice(product.getUnitprice() * product.getQty());
+                productList.set(position, product);
+                notifyDataSetChanged();
+                calculateTotal(totamount);
             }
         });
 
@@ -92,9 +89,21 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
             public void onClick(View v) {
                 productList.remove(position);
                 notifyDataSetChanged();
+                calculateTotal(totamount);
             }
         });
 
+
+    }
+
+    public void calculateTotal(TextView totamount){
+
+        Double TotalAmt = 0.0;
+        for (int i = 0; i < productList.size(); i++) {
+            Product pro = productList.get(i);
+            TotalAmt += pro.getPrice();
+        }
+        totamount.setText(String.valueOf(TotalAmt));
     }
 
 

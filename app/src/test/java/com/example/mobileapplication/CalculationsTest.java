@@ -20,7 +20,28 @@ public class CalculationsTest {
 
     @Test
     public void testNewBalDue(){
-        assertEquals(750,1000-250);
+        float input1=100;
+        float input2=75;
+        float output;
+        float expected=25;
+        double delta=.1;
+
+        Calculations calculations=new Calculations();
+        output=calculations.calcNewBal(input1, input2);
+        assertEquals(expected,output,delta);
+    }
+
+    @Test
+    public void testItemPrice(){
+        float input1=100;
+        float input2=2;
+        float output;
+        float expected=200;
+        double delta=.1;
+
+        Calculations calculations=new Calculations();
+        output=calculations.calcPrice(input1, input2);
+        assertEquals(expected,output,delta);
     }
 
 }

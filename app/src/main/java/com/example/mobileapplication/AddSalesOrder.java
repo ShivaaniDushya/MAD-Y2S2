@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -41,9 +40,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 public class AddSalesOrder extends AppCompatActivity {
@@ -195,11 +194,13 @@ public class AddSalesOrder extends AppCompatActivity {
                 product.setQty(1);
                 productList.add(product);
                 pAdapter.notifyDataSetChanged();
-
+                pAdapter.calculateTotal(balance);
                 hideSoftKeyboard(acproduct);
                 acproduct.setText("");
+                acproduct.setAdapter(null);
             }
         });
+
 
         recyclerView = (RecyclerView) findViewById(R.id.itemList);
 
@@ -232,6 +233,11 @@ public class AddSalesOrder extends AppCompatActivity {
                     balance.getText().toString(),
                     isurgent
             );
+
+            for (int i = 0; i < productList.size(); i++) {
+                Product pro = productList.get(i);
+                dbHelper.addSalesOrderItem(val,pro.getItemCode(),pro.getQty(),Float.toString(pro.getPrice()));
+            }
 
             Toast.makeText(this, "Record added successfully", Toast.LENGTH_SHORT).show();
 
