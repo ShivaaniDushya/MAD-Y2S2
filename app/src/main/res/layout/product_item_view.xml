@@ -20,15 +20,15 @@
 
     <EditText
         android:id="@+id/txtqty"
-        android:layout_width="100dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
+        android:layout_marginStart="32dp"
         android:ems="10"
         android:inputType="number"
         android:text="1"
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/lbamount"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/lblcode" />
 
     <TextView
         android:id="@+id/lbamount"
@@ -54,10 +54,10 @@
         android:id="@+id/btnIncrease"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
         android:backgroundTint="#FDFDFD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtqty"
+        app:layout_constraintTop_toTopOf="@+id/txtqty"
         app:srcCompat="@drawable/ic_round_add_24"
         app:tint="@color/teal_200" />
 
@@ -65,7 +65,12 @@
         android:id="@+id/lblunitprice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone" />
+        android:layout_marginEnd="16dp"
+        android:text="TextView"
+        android:textSize="16dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/lbamount"
+        app:layout_constraintTop_toTopOf="@+id/lbamount" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
