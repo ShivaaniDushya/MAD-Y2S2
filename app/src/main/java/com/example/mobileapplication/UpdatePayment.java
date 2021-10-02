@@ -1,5 +1,6 @@
 package com.example.mobileapplication;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -18,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.DatePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,7 +32,10 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class UpdatePayment extends AppCompatActivity {
 
@@ -42,6 +47,8 @@ public class UpdatePayment extends AppCompatActivity {
     Float inputbal, inputpay, inputnewbal;
 
     Cursor cursor;
+
+    final Calendar myCalendar = Calendar.getInstance();
 
     boolean isfieldsvalidated=false;
 
@@ -108,8 +115,7 @@ public class UpdatePayment extends AppCompatActivity {
         List<String> Invoices = db.getAllInvoices();
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, Invoices);
 
-        dataAdapter
-                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         invid.setAdapter(dataAdapter);
 
@@ -121,6 +127,30 @@ public class UpdatePayment extends AppCompatActivity {
             }
         });
 
+        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                // TODO Auto-generated method stub
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, monthOfYear);
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabel();
+            }
+        };
+
+        txtpaydate.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                new DatePickerDialog(UpdatePayment.this, date, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
     }
 
     void getPaymentDue() {
@@ -129,7 +159,7 @@ public class UpdatePayment extends AppCompatActivity {
         Log.d("workflow", "Payment getPaymentDue method called");
 
         if (getIntent().hasExtra("inv_id") &&
-            getIntent().hasExtra("balance")) {
+                getIntent().hasExtra("balance")) {
 
             inputinvid = getIntent().getStringExtra("inv_id");
             inputbal = Float.parseFloat(getIntent().getStringExtra("balance"));
@@ -214,9 +244,6 @@ public class UpdatePayment extends AppCompatActivity {
 
         String[] columns = {"Invoice No", "Payment", "Date"};
 
-        DBHelper db = new DBHelper(this);
-        cursor = db.readOnePayment(invid);
-
         PdfDocument.PageInfo invPageInfo = new PdfDocument.PageInfo.Builder(1000, 900, 1).create();
         PdfDocument.Page invPage = pdfInvoice.startPage(invPageInfo);
         Canvas canvas = invPage.getCanvas();
@@ -278,6 +305,14 @@ public class UpdatePayment extends AppCompatActivity {
     public void Discard(View view) {
         Intent intent = new Intent(this, Sales.class);
         startActivity(intent);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void updateLabel() {
+        String datePattern = "dd-MM-yyyy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(datePattern, Locale.getDefault());
+
+        txtpaydate.setText(sdf.format(myCalendar.getTime()));
     }
 
 }
