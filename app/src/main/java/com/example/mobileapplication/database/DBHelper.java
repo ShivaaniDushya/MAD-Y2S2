@@ -285,7 +285,9 @@ public class DBHelper extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                list.add(cursor.getString(1) + " - " + cursor.getString(2));//adding 2nd column data
+                list.add(cursor.getString(1).substring(0, 1).toUpperCase() + cursor.getString(1).substring(1)
+                        + " - " +
+                        cursor.getString(2).substring(0, 1).toUpperCase() + cursor.getString(2).substring(1));//adding 2nd column data
                 Log.d("workflow", cursor.getString(1));
             } while (cursor.moveToNext());
         }
@@ -409,7 +411,8 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public Cursor topRoute() {
-        String query = "SELECT " + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID + ", "
+
+             String query = "SELECT " + RouteMaster.RoutesT.COLUMN_NAME_ROUTE_ID + ", "
                 + RouteMaster.RoutesT.COLUMN_NAME_START_LOCATION + ", "
                 + RouteMaster.RoutesT.COLUMN_NAME_END_LOCATION + ", "
                 + RouteMaster.RoutesT.COLUMN_NAME_DISTANCE + ", "

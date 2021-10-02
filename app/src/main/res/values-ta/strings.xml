@@ -48,7 +48,7 @@
     <string name="error_msg_max_distance">"அதிகபட்ச தூரம் "</string>
     <string name="label_route_id">வழி எண்</string>
     <string name="label_total_customers">"மொத்த வாடிக்கையாளர்கள் "</string>
-    <string name="label_to">இல் இருந்து</string>
+    <string name="label_to">" இருந்து"</string>
     <string name="msg_route_update_succesfull">"பாதை வெற்றிகரமாக புதுப்பிக்கப்பட்டது. "</string>
     <string name="msg_route_update_unsuccesfull">"பாதை புதுப்பிப்பு தோல்வியுற்றது. "</string>
     <string name="msg_oops">ஐயோ</string>

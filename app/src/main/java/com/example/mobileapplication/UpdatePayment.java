@@ -159,7 +159,7 @@ public class UpdatePayment extends AppCompatActivity {
         Log.d("workflow", "Payment getPaymentDue method called");
 
         if (getIntent().hasExtra("inv_id") &&
-            getIntent().hasExtra("balance")) {
+                getIntent().hasExtra("balance")) {
 
             inputinvid = getIntent().getStringExtra("inv_id");
             inputbal = Float.parseFloat(getIntent().getStringExtra("balance"));

@@ -52,7 +52,7 @@ public class Routes extends AppCompatActivity {
             bundle = getIntent().getExtras();
             String getstatus = bundle.getString("status");
             Snackbar snackbar = Snackbar.make(findViewById(R.id.routesLayout), getstatus, Snackbar.LENGTH_LONG);
-            snackbar.setAction("OKAY", v -> snackbar.dismiss());
+            snackbar.setAction(R.string.btn_ok, v -> snackbar.dismiss());
             snackbar.show();
         } catch (Exception ignore) { }
 

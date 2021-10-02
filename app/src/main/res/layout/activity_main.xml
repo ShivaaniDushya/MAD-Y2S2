@@ -353,7 +353,7 @@
                         android:fontFamily="@font/roboto"
                         android:includeFontPadding="true"
                         android:text="@string/test"
-                        android:textAllCaps="true"
+                        android:textAllCaps="false"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:textColor="@color/material_on_surface_emphasis_high_type"
                         app:layout_constraintStart_toEndOf="@+id/imageView4"
@@ -367,7 +367,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/roboto"
                         android:text="@string/test"
-                        android:textAllCaps="true"
+                        android:textAllCaps="false"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:textColor="@color/material_on_surface_emphasis_high_type"
                         app:layout_constraintStart_toEndOf="@+id/to"
@@ -382,8 +382,8 @@
                         android:fontFamily="@font/roboto"
                         android:paddingLeft="2dp"
                         android:paddingRight="2dp"
-                        android:text="@string/to"
-                        android:textAllCaps="true"
+                        android:text="@string/label_to"
+                        android:textAllCaps="false"
                         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                         android:textColor="@color/material_on_surface_emphasis_high_type"
                         android:textSize="22sp"
@@ -504,22 +504,6 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.842" />
 
-                    <ImageButton
-                        android:id="@+id/imageButton"
-                        style="@android:style/Widget.DeviceDefault.Light.ImageButton"
-                        android:layout_width="63dp"
-                        android:layout_height="81dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="@color/celeste"
-                        android:rotation="0"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.951"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.777"
-                        app:srcCompat="@drawable/forward"
-                        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </com.google.android.material.card.MaterialCardView>
