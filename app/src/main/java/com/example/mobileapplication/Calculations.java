@@ -5,15 +5,14 @@ import java.text.DecimalFormat;
 public class Calculations {
 
     protected double calcfuel(double entdist) {
-        double avgdist = 4.00, fuelamount = 0.00;
+        double avgdist = 4.00, fuelamount;
         DecimalFormat df_obj = new DecimalFormat("#.##");
         fuelamount=entdist/avgdist;
-        return Double.valueOf(df_obj.format(fuelamount));
+        return Double.parseDouble(df_obj.format(fuelamount));
     }
 
     protected double calculateExpectedProfit(double buy, double sell, double count, double cost) {
 
-            double profitex = (sell*count) - (buy*count) - cost;
-            return profitex;
+        return (sell*count) - (buy*count) - cost;
     }
 }
