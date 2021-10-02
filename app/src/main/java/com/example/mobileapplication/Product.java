@@ -4,6 +4,7 @@ public class Product {
     private int itemCode;
     private String itemName;
     private int qty;
+    private float unitprice;
     private float price;
 
     public int getItemCode() {
@@ -36,5 +37,13 @@ public class Product {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public float getUnitprice() {
+        return unitprice;
+    }
+
+    public void setUnitprice(float unitprice) {
+        this.unitprice = unitprice;
     }
 }

@@ -15,4 +15,9 @@ public class Calculations {
 
         return (sell*count) - (buy*count) - cost;
     }
+
+    protected float calcNewBal(float bal, float pay) {
+        float newbal = bal - pay;
+        return newbal;
+    }
 }

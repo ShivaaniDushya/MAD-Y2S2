@@ -52,6 +52,8 @@ public class UpdatePayment extends AppCompatActivity {
 
     boolean isfieldsvalidated=false;
 
+    Calculations calculations = new Calculations();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +65,8 @@ public class UpdatePayment extends AppCompatActivity {
         txtpay = findViewById(R.id.txtpay);
         txtpaydate = findViewById(R.id.txtpaydate);
         txtnewbal = findViewById(R.id.txtnewbal);
+
+
 
         getPaymentDue();
 
@@ -122,7 +126,7 @@ public class UpdatePayment extends AppCompatActivity {
         txtnewbal.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             public void onFocusChange(View v, boolean hasFocus) {
                 inputpay = Float.parseFloat(txtpay.getText().toString());
-                inputnewbal = inputbal - inputpay;
+                inputnewbal = calculations.calcNewBal(inputbal, inputpay);
                 txtnewbal.setText(String.valueOf(inputnewbal));
             }
         });
@@ -159,7 +163,7 @@ public class UpdatePayment extends AppCompatActivity {
         Log.d("workflow", "Payment getPaymentDue method called");
 
         if (getIntent().hasExtra("inv_id") &&
-                getIntent().hasExtra("balance")) {
+            getIntent().hasExtra("balance")) {
 
             inputinvid = getIntent().getStringExtra("inv_id");
             inputbal = Float.parseFloat(getIntent().getStringExtra("balance"));
