@@ -20,4 +20,9 @@ public class Calculations {
         float newbal = bal - pay;
         return newbal;
     }
+
+    protected float calcPrice(float unitprice, float qty) {
+        float price = unitprice * qty;
+        return price;
+    }
 }

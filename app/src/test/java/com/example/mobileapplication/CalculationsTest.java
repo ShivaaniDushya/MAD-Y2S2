@@ -31,4 +31,17 @@ public class CalculationsTest {
         assertEquals(expected,output,delta);
     }
 
+    @Test
+    public void testItemPrice(){
+        float input1=100;
+        float input2=2;
+        float output;
+        float expected=200;
+        double delta=.1;
+
+        Calculations calculations=new Calculations();
+        output=calculations.calcPrice(input1, input2);
+        assertEquals(expected,output,delta);
+    }
+
 }

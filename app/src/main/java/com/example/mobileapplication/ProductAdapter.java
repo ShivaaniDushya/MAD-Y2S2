@@ -24,6 +24,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
     ArrayList<Float> AmtArray = new ArrayList<>();
     TextView totamount;
 
+    Calculations calculations = new Calculations();
+
     private List<Product> productList;
 
     public ProductAdapter(List<Product> itemsList) {
@@ -73,7 +75,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
             public void onClick(View v) {
                 Double Amt = Double.valueOf(product.getUnitprice());
                 product.setQty(product.getQty() + 1);
-                product.setPrice(product.getUnitprice() * product.getQty());
+                product.setPrice(calculations.calcPrice(product.getUnitprice(), product.getQty()));
+                //product.setPrice(product.getUnitprice() * product.getQty());
                 productList.set(position, product);
                 notifyDataSetChanged();
                 calculateTotal(totamount);
