@@ -1,23 +1,21 @@
 package com.example.mobileapplication;
-
-import static org.junit.Assert.assertEquals;
-
-
-import android.content.ClipData;
-
-import junit.framework.TestCase;
-
+import static org.junit.Assert.*;
 import org.junit.Test;
 
-public class ItemCalculationTest extends TestCase {
+public class ItemCalculationTest {
     @Test
-    public void profcal() {
-        double input = 170*1000-120*1000 - 1000;
-        double output = 0;
-        double expected = 49000;
-        double delta = .1;
+    public void textcalc(){
+        double input1=10;
+        double input2=12;
+        double input3=10;
+        double input4=10;
+        double output;
+        double expected=10;
+        double delta=.1;
 
-        ItemCalculation it = new ItemCalculation();
-        assertEquals(expected, output, delta);
+        Calculations calculations=new Calculations();
+        output=calculations.calculateExpectedProfit(input1, input2, input3, input4);
+        assertEquals(expected,output,delta);
     }
+
 }

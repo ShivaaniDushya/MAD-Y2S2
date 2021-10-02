@@ -2,16 +2,13 @@ package com.example.mobileapplication;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.ClipData;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -23,17 +20,17 @@ import com.example.mobileapplication.database.DBHelper;
 
 import java.util.ArrayList;
 
-public class ItemAdapter<itemURL> extends RecyclerView.Adapter <ItemAdapter.MyViewHolder>{
+public class ItemAdapter extends RecyclerView.Adapter <ItemAdapter.MyViewHolder>{
 
-    private Context context;
-    private Activity activity;
-    private ArrayList item_code,
-            item_name,
-            item_brand,
-            item_count,
-            item_buy_price,
-            item_sell_price,
-            item_description;
+    private final Context context;
+    private final Activity activity;
+    private final ArrayList item_code;
+    private final ArrayList item_name;
+    private final ArrayList item_brand;
+    private final ArrayList item_count;
+    private final ArrayList item_buy_price;
+    private final ArrayList item_sell_price;
+    private final ArrayList item_description;
 
     private int result;
 
@@ -83,21 +80,18 @@ public class ItemAdapter<itemURL> extends RecyclerView.Adapter <ItemAdapter.MyVi
         holder.item_description_txt.setText(String.valueOf(item_description.get(position)));
         //Recyclerview OnclickLister
 
-        holder.button_view_item.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent= new Intent(context,Edit_item_Activity.class);
-                intent.putExtra("itemCode",String.valueOf(item_code.get(position)));
-                intent.putExtra("itemName",String.valueOf(item_name.get(position)));
-                intent.putExtra("itemBrand",String.valueOf(item_brand.get(position)));
-                intent.putExtra("itemCount",String.valueOf(item_count.get(position)));
-                intent.putExtra("itemBuyPrice",String.valueOf(item_buy_price.get(position)));
-                intent.putExtra("itemSellPrice",String.valueOf(item_sell_price.get(position)));
-                intent.putExtra("itemDescription",String.valueOf(item_description.get(position)));
-                activity.startActivityForResult(intent,1);
+        holder.button_view_item.setOnClickListener(view -> {
+            Intent intent= new Intent(context,Edit_item_Activity.class);
+            intent.putExtra("itemCode",String.valueOf(item_code.get(position)));
+            intent.putExtra("itemName",String.valueOf(item_name.get(position)));
+            intent.putExtra("itemBrand",String.valueOf(item_brand.get(position)));
+            intent.putExtra("itemCount",String.valueOf(item_count.get(position)));
+            intent.putExtra("itemBuyPrice",String.valueOf(item_buy_price.get(position)));
+            intent.putExtra("itemSellPrice",String.valueOf(item_sell_price.get(position)));
+            intent.putExtra("itemDescription",String.valueOf(item_description.get(position)));
+            activity.startActivityForResult(intent,1);
 
-                Log.d("values",String.valueOf(item_code.get(position)));
-            }
+            Log.d("values",String.valueOf(item_code.get(position)));
         });
 
         holder.deleteBtn.setOnClickListener(v -> {
@@ -140,12 +134,10 @@ public class ItemAdapter<itemURL> extends RecyclerView.Adapter <ItemAdapter.MyVi
         return item_code.size();      }
 
 
-
-    class MyViewHolder extends RecyclerView.ViewHolder{
+    static class MyViewHolder extends RecyclerView.ViewHolder{
 
         Button deleteBtn;
         Button viewBtn;
-        ImageButton editBtn;
         TextView item_code_txt,item_name_txt,item_brand_txt,item_count_txt,item_byuprice_txt,item_sellprice_txt,item_description_txt;
         LinearLayout mainLayout;
         Button button_view_item;

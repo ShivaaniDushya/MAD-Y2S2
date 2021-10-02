@@ -1,18 +1,17 @@
 package com.example.mobileapplication;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mobileapplication.database.DBHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -26,6 +25,7 @@ public class Edit_item_Activity extends AppCompatActivity {
 
     String itemCode, itemName, itemBrand, itemCount, itemBuyPrice, itemSellPrice, itemDescription;
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,12 +42,9 @@ public class Edit_item_Activity extends AppCompatActivity {
 
         calculation = findViewById(R.id.btncal);
 
-        calculation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openCalculationActivity();
-                Log.d("workflow","Calculation Button Clicked");
-            }
+        calculation.setOnClickListener(v -> {
+            openCalculationActivity();
+            Log.d("workflow","Calculation Button Clicked");
         });
 
         getAndSetIntentData_Item();
@@ -55,40 +52,37 @@ public class Edit_item_Activity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.items);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.items:
-                        return true;
+        bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
+            switch (menuItem.getItemId()) {
+                case R.id.items:
+                    return true;
 
-                    case R.id.customers:
-                        startActivity(new Intent(getApplicationContext()
-                                , Customers.class));
-                        overridePendingTransition(0, 0);
-                        return true;
+                case R.id.customers:
+                    startActivity(new Intent(getApplicationContext()
+                            , Customers.class));
+                    overridePendingTransition(0, 0);
+                    return true;
 
-                    case R.id.home:
-                        startActivity(new Intent(getApplicationContext()
-                                , MainActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
+                case R.id.home:
+                    startActivity(new Intent(getApplicationContext()
+                            , MainActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
 
-                    case R.id.routes:
-                        startActivity(new Intent(getApplicationContext()
-                                , Routes.class));
-                        overridePendingTransition(0, 0);
-                        return true;
+                case R.id.routes:
+                    startActivity(new Intent(getApplicationContext()
+                            , Routes.class));
+                    overridePendingTransition(0, 0);
+                    return true;
 
-                    case R.id.sales:
-                        startActivity(new Intent(getApplicationContext()
-                                , Sales.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                }
-                Log.d("workflow", "Edit Item Activity Item Bottom Nav method  Called");
-                return false;
+                case R.id.sales:
+                    startActivity(new Intent(getApplicationContext()
+                            , Sales.class));
+                    overridePendingTransition(0, 0);
+                    return true;
             }
+            Log.d("workflow", "Edit Item Activity Item Bottom Nav method  Called");
+            return false;
         });
     }
 

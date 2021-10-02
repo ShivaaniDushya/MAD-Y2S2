@@ -1,7 +1,6 @@
 package com.example.mobileapplication;
 
-import android.app.Notification;
-import android.content.DialogInterface;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -10,14 +9,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,6 +38,7 @@ public class Items extends AppCompatActivity {
     MaterialToolbar materialToolbar;
 
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,53 +86,45 @@ public class Items extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.items);
 
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()){
-                    case R.id.items:
-                        return true;
+        bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
+            switch (menuItem.getItemId()){
+                case R.id.items:
+                    return true;
 
-                    case R.id.customers:
-                        startActivity(new Intent(getApplicationContext()
-                                , Customers.class));
-                        overridePendingTransition(0,0);
-                        return true;
+                case R.id.customers:
+                    startActivity(new Intent(getApplicationContext()
+                            , Customers.class));
+                    overridePendingTransition(0,0);
+                    return true;
 
-                    case R.id.home:
-                        startActivity(new Intent(getApplicationContext()
-                                , MainActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
+                case R.id.home:
+                    startActivity(new Intent(getApplicationContext()
+                            , MainActivity.class));
+                    overridePendingTransition(0,0);
+                    return true;
 
-                    case R.id.routes:
-                        startActivity(new Intent(getApplicationContext()
-                                , Routes.class));
-                        overridePendingTransition(0,0);
-                        return true;
+                case R.id.routes:
+                    startActivity(new Intent(getApplicationContext()
+                            , Routes.class));
+                    overridePendingTransition(0,0);
+                    return true;
 
-                    case R.id.sales:
-                        startActivity(new Intent(getApplicationContext()
-                                , Sales.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                }
-
-                return false;
+                case R.id.sales:
+                    startActivity(new Intent(getApplicationContext()
+                            , Sales.class));
+                    overridePendingTransition(0,0);
+                    return true;
             }
 
+            return false;
         });
 
 
         fab2 = findViewById(R.id.btn_add_item);
 
-        fab2.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                openActivityCreateItem();
-                Log.d("workflow","Items Float Button Clicked");
-            }
+        fab2.setOnClickListener(view -> {
+            openActivityCreateItem();
+            Log.d("workflow","Items Float Button Clicked");
         });
 
 
@@ -174,7 +163,6 @@ public class Items extends AppCompatActivity {
     private void storeDataInArrays_Items() {
         Log.d("workflow","Items storeDataInArrays method Called");
         Cursor cursor=db.readAllItems();
-        Notification.Builder no_data = null;
         if(cursor.getCount()==0){
             empty_imageview.setVisibility(View.VISIBLE);
             no_data2.setVisibility(View.VISIBLE);
@@ -201,15 +189,6 @@ public class Items extends AppCompatActivity {
         Intent intent = new Intent(this, Create_item_Activity.class);
         startActivity(intent);
     }
-
-    public void openViewItem()
-    {
-        Log.d("workflow","Items openViewItem method Called");
-        Intent intent = new Intent(this,Edit_item_Activity.class);
-        startActivity(intent);
-        Log.i("Lifecycle","Edit item button clicked");
-    }
-
 
 
 }
